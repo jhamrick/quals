@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\usepackage[hyperref=true,style=apa,backend=biber,isbn=false]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\AtEveryCitekey{\clearfield{month}}
+
+\bibliography{readings}
+
+\begin{document}
+
+\section{Probabilistic models of cognition (33)}
+
+\subsection{Bayesian models of cognition (8)}
+\fullcitebib{Tenenbaum2001,Griffiths2006,Kemp2008,Griffiths2010,Sanborn2010,Tenenbaum2011,Teglas2011,Jacobs2011}
+
+\subsection{Challenges for probabilistic models of cognition (5)}
+\fullcitebib{Kahneman1973,Tversky1974,Mozer2008,Jones2011,Marcus2013}
+
+\subsection{Generative models (4)}
+\fullcitebib{Yuille2006,Bever2010,Battaglia2012,Clark2013}
+
+\subsection{Probabilistic models of perception (3)}
+\fullcitebib{Weiss2002,Ernst2002,Kording2004}
+
+\subsection{Rational analysis (3)}
+\fullcitebib{Marr1971,Anderson1991,Chater1999}
+
+\subsection{Rational process models (4)}
+\fullcitebib{Hay2012,Burnin,Vul2014,Griffiths2015}
+
+\subsection{Theory learning (6)}
+\fullcitebib{Kemp2007,Griffiths2009,Kemp2010a,Kemp2010,Goodman2011,Ullman2012}
+
+
+\newpage
+\section{Aspects of simulation in cognitive science (35)}
+
+\subsection{Embodied language (3)}
+\fullcitebib{Matlock2004,Bergen2007,Fischer2008}
+
+\subsection{Mental imagery (6)}
+\fullcitebib{Shepard1971,Just1976,Kosslyn1988,Finke1988,Grush2004,Flusberg2011}
+
+\subsection{Mental models (2)}
+\fullcitebib{Johnson-Laird2012,Khemlani2013}
+
+\subsection{Motor control and action (4)}
+\fullcitebib{Parsons1994,Kawato1999,Flanagan2003,White2012a}
+
+\subsection{Physical reasoning (5)}
+\fullcitebib{Freyd1988,Schwartz1999a,Hegarty2004,Zago2005,Davis2014}
+
+\subsection{Qualitative reasoning (2)}
+\fullcitebib{Kuipers1986,Forbus2011}
+
+\subsection{Representational momentum (3)}
+\fullcitebib{Freyd1984,Hubbard2005,White2012}
+
+\subsection{Theory of mind (6)}
+\fullcitebib{Goldman1992,Stich1992,Gopnik1992,Gordon1992,Gallese1998,Saxe2005}
+
+\subsection{Thought experiments (4)}
+\fullcitebib{Kahneman1981,Gendler2004,Trickett2007,Clement2009}
+
+
+\newpage
+\section{Simulation and physical reasoning in computer science and robotics (29)}
+
+\subsection{Inverse kinematics (3)}
+\fullcitebib{Courty2008,Bocsi2011,Geoffroy2014}
+
+\subsection{Physical reasoning with dynamics models (8)}
+\fullcitebib{Brand1995,Mordatch2010,Nguyen-Tuong2011,Schulman2013,Zheng2014,Kitaev2015,Xie2015,Davis}
+
+\subsection{Physical reasoning without dynamics models (3)}
+\fullcitebib{Lee2015,Veiga2015,Paraschos2015}
+
+\subsection{Physically-based animation (8)}
+\fullcitebib{Baraff1997,Stam1999,Muller2002,Guendelman2003,Bridson2003,Muller2003,Nealen2006,Boeing2007}
+
+\subsection{Planning under uncertain dynamics (3)}
+\fullcitebib{Bertuccelli2012,Aoude2013,Han2015}
+
+\subsection{Probabilistic simulation (4)}
+\fullcitebib{Chib1995,VanDerMerwe2000,Neal2003,Neal2011}
+
+\end{document}

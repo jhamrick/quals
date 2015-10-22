@@ -1,0 +1,5 @@
+*.bcf
+*.fdb_latexmk
+*.run.xml
+*.synctex.gz
+*.bbl
