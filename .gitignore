@@ -3,3 +3,4 @@
 *.run.xml
 *.synctex.gz
 *.bbl
+.ipynb_checkpoints
