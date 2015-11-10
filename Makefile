@@ -6,11 +6,9 @@ build:
 serve:
 	jekyll serve
 
-readings.pdf:
+pdf:
 	make -C readings readings.pdf
 	cp readings/readings.pdf .
-
-pdf: readings.pdf
 
 clean:
 	git clean -fdX
