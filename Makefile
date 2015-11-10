@@ -15,7 +15,7 @@ pdf: readings.pdf
 clean:
 	git clean -fdX
 
-deploy: build
+deploy: clean build
 	git checkout gh-pages
 	mv _site .site
 	rm -r *
