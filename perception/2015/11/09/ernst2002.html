@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Quals Reading Notes</title>
+    <title>Humans integrate visual and haptic information in a statistically optimal fashion</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/perception/2015/11/09/ernst2002.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -62,127 +62,57 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Humans integrate visual and haptic information in a statistically optimal fashion</h1>
+    <p class="post-meta">Nov 9, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+  <article class="post-content">
+    <p><span id="Ernst2002">Ernst, M. O., &amp; Banks, M. S. (2002). Humans integrate visual and haptic information in a statistically optimal fashion. <i>Nature</i>, <i>415</i>(6870), 429–433. doi:10.1038/415429a</span></p>
 
-        <h2>
-          <a class="post-link" href="/quals/perception/2015/11/09/ernst2002.html">Humans integrate visual and haptic information in a statistically optimal fashion</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+<h1 id="summary">Summary</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/perception/2015/11/09/kording2004.html">Bayesian integration in sensorimotor learning</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+<p>People get information from multiple modalities – for example, from haptic feedback and from visual perception. Ernst &amp; Banks asked, how do people decide which modality of information to rely on? Or, do they combine modalities, and if so, how do they weigh the respective information? They hypothesized that people perform a MLE estimate of the sensory information based on a weighted average of the information from each modality, and present quantitative fits for this model.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/notebooks/2015/11/09/weiss2002-ipynb.html">Demo: Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+<h1 id="methods">Methods</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/perception/2015/11/09/weiss2002.html">Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>There were three different experiments. In all the experiments, they had participants judge the height of a bar relative to a standard stimulus (i.e., judging whether the current stimulus is higher or lower than the standard one).</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/teglas2011.html">Pure reasoning in 12-month-old infants as probabilistic inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>First, there were two experiments (visual-only and haptic-only) that they used to estimate the PSE (point of subjective equality) for each modality. These PSE estimates are a proxy for how much uncertainty people have. For the haptic-only experiment, there was no variance in the noise, while in the visual-only experiment, they varied the noise levels between 0 and 200%.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/tenenbaum2011.html">How to grow a mind: statistics, structure, and abstraction</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>The third experiment combined haptic and visual feedback, and again varied the visual noise level.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/jacobs2011.html">Bayesian learning theory applied to human cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<h1 id="algorithm">Algorithm</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/kemp2008.html">The discovery of structural form</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>Assuming the noise in each modality is Gaussian with variance $\sigma_i^2$, then the MLE estimate of the percept is:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2010.html">Probabilistic models of cognition: exploring representations and inductive biases</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<script type="math/tex; mode=display">
+\hat{S}=\sum_i w_i\hat{S}_i
+</script>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2006.html">Optimal predictions in everyday cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 6, 2015</span>
+<p>where</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/06/tenenbaum2001.html">Generalization, similarity, and Bayesian inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<script type="math/tex; mode=display">
+w_i=\frac{1/\sigma_i^2}{\sum_j 1/\sigma_j^2}
+</script>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/chater1999.html">Ten years of the rational analysis of cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<p>Assuming that the ratio of the visual weight to the haptic rate is the same as the ratio between the haptic and visual thresholds (PSEs), or $w_V/w_H=T_H^2/T_V^2$, then the weights are:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/marr1971.html">The philosophy and the approach</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<script type="math/tex; mode=display">
+w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}
+</script>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/anderson1990.html">Introduction to "The Adaptive Character of Thought"</a>
-        </h2>
-      </li>
-    
-  </ul>
+<h1 id="takeaways">Takeaways</h1>
 
-  <p class="rss-subscribe">subscribe <a href="/quals/feed.xml">via RSS</a></p>
+<p>Based on these experiments, it would seem that people seem to trade-off between different sources of information depending on how reliable that information is. If a normally reliable source of information (e.g., vision) becomes unreliable, then people will fall back on another source (e.g., haptic).</p>
+
+<p>I have two main questions regarding this paper. First, why didn’t they attempt to modulate the haptic feedback as well? Since that was constant, we don’t actually know whether participants optimally trade-off between vision and haptic feedback – only that they seem to appropriately modulate their reliance on visual information. It would be interesting to see if the same effect holds after introducing uncertainty into haptic feedback (perhaps making the participants wear gloves?).</p>
+
+<p>Second, I’m not sure the choice of MLE/uniform prior is necessarily appropriate. Why not use MAP with a prior on the types of percepts people are likely to encounter? Even if the intuition is that the prior would be broad enough that it’s essentially uniform (or is actually uniform), it would be better to motivate this and have some discussion about it.</p>
+
+  </article>
 
 </div>
 

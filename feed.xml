@@ -6,9 +6,62 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 09 Nov 2015 19:50:45 -0800</pubDate>
-    <lastBuildDate>Mon, 09 Nov 2015 19:50:45 -0800</lastBuildDate>
+    <pubDate>Tue, 10 Nov 2015 00:04:06 -0800</pubDate>
+    <lastBuildDate>Tue, 10 Nov 2015 00:04:06 -0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Humans integrate visual and haptic information in a statistically optimal fashion</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Ernst2002&quot;&gt;Ernst, M. O., &amp;amp; Banks, M. S. (2002). Humans integrate visual and haptic information in a statistically optimal fashion. &lt;i&gt;Nature&lt;/i&gt;, &lt;i&gt;415&lt;/i&gt;(6870), 429–433. doi:10.1038/415429a&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;People get information from multiple modalities – for example, from haptic feedback and from visual perception. Ernst &amp;amp; Banks asked, how do people decide which modality of information to rely on? Or, do they combine modalities, and if so, how do they weigh the respective information? They hypothesized that people perform a MLE estimate of the sensory information based on a weighted average of the information from each modality, and present quantitative fits for this model.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;There were three different experiments. In all the experiments, they had participants judge the height of a bar relative to a standard stimulus (i.e., judging whether the current stimulus is higher or lower than the standard one).&lt;/p&gt;
+
+&lt;p&gt;First, there were two experiments (visual-only and haptic-only) that they used to estimate the PSE (point of subjective equality) for each modality. These PSE estimates are a proxy for how much uncertainty people have. For the haptic-only experiment, there was no variance in the noise, while in the visual-only experiment, they varied the noise levels between 0 and 200%.&lt;/p&gt;
+
+&lt;p&gt;The third experiment combined haptic and visual feedback, and again varied the visual noise level.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;Assuming the noise in each modality is Gaussian with variance $\sigma_i^2$, then the MLE estimate of the percept is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+\hat{S}=\sum_i w_i\hat{S}_i
+&lt;/script&gt;
+
+&lt;p&gt;where&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+w_i=\frac{1/\sigma_i^2}{\sum_j 1/\sigma_j^2}
+&lt;/script&gt;
+
+&lt;p&gt;Assuming that the ratio of the visual weight to the haptic rate is the same as the ratio between the haptic and visual thresholds (PSEs), or $w_V/w_H=T_H^2/T_V^2$, then the weights are:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}
+&lt;/script&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;Based on these experiments, it would seem that people seem to trade-off between different sources of information depending on how reliable that information is. If a normally reliable source of information (e.g., vision) becomes unreliable, then people will fall back on another source (e.g., haptic).&lt;/p&gt;
+
+&lt;p&gt;I have two main questions regarding this paper. First, why didn’t they attempt to modulate the haptic feedback as well? Since that was constant, we don’t actually know whether participants optimally trade-off between vision and haptic feedback – only that they seem to appropriately modulate their reliance on visual information. It would be interesting to see if the same effect holds after introducing uncertainty into haptic feedback (perhaps making the participants wear gloves?).&lt;/p&gt;
+
+&lt;p&gt;Second, I’m not sure the choice of MLE/uniform prior is necessarily appropriate. Why not use MAP with a prior on the types of percepts people are likely to encounter? Even if the intuition is that the prior would be broad enough that it’s essentially uniform (or is actually uniform), it would be better to motivate this and have some discussion about it.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 09 Nov 2015 15:11:30 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/perception/2015/11/09/ernst2002.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/perception/2015/11/09/ernst2002.html</guid>
+        
+        
+        <category>perception</category>
+        
+      </item>
     
       <item>
         <title>Bayesian integration in sensorimotor learning</title>
@@ -552,102 +605,6 @@ P(S,F\vert D)\propto P(D\vert S)P(S\vert F)P(F)
         <pubDate>Sun, 08 Nov 2015 03:59:24 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2006.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2006.html</guid>
-        
-        
-        <category>probabilistic-models</category>
-        
-      </item>
-    
-      <item>
-        <title>Generalization, similarity, and Bayesian inference</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Tenenbaum2001&quot;&gt;Tenenbaum, J. B., &amp;amp; Griffiths, T. L. (2001). Generalization, similarity, and Bayesian inference. &lt;i&gt;The Behavioral and Brain Sciences&lt;/i&gt;, &lt;i&gt;24&lt;/i&gt;, 629–640; discussion 652–791. doi:10.1017/S0140525X01000061&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Different notions of similarity have been talked about before, in particular:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Shepard’s universal law of generalization&lt;/li&gt;
-  &lt;li&gt;Tversky’s contrast model&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Tenenbaum &amp;amp; Griffiths describe a particular Bayesian model which unifies these two models. In particular, they rely on the notion of the &lt;em&gt;size principle&lt;/em&gt;, which says that smaller, more specific hypotheses should receive higher probabilities than larger, more generic hypotheses.&lt;/p&gt;
-
-&lt;p&gt;They also discuss several phenomena that a law of variability should account for (and for which their model does):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Example variability: if the examples have low variance, then there should be a lower chance of generalization outside the range of examples&lt;/li&gt;
-  &lt;li&gt;Number of examples: as the number of examples increases, there should be a lower chance of generalization outside the range of examples&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;The assumption is made that there is some unknown consequential region $C$ and a hypothesis space $\mathcal{H}$ (of which there is some $h\in \mathcal{H}$ such that $h=C$). Then, given examples $x\in C$, the probability of $y\in C$ is:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-p(y\in C) = \sum_{h:y\in h} \frac{p(x|h)p(h)}{\sum_{h^\prime\in \mathcal{H}} p(x|h^\prime)p(h^\prime)}
-&lt;/script&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;where $p(x&lt;/td&gt;
-      &lt;td&gt;h)$ can be determined either by &lt;em&gt;weak sampling&lt;/em&gt; or &lt;em&gt;strong sampling&lt;/em&gt;:&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Weak sampling: $p(x&lt;/td&gt;
-          &lt;td&gt;h)=1$ if $x\in h$ and 0 otherwise&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Strong sampling: $p(x&lt;/td&gt;
-          &lt;td&gt;h)=\frac{1}{&lt;/td&gt;
-          &lt;td&gt;h&lt;/td&gt;
-          &lt;td&gt;}$ if $x\in h$ and 0 otherwise&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And where the prior can be arbitrary.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;Using this type of structured Bayesian model is powerful, because it allows us to make explicit our assumptions. From that, the phenomena we want to capture fall out naturally, rather than needing to be explicitly included (such as the weight of feature sets in Tversky’s contrast model).&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;I have the quesetion of: why do consequential regions have to discrete sets or ranges? If you got an example of a wolf, that is kind of a dog, but not exactly – so should it be included as an example of a not-dog, or of a dog? I don’t think this framework allows for that possibility. Actually, as I am writing this, though, I am realizing that it does. Really, the likelihood $p(x&lt;/td&gt;
-      &lt;td&gt;h)$ can be arbitrary and doesn’t need to adhere to strong or wheak sampling… e.g. your hypotheses could be the parameters for a Gaussian distribution, in which case you can calculate e.g.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-\int_\mu \int_\sigma \mathcal{N}(x; \mu, \sigma)p(\mu)p(\sigma)\ \mathrm{d}\mu \ \mathrm{d}\sigma
-&lt;/script&gt;
-</description>
-        <pubDate>Fri, 06 Nov 2015 09:29:22 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/06/tenenbaum2001.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/06/tenenbaum2001.html</guid>
         
         
         <category>probabilistic-models</category>
