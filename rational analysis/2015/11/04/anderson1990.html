@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>The discovery of structural form</title>
+    <title>Introduction to "The Adaptive Character of Thought"</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/kemp2008.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/rational%20analysis/2015/11/04/anderson1990.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -40,18 +40,22 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
         
           
           <a class="page-link" href="/quals/about/">About</a>
           
         
           
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
         
           
         
           
         
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
       </div>
     </nav>
 
@@ -65,16 +69,62 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">The discovery of structural form</h1>
-    <p class="post-meta">Nov 8, 2015</p>
+    <h1 class="post-title">Introduction to "The Adaptive Character of Thought"</h1>
+    <p class="post-meta">Nov 4, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Kemp2008">Kemp, C., &amp; Tenenbaum, J. B. (2008). The discovery of structural form. <i>Proceedings of the National Academy of Sciences of the United States of America</i>, <i>105</i>(31), 10687–92. doi:10.1073/pnas.0802631105</span></p>
+    <p><span id="Anderson1990">Anderson, J. R. (1990). Introduction. In <i>The Adaptive Character of Thought</i> (pp. 1–40). Lawrence Erlbaum Associates.</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>Many types of data have <em>structured</em> underlying representations. But, these structures can be widely different (e.g., a hierarchical tree vs. a spectrum vs. clusters). Kemp &amp; Tenenbaum show how many of these types of representations can be captured using a <em>graph grammar</em>, and both the structure and form of the representation can be jointly inferred from the given data.</p>
+<p>Anderson gives an overview of different ways different people have used “levels”:</p>
+
+<ul>
+  <li>Marr (implementation, algorithm/representation, computation)</li>
+  <li>Chomsky (competence, performance)
+    <ul>
+      <li>not really levels of analysis, but the notion of competence allows for the same types of analyses as those you get from working at the computational level</li>
+    </ul>
+  </li>
+  <li>Pylyshyn (biological, symbolic, semantic)
+    <ul>
+      <li>symbolic level breaks down into “functional” (e.g., machine code) and “algorithm” (e.g., generic computer program) sub-levels</li>
+    </ul>
+  </li>
+  <li>McClelland &amp; Rumelhart (PDP level)
+    <ul>
+      <li>basic idea is that emergent properties of their functional architecture are approximated by rules at the algorithm level</li>
+      <li>example of assembly vs PASCAL code, and that assembly can (in general) only be approximated by PASCAL programs (there is some subset of assembly that is exactly the same as a PASCAL program, but probably most code that is written in assembly is not directly translatable)</li>
+    </ul>
+  </li>
+  <li>Newell (knowledge level and principle of rationality)
+    <ul>
+      <li>“knowledge and goals imply behavior” (p. 15)</li>
+      <li>problems at the knowledge level of computational constraints, e.g. knowing the rules of chess in theory implies you can play a perfect game, but in practice does not becauase it is computationally intractable</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Then Anderson proposes his four levels, which are basically the same as Marr’s except that Marr’s algorithm/representation level is split apart:</p>
+
+<ol>
+  <li>Rational</li>
+  <li>Algorithm</li>
+  <li>Implementation</li>
+  <li>Biological</li>
+</ol>
+
+<p>Finally, Anderson discusses approaching the study of cognition from the rational/computational level, using an approach based on the “principle of rationality”:</p>
+
+<ol>
+  <li>Specify the goals of the system</li>
+  <li>Specify a model of the environment</li>
+  <li>Specify computational limitations/constraints</li>
+  <li>Find the function that optimizes 1-3</li>
+</ol>
+
+<p>Anderson also makes the distinction between rational (as in logically correct) and rational (as in adaptive, or locally optimal).</p>
 
 <h1 id="methods">Methods</h1>
 
@@ -82,34 +132,13 @@
 
 <h1 id="algorithm">Algorithm</h1>
 
-<p>If $F$ is the form (e.g., chain) and $S$ is the particular structure of that form and $D$ is the data, then:</p>
-
-<script type="math/tex; mode=display">
-P(S,F\vert D)\propto P(D\vert S)P(S\vert F)P(F)
-</script>
-
-<p>They set $P(F)$ to be uniform, where $P(S\vert F)\propto\theta^k$ (where $k$ is the number of clusters).</p>
-
-<p>If the data is given by a binary feature matrix, then $P(D\vert S)$ is computed by assuming that features of the data are independently generated frm a multivariate Gaussian distribution with a dimension for each node in the graph $S$. The covariance of the distribution is defined such that connected nodes should have more similar features.</p>
-
-<p>If the data is relational, then $P(D\vert S)$ is computed such that it is high if the large entries in $D$ correspond to edges in the graph.</p>
-
-<p>There are several different simple forms that they define as well. Each node in the graph is a cluster of data points:</p>
-
-<ul>
-  <li>Partition</li>
-  <li>Chain</li>
-  <li>Order</li>
-  <li>Ring</li>
-  <li>Hierarchy</li>
-  <li>Tree</li>
-  <li>Grid (Chain x Chain)</li>
-  <li>Cylinder (Chain x Ring)</li>
-</ul>
+<p>n/a</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>The structure of the world is usually not flat, but may have a more complex structure (clusters, hierarchies, etc.). We can specify these forms <em>a priori</em>, but it is better if we can determine them from the data itself. By using a graph grammar, we can capture a wide range of these structures, including things that are usually considered flat (e.g. grid) all the way to very-not-flat things, like tree structures.</p>
+<p>The biggest takeaway is the “principle of rationality” and Anderson’s approach to rational analysis, which is to specify the constraints on the system and then determine what would be optimal under those constraints.</p>
+
+<p>This is, I think, more difficult than Anderson gives credit for. He does acknowledge “if we have to know computational cost to know what is rational, we may have to specify the mechanisms of cognition in advance of rational analysis” though he claims you can usually get by with weak assumptions. I agree in some cases that you can get by with weak assumptions, but maybe not in the general case.</p>
 
   </article>
 

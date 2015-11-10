@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Introduction to "The Adaptive Character of Thought"</title>
+    <title>How to grow a mind: statistics, structure, and abstraction</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/rational-analysis/2015/11/04/anderson1990.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/tenenbaum2011.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -40,18 +40,22 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
         
           
           <a class="page-link" href="/quals/about/">About</a>
           
         
           
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
         
           
         
           
         
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
       </div>
     </nav>
 
@@ -65,62 +69,41 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Introduction to "The Adaptive Character of Thought"</h1>
-    <p class="post-meta">Nov 4, 2015</p>
+    <h1 class="post-title">How to grow a mind: statistics, structure, and abstraction</h1>
+    <p class="post-meta">Nov 8, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Anderson1990">Anderson, J. R. (1990). Introduction. In <i>The Adaptive Character of Thought</i> (pp. 1–40). Lawrence Erlbaum Associates.</span></p>
+    <p><span id="Tenenbaum2011">Tenenbaum, J. B., Kemp, C., Griffiths, T. L., &amp; Goodman, N. D. (2011). How to grow a mind: statistics, structure, and abstraction. <i>Science</i>, <i>331</i>(6022), 1279–85. doi:10.1126/science.1192788</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>Anderson gives an overview of different ways different people have used “levels”:</p>
+<p>Tenenbaum et al. attempt to address three questions:</p>
+
+<ol>
+  <li>How does abstract knowledge guide learning and inference from sparse data?</li>
+  <li>What forms does abstract knowledge take, across different domains and tasks?</li>
+  <li>How is abstract knowledge itself acquired?</li>
+</ol>
+
+<p>The overarching answer to these three questions is “hierarchical Bayesian models” (HBMs):</p>
+
+<ol>
+  <li>“Abstract knowledge is encoded in a probabilistic generative model, a kind of mental model that describes the causal processes in the world giving rise to the learner’s observations as well as unobserved or latent variables that support effective prediction and action if the learner can infer their hidden state.”</li>
+  <li>Abstract knowledge takes the form of structured, symbolic representations, such as “graphs, grammars, predicate logic, relational schemas, and functional programs”. The form of the knowledge itself can also be inferred via probabilistic generative models, through the use of “reltional data structures such as graph schemas, templates for graphs based on types of nodes, or probabilistic graph grammars”.</li>
+  <li>This is really where HBMs come into play: they “address the origins of hypothesis spaces and priors by positing not just a single level of hypotheses to explain the data but multiple levels: hypothesis spaces of hypothesis spaces, with priors on priors”.</li>
+</ol>
+
+<p>HBMs are so powerful because they simultaneously provide constraints on what types of things can be learned, while also allowing for flexbility in what they can be applied to. For example, Tenenbaum et al. discuss the case of inferring which diseases cause which symptoms. In the simpler case, the task is to learn which nodes in the probabilistic graphical model have edges between them. In the HBM case, there is the additional constraint of assuming two classes of nodes (diseases and symptoms) and that there is a preference for edges to go from diseases to symptoms. Inference is then performed over which nodes are diseases and which are symptoms, as well as what the edges are. The introduction of this additional structure makes inference much faster and accurate. However, the model isn’t limited just to this medical case; it could apply to any similar bipartite structure.</p>
+
+<p>There is an important point about contrast to previous nativist vs empiricist approaches:</p>
 
 <ul>
-  <li>Marr (implementation, algorithm/representation, computation)</li>
-  <li>Chomsky (competence, performance)
-    <ul>
-      <li>not really levels of analysis, but the notion of competence allows for the same types of analyses as those you get from working at the computational level</li>
-    </ul>
-  </li>
-  <li>Pylyshyn (biological, symbolic, semantic)
-    <ul>
-      <li>symbolic level breaks down into “functional” (e.g., machine code) and “algorithm” (e.g., generic computer program) sub-levels</li>
-    </ul>
-  </li>
-  <li>McClelland &amp; Rumelhart (PDP level)
-    <ul>
-      <li>basic idea is that emergent properties of their functional architecture are approximated by rules at the algorithm level</li>
-      <li>example of assembly vs PASCAL code, and that assembly can (in general) only be approximated by PASCAL programs (there is some subset of assembly that is exactly the same as a PASCAL program, but probably most code that is written in assembly is not directly translatable)</li>
-    </ul>
-  </li>
-  <li>Newell (knowledge level and principle of rationality)
-    <ul>
-      <li>“knowledge and goals imply behavior” (p. 15)</li>
-      <li>problems at the knowledge level of computational constraints, e.g. knowing the rules of chess in theory implies you can play a perfect game, but in practice does not becauase it is computationally intractable</li>
-    </ul>
-  </li>
+  <li>In the nativist case, researchers assumed anything important was innately specified, and that very little learning happened. They used sophisticated, structured knowledge (like logic) but it had very little ability to generalize because it lacked a mechanism for learning.</li>
+  <li>In the empiricist case, researchers assumed very little to be specified innately, and that anything could be learned. They used powerful models of learning (like connectionist models), but the representations that those models used were flat and simplistic.</li>
 </ul>
 
-<p>Then Anderson proposes his four levels, which are basically the same as Marr’s except that Marr’s algorithm/representation level is split apart:</p>
-
-<ol>
-  <li>Rational</li>
-  <li>Algorithm</li>
-  <li>Implementation</li>
-  <li>Biological</li>
-</ol>
-
-<p>Finally, Anderson discusses approaching the study of cognition from the rational/computational level, using an approach based on the “principle of rationality”:</p>
-
-<ol>
-  <li>Specify the goals of the system</li>
-  <li>Specify a model of the environment</li>
-  <li>Specify computational limitations/constraints</li>
-  <li>Find the function that optimizes 1-3</li>
-</ol>
-
-<p>Anderson also makes the distinction between rational (as in logically correct) and rational (as in adaptive, or locally optimal).</p>
+<p>PGMs find a middle ground between these two approaches, allowing both for powerful learning mechanisms as well as sophisticated, structured representations of knowledge.</p>
 
 <h1 id="methods">Methods</h1>
 
@@ -132,9 +115,7 @@
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>The biggest takeaway is the “principle of rationality” and Anderson’s approach to rational analysis, which is to specify the constraints on the system and then determine what would be optimal under those constraints.</p>
-
-<p>This is, I think, more difficult than Anderson gives credit for. He does acknowledge “if we have to know computational cost to know what is rational, we may have to specify the mechanisms of cognition in advance of rational analysis” though he claims you can usually get by with weak assumptions. I agree in some cases that you can get by with weak assumptions, but maybe not in the general case.</p>
+<p>Structured forms of knowledge instantiated in hierarchical Bayesian models give us a framework for explaining how people get so much from so little. They have been successfully used to model many simple forms of abstract knowledge, though it remains to be seen how they can explain how we learn broad framework theories for topics such as intuitive physics or theory of mind. It also remains to be seen how these types of structure knowledge representations can be computed neurally.</p>
 
   </article>
 

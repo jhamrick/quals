@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Pure reasoning in 12-month-old infants as probabilistic inference</title>
+    <title>The philosophy and the approach</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/teglas2011.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/rational%20analysis/2015/11/04/marr1971.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -40,18 +40,22 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
         
           
           <a class="page-link" href="/quals/about/">About</a>
           
         
           
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
         
           
         
           
         
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
       </div>
     </nav>
 
@@ -65,44 +69,40 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Pure reasoning in 12-month-old infants as probabilistic inference</h1>
-    <p class="post-meta">Nov 8, 2015</p>
+    <h1 class="post-title">The philosophy and the approach</h1>
+    <p class="post-meta">Nov 4, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Teglas2011">Teglas, E., Vul, E., Girotto, V., Gonzalez, M., Tenenbaum, J. B., &amp; Bonatti, L. L. (2011). Pure reasoning in 12-month-old infants as probabilistic inference. <i>Science</i>, <i>332</i>(6033), 1054–9. doi:10.1126/science.1196404</span></p>
+    <p><span id="Marr1971">Marr, D. (1971). The Philosophy and the Approach. In <i>Vision</i>. Retrieved from http://web.stanford.edu/class/psych209a/ReadingsByDate/01_07/Marr82Philosophy.pdf</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>Previous work has shown that infants are sensitive to physical laws, such as rigidity (objects can’t pass through walls) and spatiotemporal continuity (objects can’t teleport). Can infants also reason about these properties in combination? Teglas et al. argue that they can, and present an experiment and model to support their claim. They also show how their model can qualitatively account for other results in the developmental literature relating to rigidity and spatiotemporal continuity.</p>
+<p>Three levels at which we can analyze cognitive systems:</p>
+
+<ol>
+  <li>Implementation: how the system is physically realized</li>
+  <li>Algorithmic/Representation: what representation the system uses for the input and output, and what the algorithm is that transforms from input to output</li>
+  <li>Computational: what the goal of the system is (what is being computed, and why) and how that goal can be achieved in a more abstract sense</li>
+</ol>
+
+<p>Example 1: understanding bird flight by studying feathers</p>
+
+<p>Example 2: understanding why retinal ganglion cells and lateral geniculate neurons have the receptive fields that they do by studying their physiology</p>
+
+<p>Distinction between <em>what</em> and <em>how</em>. Just because we do not know <em>how</em> to compute something does not mean that analyzing <em>what</em> is being computed is invalid.</p>
 
 <h1 id="methods">Methods</h1>
 
-<p>Teglas et al. showed infants videos of four objects bouncing around in a container. Three of the objects were one color (blue) and one was another color (red). Infants saw the container be occluded, and then saw one of the objects come out of the container. Depending on the length of the occlusion, infants were more or less surprised when the exited object was originally far away from the opening at the time of occlusion:</p>
-
-<ul>
-  <li>If the occlusion was short, then they were surprised when the exited object was not near the opening, and not surprised when it was.</li>
-  <li>If the occlusion was medium, then they were still surprised if it wasn’t near the opening, but less so, and their judgments seemed to also be consistent with the <em>frequency</em> of objects.</li>
-  <li>If the occlusion was long, then their looking time seemed to be only determined by the frequency of different objects: they looked longer when the single red object exited, than when one of the three blue objects exited.</li>
-</ul>
+<p>n/a</p>
 
 <h1 id="algorithm">Algorithm</h1>
 
-<p>Teglas et al. assume an ideal observer model with the form of a HMM, where $S_t$ is the true state of the system at time $t$ and where $D_t$ is the data observed at time $t$.</p>
-
-<p>The transition model ($P(S_t\vert S_{t-1})$) specifies rigidty and spatiotemporal continuity constraints, and is given a Brownian motion distribution on object dynamics (product of constrained Gaussians for each object in the scene, where constraints are given by the boundaries of the container).</p>
-
-<p>The observation model ($P(D_t\vert S_t)$) is not explained in detail, but the supplementary material says it is determined by “Boolean consistency with a set of key features” (hamming distance?).</p>
-
-<p>They take $k$ samples from the model and average over them in a Monte Carlo approximation, to obtain:</p>
-
-<script type="math/tex; mode=display">
-P(D_F\vert D_{0,\ldots{},F-1})\propto \sum_{k=1}^K \left[P(D_F\vert S_F^k)\prod_{t=1}^F P(S_t^k\vert S_{t-1}^k)P(D_{t-1}\vert S_{t-1}^k)\right]
-</script>
+<p>n/a</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>I hadn’t read this paper this closely before, but it really shows how this was a precursor to my intuitive physics work: there are a lot of parallels between the two. In short, the idea is that by using a simulation-based model that reflects real physical constraints (if not necessarily true dynamics), you can predict infants’ looking time on tasks that require them to reason about both physical continuity/rigidity and/or spatiotemporal continuity.</p>
+<p>Systems can be analyzed at different levels of abstraction, each of which constrains the other (though according to Marr, only loosely). Focusing on the computational level is important because it allows us to approach understanding the mind from a purposeful stance: what problems does the mind face, and how should those problems be solved?</p>
 
   </article>
 

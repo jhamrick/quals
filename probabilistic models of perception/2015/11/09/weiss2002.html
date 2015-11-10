@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>The philosophy and the approach</title>
+    <title>Motion illusions as optimal percepts</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/rational-analysis/2015/11/04/marr1971.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -40,18 +40,22 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
         
           
           <a class="page-link" href="/quals/about/">About</a>
           
         
           
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
         
           
         
           
         
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
       </div>
     </nav>
 
@@ -65,40 +69,69 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">The philosophy and the approach</h1>
-    <p class="post-meta">Nov 4, 2015</p>
+    <h1 class="post-title">Motion illusions as optimal percepts</h1>
+    <p class="post-meta">Nov 9, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Marr1971">Marr, D. (1971). The Philosophy and the Approach. In <i>Vision</i>. Retrieved from http://web.stanford.edu/class/psych209a/ReadingsByDate/01_07/Marr82Philosophy.pdf</span></p>
+    <p><span id="Weiss2002">Weiss, Y., Simoncelli, E. P., &amp; Adelson, E. H. (2002). Motion illusions as optimal percepts. <i>Nature Neuroscience</i>, <i>5</i>(6), 598–604. doi:10.1038/nn858</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>Three levels at which we can analyze cognitive systems:</p>
+<p>In visual perception research, there is the finding that sometimes a motion percept (such as a rhombus) appears to be moving horizontally, while other times it appears to be moving diagonally. Specifically, thin rhombuses with low contrast look as if they have diagonal motion (even though it is truly horizontal) and with high contrast they look like they have horizontal motion. For thick rhombuses, it always appears horizontal.</p>
 
-<ol>
-  <li>Implementation: how the system is physically realized</li>
-  <li>Algorithmic/Representation: what representation the system uses for the input and output, and what the algorithm is that transforms from input to output</li>
-  <li>Computational: what the goal of the system is (what is being computed, and why) and how that goal can be achieved in a more abstract sense</li>
-</ol>
+<p>The explanation for these effects has been a combination of “intersection of constraints” (IOC), in which the claim is that people pay attention to e.g. the corners of the shape, or “vector average” (VA), in which people compute the vector normal of each dimension and average them. IOC predicts horizontal motion and VA predicts vertical motion.</p>
 
-<p>Example 1: understanding bird flight by studying feathers</p>
+<p>Rather than applying these theories ad-hoc, Weiss et al. devise an ideal observer model whose behavior is consistent with these findings. They assume two key constraints:</p>
 
-<p>Example 2: understanding why retinal ganglion cells and lateral geniculate neurons have the receptive fields that they do by studying their physiology</p>
+<ul>
+  <li>local motion measurements are ambiguous</li>
+  <li>slow motions are more likely than fast ones</li>
+</ul>
 
-<p>Distinction between <em>what</em> and <em>how</em>. Just because we do not know <em>how</em> to compute something does not mean that analyzing <em>what</em> is being computed is invalid.</p>
+<p>In addition to the rhombus results, this model qualitatively captures the results from a number of other related studies.</p>
 
 <h1 id="methods">Methods</h1>
 
-<p>n/a</p>
+<p>Stimuli: <a href="http://www.cs.huji.ac.il/~yweiss/Rhombus/rhombus.html">http://www.cs.huji.ac.il/~yweiss/Rhombus/rhombus.html</a></p>
 
 <h1 id="algorithm">Algorithm</h1>
 
-<p>n/a</p>
+<p>The assumption is that points in the world move but do not change their intensity over time, but that the observation of this constraint is noisy, i.e.:</p>
+
+<script type="math/tex; mode=display">
+I(x,y,t)=I(x+v_x\delta t, y+v_y\delta t, t+\delta t) + \eta
+</script>
+
+<p>where $\eta\sim \mathcal{N}(0,\sigma)$. Computing the first-order Taylor series expansion:</p>
+
+<script type="math/tex; mode=display">
+P(I(x_i,y_i,t)\vert v_i)\propto \exp\left(-\frac{1}{2\sigma^2}\int_{x,y} w_i(x,y)(\frac{\partial I}{\partial x}(x,y,t)v_x+\frac{\partial I}{\partial y}(x,y,t)v_t+\frac{\partial I}{\partial t}(x,y,t))^2\ \mathrm{d}x\ \mathrm{d}y\right)
+</script>
+
+<p>where $w_i(x,y)$ is a window centered on $(x_i,y_i)$. In practice they say they used “a small Gaussian window”, though they do not explicitly define what size that is.</p>
+
+<p>They chose a prior to favor slow speeds:</p>
+
+<script type="math/tex; mode=display">
+P(v)\propto \exp(-\lVert v\rVert ^2/2\sigma_p^2)
+</script>
+
+<p>And so the posterior is then:</p>
+
+<script type="math/tex; mode=display">
+P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)
+</script>
+
+<p>where the product is computed over all locations $i$ that are moving with a common velocity $v$ (in practice this is done over the entire image, which is moving with the same velocity vector).</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>Systems can be analyzed at different levels of abstraction, each of which constrains the other (though according to Marr, only loosely). Focusing on the computational level is important because it allows us to approach understanding the mind from a purposeful stance: what problems does the mind face, and how should those problems be solved?</p>
+<p>This has a nice tie-in with the approach of rational analyis. Rather than assuming that the visual system is performing some specific computation (e.g. IOC or VA), assume that the visual system is trying to solve a problem given certain constraints: what is the velocity vector of the image given noisy percepts and particular scene statistics?</p>
+
+<p>They describe the effect of modulating the noise in the likelihood, but it would have also been interesting to see what the effect of changing the prior is. What if they assumed a uniform distribution of speeds? Or what is the prior were centered on the true velocity instead? Would you find that this model collapses into pure IOC behavior or pure VA behavior?</p>
+
+<p>From <a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002-ipynb.html">playing around with this</a>, it seems as though a uniform prior collapses to IOC. Having a prior centered on VA obviously biases towards VA, though the strength of that biases depends strongly on the variance. In other words, if the prior is Gaussian, even if it’s not zero-mean, you still get largely the same behavior as what they report in the paper.</p>
 
   </article>
 

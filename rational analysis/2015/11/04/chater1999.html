@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Optimal predictions in everyday cognition</title>
+    <title>Ten years of the rational analysis of cognition</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2006.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/rational%20analysis/2015/11/04/chater1999.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -40,18 +40,22 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
         
           
           <a class="page-link" href="/quals/about/">About</a>
           
         
           
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
         
           
         
           
         
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
       </div>
     </nav>
 
@@ -65,49 +69,45 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Optimal predictions in everyday cognition</h1>
-    <p class="post-meta">Nov 8, 2015</p>
+    <h1 class="post-title">Ten years of the rational analysis of cognition</h1>
+    <p class="post-meta">Nov 4, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Griffiths2006">Griffiths, T. L., &amp; Tenenbaum, J. B. (2006). Optimal predictions in everyday cognition. <i>Psychological Science</i>, <i>17</i>(9), 767–773. doi:10.1111/j.1467-9280.2006.01780.x</span></p>
+    <p><span id="Chater1999">Chater, N., &amp; Oaksford, M. (1999). Ten years of the rational analysis of cognition. <i>Trends in Cognitive Science</i>, <i>3</i>(2), 57–65. doi:10.1016/S1364-6613(98)01273-X</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>Griffiths and Tenenbaum basically ask, how sensitive are people to the statistics of their environment? They test this by asking people to give estimates of total durations $t_\mathrm{total}$ given an observation at some time $t$. They find that people’s estimates of $t_\mathrm{total}$ are consistent with empirical priors and uniform likelihoods.</p>
+<p>Chater and Oaksford re-summarize the definition of rational analysis, and describe a two areas where rational analysis has proved to be fruitful:</p>
+
+<ul>
+  <li>Memory
+    <ul>
+      <li>which items are remembered better is a function of the cost of retrieving a memory, the utility of the goal, and the probability that the memory will be relevant.</li>
+    </ul>
+  </li>
+  <li>Reasoning (specifically, Wason selection task)
+    <ul>
+      <li>to verify “if p then q”, participants should choose p and not-q, but they choose p and q</li>
+      <li>assume “most properties and events are rare”</li>
+      <li>then, the pattern of expected informativeness EI(p) &gt; EI(q) &gt; EI(not-q) &gt; EI(not-p)</li>
+    </ul>
+  </li>
+</ul>
 
 <h1 id="methods">Methods</h1>
 
-<p>They asked people to make judgments on:</p>
-
-<ul>
-  <li>Life spans</li>
-  <li>Movie runtimes</li>
-  <li>Movie grosses</li>
-  <li>Poems</li>
-  <li>Representatives</li>
-  <li>Pharoahs</li>
-  <li>Cakes</li>
-  <li>Waiting times</li>
-</ul>
+<p>n/a</p>
 
 <h1 id="algorithm">Algorithm</h1>
 
-<p>The algorithm is pretty simple, just computing $p(t_\mathrm{total}\vert t)\propto p(t\vert t_\mathrm{total})p(t_\mathrm{total})$ and assuming a uniform likelihood. The priors are determined empirically and have the following approximate forms:</p>
-
-<ul>
-  <li>Gaussian (life spans, movie runtimes)</li>
-  <li>Power law (movie grosses, poems)</li>
-  <li>Erlang (representatives, pharoahs)</li>
-  <li>Irregular (cakes)</li>
-  <li>??? (waiting times)</li>
-</ul>
-
-<p>They also empirically fit a parameterized distribution for pharaohs and waiting times. In the case of the pharaohs, people systematically overestimated (but the empirical prior recovered from people was consistent with their posterior judgments). In the case of waiting times, there is not a consensus what distribution they take, though according to people their responses seemed to fit an power law distribution.</p>
+<p>n/a</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>People are sensitive to the structure and statistics of their environments. In cases where they have less experience/exposure (e.g. in the case of the pharaohs), people aren’t necessarily optimal with respect to the true empirical distribution, but may instead rely on other knowledge (e.g. modern monarchs) and attempt to generalize.</p>
+<p>Interestingly, they claim to analyze a whole decade of research, but it doesn’t seem like the research they discuss is <em>that</em> extensive (especially since the memory example is also discussed by Anderson in 1991). If anything, based on their article it seems as if rational analysis was largely ignored in the 90s.</p>
+
+<p>However, the examples are good ones, and do illustrate the way in which rational analysis can be very helpful at explaining otherwise seemingly illogical behaviors (e.g. in the Wason selection task).</p>
 
   </article>
 

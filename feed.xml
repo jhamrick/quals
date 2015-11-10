@@ -6,8 +6,8 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 10 Nov 2015 00:06:21 -0800</pubDate>
-    <lastBuildDate>Tue, 10 Nov 2015 00:06:21 -0800</lastBuildDate>
+    <pubDate>Tue, 10 Nov 2015 00:19:57 -0800</pubDate>
+    <lastBuildDate>Tue, 10 Nov 2015 00:19:57 -0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -55,11 +55,11 @@ w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}
 &lt;p&gt;Second, I’m not sure the choice of MLE/uniform prior is necessarily appropriate. Why not use MAP with a prior on the types of percepts people are likely to encounter? Even if the intuition is that the prior would be broad enough that it’s essentially uniform (or is actually uniform), it would be better to motivate this and have some discussion about it.&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 15:11:30 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/perception/2015/11/09/ernst2002.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/perception/2015/11/09/ernst2002.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/ernst2002.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/ernst2002.html</guid>
         
         
-        <category>perception</category>
+        <category>Probabilistic models of perception</category>
         
       </item>
     
@@ -117,11 +117,11 @@ x_{estimated}=\frac{\sigma^2_{sensed}}{\sigma^2_{sensed}+\sigma^2_{prior}}[1\mat
 &lt;p&gt;In motor learning tasks, people adapt to the statistics of the world that they are interacting with. They are able to learn about the uncertainty in processes affecting their movement (in this case, lateral movement, but this could also potentially be something like wind or the mass of an object inhibiting movement), whether that be a regular Gaussian distribution, or even a bimodal distribution. Moreover, people take into account sensory uncertainty – both their own (arising from noise in perceptual/motor processes?) and that imposed by the experimenter. Being able to account for this sensory uncertainty could be useful in learning how to deal with distorted perceptions (e.g. angle of refraction when looking into water, perhaps?). In particular, this adaption seems to be consistent with optimal Bayesian integration of prior and sensory uncertainty.&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 10:43:06 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/perception/2015/11/09/kording2004.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/perception/2015/11/09/kording2004.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/kording2004.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/kording2004.html</guid>
         
         
-        <category>perception</category>
+        <category>Probabilistic models of perception</category>
         
       </item>
     
@@ -234,11 +234,11 @@ x_{estimated}=\frac{\sigma^2_{sensed}}{\sigma^2_{sensed}+\sigma^2_{prior}}[1\mat
 
 </description>
         <pubDate>Mon, 09 Nov 2015 08:55:41 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/notebooks/2015/11/09/weiss2002-ipynb.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/notebooks/2015/11/09/weiss2002-ipynb.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002-ipynb.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002-ipynb.html</guid>
         
         
-        <category>notebooks</category>
+        <category>Probabilistic models of perception</category>
         
       </item>
     
@@ -301,14 +301,14 @@ P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)
 
 &lt;p&gt;They describe the effect of modulating the noise in the likelihood, but it would have also been interesting to see what the effect of changing the prior is. What if they assumed a uniform distribution of speeds? Or what is the prior were centered on the true velocity instead? Would you find that this model collapses into pure IOC behavior or pure VA behavior?&lt;/p&gt;
 
-&lt;p&gt;From &lt;a href=&quot;/quals/notebooks/2015/11/09/weiss2002-ipynb.html&quot;&gt;playing around with this&lt;/a&gt;, it seems as though a uniform prior collapses to IOC. Having a prior centered on VA obviously biases towards VA, though the strength of that biases depends strongly on the variance. In other words, if the prior is Gaussian, even if it’s not zero-mean, you still get largely the same behavior as what they report in the paper.&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&quot;/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002-ipynb.html&quot;&gt;playing around with this&lt;/a&gt;, it seems as though a uniform prior collapses to IOC. Having a prior centered on VA obviously biases towards VA, though the strength of that biases depends strongly on the variance. In other words, if the prior is Gaussian, even if it’s not zero-mean, you still get largely the same behavior as what they report in the paper.&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 06:27:59 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/perception/2015/11/09/weiss2002.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/perception/2015/11/09/weiss2002.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002.html</guid>
         
         
-        <category>perception</category>
+        <category>Probabilistic models of perception</category>
         
       </item>
     
@@ -349,11 +349,11 @@ P(D_F\vert D_{0,\ldots{},F-1})\propto \sum_{k=1}^K \left[P(D_F\vert S_F^k)\prod_
 &lt;p&gt;I hadn’t read this paper this closely before, but it really shows how this was a precursor to my intuitive physics work: there are a lot of parallels between the two. In short, the idea is that by using a simulation-based model that reflects real physical constraints (if not necessarily true dynamics), you can predict infants’ looking time on tasks that require them to reason about both physical continuity/rigidity and/or spatiotemporal continuity.&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Nov 2015 11:23:45 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/teglas2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/teglas2011.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/teglas2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/teglas2011.html</guid>
         
         
-        <category>probabilistic-models</category>
+        <category>Probabilistic models of cognition</category>
         
       </item>
     
@@ -403,11 +403,11 @@ P(D_F\vert D_{0,\ldots{},F-1})\propto \sum_{k=1}^K \left[P(D_F\vert S_F^k)\prod_
 &lt;p&gt;Structured forms of knowledge instantiated in hierarchical Bayesian models give us a framework for explaining how people get so much from so little. They have been successfully used to model many simple forms of abstract knowledge, though it remains to be seen how they can explain how we learn broad framework theories for topics such as intuitive physics or theory of mind. It also remains to be seen how these types of structure knowledge representations can be computed neurally.&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Nov 2015 10:11:51 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/tenenbaum2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/tenenbaum2011.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/tenenbaum2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/tenenbaum2011.html</guid>
         
         
-        <category>probabilistic-models</category>
+        <category>Probabilistic models of cognition</category>
         
       </item>
     
@@ -457,11 +457,11 @@ P(D_F\vert D_{0,\ldots{},F-1})\propto \sum_{k=1}^K \left[P(D_F\vert S_F^k)\prod_
 &lt;p&gt;I like the characterization of what, exactly, it means for a Bayesian model to be “optimal”, and what this implies for cognitive science. Importantly, they talk about the optimality of a Bayesian model as being a way to gauge what people are doing: are the suboptimal (implying processing limitations)? Or are they better than optimal (implying that the model is missing something?) Or are they close to the model (implying the model’s assumptions may be close to what people actually do?)&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Nov 2015 07:42:05 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/jacobs2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/jacobs2011.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/jacobs2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/jacobs2011.html</guid>
         
         
-        <category>probabilistic-models</category>
+        <category>Probabilistic models of cognition</category>
         
       </item>
     
@@ -509,11 +509,11 @@ P(S,F\vert D)\propto P(D\vert S)P(S\vert F)P(F)
 &lt;p&gt;The structure of the world is usually not flat, but may have a more complex structure (clusters, hierarchies, etc.). We can specify these forms &lt;em&gt;a priori&lt;/em&gt;, but it is better if we can determine them from the data itself. By using a graph grammar, we can capture a wide range of these structures, including things that are usually considered flat (e.g. grid) all the way to very-not-flat things, like tree structures.&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Nov 2015 03:59:24 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/kemp2008.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/kemp2008.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/kemp2008.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/kemp2008.html</guid>
         
         
-        <category>probabilistic-models</category>
+        <category>Probabilistic models of cognition</category>
         
       </item>
     
@@ -553,11 +553,11 @@ P(S,F\vert D)\propto P(D\vert S)P(S\vert F)P(F)
 &lt;p&gt;Probabilistic modeling is a powerful framework for studying cognition. It is not inherently opposed to connectionist models – other models (like connectionist ones) are actually a subset of the total models that probabilistic models can capture. Thus, it makes sense to work within the broader framework which gives us more flexibility for capturing and comparing a wide range of hypotheses for how behavior works.&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Nov 2015 03:59:24 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2010.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2010.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/griffiths2010.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/griffiths2010.html</guid>
         
         
-        <category>probabilistic-models</category>
+        <category>Probabilistic models of cognition</category>
         
       </item>
     
@@ -603,11 +603,11 @@ P(S,F\vert D)\propto P(D\vert S)P(S\vert F)P(F)
 &lt;p&gt;People are sensitive to the structure and statistics of their environments. In cases where they have less experience/exposure (e.g. in the case of the pharaohs), people aren’t necessarily optimal with respect to the true empirical distribution, but may instead rely on other knowledge (e.g. modern monarchs) and attempt to generalize.&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Nov 2015 03:59:24 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2006.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2006.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/griffiths2006.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/griffiths2006.html</guid>
         
         
-        <category>probabilistic-models</category>
+        <category>Probabilistic models of cognition</category>
         
       </item>
     

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>How to grow a mind: statistics, structure, and abstraction</title>
+    <title>Bayesian learning theory applied to human cognition</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/tenenbaum2011.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/jacobs2011.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -40,18 +40,22 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
         
           
           <a class="page-link" href="/quals/about/">About</a>
           
         
           
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
         
           
         
           
         
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
       </div>
     </nav>
 
@@ -65,41 +69,41 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">How to grow a mind: statistics, structure, and abstraction</h1>
+    <h1 class="post-title">Bayesian learning theory applied to human cognition</h1>
     <p class="post-meta">Nov 8, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Tenenbaum2011">Tenenbaum, J. B., Kemp, C., Griffiths, T. L., &amp; Goodman, N. D. (2011). How to grow a mind: statistics, structure, and abstraction. <i>Science</i>, <i>331</i>(6022), 1279–85. doi:10.1126/science.1192788</span></p>
+    <p><span id="Jacobs2011">Jacobs, R. A., &amp; Kruschke, J. K. (2011). Bayesian learning theory applied to human cognition. <i>Wiley Interdisciplinary Reviews: Cognitive Science</i>, <i>2</i>(1), 8–21. doi:10.1002/wcs.80</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>Tenenbaum et al. attempt to address three questions:</p>
+<p>Jacobs &amp; Kruschke make an argument for using Bayesian models of cognition. They give a precise definition of what they mean for Bayesian models to be optimal, saying that given the structure of the prior and likelihood, Bayesian models are the optimal in the sense that you cannot do better. However, they also explicitly say that this is, of course <em>given that these structures are correct</em>. You can posit a variety of reasonable options for the structures in the model. They argue that this is a good thing, though, because it makes the assumptions explicit, which subsequently makes it more straightforward to evaluate those assumptions.</p>
+
+<p>They give three examples of what can happen when comparing a Bayesian model to human behavior:</p>
 
 <ol>
-  <li>How does abstract knowledge guide learning and inference from sparse data?</li>
-  <li>What forms does abstract knowledge take, across different domains and tasks?</li>
-  <li>How is abstract knowledge itself acquired?</li>
+  <li>The model and human behavior match. This gives evidence that people are integrating information in a statistically optimal fashion, and provides support for the represenations used by the Bayesian model.</li>
+  <li>The model outperforms people. This suggests that people are not incorporating all sources of information, or are limited by computational constraints. These possibilities can be investigated by creating a new Bayesian model with these constraints.</li>
+  <li>People outperform the model. This suggests that people are taking into account more information or assumptions than the model. Again, this possibility can be investigated by creating a new model that accounts for more information.</li>
 </ol>
 
-<p>The overarching answer to these three questions is “hierarchical Bayesian models” (HBMs):</p>
+<p>Jacobs &amp; Kruschke give examples of three ways in which Bayesian models can be used:</p>
 
 <ol>
-  <li>“Abstract knowledge is encoded in a probabilistic generative model, a kind of mental model that describes the causal processes in the world giving rise to the learner’s observations as well as unobserved or latent variables that support effective prediction and action if the learner can infer their hidden state.”</li>
-  <li>Abstract knowledge takes the form of structured, symbolic representations, such as “graphs, grammars, predicate logic, relational schemas, and functional programs”. The form of the knowledge itself can also be inferred via probabilistic generative models, through the use of “reltional data structures such as graph schemas, templates for graphs based on types of nodes, or probabilistic graph grammars”.</li>
-  <li>This is really where HBMs come into play: they “address the origins of hypothesis spaces and priors by positing not just a single level of hypotheses to explain the data but multiple levels: hypothesis spaces of hypothesis spaces, with priors on priors”.</li>
+  <li>Inference: using data from some variables to update beliefs about other variables. Integrating data (e.g. multisensory percepts) in a statistically optimal fashion.</li>
+  <li>Parameter learning: similar to inference. They don’t explicitly define what they take as being the difference between inference and parameter learning, but I think the difference for them is that inference is more about beliefs about causes, while parameter learning is more about learning the specific distributions of variables (e.g., inference –&gt; did a or b cause c?, parameter learning –&gt; what are the weights of a and b?). They do talk about the difference between <em>discriminative</em> and <em>generative</em> models, though:
+    <ul>
+      <li>discriminative: learning the conditional probability distribution $p(\mathrm{outcome}\ \vert\ \mathrm{cues})$</li>
+      <li>generative: learning the joint probability distribution $p(\mathrm{outcome},\ \mathrm{cues})$, from which you can compute $p(\mathrm{outcome}\ \vert\ \mathrm{cues})$ as well as $p(\mathrm{cues}\ \vert\ \mathrm{outcome})$</li>
+    </ul>
+  </li>
+  <li>Structure learning: not just learning about the variables in a model, but learning <em>which model</em> is the correct one.</li>
 </ol>
 
-<p>HBMs are so powerful because they simultaneously provide constraints on what types of things can be learned, while also allowing for flexbility in what they can be applied to. For example, Tenenbaum et al. discuss the case of inferring which diseases cause which symptoms. In the simpler case, the task is to learn which nodes in the probabilistic graphical model have edges between them. In the HBM case, there is the additional constraint of assuming two classes of nodes (diseases and symptoms) and that there is a preference for edges to go from diseases to symptoms. Inference is then performed over which nodes are diseases and which are symptoms, as well as what the edges are. The introduction of this additional structure makes inference much faster and accurate. However, the model isn’t limited just to this medical case; it could apply to any similar bipartite structure.</p>
+<p>They also briefly discuss how prior knowledge can be very influential, and how important it is to get right, and how you can determine what people’s priors are.</p>
 
-<p>There is an important point about contrast to previous nativist vs empiricist approaches:</p>
-
-<ul>
-  <li>In the nativist case, researchers assumed anything important was innately specified, and that very little learning happened. They used sophisticated, structured knowledge (like logic) but it had very little ability to generalize because it lacked a mechanism for learning.</li>
-  <li>In the empiricist case, researchers assumed very little to be specified innately, and that anything could be learned. They used powerful models of learning (like connectionist models), but the representations that those models used were flat and simplistic.</li>
-</ul>
-
-<p>PGMs find a middle ground between these two approaches, allowing both for powerful learning mechanisms as well as sophisticated, structured representations of knowledge.</p>
+<p>They also talk about active learning, which is the process of actively selecting what data to observe. They argue that this process is not something that can be captured easily by other types of models.</p>
 
 <h1 id="methods">Methods</h1>
 
@@ -111,7 +115,7 @@
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>Structured forms of knowledge instantiated in hierarchical Bayesian models give us a framework for explaining how people get so much from so little. They have been successfully used to model many simple forms of abstract knowledge, though it remains to be seen how they can explain how we learn broad framework theories for topics such as intuitive physics or theory of mind. It also remains to be seen how these types of structure knowledge representations can be computed neurally.</p>
+<p>I like the characterization of what, exactly, it means for a Bayesian model to be “optimal”, and what this implies for cognitive science. Importantly, they talk about the optimality of a Bayesian model as being a way to gauge what people are doing: are the suboptimal (implying processing limitations)? Or are they better than optimal (implying that the model is missing something?) Or are they close to the model (implying the model’s assumptions may be close to what people actually do?)</p>
 
   </article>
 

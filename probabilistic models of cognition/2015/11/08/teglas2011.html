@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Humans integrate visual and haptic information in a statistically optimal fashion</title>
+    <title>Pure reasoning in 12-month-old infants as probabilistic inference</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/perception/2015/11/09/ernst2002.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/teglas2011.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -40,18 +40,22 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
         
           
           <a class="page-link" href="/quals/about/">About</a>
           
         
           
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
         
           
         
           
         
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
       </div>
     </nav>
 
@@ -65,52 +69,44 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Humans integrate visual and haptic information in a statistically optimal fashion</h1>
-    <p class="post-meta">Nov 9, 2015</p>
+    <h1 class="post-title">Pure reasoning in 12-month-old infants as probabilistic inference</h1>
+    <p class="post-meta">Nov 8, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Ernst2002">Ernst, M. O., &amp; Banks, M. S. (2002). Humans integrate visual and haptic information in a statistically optimal fashion. <i>Nature</i>, <i>415</i>(6870), 429–433. doi:10.1038/415429a</span></p>
+    <p><span id="Teglas2011">Teglas, E., Vul, E., Girotto, V., Gonzalez, M., Tenenbaum, J. B., &amp; Bonatti, L. L. (2011). Pure reasoning in 12-month-old infants as probabilistic inference. <i>Science</i>, <i>332</i>(6033), 1054–9. doi:10.1126/science.1196404</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>People get information from multiple modalities – for example, from haptic feedback and from visual perception. Ernst &amp; Banks asked, how do people decide which modality of information to rely on? Or, do they combine modalities, and if so, how do they weigh the respective information? They hypothesized that people perform a MLE estimate of the sensory information based on a weighted average of the information from each modality, and present quantitative fits for this model.</p>
+<p>Previous work has shown that infants are sensitive to physical laws, such as rigidity (objects can’t pass through walls) and spatiotemporal continuity (objects can’t teleport). Can infants also reason about these properties in combination? Teglas et al. argue that they can, and present an experiment and model to support their claim. They also show how their model can qualitatively account for other results in the developmental literature relating to rigidity and spatiotemporal continuity.</p>
 
 <h1 id="methods">Methods</h1>
 
-<p>There were three different experiments. In all the experiments, they had participants judge the height of a bar relative to a standard stimulus (i.e., judging whether the current stimulus is higher or lower than the standard one).</p>
+<p>Teglas et al. showed infants videos of four objects bouncing around in a container. Three of the objects were one color (blue) and one was another color (red). Infants saw the container be occluded, and then saw one of the objects come out of the container. Depending on the length of the occlusion, infants were more or less surprised when the exited object was originally far away from the opening at the time of occlusion:</p>
 
-<p>First, there were two experiments (visual-only and haptic-only) that they used to estimate the PSE (point of subjective equality) for each modality. These PSE estimates are a proxy for how much uncertainty people have. For the haptic-only experiment, there was no variance in the noise, while in the visual-only experiment, they varied the noise levels between 0 and 200%.</p>
-
-<p>The third experiment combined haptic and visual feedback, and again varied the visual noise level.</p>
+<ul>
+  <li>If the occlusion was short, then they were surprised when the exited object was not near the opening, and not surprised when it was.</li>
+  <li>If the occlusion was medium, then they were still surprised if it wasn’t near the opening, but less so, and their judgments seemed to also be consistent with the <em>frequency</em> of objects.</li>
+  <li>If the occlusion was long, then their looking time seemed to be only determined by the frequency of different objects: they looked longer when the single red object exited, than when one of the three blue objects exited.</li>
+</ul>
 
 <h1 id="algorithm">Algorithm</h1>
 
-<p>Assuming the noise in each modality is Gaussian with variance $\sigma_i^2$, then the MLE estimate of the percept is:</p>
+<p>Teglas et al. assume an ideal observer model with the form of a HMM, where $S_t$ is the true state of the system at time $t$ and where $D_t$ is the data observed at time $t$.</p>
+
+<p>The transition model ($P(S_t\vert S_{t-1})$) specifies rigidty and spatiotemporal continuity constraints, and is given a Brownian motion distribution on object dynamics (product of constrained Gaussians for each object in the scene, where constraints are given by the boundaries of the container).</p>
+
+<p>The observation model ($P(D_t\vert S_t)$) is not explained in detail, but the supplementary material says it is determined by “Boolean consistency with a set of key features” (hamming distance?).</p>
+
+<p>They take $k$ samples from the model and average over them in a Monte Carlo approximation, to obtain:</p>
 
 <script type="math/tex; mode=display">
-\hat{S}=\sum_i w_i\hat{S}_i
-</script>
-
-<p>where</p>
-
-<script type="math/tex; mode=display">
-w_i=\frac{1/\sigma_i^2}{\sum_j 1/\sigma_j^2}
-</script>
-
-<p>Assuming that the ratio of the visual weight to the haptic rate is the same as the ratio between the haptic and visual thresholds (PSEs), or $w_V/w_H=T_H^2/T_V^2$, then the weights are:</p>
-
-<script type="math/tex; mode=display">
-w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}
+P(D_F\vert D_{0,\ldots{},F-1})\propto \sum_{k=1}^K \left[P(D_F\vert S_F^k)\prod_{t=1}^F P(S_t^k\vert S_{t-1}^k)P(D_{t-1}\vert S_{t-1}^k)\right]
 </script>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>Based on these experiments, it would seem that people seem to trade-off between different sources of information depending on how reliable that information is. If a normally reliable source of information (e.g., vision) becomes unreliable, then people will fall back on another source (e.g., haptic).</p>
-
-<p>I have two main questions regarding this paper. First, why didn’t they attempt to modulate the haptic feedback as well? Since that was constant, we don’t actually know whether participants optimally trade-off between vision and haptic feedback – only that they seem to appropriately modulate their reliance on visual information. It would be interesting to see if the same effect holds after introducing uncertainty into haptic feedback (perhaps making the participants wear gloves?).</p>
-
-<p>Second, I’m not sure the choice of MLE/uniform prior is necessarily appropriate. Why not use MAP with a prior on the types of percepts people are likely to encounter? Even if the intuition is that the prior would be broad enough that it’s essentially uniform (or is actually uniform), it would be better to motivate this and have some discussion about it.</p>
+<p>I hadn’t read this paper this closely before, but it really shows how this was a precursor to my intuitive physics work: there are a lot of parallels between the two. In short, the idea is that by using a simulation-based model that reflects real physical constraints (if not necessarily true dynamics), you can predict infants’ looking time on tasks that require them to reason about both physical continuity/rigidity and/or spatiotemporal continuity.</p>
 
   </article>
 

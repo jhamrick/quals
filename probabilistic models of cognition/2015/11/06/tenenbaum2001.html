@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Ten years of the rational analysis of cognition</title>
+    <title>Generalization, similarity, and Bayesian inference</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/rational-analysis/2015/11/04/chater1999.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/06/tenenbaum2001.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -40,18 +40,22 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
         
           
           <a class="page-link" href="/quals/about/">About</a>
           
         
           
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
         
           
         
           
         
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
       </div>
     </nav>
 
@@ -65,30 +69,29 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Ten years of the rational analysis of cognition</h1>
-    <p class="post-meta">Nov 4, 2015</p>
+    <h1 class="post-title">Generalization, similarity, and Bayesian inference</h1>
+    <p class="post-meta">Nov 6, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Chater1999">Chater, N., &amp; Oaksford, M. (1999). Ten years of the rational analysis of cognition. <i>Trends in Cognitive Science</i>, <i>3</i>(2), 57–65. doi:10.1016/S1364-6613(98)01273-X</span></p>
+    <p><span id="Tenenbaum2001">Tenenbaum, J. B., &amp; Griffiths, T. L. (2001). Generalization, similarity, and Bayesian inference. <i>The Behavioral and Brain Sciences</i>, <i>24</i>, 629–640; discussion 652–791. doi:10.1017/S0140525X01000061</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>Chater and Oaksford re-summarize the definition of rational analysis, and describe a two areas where rational analysis has proved to be fruitful:</p>
+<p>Different notions of similarity have been talked about before, in particular:</p>
 
 <ul>
-  <li>Memory
-    <ul>
-      <li>which items are remembered better is a function of the cost of retrieving a memory, the utility of the goal, and the probability that the memory will be relevant.</li>
-    </ul>
-  </li>
-  <li>Reasoning (specifically, Wason selection task)
-    <ul>
-      <li>to verify “if p then q”, participants should choose p and not-q, but they choose p and q</li>
-      <li>assume “most properties and events are rare”</li>
-      <li>then, the pattern of expected informativeness EI(p) &gt; EI(q) &gt; EI(not-q) &gt; EI(not-p)</li>
-    </ul>
-  </li>
+  <li>Shepard’s universal law of generalization</li>
+  <li>Tversky’s contrast model</li>
+</ul>
+
+<p>Tenenbaum &amp; Griffiths describe a particular Bayesian model which unifies these two models. In particular, they rely on the notion of the <em>size principle</em>, which says that smaller, more specific hypotheses should receive higher probabilities than larger, more generic hypotheses.</p>
+
+<p>They also discuss several phenomena that a law of variability should account for (and for which their model does):</p>
+
+<ul>
+  <li>Example variability: if the examples have low variance, then there should be a lower chance of generalization outside the range of examples</li>
+  <li>Number of examples: as the number of examples increases, there should be a lower chance of generalization outside the range of examples</li>
 </ul>
 
 <h1 id="methods">Methods</h1>
@@ -97,13 +100,30 @@
 
 <h1 id="algorithm">Algorithm</h1>
 
-<p>n/a</p>
+<p>The assumption is made that there is some unknown consequential region $C$ and a hypothesis space $\mathcal{H}$ (of which there is some $h\in \mathcal{H}$ such that $h=C$). Then, given examples $x\in C$, the probability of $y\in C$ is:</p>
+
+<script type="math/tex; mode=display">
+p(y\in C) = \sum_{h:y\in h} \frac{p(x\vert h)p(h)}{\sum_{h^\prime\in \mathcal{H}} p(x\vert h^\prime)p(h^\prime)}
+</script>
+
+<p>where $p(x\vert h)$ can be determined either by <em>weak sampling</em> or <em>strong sampling</em>:</p>
+
+<ul>
+  <li>Weak sampling: $p(x\vert h)=1$ if $x\in h$ and 0 otherwise</li>
+  <li>Strong sampling: $p(x\vert h)=\frac{1}{\vert h\vert }$ if $x\in h$ and 0 otherwise</li>
+</ul>
+
+<p>And where the prior can be arbitrary.</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>Interestingly, they claim to analyze a whole decade of research, but it doesn’t seem like the research they discuss is <em>that</em> extensive (especially since the memory example is also discussed by Anderson in 1991). If anything, based on their article it seems as if rational analysis was largely ignored in the 90s.</p>
+<p>Using this type of structured Bayesian model is powerful, because it allows us to make explicit our assumptions. From that, the phenomena we want to capture fall out naturally, rather than needing to be explicitly included (such as the weight of feature sets in Tversky’s contrast model).</p>
 
-<p>However, the examples are good ones, and do illustrate the way in which rational analysis can be very helpful at explaining otherwise seemingly illogical behaviors (e.g. in the Wason selection task).</p>
+<p>I have the quesetion of: why do consequential regions have to discrete sets or ranges? If you got an example of a wolf, that is kind of a dog, but not exactly – so should it be included as an example of a not-dog, or of a dog? I don’t think this framework allows for that possibility. Actually, as I am writing this, though, I am realizing that it does. Really, the likelihood $p(x\vert h)$ can be arbitrary and doesn’t need to adhere to strong or wheak sampling… e.g. your hypotheses could be the parameters for a Gaussian distribution, in which case you can calculate e.g.</p>
+
+<script type="math/tex; mode=display">
+\int_\mu \int_\sigma \mathcal{N}(x; \mu, \sigma)p(\mu)p(\sigma)\ \mathrm{d}\mu \ \mathrm{d}\sigma
+</script>
 
   </article>
 
