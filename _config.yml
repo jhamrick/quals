@@ -11,3 +11,5 @@ gems: ['jekyll/scholar']
 
 # Build settings
 markdown: kramdown
+exclude: ['jekyll-post.py', 'jekyll-post.tpl', 'jekyll_nbconvert.py', 'readings']
+include: ['readings.pdf']
