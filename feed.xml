@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quals Reading Notes</title>
+    <description>Notes on readings for my qualifying exams.
+</description>
+    <link>http://jhamrick.github.io/quals/</link>
+    <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Mon, 09 Nov 2015 17:59:50 -0800</pubDate>
+    <lastBuildDate>Mon, 09 Nov 2015 17:59:50 -0800</lastBuildDate>
+    <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Demo: Motion illusions as optimal percepts</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Weiss2002&quot;&gt;Weiss, Y., Simoncelli, E. P., &amp;amp; Adelson, E. H. (2002). Motion illusions as optimal percepts. &lt;i&gt;Nature Neuroscience&lt;/i&gt;, &lt;i&gt;5&lt;/i&gt;(6), 598–604. doi:10.1038/nn858&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;First, just create our imports and define a few helper functions to get started:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy.stats&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;plt&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ipywidgets&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interact&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Show the probabilities as a function of x and y velocities.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;origin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;lower&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interpolation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;nearest&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;gray&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xmid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ymid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ymid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;gray&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;gray&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_xticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([])&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_yticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([])&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Compute the log probability for a uniform random variable between (low, high).&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scipy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logpdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Compute the log probability for a Gaussian random variable with parameters μ and σ.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scipy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logpdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Define a few options for the prior. In the paper, they used the equivalent of &lt;code&gt;prior1&lt;/code&gt;, but I’m also interested in comparing to a uniform prior and a Gaussian prior with different mean:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prior1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Zero-mean Gaussian prior with σ=25&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prior2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Velocity Average (VA) Gaussian prior with σ=5&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;17.88461538&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;14.42307692&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prior3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Uniform prior between -50 and 50&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, define the full model. This assumes a thin rhombus, but the prior function and the contrast (i.e., inverse sigma) can be modified:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ogrid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;51&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;51&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prior_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lh1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lh2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;posterior&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lh1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lh2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;MAP&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unravel_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argmax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posterior&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posterior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_size_inches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Prior&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lh1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Likelihood 1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lh2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Likelihood 2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posterior&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Posterior&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;autoscale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MAP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MAP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;ro&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Original prior, high contrast:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_9_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Original prior, low contrast:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_11_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;VA prior, high contrast:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_13_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;VA prior, low contrast:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_15_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Uniform prior, high contrast:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_17_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Uniform prior, low contrast:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_19_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 09 Nov 2015 08:55:41 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/notebooks/2015/11/09/weiss2002-ipynb.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/notebooks/2015/11/09/weiss2002-ipynb.html</guid>
+        
+        
+        <category>notebooks</category>
+        
+      </item>
+    
+      <item>
+        <title>Motion illusions as optimal percepts</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Weiss2002&quot;&gt;Weiss, Y., Simoncelli, E. P., &amp;amp; Adelson, E. H. (2002). Motion illusions as optimal percepts. &lt;i&gt;Nature Neuroscience&lt;/i&gt;, &lt;i&gt;5&lt;/i&gt;(6), 598–604. doi:10.1038/nn858&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In visual perception research, there is the finding that sometimes a motion percept (such as a rhombus) appears to be moving horizontally, while other times it appears to be moving diagonally. Specifically, thin rhombuses with low contrast look as if they have diagonal motion (even though it is truly horizontal) and with high contrast they look like they have horizontal motion. For thick rhombuses, it always appears horizontal.&lt;/p&gt;
+
+&lt;p&gt;The explanation for these effects has been a combination of “intersection of constraints” (IOC), in which the claim is that people pay attention to e.g. the corners of the shape, or “vector average” (VA), in which people compute the vector normal of each dimension and average them. IOC predicts horizontal motion and VA predicts vertical motion.&lt;/p&gt;
+
+&lt;p&gt;Rather than applying these theories ad-hoc, Weiss et al. devise an ideal observer model whose behavior is consistent with these findings. They assume two key constraints:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;local motion measurements are ambiguous&lt;/li&gt;
+  &lt;li&gt;slow motions are more likely than fast ones&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In addition to the rhombus results, this model qualitatively captures the results from a number of other related studies.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;Stimuli: &lt;a href=&quot;http://www.cs.huji.ac.il/~yweiss/Rhombus/rhombus.html&quot;&gt;http://www.cs.huji.ac.il/~yweiss/Rhombus/rhombus.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;The assumption is that points in the world move but do not change their intensity over time, but that the observation of this constraint is noisy, i.e.:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+I(x,y,t)=I(x+v_x\delta t, y+v_y\delta t, t+\delta t) + \eta
+&lt;/script&gt;
+
+&lt;p&gt;where $\eta\sim \mathcal{N}(0,\sigma)$. Computing the first-order Taylor series expansion:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+P(I(x_i,y_i,t)\vert v_i)\propto \exp\left(-\frac{1}{2\sigma^2}\int_{x,y} w_i(x,y)(\frac{\partial I}{\partial x}(x,y,t)v_x+\frac{\partial I}{\partial y}(x,y,t)v_t+\frac{\partial I}{\partial t}(x,y,t))^2\ \mathrm{d}x\ \mathrm{d}y\right)
+&lt;/script&gt;
+
+&lt;p&gt;where $w_i(x,y)$ is a window centered on $(x_i,y_i)$. In practice they say they used “a small Gaussian window”, though they do not explicitly define what size that is.&lt;/p&gt;
+
+&lt;p&gt;They chose a prior to favor slow speeds:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+P(v)\propto \exp(-\lVert v\rVert ^2/2\sigma_p^2)
+&lt;/script&gt;
+
+&lt;p&gt;And so the posterior is then:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)
+&lt;/script&gt;
+
+&lt;p&gt;where the product is computed over all locations $i$ that are moving with a common velocity $v$ (in practice this is done over the entire image, which is moving with the same velocity vector).&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This has a nice tie-in with the approach of rational analyis. Rather than assuming that the visual system is performing some specific computation (e.g. IOC or VA), assume that the visual system is trying to solve a problem given certain constraints: what is the velocity vector of the image given noisy percepts and particular scene statistics?&lt;/p&gt;
+
+&lt;p&gt;They describe the effect of modulating the noise in the likelihood, but it would have also been interesting to see what the effect of changing the prior is. What if they assumed a uniform distribution of speeds? Or what is the prior were centered on the true velocity instead? Would you find that this model collapses into pure IOC behavior or pure VA behavior?&lt;/p&gt;
+
+&lt;p&gt;From &lt;a href=&quot;/quals/notebooks/2015/11/09/weiss2002-ipynb.html&quot;&gt;playing around with this&lt;/a&gt;, it seems as though a uniform prior collapses to IOC. Having a prior centered on VA obviously biases towards VA, though the strength of that biases depends strongly on the variance. In other words, if the prior is Gaussian, even if it’s not zero-mean, you still get largely the same behavior as what they report in the paper.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 09 Nov 2015 06:27:59 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/perception/2015/11/09/weiss2002.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/perception/2015/11/09/weiss2002.html</guid>
+        
+        
+        <category>perception</category>
+        
+      </item>
+    
+      <item>
+        <title>Pure reasoning in 12-month-old infants as probabilistic inference</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Teglas2011&quot;&gt;Teglas, E., Vul, E., Girotto, V., Gonzalez, M., Tenenbaum, J. B., &amp;amp; Bonatti, L. L. (2011). Pure reasoning in 12-month-old infants as probabilistic inference. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;332&lt;/i&gt;(6033), 1054–9. doi:10.1126/science.1196404&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Previous work has shown that infants are sensitive to physical laws, such as rigidity (objects can’t pass through walls) and spatiotemporal continuity (objects can’t teleport). Can infants also reason about these properties in combination? Teglas et al. argue that they can, and present an experiment and model to support their claim. They also show how their model can qualitatively account for other results in the developmental literature relating to rigidity and spatiotemporal continuity.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;Teglas et al. showed infants videos of four objects bouncing around in a container. Three of the objects were one color (blue) and one was another color (red). Infants saw the container be occluded, and then saw one of the objects come out of the container. Depending on the length of the occlusion, infants were more or less surprised when the exited object was originally far away from the opening at the time of occlusion:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If the occlusion was short, then they were surprised when the exited object was not near the opening, and not surprised when it was.&lt;/li&gt;
+  &lt;li&gt;If the occlusion was medium, then they were still surprised if it wasn’t near the opening, but less so, and their judgments seemed to also be consistent with the &lt;em&gt;frequency&lt;/em&gt; of objects.&lt;/li&gt;
+  &lt;li&gt;If the occlusion was long, then their looking time seemed to be only determined by the frequency of different objects: they looked longer when the single red object exited, than when one of the three blue objects exited.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;Teglas et al. assume an ideal observer model with the form of a HMM, where $S_t$ is the true state of the system at time $t$ and where $D_t$ is the data observed at time $t$.&lt;/p&gt;
+
+&lt;p&gt;The transition model ($P(S_t\vert S_{t-1})$) specifies rigidty and spatiotemporal continuity constraints, and is given a Brownian motion distribution on object dynamics (product of constrained Gaussians for each object in the scene, where constraints are given by the boundaries of the container).&lt;/p&gt;
+
+&lt;p&gt;The observation model ($P(D_t\vert S_t)$) is not explained in detail, but the supplementary material says it is determined by “Boolean consistency with a set of key features” (hamming distance?).&lt;/p&gt;
+
+&lt;p&gt;They take $k$ samples from the model and average over them in a Monte Carlo approximation, to obtain:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+P(D_F\vert D_{0,\ldots{},F-1})\propto \sum_{k=1}^K \left[P(D_F\vert S_F^k)\prod_{t=1}^F P(S_t^k\vert S_{t-1}^k)P(D_{t-1}\vert S_{t-1}^k)\right]
+&lt;/script&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I hadn’t read this paper this closely before, but it really shows how this was a precursor to my intuitive physics work: there are a lot of parallels between the two. In short, the idea is that by using a simulation-based model that reflects real physical constraints (if not necessarily true dynamics), you can predict infants’ looking time on tasks that require them to reason about both physical continuity/rigidity and/or spatiotemporal continuity.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Nov 2015 11:23:45 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/teglas2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/teglas2011.html</guid>
+        
+        
+        <category>probabilistic-models</category>
+        
+      </item>
+    
+      <item>
+        <title>How to grow a mind: statistics, structure, and abstraction</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Tenenbaum2011&quot;&gt;Tenenbaum, J. B., Kemp, C., Griffiths, T. L., &amp;amp; Goodman, N. D. (2011). How to grow a mind: statistics, structure, and abstraction. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;331&lt;/i&gt;(6022), 1279–85. doi:10.1126/science.1192788&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Tenenbaum et al. attempt to address three questions:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;How does abstract knowledge guide learning and inference from sparse data?&lt;/li&gt;
+  &lt;li&gt;What forms does abstract knowledge take, across different domains and tasks?&lt;/li&gt;
+  &lt;li&gt;How is abstract knowledge itself acquired?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The overarching answer to these three questions is “hierarchical Bayesian models” (HBMs):&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;“Abstract knowledge is encoded in a probabilistic generative model, a kind of mental model that describes the causal processes in the world giving rise to the learner’s observations as well as unobserved or latent variables that support effective prediction and action if the learner can infer their hidden state.”&lt;/li&gt;
+  &lt;li&gt;Abstract knowledge takes the form of structured, symbolic representations, such as “graphs, grammars, predicate logic, relational schemas, and functional programs”. The form of the knowledge itself can also be inferred via probabilistic generative models, through the use of “reltional data structures such as graph schemas, templates for graphs based on types of nodes, or probabilistic graph grammars”.&lt;/li&gt;
+  &lt;li&gt;This is really where HBMs come into play: they “address the origins of hypothesis spaces and priors by positing not just a single level of hypotheses to explain the data but multiple levels: hypothesis spaces of hypothesis spaces, with priors on priors”.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;HBMs are so powerful because they simultaneously provide constraints on what types of things can be learned, while also allowing for flexbility in what they can be applied to. For example, Tenenbaum et al. discuss the case of inferring which diseases cause which symptoms. In the simpler case, the task is to learn which nodes in the probabilistic graphical model have edges between them. In the HBM case, there is the additional constraint of assuming two classes of nodes (diseases and symptoms) and that there is a preference for edges to go from diseases to symptoms. Inference is then performed over which nodes are diseases and which are symptoms, as well as what the edges are. The introduction of this additional structure makes inference much faster and accurate. However, the model isn’t limited just to this medical case; it could apply to any similar bipartite structure.&lt;/p&gt;
+
+&lt;p&gt;There is an important point about contrast to previous nativist vs empiricist approaches:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In the nativist case, researchers assumed anything important was innately specified, and that very little learning happened. They used sophisticated, structured knowledge (like logic) but it had very little ability to generalize because it lacked a mechanism for learning.&lt;/li&gt;
+  &lt;li&gt;In the empiricist case, researchers assumed very little to be specified innately, and that anything could be learned. They used powerful models of learning (like connectionist models), but the representations that those models used were flat and simplistic.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;PGMs find a middle ground between these two approaches, allowing both for powerful learning mechanisms as well as sophisticated, structured representations of knowledge.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;Structured forms of knowledge instantiated in hierarchical Bayesian models give us a framework for explaining how people get so much from so little. They have been successfully used to model many simple forms of abstract knowledge, though it remains to be seen how they can explain how we learn broad framework theories for topics such as intuitive physics or theory of mind. It also remains to be seen how these types of structure knowledge representations can be computed neurally.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Nov 2015 10:11:51 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/tenenbaum2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/tenenbaum2011.html</guid>
+        
+        
+        <category>probabilistic-models</category>
+        
+      </item>
+    
+      <item>
+        <title>Bayesian learning theory applied to human cognition</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Jacobs2011&quot;&gt;Jacobs, R. A., &amp;amp; Kruschke, J. K. (2011). Bayesian learning theory applied to human cognition. &lt;i&gt;Wiley Interdisciplinary Reviews: Cognitive Science&lt;/i&gt;, &lt;i&gt;2&lt;/i&gt;(1), 8–21. doi:10.1002/wcs.80&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Jacobs &amp;amp; Kruschke make an argument for using Bayesian models of cognition. They give a precise definition of what they mean for Bayesian models to be optimal, saying that given the structure of the prior and likelihood, Bayesian models are the optimal in the sense that you cannot do better. However, they also explicitly say that this is, of course &lt;em&gt;given that these structures are correct&lt;/em&gt;. You can posit a variety of reasonable options for the structures in the model. They argue that this is a good thing, though, because it makes the assumptions explicit, which subsequently makes it more straightforward to evaluate those assumptions.&lt;/p&gt;
+
+&lt;p&gt;They give three examples of what can happen when comparing a Bayesian model to human behavior:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The model and human behavior match. This gives evidence that people are integrating information in a statistically optimal fashion, and provides support for the represenations used by the Bayesian model.&lt;/li&gt;
+  &lt;li&gt;The model outperforms people. This suggests that people are not incorporating all sources of information, or are limited by computational constraints. These possibilities can be investigated by creating a new Bayesian model with these constraints.&lt;/li&gt;
+  &lt;li&gt;People outperform the model. This suggests that people are taking into account more information or assumptions than the model. Again, this possibility can be investigated by creating a new model that accounts for more information.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Jacobs &amp;amp; Kruschke give examples of three ways in which Bayesian models can be used:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Inference: using data from some variables to update beliefs about other variables. Integrating data (e.g. multisensory percepts) in a statistically optimal fashion.&lt;/li&gt;
+  &lt;li&gt;Parameter learning: similar to inference. They don’t explicitly define what they take as being the difference between inference and parameter learning, but I think the difference for them is that inference is more about beliefs about causes, while parameter learning is more about learning the specific distributions of variables (e.g., inference –&amp;gt; did a or b cause c?, parameter learning –&amp;gt; what are the weights of a and b?). They do talk about the difference between &lt;em&gt;discriminative&lt;/em&gt; and &lt;em&gt;generative&lt;/em&gt; models, though:
+    &lt;ul&gt;
+      &lt;li&gt;discriminative: learning the conditional probability distribution $p(\mathrm{outcome}\ \vert\ \mathrm{cues})$&lt;/li&gt;
+      &lt;li&gt;generative: learning the joint probability distribution $p(\mathrm{outcome},\ \mathrm{cues})$, from which you can compute $p(\mathrm{outcome}\ \vert\ \mathrm{cues})$ as well as $p(\mathrm{cues}\ \vert\ \mathrm{outcome})$&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Structure learning: not just learning about the variables in a model, but learning &lt;em&gt;which model&lt;/em&gt; is the correct one.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;They also briefly discuss how prior knowledge can be very influential, and how important it is to get right, and how you can determine what people’s priors are.&lt;/p&gt;
+
+&lt;p&gt;They also talk about active learning, which is the process of actively selecting what data to observe. They argue that this process is not something that can be captured easily by other types of models.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I like the characterization of what, exactly, it means for a Bayesian model to be “optimal”, and what this implies for cognitive science. Importantly, they talk about the optimality of a Bayesian model as being a way to gauge what people are doing: are the suboptimal (implying processing limitations)? Or are they better than optimal (implying that the model is missing something?) Or are they close to the model (implying the model’s assumptions may be close to what people actually do?)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Nov 2015 07:42:05 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/jacobs2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/jacobs2011.html</guid>
+        
+        
+        <category>probabilistic-models</category>
+        
+      </item>
+    
+      <item>
+        <title>The discovery of structural form</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Kemp2008&quot;&gt;Kemp, C., &amp;amp; Tenenbaum, J. B. (2008). The discovery of structural form. &lt;i&gt;Proceedings of the National Academy of Sciences of the United States of America&lt;/i&gt;, &lt;i&gt;105&lt;/i&gt;(31), 10687–92. doi:10.1073/pnas.0802631105&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Many types of data have &lt;em&gt;structured&lt;/em&gt; underlying representations. But, these structures can be widely different (e.g., a hierarchical tree vs. a spectrum vs. clusters). Kemp &amp;amp; Tenenbaum show how many of these types of representations can be captured using a &lt;em&gt;graph grammar&lt;/em&gt;, and both the structure and form of the representation can be jointly inferred from the given data.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;If $F$ is the form (e.g., chain) and $S$ is the particular structure of that form and $D$ is the data, then:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+P(S,F\vert D)\propto P(D\vert S)P(S\vert F)P(F)
+&lt;/script&gt;
+
+&lt;p&gt;They set $P(F)$ to be uniform, where $P(S\vert F)\propto\theta^k$ (where $k$ is the number of clusters).&lt;/p&gt;
+
+&lt;p&gt;If the data is given by a binary feature matrix, then $P(D\vert S)$ is computed by assuming that features of the data are independently generated frm a multivariate Gaussian distribution with a dimension for each node in the graph $S$. The covariance of the distribution is defined such that connected nodes should have more similar features.&lt;/p&gt;
+
+&lt;p&gt;If the data is relational, then $P(D\vert S)$ is computed such that it is high if the large entries in $D$ correspond to edges in the graph.&lt;/p&gt;
+
+&lt;p&gt;There are several different simple forms that they define as well. Each node in the graph is a cluster of data points:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Partition&lt;/li&gt;
+  &lt;li&gt;Chain&lt;/li&gt;
+  &lt;li&gt;Order&lt;/li&gt;
+  &lt;li&gt;Ring&lt;/li&gt;
+  &lt;li&gt;Hierarchy&lt;/li&gt;
+  &lt;li&gt;Tree&lt;/li&gt;
+  &lt;li&gt;Grid (Chain x Chain)&lt;/li&gt;
+  &lt;li&gt;Cylinder (Chain x Ring)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;The structure of the world is usually not flat, but may have a more complex structure (clusters, hierarchies, etc.). We can specify these forms &lt;em&gt;a priori&lt;/em&gt;, but it is better if we can determine them from the data itself. By using a graph grammar, we can capture a wide range of these structures, including things that are usually considered flat (e.g. grid) all the way to very-not-flat things, like tree structures.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Nov 2015 03:59:24 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/kemp2008.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/kemp2008.html</guid>
+        
+        
+        <category>probabilistic-models</category>
+        
+      </item>
+    
+      <item>
+        <title>Probabilistic models of cognition: exploring representations and inductive biases</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Griffiths2010&quot;&gt;Griffiths, T. L., Chater, N., Kemp, C., Perfors, A., &amp;amp; Tenenbaum, J. B. (2010). Probabilistic models of cognition: exploring representations and inductive biases. &lt;i&gt;Trends in Cognitive Sciences&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(8), 357–364. doi:10.1016/j.tics.2010.05.004&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;This article is one in a special issue and primarily discusses the differences between probabilistic models of cognition and connectionist models. The main claims of Griffiths et al. are that:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Connectionist models are hard to interpret (what do the specific weights of each node mean?), even if they can accurately model behavior&lt;/li&gt;
+  &lt;li&gt;It is difficult, if not impossible, to specify inductive biases in connectionist models, whereas this is straightforward in Bayesian models&lt;/li&gt;
+  &lt;li&gt;It is difficult to specify structured representations in connectionist models&lt;/li&gt;
+  &lt;li&gt;It is difficult to use connectionist models to evaluate different hypotheses for representations, whereas Bayesian models can account for any type of representation, and are therefore a good tool for comparing and contrasting between different hypotheses&lt;/li&gt;
+  &lt;li&gt;All models (including connectionist models) build in hypothesis spaces, but probabilistic models make those spaces explicit&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Importantly, Griffiths et al. do &lt;em&gt;not&lt;/em&gt; claim:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;That Bayesian models should be evaluated against other types of models, but rather that Bayesian/probabilistic models provide a framework with which to work. Within that framework, different models can be represented and tested.&lt;/li&gt;
+  &lt;li&gt;That human cognition explicitly uses probabilistic inference, or that it is “optimal”. Rather, using rational analysis and finding the optimal solution the problem, and then comparing this to how humans behave, is a good methodology for studying cognition.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;Probabilistic modeling is a powerful framework for studying cognition. It is not inherently opposed to connectionist models – other models (like connectionist ones) are actually a subset of the total models that probabilistic models can capture. Thus, it makes sense to work within the broader framework which gives us more flexibility for capturing and comparing a wide range of hypotheses for how behavior works.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Nov 2015 03:59:24 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2010.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2010.html</guid>
+        
+        
+        <category>probabilistic-models</category>
+        
+      </item>
+    
+      <item>
+        <title>Optimal predictions in everyday cognition</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Griffiths2006&quot;&gt;Griffiths, T. L., &amp;amp; Tenenbaum, J. B. (2006). Optimal predictions in everyday cognition. &lt;i&gt;Psychological Science&lt;/i&gt;, &lt;i&gt;17&lt;/i&gt;(9), 767–773. doi:10.1111/j.1467-9280.2006.01780.x&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Griffiths and Tenenbaum basically ask, how sensitive are people to the statistics of their environment? They test this by asking people to give estimates of total durations $t_\mathrm{total}$ given an observation at some time $t$. They find that people’s estimates of $t_\mathrm{total}$ are consistent with empirical priors and uniform likelihoods.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;They asked people to make judgments on:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Life spans&lt;/li&gt;
+  &lt;li&gt;Movie runtimes&lt;/li&gt;
+  &lt;li&gt;Movie grosses&lt;/li&gt;
+  &lt;li&gt;Poems&lt;/li&gt;
+  &lt;li&gt;Representatives&lt;/li&gt;
+  &lt;li&gt;Pharoahs&lt;/li&gt;
+  &lt;li&gt;Cakes&lt;/li&gt;
+  &lt;li&gt;Waiting times&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;The algorithm is pretty simple, just computing $p(t_\mathrm{total}\vert t)\propto p(t\vert t_\mathrm{total})p(t_\mathrm{total})$ and assuming a uniform likelihood. The priors are determined empirically and have the following approximate forms:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gaussian (life spans, movie runtimes)&lt;/li&gt;
+  &lt;li&gt;Power law (movie grosses, poems)&lt;/li&gt;
+  &lt;li&gt;Erlang (representatives, pharoahs)&lt;/li&gt;
+  &lt;li&gt;Irregular (cakes)&lt;/li&gt;
+  &lt;li&gt;??? (waiting times)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;They also empirically fit a parameterized distribution for pharaohs and waiting times. In the case of the pharaohs, people systematically overestimated (but the empirical prior recovered from people was consistent with their posterior judgments). In the case of waiting times, there is not a consensus what distribution they take, though according to people their responses seemed to fit an power law distribution.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;People are sensitive to the structure and statistics of their environments. In cases where they have less experience/exposure (e.g. in the case of the pharaohs), people aren’t necessarily optimal with respect to the true empirical distribution, but may instead rely on other knowledge (e.g. modern monarchs) and attempt to generalize.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Nov 2015 03:59:24 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2006.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2006.html</guid>
+        
+        
+        <category>probabilistic-models</category>
+        
+      </item>
+    
+      <item>
+        <title>Generalization, similarity, and Bayesian inference</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Tenenbaum2001&quot;&gt;Tenenbaum, J. B., &amp;amp; Griffiths, T. L. (2001). Generalization, similarity, and Bayesian inference. &lt;i&gt;The Behavioral and Brain Sciences&lt;/i&gt;, &lt;i&gt;24&lt;/i&gt;, 629–640; discussion 652–791. doi:10.1017/S0140525X01000061&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Different notions of similarity have been talked about before, in particular:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Shepard’s universal law of generalization&lt;/li&gt;
+  &lt;li&gt;Tversky’s contrast model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Tenenbaum &amp;amp; Griffiths describe a particular Bayesian model which unifies these two models. In particular, they rely on the notion of the &lt;em&gt;size principle&lt;/em&gt;, which says that smaller, more specific hypotheses should receive higher probabilities than larger, more generic hypotheses.&lt;/p&gt;
+
+&lt;p&gt;They also discuss several phenomena that a law of variability should account for (and for which their model does):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Example variability: if the examples have low variance, then there should be a lower chance of generalization outside the range of examples&lt;/li&gt;
+  &lt;li&gt;Number of examples: as the number of examples increases, there should be a lower chance of generalization outside the range of examples&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;The assumption is made that there is some unknown consequential region $C$ and a hypothesis space $\mathcal{H}$ (of which there is some $h\in \mathcal{H}$ such that $h=C$). Then, given examples $x\in C$, the probability of $y\in C$ is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+p(y\in C) = \sum_{h:y\in h} \frac{p(x|h)p(h)}{\sum_{h^\prime\in \mathcal{H}} p(x|h^\prime)p(h^\prime)}
+&lt;/script&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;where $p(x&lt;/td&gt;
+      &lt;td&gt;h)$ can be determined either by &lt;em&gt;weak sampling&lt;/em&gt; or &lt;em&gt;strong sampling&lt;/em&gt;:&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Weak sampling: $p(x&lt;/td&gt;
+          &lt;td&gt;h)=1$ if $x\in h$ and 0 otherwise&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Strong sampling: $p(x&lt;/td&gt;
+          &lt;td&gt;h)=\frac{1}{&lt;/td&gt;
+          &lt;td&gt;h&lt;/td&gt;
+          &lt;td&gt;}$ if $x\in h$ and 0 otherwise&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And where the prior can be arbitrary.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;Using this type of structured Bayesian model is powerful, because it allows us to make explicit our assumptions. From that, the phenomena we want to capture fall out naturally, rather than needing to be explicitly included (such as the weight of feature sets in Tversky’s contrast model).&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I have the quesetion of: why do consequential regions have to discrete sets or ranges? If you got an example of a wolf, that is kind of a dog, but not exactly – so should it be included as an example of a not-dog, or of a dog? I don’t think this framework allows for that possibility. Actually, as I am writing this, though, I am realizing that it does. Really, the likelihood $p(x&lt;/td&gt;
+      &lt;td&gt;h)$ can be arbitrary and doesn’t need to adhere to strong or wheak sampling… e.g. your hypotheses could be the parameters for a Gaussian distribution, in which case you can calculate e.g.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+\int_\mu \int_\sigma \mathcal{N}(x; \mu, \sigma)p(\mu)p(\sigma)\ \mathrm{d}\mu \ \mathrm{d}\sigma
+&lt;/script&gt;
+</description>
+        <pubDate>Fri, 06 Nov 2015 09:29:22 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/probabilistic-models/2015/11/06/tenenbaum2001.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic-models/2015/11/06/tenenbaum2001.html</guid>
+        
+        
+        <category>probabilistic-models</category>
+        
+      </item>
+    
+      <item>
+        <title>Ten years of the rational analysis of cognition</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Chater1999&quot;&gt;Chater, N., &amp;amp; Oaksford, M. (1999). Ten years of the rational analysis of cognition. &lt;i&gt;Trends in Cognitive Science&lt;/i&gt;, &lt;i&gt;3&lt;/i&gt;(2), 57–65. doi:10.1016/S1364-6613(98)01273-X&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Chater and Oaksford re-summarize the definition of rational analysis, and describe a two areas where rational analysis has proved to be fruitful:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Memory
+    &lt;ul&gt;
+      &lt;li&gt;which items are remembered better is a function of the cost of retrieving a memory, the utility of the goal, and the probability that the memory will be relevant.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reasoning (specifically, Wason selection task)
+    &lt;ul&gt;
+      &lt;li&gt;to verify “if p then q”, participants should choose p and not-q, but they choose p and q&lt;/li&gt;
+      &lt;li&gt;assume “most properties and events are rare”&lt;/li&gt;
+      &lt;li&gt;then, the pattern of expected informativeness EI(p) &amp;gt; EI(q) &amp;gt; EI(not-q) &amp;gt; EI(not-p)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;Interestingly, they claim to analyze a whole decade of research, but it doesn’t seem like the research they discuss is &lt;em&gt;that&lt;/em&gt; extensive (especially since the memory example is also discussed by Anderson in 1991). If anything, based on their article it seems as if rational analysis was largely ignored in the 90s.&lt;/p&gt;
+
+&lt;p&gt;However, the examples are good ones, and do illustrate the way in which rational analysis can be very helpful at explaining otherwise seemingly illogical behaviors (e.g. in the Wason selection task).&lt;/p&gt;
+</description>
+        <pubDate>Wed, 04 Nov 2015 11:38:47 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/rational-analysis/2015/11/04/chater1999.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/rational-analysis/2015/11/04/chater1999.html</guid>
+        
+        
+        <category>rational-analysis</category>
+        
+      </item>
+    
+  </channel>
+</rss>

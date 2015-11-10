@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Quals Reading Notes</title>
+    <title>Bayesian learning theory applied to human cognition</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/jacobs2011.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -62,111 +62,58 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Bayesian learning theory applied to human cognition</h1>
+    <p class="post-meta">Nov 8, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+  <article class="post-content">
+    <p><span id="Jacobs2011">Jacobs, R. A., &amp; Kruschke, J. K. (2011). Bayesian learning theory applied to human cognition. <i>Wiley Interdisciplinary Reviews: Cognitive Science</i>, <i>2</i>(1), 8–21. doi:10.1002/wcs.80</span></p>
 
-        <h2>
-          <a class="post-link" href="/quals/notebooks/2015/11/09/weiss2002-ipynb.html">Demo: Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+<h1 id="summary">Summary</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/perception/2015/11/09/weiss2002.html">Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>Jacobs &amp; Kruschke make an argument for using Bayesian models of cognition. They give a precise definition of what they mean for Bayesian models to be optimal, saying that given the structure of the prior and likelihood, Bayesian models are the optimal in the sense that you cannot do better. However, they also explicitly say that this is, of course <em>given that these structures are correct</em>. You can posit a variety of reasonable options for the structures in the model. They argue that this is a good thing, though, because it makes the assumptions explicit, which subsequently makes it more straightforward to evaluate those assumptions.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/teglas2011.html">Pure reasoning in 12-month-old infants as probabilistic inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>They give three examples of what can happen when comparing a Bayesian model to human behavior:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/tenenbaum2011.html">How to grow a mind: statistics, structure, and abstraction</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<ol>
+  <li>The model and human behavior match. This gives evidence that people are integrating information in a statistically optimal fashion, and provides support for the represenations used by the Bayesian model.</li>
+  <li>The model outperforms people. This suggests that people are not incorporating all sources of information, or are limited by computational constraints. These possibilities can be investigated by creating a new Bayesian model with these constraints.</li>
+  <li>People outperform the model. This suggests that people are taking into account more information or assumptions than the model. Again, this possibility can be investigated by creating a new model that accounts for more information.</li>
+</ol>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/jacobs2011.html">Bayesian learning theory applied to human cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>Jacobs &amp; Kruschke give examples of three ways in which Bayesian models can be used:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/kemp2008.html">The discovery of structural form</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<ol>
+  <li>Inference: using data from some variables to update beliefs about other variables. Integrating data (e.g. multisensory percepts) in a statistically optimal fashion.</li>
+  <li>Parameter learning: similar to inference. They don’t explicitly define what they take as being the difference between inference and parameter learning, but I think the difference for them is that inference is more about beliefs about causes, while parameter learning is more about learning the specific distributions of variables (e.g., inference –&gt; did a or b cause c?, parameter learning –&gt; what are the weights of a and b?). They do talk about the difference between <em>discriminative</em> and <em>generative</em> models, though:
+    <ul>
+      <li>discriminative: learning the conditional probability distribution $p(\mathrm{outcome}\ \vert\ \mathrm{cues})$</li>
+      <li>generative: learning the joint probability distribution $p(\mathrm{outcome},\ \mathrm{cues})$, from which you can compute $p(\mathrm{outcome}\ \vert\ \mathrm{cues})$ as well as $p(\mathrm{cues}\ \vert\ \mathrm{outcome})$</li>
+    </ul>
+  </li>
+  <li>Structure learning: not just learning about the variables in a model, but learning <em>which model</em> is the correct one.</li>
+</ol>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2010.html">Probabilistic models of cognition: exploring representations and inductive biases</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>They also briefly discuss how prior knowledge can be very influential, and how important it is to get right, and how you can determine what people’s priors are.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2006.html">Optimal predictions in everyday cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 6, 2015</span>
+<p>They also talk about active learning, which is the process of actively selecting what data to observe. They argue that this process is not something that can be captured easily by other types of models.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/06/tenenbaum2001.html">Generalization, similarity, and Bayesian inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<h1 id="methods">Methods</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/chater1999.html">Ten years of the rational analysis of cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<p>n/a</p>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/marr1971.html">The philosophy and the approach</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<h1 id="algorithm">Algorithm</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/anderson1990.html">Introduction to "The Adaptive Character of Thought"</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>n/a</p>
 
-  <p class="rss-subscribe">subscribe <a href="/quals/feed.xml">via RSS</a></p>
+<h1 id="takeaways">Takeaways</h1>
+
+<p>I like the characterization of what, exactly, it means for a Bayesian model to be “optimal”, and what this implies for cognitive science. Importantly, they talk about the optimality of a Bayesian model as being a way to gauge what people are doing: are the suboptimal (implying processing limitations)? Or are they better than optimal (implying that the model is missing something?) Or are they close to the model (implying the model’s assumptions may be close to what people actually do?)</p>
+
+  </article>
 
 </div>
 

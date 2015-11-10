@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Quals Reading Notes</title>
+    <title>Optimal predictions in everyday cognition</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/griffiths2006.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -62,111 +62,54 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Optimal predictions in everyday cognition</h1>
+    <p class="post-meta">Nov 8, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+  <article class="post-content">
+    <p><span id="Griffiths2006">Griffiths, T. L., &amp; Tenenbaum, J. B. (2006). Optimal predictions in everyday cognition. <i>Psychological Science</i>, <i>17</i>(9), 767–773. doi:10.1111/j.1467-9280.2006.01780.x</span></p>
 
-        <h2>
-          <a class="post-link" href="/quals/notebooks/2015/11/09/weiss2002-ipynb.html">Demo: Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+<h1 id="summary">Summary</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/perception/2015/11/09/weiss2002.html">Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>Griffiths and Tenenbaum basically ask, how sensitive are people to the statistics of their environment? They test this by asking people to give estimates of total durations $t_\mathrm{total}$ given an observation at some time $t$. They find that people’s estimates of $t_\mathrm{total}$ are consistent with empirical priors and uniform likelihoods.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/teglas2011.html">Pure reasoning in 12-month-old infants as probabilistic inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<h1 id="methods">Methods</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/tenenbaum2011.html">How to grow a mind: statistics, structure, and abstraction</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>They asked people to make judgments on:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/jacobs2011.html">Bayesian learning theory applied to human cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<ul>
+  <li>Life spans</li>
+  <li>Movie runtimes</li>
+  <li>Movie grosses</li>
+  <li>Poems</li>
+  <li>Representatives</li>
+  <li>Pharoahs</li>
+  <li>Cakes</li>
+  <li>Waiting times</li>
+</ul>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/kemp2008.html">The discovery of structural form</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<h1 id="algorithm">Algorithm</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2010.html">Probabilistic models of cognition: exploring representations and inductive biases</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>The algorithm is pretty simple, just computing $p(t_\mathrm{total}\vert t)\propto p(t\vert t_\mathrm{total})p(t_\mathrm{total})$ and assuming a uniform likelihood. The priors are determined empirically and have the following approximate forms:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2006.html">Optimal predictions in everyday cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 6, 2015</span>
+<ul>
+  <li>Gaussian (life spans, movie runtimes)</li>
+  <li>Power law (movie grosses, poems)</li>
+  <li>Erlang (representatives, pharoahs)</li>
+  <li>Irregular (cakes)</li>
+  <li>??? (waiting times)</li>
+</ul>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/06/tenenbaum2001.html">Generalization, similarity, and Bayesian inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<p>They also empirically fit a parameterized distribution for pharaohs and waiting times. In the case of the pharaohs, people systematically overestimated (but the empirical prior recovered from people was consistent with their posterior judgments). In the case of waiting times, there is not a consensus what distribution they take, though according to people their responses seemed to fit an power law distribution.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/chater1999.html">Ten years of the rational analysis of cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<h1 id="takeaways">Takeaways</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/marr1971.html">The philosophy and the approach</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<p>People are sensitive to the structure and statistics of their environments. In cases where they have less experience/exposure (e.g. in the case of the pharaohs), people aren’t necessarily optimal with respect to the true empirical distribution, but may instead rely on other knowledge (e.g. modern monarchs) and attempt to generalize.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/anderson1990.html">Introduction to "The Adaptive Character of Thought"</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/quals/feed.xml">via RSS</a></p>
+  </article>
 
 </div>
 

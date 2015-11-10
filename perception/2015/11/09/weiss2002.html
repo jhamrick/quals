@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Quals Reading Notes</title>
+    <title>Motion illusions as optimal percepts</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/perception/2015/11/09/weiss2002.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -62,111 +62,74 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Motion illusions as optimal percepts</h1>
+    <p class="post-meta">Nov 9, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+  <article class="post-content">
+    <p><span id="Weiss2002">Weiss, Y., Simoncelli, E. P., &amp; Adelson, E. H. (2002). Motion illusions as optimal percepts. <i>Nature Neuroscience</i>, <i>5</i>(6), 598–604. doi:10.1038/nn858</span></p>
 
-        <h2>
-          <a class="post-link" href="/quals/notebooks/2015/11/09/weiss2002-ipynb.html">Demo: Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+<h1 id="summary">Summary</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/perception/2015/11/09/weiss2002.html">Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>In visual perception research, there is the finding that sometimes a motion percept (such as a rhombus) appears to be moving horizontally, while other times it appears to be moving diagonally. Specifically, thin rhombuses with low contrast look as if they have diagonal motion (even though it is truly horizontal) and with high contrast they look like they have horizontal motion. For thick rhombuses, it always appears horizontal.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/teglas2011.html">Pure reasoning in 12-month-old infants as probabilistic inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>The explanation for these effects has been a combination of “intersection of constraints” (IOC), in which the claim is that people pay attention to e.g. the corners of the shape, or “vector average” (VA), in which people compute the vector normal of each dimension and average them. IOC predicts horizontal motion and VA predicts vertical motion.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/tenenbaum2011.html">How to grow a mind: statistics, structure, and abstraction</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>Rather than applying these theories ad-hoc, Weiss et al. devise an ideal observer model whose behavior is consistent with these findings. They assume two key constraints:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/jacobs2011.html">Bayesian learning theory applied to human cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<ul>
+  <li>local motion measurements are ambiguous</li>
+  <li>slow motions are more likely than fast ones</li>
+</ul>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/kemp2008.html">The discovery of structural form</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>In addition to the rhombus results, this model qualitatively captures the results from a number of other related studies.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2010.html">Probabilistic models of cognition: exploring representations and inductive biases</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<h1 id="methods">Methods</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2006.html">Optimal predictions in everyday cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 6, 2015</span>
+<p>Stimuli: <a href="http://www.cs.huji.ac.il/~yweiss/Rhombus/rhombus.html">http://www.cs.huji.ac.il/~yweiss/Rhombus/rhombus.html</a></p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/06/tenenbaum2001.html">Generalization, similarity, and Bayesian inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<h1 id="algorithm">Algorithm</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/chater1999.html">Ten years of the rational analysis of cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<p>The assumption is that points in the world move but do not change their intensity over time, but that the observation of this constraint is noisy, i.e.:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/marr1971.html">The philosophy and the approach</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<script type="math/tex; mode=display">
+I(x,y,t)=I(x+v_x\delta t, y+v_y\delta t, t+\delta t) + \eta
+</script>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/anderson1990.html">Introduction to "The Adaptive Character of Thought"</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>where $\eta\sim \mathcal{N}(0,\sigma)$. Computing the first-order Taylor series expansion:</p>
 
-  <p class="rss-subscribe">subscribe <a href="/quals/feed.xml">via RSS</a></p>
+<script type="math/tex; mode=display">
+P(I(x_i,y_i,t)\vert v_i)\propto \exp\left(-\frac{1}{2\sigma^2}\int_{x,y} w_i(x,y)(\frac{\partial I}{\partial x}(x,y,t)v_x+\frac{\partial I}{\partial y}(x,y,t)v_t+\frac{\partial I}{\partial t}(x,y,t))^2\ \mathrm{d}x\ \mathrm{d}y\right)
+</script>
+
+<p>where $w_i(x,y)$ is a window centered on $(x_i,y_i)$. In practice they say they used “a small Gaussian window”, though they do not explicitly define what size that is.</p>
+
+<p>They chose a prior to favor slow speeds:</p>
+
+<script type="math/tex; mode=display">
+P(v)\propto \exp(-\lVert v\rVert ^2/2\sigma_p^2)
+</script>
+
+<p>And so the posterior is then:</p>
+
+<script type="math/tex; mode=display">
+P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)
+</script>
+
+<p>where the product is computed over all locations $i$ that are moving with a common velocity $v$ (in practice this is done over the entire image, which is moving with the same velocity vector).</p>
+
+<h1 id="takeaways">Takeaways</h1>
+
+<p>This has a nice tie-in with the approach of rational analyis. Rather than assuming that the visual system is performing some specific computation (e.g. IOC or VA), assume that the visual system is trying to solve a problem given certain constraints: what is the velocity vector of the image given noisy percepts and particular scene statistics?</p>
+
+<p>They describe the effect of modulating the noise in the likelihood, but it would have also been interesting to see what the effect of changing the prior is. What if they assumed a uniform distribution of speeds? Or what is the prior were centered on the true velocity instead? Would you find that this model collapses into pure IOC behavior or pure VA behavior?</p>
+
+<p>From <a href="/quals/notebooks/2015/11/09/weiss2002-ipynb.html">playing around with this</a>, it seems as though a uniform prior collapses to IOC. Having a prior centered on VA obviously biases towards VA, though the strength of that biases depends strongly on the variance. In other words, if the prior is Gaussian, even if it’s not zero-mean, you still get largely the same behavior as what they report in the paper.</p>
+
+  </article>
 
 </div>
 

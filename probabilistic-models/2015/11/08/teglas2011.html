@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Quals Reading Notes</title>
+    <title>Pure reasoning in 12-month-old infants as probabilistic inference</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/teglas2011.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -62,111 +62,49 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Pure reasoning in 12-month-old infants as probabilistic inference</h1>
+    <p class="post-meta">Nov 8, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+  <article class="post-content">
+    <p><span id="Teglas2011">Teglas, E., Vul, E., Girotto, V., Gonzalez, M., Tenenbaum, J. B., &amp; Bonatti, L. L. (2011). Pure reasoning in 12-month-old infants as probabilistic inference. <i>Science</i>, <i>332</i>(6033), 1054–9. doi:10.1126/science.1196404</span></p>
 
-        <h2>
-          <a class="post-link" href="/quals/notebooks/2015/11/09/weiss2002-ipynb.html">Demo: Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+<h1 id="summary">Summary</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/perception/2015/11/09/weiss2002.html">Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>Previous work has shown that infants are sensitive to physical laws, such as rigidity (objects can’t pass through walls) and spatiotemporal continuity (objects can’t teleport). Can infants also reason about these properties in combination? Teglas et al. argue that they can, and present an experiment and model to support their claim. They also show how their model can qualitatively account for other results in the developmental literature relating to rigidity and spatiotemporal continuity.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/teglas2011.html">Pure reasoning in 12-month-old infants as probabilistic inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<h1 id="methods">Methods</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/tenenbaum2011.html">How to grow a mind: statistics, structure, and abstraction</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>Teglas et al. showed infants videos of four objects bouncing around in a container. Three of the objects were one color (blue) and one was another color (red). Infants saw the container be occluded, and then saw one of the objects come out of the container. Depending on the length of the occlusion, infants were more or less surprised when the exited object was originally far away from the opening at the time of occlusion:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/jacobs2011.html">Bayesian learning theory applied to human cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<ul>
+  <li>If the occlusion was short, then they were surprised when the exited object was not near the opening, and not surprised when it was.</li>
+  <li>If the occlusion was medium, then they were still surprised if it wasn’t near the opening, but less so, and their judgments seemed to also be consistent with the <em>frequency</em> of objects.</li>
+  <li>If the occlusion was long, then their looking time seemed to be only determined by the frequency of different objects: they looked longer when the single red object exited, than when one of the three blue objects exited.</li>
+</ul>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/kemp2008.html">The discovery of structural form</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<h1 id="algorithm">Algorithm</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2010.html">Probabilistic models of cognition: exploring representations and inductive biases</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>Teglas et al. assume an ideal observer model with the form of a HMM, where $S_t$ is the true state of the system at time $t$ and where $D_t$ is the data observed at time $t$.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2006.html">Optimal predictions in everyday cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 6, 2015</span>
+<p>The transition model ($P(S_t\vert S_{t-1})$) specifies rigidty and spatiotemporal continuity constraints, and is given a Brownian motion distribution on object dynamics (product of constrained Gaussians for each object in the scene, where constraints are given by the boundaries of the container).</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/06/tenenbaum2001.html">Generalization, similarity, and Bayesian inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<p>The observation model ($P(D_t\vert S_t)$) is not explained in detail, but the supplementary material says it is determined by “Boolean consistency with a set of key features” (hamming distance?).</p>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/chater1999.html">Ten years of the rational analysis of cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<p>They take $k$ samples from the model and average over them in a Monte Carlo approximation, to obtain:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/marr1971.html">The philosophy and the approach</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<script type="math/tex; mode=display">
+P(D_F\vert D_{0,\ldots{},F-1})\propto \sum_{k=1}^K \left[P(D_F\vert S_F^k)\prod_{t=1}^F P(S_t^k\vert S_{t-1}^k)P(D_{t-1}\vert S_{t-1}^k)\right]
+</script>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/anderson1990.html">Introduction to "The Adaptive Character of Thought"</a>
-        </h2>
-      </li>
-    
-  </ul>
+<h1 id="takeaways">Takeaways</h1>
 
-  <p class="rss-subscribe">subscribe <a href="/quals/feed.xml">via RSS</a></p>
+<p>I hadn’t read this paper this closely before, but it really shows how this was a precursor to my intuitive physics work: there are a lot of parallels between the two. In short, the idea is that by using a simulation-based model that reflects real physical constraints (if not necessarily true dynamics), you can predict infants’ looking time on tasks that require them to reason about both physical continuity/rigidity and/or spatiotemporal continuity.</p>
+
+  </article>
 
 </div>
 

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Quals Reading Notes</title>
+    <title>How to grow a mind: statistics, structure, and abstraction</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic-models/2015/11/08/tenenbaum2011.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -62,111 +62,58 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">How to grow a mind: statistics, structure, and abstraction</h1>
+    <p class="post-meta">Nov 8, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+  <article class="post-content">
+    <p><span id="Tenenbaum2011">Tenenbaum, J. B., Kemp, C., Griffiths, T. L., &amp; Goodman, N. D. (2011). How to grow a mind: statistics, structure, and abstraction. <i>Science</i>, <i>331</i>(6022), 1279–85. doi:10.1126/science.1192788</span></p>
 
-        <h2>
-          <a class="post-link" href="/quals/notebooks/2015/11/09/weiss2002-ipynb.html">Demo: Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 9, 2015</span>
+<h1 id="summary">Summary</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/perception/2015/11/09/weiss2002.html">Motion illusions as optimal percepts</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>Tenenbaum et al. attempt to address three questions:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/teglas2011.html">Pure reasoning in 12-month-old infants as probabilistic inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<ol>
+  <li>How does abstract knowledge guide learning and inference from sparse data?</li>
+  <li>What forms does abstract knowledge take, across different domains and tasks?</li>
+  <li>How is abstract knowledge itself acquired?</li>
+</ol>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/tenenbaum2011.html">How to grow a mind: statistics, structure, and abstraction</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>The overarching answer to these three questions is “hierarchical Bayesian models” (HBMs):</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/jacobs2011.html">Bayesian learning theory applied to human cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<ol>
+  <li>“Abstract knowledge is encoded in a probabilistic generative model, a kind of mental model that describes the causal processes in the world giving rise to the learner’s observations as well as unobserved or latent variables that support effective prediction and action if the learner can infer their hidden state.”</li>
+  <li>Abstract knowledge takes the form of structured, symbolic representations, such as “graphs, grammars, predicate logic, relational schemas, and functional programs”. The form of the knowledge itself can also be inferred via probabilistic generative models, through the use of “reltional data structures such as graph schemas, templates for graphs based on types of nodes, or probabilistic graph grammars”.</li>
+  <li>This is really where HBMs come into play: they “address the origins of hypothesis spaces and priors by positing not just a single level of hypotheses to explain the data but multiple levels: hypothesis spaces of hypothesis spaces, with priors on priors”.</li>
+</ol>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/kemp2008.html">The discovery of structural form</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>HBMs are so powerful because they simultaneously provide constraints on what types of things can be learned, while also allowing for flexbility in what they can be applied to. For example, Tenenbaum et al. discuss the case of inferring which diseases cause which symptoms. In the simpler case, the task is to learn which nodes in the probabilistic graphical model have edges between them. In the HBM case, there is the additional constraint of assuming two classes of nodes (diseases and symptoms) and that there is a preference for edges to go from diseases to symptoms. Inference is then performed over which nodes are diseases and which are symptoms, as well as what the edges are. The introduction of this additional structure makes inference much faster and accurate. However, the model isn’t limited just to this medical case; it could apply to any similar bipartite structure.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2010.html">Probabilistic models of cognition: exploring representations and inductive biases</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 8, 2015</span>
+<p>There is an important point about contrast to previous nativist vs empiricist approaches:</p>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/08/griffiths2006.html">Optimal predictions in everyday cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 6, 2015</span>
+<ul>
+  <li>In the nativist case, researchers assumed anything important was innately specified, and that very little learning happened. They used sophisticated, structured knowledge (like logic) but it had very little ability to generalize because it lacked a mechanism for learning.</li>
+  <li>In the empiricist case, researchers assumed very little to be specified innately, and that anything could be learned. They used powerful models of learning (like connectionist models), but the representations that those models used were flat and simplistic.</li>
+</ul>
 
-        <h2>
-          <a class="post-link" href="/quals/probabilistic-models/2015/11/06/tenenbaum2001.html">Generalization, similarity, and Bayesian inference</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<p>PGMs find a middle ground between these two approaches, allowing both for powerful learning mechanisms as well as sophisticated, structured representations of knowledge.</p>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/chater1999.html">Ten years of the rational analysis of cognition</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<h1 id="methods">Methods</h1>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/marr1971.html">The philosophy and the approach</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 4, 2015</span>
+<p>n/a</p>
 
-        <h2>
-          <a class="post-link" href="/quals/rational-analysis/2015/11/04/anderson1990.html">Introduction to "The Adaptive Character of Thought"</a>
-        </h2>
-      </li>
-    
-  </ul>
+<h1 id="algorithm">Algorithm</h1>
 
-  <p class="rss-subscribe">subscribe <a href="/quals/feed.xml">via RSS</a></p>
+<p>n/a</p>
+
+<h1 id="takeaways">Takeaways</h1>
+
+<p>Structured forms of knowledge instantiated in hierarchical Bayesian models give us a framework for explaining how people get so much from so little. They have been successfully used to model many simple forms of abstract knowledge, though it remains to be seen how they can explain how we learn broad framework theories for topics such as intuitive physics or theory of mind. It also remains to be seen how these types of structure knowledge representations can be computed neurally.</p>
+
+  </article>
 
 </div>
 
