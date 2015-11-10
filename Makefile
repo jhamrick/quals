@@ -15,12 +15,12 @@ pdf: readings.pdf
 clean:
 	git clean -fdX
 
-deploy: clean build
+deploy: build
 	git checkout gh-pages
 	mv _site .site
 	rm -r *
 	mv .site/* .
 	rmdir .site
 	git add -A
-	git ci -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
+	git ci -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages
 	git checkout master
