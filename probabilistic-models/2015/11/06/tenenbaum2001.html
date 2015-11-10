@@ -99,41 +99,14 @@
 <p>The assumption is made that there is some unknown consequential region $C$ and a hypothesis space $\mathcal{H}$ (of which there is some $h\in \mathcal{H}$ such that $h=C$). Then, given examples $x\in C$, the probability of $y\in C$ is:</p>
 
 <script type="math/tex; mode=display">
-p(y\in C) = \sum_{h:y\in h} \frac{p(x|h)p(h)}{\sum_{h^\prime\in \mathcal{H}} p(x|h^\prime)p(h^\prime)}
+p(y\in C) = \sum_{h:y\in h} \frac{p(x\vert h)p(h)}{\sum_{h^\prime\in \mathcal{H}} p(x\vert h^\prime)p(h^\prime)}
 </script>
 
-<table>
-  <tbody>
-    <tr>
-      <td>where $p(x</td>
-      <td>h)$ can be determined either by <em>weak sampling</em> or <em>strong sampling</em>:</td>
-    </tr>
-  </tbody>
-</table>
+<p>where $p(x\vert h)$ can be determined either by <em>weak sampling</em> or <em>strong sampling</em>:</p>
 
 <ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Weak sampling: $p(x</td>
-          <td>h)=1$ if $x\in h$ and 0 otherwise</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Strong sampling: $p(x</td>
-          <td>h)=\frac{1}{</td>
-          <td>h</td>
-          <td>}$ if $x\in h$ and 0 otherwise</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li>Weak sampling: $p(x\vert h)=1$ if $x\in h$ and 0 otherwise</li>
+  <li>Strong sampling: $p(x\vert h)=\frac{1}{\vert h\vert }$ if $x\in h$ and 0 otherwise</li>
 </ul>
 
 <p>And where the prior can be arbitrary.</p>
@@ -142,14 +115,7 @@ p(y\in C) = \sum_{h:y\in h} \frac{p(x|h)p(h)}{\sum_{h^\prime\in \mathcal{H}} p(x
 
 <p>Using this type of structured Bayesian model is powerful, because it allows us to make explicit our assumptions. From that, the phenomena we want to capture fall out naturally, rather than needing to be explicitly included (such as the weight of feature sets in Tversky’s contrast model).</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>I have the quesetion of: why do consequential regions have to discrete sets or ranges? If you got an example of a wolf, that is kind of a dog, but not exactly – so should it be included as an example of a not-dog, or of a dog? I don’t think this framework allows for that possibility. Actually, as I am writing this, though, I am realizing that it does. Really, the likelihood $p(x</td>
-      <td>h)$ can be arbitrary and doesn’t need to adhere to strong or wheak sampling… e.g. your hypotheses could be the parameters for a Gaussian distribution, in which case you can calculate e.g.</td>
-    </tr>
-  </tbody>
-</table>
+<p>I have the quesetion of: why do consequential regions have to discrete sets or ranges? If you got an example of a wolf, that is kind of a dog, but not exactly – so should it be included as an example of a not-dog, or of a dog? I don’t think this framework allows for that possibility. Actually, as I am writing this, though, I am realizing that it does. Really, the likelihood $p(x\vert h)$ can be arbitrary and doesn’t need to adhere to strong or wheak sampling… e.g. your hypotheses could be the parameters for a Gaussian distribution, in which case you can calculate e.g.</p>
 
 <script type="math/tex; mode=display">
 \int_\mu \int_\sigma \mathcal{N}(x; \mu, \sigma)p(\mu)p(\sigma)\ \mathrm{d}\mu \ \mathrm{d}\sigma
