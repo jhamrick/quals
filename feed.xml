@@ -6,13 +6,13 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 10 Nov 2015 21:17:06 -0800</pubDate>
-    <lastBuildDate>Tue, 10 Nov 2015 21:17:06 -0800</lastBuildDate>
+    <pubDate>Tue, 10 Nov 2015 21:22:22 -0800</pubDate>
+    <lastBuildDate>Tue, 10 Nov 2015 21:22:22 -0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
         <title>Vision as Bayesian inference: analysis by synthesis?</title>
-        <description>&lt;p&gt;(missing reference)&lt;/p&gt;
+        <description>&lt;p&gt;&lt;span id=&quot;Yuille2006&quot;&gt;Yuille, A. L., &amp;amp; Kersten, D. (2006). Vision as Bayesian inference: analysis by synthesis? &lt;i&gt;Trends in Cognitive Sciences&lt;/i&gt;, &lt;i&gt;10&lt;/i&gt;(7), 301–308. doi:10.1016/j.tics.2006.05.002&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
 
@@ -33,33 +33,18 @@
 &lt;p&gt;They use a model similar to a probabilistic context-free grammar (PCFG) in which non-terminal nodes $i$ has attributes for the model type (face, texture, shading, etc.) $\zeta_i$, the region of the image $L_i$ that the model generates, and the model parameters $\theta_i$. The set of all non-terminal nodes is denoted by $W$, whose prior is:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
-P(W)=p(N)\prod_{i=1}^N p(L_i)p(\zeta_i|L_i)p(\theta_i|\zeta_i)
+P(W)=p(N)\prod_{i=1}^N p(L_i)p(\zeta_i\vert L_i)p(\theta_i\vert \zeta_i)
 &lt;/script&gt;
 
 &lt;p&gt;Note that the number of non-terminal nodes, $N$, is also a random variable – so non-terminal nodes are themselves another structure that inference is performed over.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Terminal nodes correspond to the actual image, and have a likelihood of $p(I_{R(L)}&lt;/td&gt;
-      &lt;td&gt;\zeta,L,\theta)$ for the particular region of the image that they correspond to. Combining all the regions, the overall likelihood for an image is:&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;Terminal nodes correspond to the actual image, and have a likelihood of $p(I_{R(L)}\vert \zeta,L,\theta)$ for the particular region of the image that they correspond to. Combining all the regions, the overall likelihood for an image is:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
-P(I|W)=\prod_{i=1}^N p(I_{R(L_i)}|\zeta_i,L_i,\theta_i)
+P(I\vert W)=\prod_{i=1}^N p(I_{R(L_i)}\vert \zeta_i,L_i,\theta_i)
 &lt;/script&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Now given $P(I)$ and $P(I&lt;/td&gt;
-      &lt;td&gt;W)$, inference can be performed to compute $\mathrm{arg}\max_W p(W&lt;/td&gt;
-      &lt;td&gt;I)$ which corresponds to the most likely scene grammar given the observed image. To actually perform inference, they use “data-driven MCMC” which allows for using bottom-up discriminative cues to make proposals for a “transition kernel”:&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;Now given $P(I)$ and $P(I\vert W)$, inference can be performed to compute $\mathrm{arg}\max_W p(W\vert I)$ which corresponds to the most likely scene grammar given the observed image. To actually perform inference, they use “data-driven MCMC” which allows for using bottom-up discriminative cues to make proposals for a “transition kernel”:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
 K_i(W,W^\prime)=q_i(W,W^\prime)a_i(W,W^\prime)
@@ -78,8 +63,8 @@ K_i(W,W^\prime)=q_i(W,W^\prime)a_i(W,W^\prime)
 &lt;p&gt;It’s unclear to me whether there is actual “synthesis” going on in this model. Computing a likelihood function doesn’t necessarily mean that you have to sample from that likelihood. Do they actually syntesize image patches and compare them to the true image? Or are they just computing this likelihood function, without needing to synthesize anything? I do think it is important to have the &lt;em&gt;capacity&lt;/em&gt; for simulation/synthesis (certainly it seems we have this, based on mental imagery) but I’m not sure it’s necessary for actually performing inference. The generative capacity is necessary, perhaps, but “generative” still does not mean that images are being synthesized.&lt;/p&gt;
 </description>
         <pubDate>Tue, 10 Nov 2015 10:42:19 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/generative%20models/2015/11/10/yuille2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/10/yuille2011.html</guid>
+        <link>http://jhamrick.github.io/quals/generative%20models/2015/11/10/yuille2006.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/10/yuille2006.html</guid>
         
         
         <category>Generative models</category>

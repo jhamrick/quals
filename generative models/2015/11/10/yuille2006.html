@@ -11,7 +11,7 @@
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/generative%20models/2015/11/10/yuille2011.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/generative%20models/2015/11/10/yuille2006.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -74,7 +74,7 @@
   </header>
 
   <article class="post-content">
-    <p>(missing reference)</p>
+    <p><span id="Yuille2006">Yuille, A. L., &amp; Kersten, D. (2006). Vision as Bayesian inference: analysis by synthesis? <i>Trends in Cognitive Sciences</i>, <i>10</i>(7), 301–308. doi:10.1016/j.tics.2006.05.002</span></p>
 
 <h1 id="summary">Summary</h1>
 
@@ -95,33 +95,18 @@
 <p>They use a model similar to a probabilistic context-free grammar (PCFG) in which non-terminal nodes $i$ has attributes for the model type (face, texture, shading, etc.) $\zeta_i$, the region of the image $L_i$ that the model generates, and the model parameters $\theta_i$. The set of all non-terminal nodes is denoted by $W$, whose prior is:</p>
 
 <script type="math/tex; mode=display">
-P(W)=p(N)\prod_{i=1}^N p(L_i)p(\zeta_i|L_i)p(\theta_i|\zeta_i)
+P(W)=p(N)\prod_{i=1}^N p(L_i)p(\zeta_i\vert L_i)p(\theta_i\vert \zeta_i)
 </script>
 
 <p>Note that the number of non-terminal nodes, $N$, is also a random variable – so non-terminal nodes are themselves another structure that inference is performed over.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Terminal nodes correspond to the actual image, and have a likelihood of $p(I_{R(L)}</td>
-      <td>\zeta,L,\theta)$ for the particular region of the image that they correspond to. Combining all the regions, the overall likelihood for an image is:</td>
-    </tr>
-  </tbody>
-</table>
+<p>Terminal nodes correspond to the actual image, and have a likelihood of $p(I_{R(L)}\vert \zeta,L,\theta)$ for the particular region of the image that they correspond to. Combining all the regions, the overall likelihood for an image is:</p>
 
 <script type="math/tex; mode=display">
-P(I|W)=\prod_{i=1}^N p(I_{R(L_i)}|\zeta_i,L_i,\theta_i)
+P(I\vert W)=\prod_{i=1}^N p(I_{R(L_i)}\vert \zeta_i,L_i,\theta_i)
 </script>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Now given $P(I)$ and $P(I</td>
-      <td>W)$, inference can be performed to compute $\mathrm{arg}\max_W p(W</td>
-      <td>I)$ which corresponds to the most likely scene grammar given the observed image. To actually perform inference, they use “data-driven MCMC” which allows for using bottom-up discriminative cues to make proposals for a “transition kernel”:</td>
-    </tr>
-  </tbody>
-</table>
+<p>Now given $P(I)$ and $P(I\vert W)$, inference can be performed to compute $\mathrm{arg}\max_W p(W\vert I)$ which corresponds to the most likely scene grammar given the observed image. To actually perform inference, they use “data-driven MCMC” which allows for using bottom-up discriminative cues to make proposals for a “transition kernel”:</p>
 
 <script type="math/tex; mode=display">
 K_i(W,W^\prime)=q_i(W,W^\prime)a_i(W,W^\prime)
