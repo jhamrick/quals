@@ -293,21 +293,27 @@ pre {
 
 .post-content {
   margin-bottom: 30px; }
-  .post-content h2 {
-    font-size: 32px; }
+  .post-content h1 {
+    font-size: 30px; }
     @media screen and (max-width: 800px) {
-      .post-content h2 {
+      .post-content h1 {
         font-size: 28px; } }
-  .post-content h3 {
+  .post-content h2 {
     font-size: 26px; }
     @media screen and (max-width: 800px) {
+      .post-content h2 {
+        font-size: 24px; } }
+  .post-content h3 {
+    font-size: 22px; }
+    @media screen and (max-width: 800px) {
       .post-content h3 {
-        font-size: 22px; } }
+        font-size: 20px; } }
   .post-content h4 {
-    font-size: 20px; }
+    font-size: 18px;
+    font-weight: bold; }
     @media screen and (max-width: 800px) {
       .post-content h4 {
-        font-size: 18px; } }
+        font-size: 16px; } }
 
 /**
  * Syntax highlighting styles

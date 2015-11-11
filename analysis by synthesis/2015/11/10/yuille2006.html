@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Categories</title>
+    <title>Vision as Bayesian inference: analysis by synthesis?</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/categories/">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/10/yuille2006.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -69,122 +69,60 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Categories</h1>
+    <h1 class="post-title">Vision as Bayesian inference: analysis by synthesis?</h1>
+    <p class="post-meta">Nov 10, 2015</p>
   </header>
 
   <article class="post-content">
-    
-<h2 id="rational-analysis">Rational analysis</h2>
-<ul>
+    <p><span id="Yuille2006">Yuille, A. L., &amp; Kersten, D. (2006). Vision as Bayesian inference: analysis by synthesis? <i>Trends in Cognitive Sciences</i>, <i>10</i>(7), 301–308. doi:10.1016/j.tics.2006.05.002</span></p>
 
-  
-    
-  
+<h1 id="summary">Summary</h1>
 
-  
-    
-    <li><a href="/quals/rational%20analysis/2015/11/04/chater1999.html">Ten years of the rational analysis of cognition</a></li>
-    
-  
-    
-    <li><a href="/quals/rational%20analysis/2015/11/04/marr1971.html">The philosophy and the approach</a></li>
-    
-  
-    
-    <li><a href="/quals/rational%20analysis/2015/11/04/anderson1990.html">Introduction to "The Adaptive Character of Thought"</a></li>
-    
-  
+<p>Yuille &amp; Kersten argue that vision research should not focus on simple, artificial stimuli (as is what is normally the case). Instead, they argue that real, naturalistic images should be used. However, the reason why they haven’t been used traditionally is that it is not clear how to analyze visual processing on these images due to their complexity. To deal with this issue, they suggest relying on generative Bayesian models as a way to formalize theories of visual processing, and present an example of one such model.</p>
 
-</ul>
+<h1 id="methods">Methods</h1>
 
-<h2 id="probabilistic-models-of-cognition">Probabilistic models of cognition</h2>
-<ul>
+<p>n/a</p>
 
-  
-    
-  
+<h1 id="algorithm">Algorithm</h1>
 
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/teglas2011.html">Pure reasoning in 12-month-old infants as probabilistic inference</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/tenenbaum2011.html">How to grow a mind: statistics, structure, and abstraction</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/jacobs2011.html">Bayesian learning theory applied to human cognition</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/kemp2008.html">The discovery of structural form</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/griffiths2010.html">Probabilistic models of cognition: exploring representations and inductive biases</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/griffiths2006.html">Optimal predictions in everyday cognition</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/06/tenenbaum2001.html">Generalization, similarity, and Bayesian inference</a></li>
-    
-  
+<p>Their model has two main components: one for bottom-up proposals, and one for top-down validation:</p>
 
-</ul>
+<blockquote>
+  <p>We propose an “analysis by synthesis” strategy where low-level cues, combined with spatial grouping ruls (similar to Gestalt laws), make bottom-up proposals which activate hypotheses about objects and scene structures. These hypotheses are accepted, or rejected, by direct comparison to the image (or a filtered version of it) in a top down process.</p>
+</blockquote>
 
-<h2 id="probabilistic-models-of-perception">Probabilistic models of perception</h2>
-<ul>
+<p>They use a model similar to a probabilistic context-free grammar (PCFG) in which non-terminal nodes $i$ has attributes for the model type (face, texture, shading, etc.) $\zeta_i$, the region of the image $L_i$ that the model generates, and the model parameters $\theta_i$. The set of all non-terminal nodes is denoted by $W$, whose prior is:</p>
 
-  
-    
-  
+<script type="math/tex; mode=display">
+P(W)=p(N)\prod_{i=1}^N p(L_i)p(\zeta_i\vert L_i)p(\theta_i\vert \zeta_i)
+</script>
 
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/ernst2002.html">Humans integrate visual and haptic information in a statistically optimal fashion</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/kording2004.html">Bayesian integration in sensorimotor learning</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002-ipynb.html">Demo: Motion illusions as optimal percepts</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002.html">Motion illusions as optimal percepts</a></li>
-    
-  
+<p>Note that the number of non-terminal nodes, $N$, is also a random variable – so non-terminal nodes are themselves another structure that inference is performed over.</p>
 
-</ul>
+<p>Terminal nodes correspond to the actual image, and have a likelihood of $p(I_{R(L)}\vert \zeta,L,\theta)$ for the particular region of the image that they correspond to. Combining all the regions, the overall likelihood for an image is:</p>
 
-<h2 id="analysis-by-synthesis">Analysis by synthesis</h2>
-<ul>
+<script type="math/tex; mode=display">
+P(I\vert W)=\prod_{i=1}^N p(I_{R(L_i)}\vert \zeta_i,L_i,\theta_i)
+</script>
 
-  
-    
-  
+<p>Now given $P(I)$ and $P(I\vert W)$, inference can be performed to compute $\mathrm{arg}\max_W p(W\vert I)$ which corresponds to the most likely scene grammar given the observed image. To actually perform inference, they use “data-driven MCMC” which allows for using bottom-up discriminative cues to make proposals for a “transition kernel”:</p>
 
-  
-    
-    <li><a href="/quals/analysis%20by%20synthesis/2015/11/11/halle1962.html">Speech recognition: a model and a program for research</a></li>
-    
-  
-    
-    <li><a href="/quals/analysis%20by%20synthesis/2015/11/11/bever2010.html">Analysis by synthesis: A (re-)emerging program of research for language and vision</a></li>
-    
-  
-    
-    <li><a href="/quals/analysis%20by%20synthesis/2015/11/10/yuille2006.html">Vision as Bayesian inference: analysis by synthesis?</a></li>
-    
-  
+<script type="math/tex; mode=display">
+K_i(W,W^\prime)=q_i(W,W^\prime)a_i(W,W^\prime)
+</script>
 
-</ul>
+<p>where each $K_i$ gives the probability for transitioning from $W$ to $W^\prime$ and corresponds to a particular operation on the parse tree. The $q_i$ function is the discriminative proposal function, and $a_i$ is the acceptance function.</p>
+
+<p>The model from this paper is actually one described in more detail in another paper (which I have not yet read through, only the abstract):</p>
+
+<p><span id="Tu2005">Tu, Z., Chen, X., Yuille, A. L., &amp; Zhu, S.-C. (2005). Image Parsing: Unifying Segmentation, Detection, and Recognition. <i>International Journal of Computer Vision</i>, <i>63</i>(2), 113–140. doi:10.1007/s11263-005-6642-x</span></p>
+
+<h1 id="takeaways">Takeaways</h1>
+
+<p>Generative Bayesian models allow us to build powerful, structured models that may allow us to better capture complex real-world phenomena such as realistic images. While Yuille &amp; Kersten don’t explicitly turn their model of visual segmentation and processing into a theory for visual perception, it certainly provides a foundation that could be used in future work (and perhaps has been – I haven’t investigated this yet).</p>
+
+<p>It’s unclear to me whether there is actual “synthesis” going on in this model. Computing a likelihood function doesn’t necessarily mean that you have to sample from that likelihood. Do they actually syntesize image patches and compare them to the true image? Or are they just computing this likelihood function, without needing to synthesize anything? I do think it is important to have the <em>capacity</em> for simulation/synthesis (certainly it seems we have this, based on mental imagery) but I’m not sure it’s necessary for actually performing inference. The generative capacity is necessary, perhaps, but “generative” still does not mean that images are being synthesized.</p>
 
   </article>
 
