@@ -6,9 +6,79 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 11 Nov 2015 14:04:04 -0800</pubDate>
-    <lastBuildDate>Wed, 11 Nov 2015 14:04:04 -0800</lastBuildDate>
+    <pubDate>Wed, 11 Nov 2015 19:03:10 -0800</pubDate>
+    <lastBuildDate>Wed, 11 Nov 2015 19:03:10 -0800</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Concerning the perceptions in general</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Helmholtz1924&quot;&gt;Helmholtz, H. (1924). Concerning the perceptions in general. In J. P. C. Southall (Ed.), &lt;i&gt;Treatise on Physiological Optics&lt;/i&gt; (pp. 1–37). New York: Dover Publications.&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Helmholtz is often credited for explicitly stating that the goal of the mind is to infer what processes in the world give rise to our perceptions through a mechanism he terms “unconscious inference”. It could be that, in performing these unconscious inferences, we simply learn a series of associations between senses and things in the world. This would correspond, I suppose, to a discriminative view of perception. Helmholtz however doesn’t stop with associations, but goes further to assert that the way we perform unconscious inferences is by determining “generic notions” and “laws of nature”. In other words, our mind constructs a generative model of the world:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Our intellect is the faculty of forming general conceptions. It has nothing to do with our sense-perceptions and experiences, unless it is able to form general conceptions or laws. These laws are then objectified and designated as causes. (pg. 34)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Interestingly, this idea is almost &lt;em&gt;exactly&lt;/em&gt; the one put forth by &lt;a href=&quot;/quals/generative%20models/2015/11/11/craik1943.html&quot;&gt;Craik&lt;/a&gt; about 50 years later:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My hypothesis then is that thought models, or parallels, reality—that its essential feature is not ‘the mind’, ‘the self’, ‘sense-data’, nor propositions but symbolism, and that this symbolism is largely of the same kind as that which is familiar to us in mechanical devices which aid thought and calculation (pg. 57)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I think the major difference between these two views is, perhaps, that Craik seems more committed to the idea that our mental models are exceedingly accurate, while Helmholtz doesn’t seem to care about their accuracy – they will be as accurate as the regularities in our perceptions lead us to believe. That is, if there is ambiguity in our perceptions, then our model of reality will be similarly ambiguous, lacking in detail, or inaccurate.&lt;/p&gt;
+
+&lt;p&gt;Helmholtz also discusses the relevance of the &lt;em&gt;experiment&lt;/em&gt; in our ability to understand the world, foreshadowing approaches in active learning and optimal experiment design:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We are not simply passive to the impressions that are urged on us, but we &lt;em&gt;observe&lt;/em&gt;, that is, we adjust our organs in those conditions that enable them to distinguish the impressions most accurately. (pg. 14)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;He also predicts the idea of thought as being symbolic:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Our ideas of things &lt;em&gt;cannot&lt;/em&gt; be anything but symbols, natural signs for things which we learn how to use in order to regulate our movements and actions. Having learned correctly how to read those symbols, we are enabled by their help to adjust our actions so as to bring about the desired result; that is, so that the expected new sensations will arise. (pg. 19)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To sum up, Helmholtz discusses a lot of the ideas that are really core to the way that we think about things today in cognitive science, and also to probabilistic, generative models of cognition.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 11 Nov 2015 10:17:11 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/generative%20models/2015/11/11/helmholtz1924.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/11/helmholtz1924.html</guid>
+        
+        
+        <category>Generative models</category>
+        
+      </item>
+    
+      <item>
+        <title>Hypothesis on the nature of thought</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Craik1943&quot;&gt;Craik, K. (1943). Hypothesis on the nature of thought. In &lt;i&gt;The Nature of Explanation&lt;/i&gt; (pp. 50–61).&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Craik was one of the first modern psychologists to explicitly propose the idea of having a generative model of the world. There are two main points that he makes.&lt;/p&gt;
+
+&lt;p&gt;First, the mind uses a different representation than either sensory/motor inputs or outputs. There are “three essential processes” which consist of translation of external stimuli into symbols, processing of these symbols into other symbols, and retranslation of the new symbols into a new external representation (such as action).&lt;/p&gt;
+
+&lt;p&gt;Second, te way that we process symbols is by using a “model”, which he defines in relation to real, physical processes in the world. As in the famous quote that everybody likes to use:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If the organism carries a ‘small-scale model’ of external reality and of its own possible actions within its head, it is able to try out various alternatives, conclude which is the best of them, react to future situations before they arise, utilise the knowledge of past events in dealing with the present and future, and in every way react in a much fuller, safer, and more competent manner to the emergencies which face it. (pg. 61)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Craik seems to think that such a model is more reliable than what it probably actually is (“we can, for instance, design a bridge in our minds and know that it will bear a train passing over it instead of having to conduct a number of full-scale experiments”, pg. 59), but the core idea is an important one. By having a model of reality, we can make predictions about reality that we otherwise wouldn’t be able to make, because reality is too complicated.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 11 Nov 2015 10:17:11 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/generative%20models/2015/11/11/craik1943.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/11/craik1943.html</guid>
+        
+        
+        <category>Generative models</category>
+        
+      </item>
     
       <item>
         <title>Speech recognition: a model and a program for research</title>
@@ -511,114 +581,6 @@ P(D_F\vert D_{0,\ldots{},F-1})\propto \sum_{k=1}^K \left[P(D_F\vert S_F^k)\prod_
         <pubDate>Sun, 08 Nov 2015 11:23:45 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/teglas2011.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/teglas2011.html</guid>
-        
-        
-        <category>Probabilistic models of cognition</category>
-        
-      </item>
-    
-      <item>
-        <title>How to grow a mind: statistics, structure, and abstraction</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Tenenbaum2011&quot;&gt;Tenenbaum, J. B., Kemp, C., Griffiths, T. L., &amp;amp; Goodman, N. D. (2011). How to grow a mind: statistics, structure, and abstraction. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;331&lt;/i&gt;(6022), 1279–85. doi:10.1126/science.1192788&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Tenenbaum et al. attempt to address three questions:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;How does abstract knowledge guide learning and inference from sparse data?&lt;/li&gt;
-  &lt;li&gt;What forms does abstract knowledge take, across different domains and tasks?&lt;/li&gt;
-  &lt;li&gt;How is abstract knowledge itself acquired?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The overarching answer to these three questions is “hierarchical Bayesian models” (HBMs):&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;“Abstract knowledge is encoded in a probabilistic generative model, a kind of mental model that describes the causal processes in the world giving rise to the learner’s observations as well as unobserved or latent variables that support effective prediction and action if the learner can infer their hidden state.”&lt;/li&gt;
-  &lt;li&gt;Abstract knowledge takes the form of structured, symbolic representations, such as “graphs, grammars, predicate logic, relational schemas, and functional programs”. The form of the knowledge itself can also be inferred via probabilistic generative models, through the use of “reltional data structures such as graph schemas, templates for graphs based on types of nodes, or probabilistic graph grammars”.&lt;/li&gt;
-  &lt;li&gt;This is really where HBMs come into play: they “address the origins of hypothesis spaces and priors by positing not just a single level of hypotheses to explain the data but multiple levels: hypothesis spaces of hypothesis spaces, with priors on priors”.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;HBMs are so powerful because they simultaneously provide constraints on what types of things can be learned, while also allowing for flexbility in what they can be applied to. For example, Tenenbaum et al. discuss the case of inferring which diseases cause which symptoms. In the simpler case, the task is to learn which nodes in the probabilistic graphical model have edges between them. In the HBM case, there is the additional constraint of assuming two classes of nodes (diseases and symptoms) and that there is a preference for edges to go from diseases to symptoms. Inference is then performed over which nodes are diseases and which are symptoms, as well as what the edges are. The introduction of this additional structure makes inference much faster and accurate. However, the model isn’t limited just to this medical case; it could apply to any similar bipartite structure.&lt;/p&gt;
-
-&lt;p&gt;There is an important point about contrast to previous nativist vs empiricist approaches:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;In the nativist case, researchers assumed anything important was innately specified, and that very little learning happened. They used sophisticated, structured knowledge (like logic) but it had very little ability to generalize because it lacked a mechanism for learning.&lt;/li&gt;
-  &lt;li&gt;In the empiricist case, researchers assumed very little to be specified innately, and that anything could be learned. They used powerful models of learning (like connectionist models), but the representations that those models used were flat and simplistic.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;PGMs find a middle ground between these two approaches, allowing both for powerful learning mechanisms as well as sophisticated, structured representations of knowledge.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;Structured forms of knowledge instantiated in hierarchical Bayesian models give us a framework for explaining how people get so much from so little. They have been successfully used to model many simple forms of abstract knowledge, though it remains to be seen how they can explain how we learn broad framework theories for topics such as intuitive physics or theory of mind. It also remains to be seen how these types of structure knowledge representations can be computed neurally.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 08 Nov 2015 10:11:51 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/tenenbaum2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/tenenbaum2011.html</guid>
-        
-        
-        <category>Probabilistic models of cognition</category>
-        
-      </item>
-    
-      <item>
-        <title>Bayesian learning theory applied to human cognition</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Jacobs2011&quot;&gt;Jacobs, R. A., &amp;amp; Kruschke, J. K. (2011). Bayesian learning theory applied to human cognition. &lt;i&gt;Wiley Interdisciplinary Reviews: Cognitive Science&lt;/i&gt;, &lt;i&gt;2&lt;/i&gt;(1), 8–21. doi:10.1002/wcs.80&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Jacobs &amp;amp; Kruschke make an argument for using Bayesian models of cognition. They give a precise definition of what they mean for Bayesian models to be optimal, saying that given the structure of the prior and likelihood, Bayesian models are the optimal in the sense that you cannot do better. However, they also explicitly say that this is, of course &lt;em&gt;given that these structures are correct&lt;/em&gt;. You can posit a variety of reasonable options for the structures in the model. They argue that this is a good thing, though, because it makes the assumptions explicit, which subsequently makes it more straightforward to evaluate those assumptions.&lt;/p&gt;
-
-&lt;p&gt;They give three examples of what can happen when comparing a Bayesian model to human behavior:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The model and human behavior match. This gives evidence that people are integrating information in a statistically optimal fashion, and provides support for the represenations used by the Bayesian model.&lt;/li&gt;
-  &lt;li&gt;The model outperforms people. This suggests that people are not incorporating all sources of information, or are limited by computational constraints. These possibilities can be investigated by creating a new Bayesian model with these constraints.&lt;/li&gt;
-  &lt;li&gt;People outperform the model. This suggests that people are taking into account more information or assumptions than the model. Again, this possibility can be investigated by creating a new model that accounts for more information.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Jacobs &amp;amp; Kruschke give examples of three ways in which Bayesian models can be used:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Inference: using data from some variables to update beliefs about other variables. Integrating data (e.g. multisensory percepts) in a statistically optimal fashion.&lt;/li&gt;
-  &lt;li&gt;Parameter learning: similar to inference. They don’t explicitly define what they take as being the difference between inference and parameter learning, but I think the difference for them is that inference is more about beliefs about causes, while parameter learning is more about learning the specific distributions of variables (e.g., inference –&amp;gt; did a or b cause c?, parameter learning –&amp;gt; what are the weights of a and b?). They do talk about the difference between &lt;em&gt;discriminative&lt;/em&gt; and &lt;em&gt;generative&lt;/em&gt; models, though:
-    &lt;ul&gt;
-      &lt;li&gt;discriminative: learning the conditional probability distribution $p(\mathrm{outcome}\ \vert\ \mathrm{cues})$&lt;/li&gt;
-      &lt;li&gt;generative: learning the joint probability distribution $p(\mathrm{outcome},\ \mathrm{cues})$, from which you can compute $p(\mathrm{outcome}\ \vert\ \mathrm{cues})$ as well as $p(\mathrm{cues}\ \vert\ \mathrm{outcome})$&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Structure learning: not just learning about the variables in a model, but learning &lt;em&gt;which model&lt;/em&gt; is the correct one.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;They also briefly discuss how prior knowledge can be very influential, and how important it is to get right, and how you can determine what people’s priors are.&lt;/p&gt;
-
-&lt;p&gt;They also talk about active learning, which is the process of actively selecting what data to observe. They argue that this process is not something that can be captured easily by other types of models.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I like the characterization of what, exactly, it means for a Bayesian model to be “optimal”, and what this implies for cognitive science. Importantly, they talk about the optimality of a Bayesian model as being a way to gauge what people are doing: are the suboptimal (implying processing limitations)? Or are they better than optimal (implying that the model is missing something?) Or are they close to the model (implying the model’s assumptions may be close to what people actually do?)&lt;/p&gt;
-</description>
-        <pubDate>Sun, 08 Nov 2015 07:42:05 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/jacobs2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/jacobs2011.html</guid>
         
         
         <category>Probabilistic models of cognition</category>
