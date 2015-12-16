@@ -6,7 +6,7 @@ permalink: /categories/
 
 {% for category in site.categories %}
 ## {{ category | first }}
-<ul>
+<ol>
 {% for posts in category %}
   {% for post in posts %}
     {% if post.title %}
@@ -14,5 +14,5 @@ permalink: /categories/
     {% endif %}
   {% endfor %}
 {% endfor %}
-</ul>
+</ol>
 {% endfor %}
