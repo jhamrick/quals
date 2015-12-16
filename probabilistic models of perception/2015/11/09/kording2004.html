@@ -11,7 +11,7 @@
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/kording2004.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Kording2004.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -109,15 +109,11 @@
 
 <p>The goal is to estimate a distribution for the true displacement $x_{true}$, based on the observed $x_{sensed}$:</p>
 
-<script type="math/tex; mode=display">
-p(x_{true}|x_{sensed})\propto\mathcal{N}(x_{sensed}; x_{true}, \sigma_{sensed})\mathcal{N}(x_{true}; 1\mathrm{cm}, \sigma_{prior})
-</script>
+<script type="math/tex; mode=display">p(x_{true}|x_{sensed})\propto\mathcal{N}(x_{sensed}; x_{true}, \sigma_{sensed})\mathcal{N}(x_{true}; 1\mathrm{cm}, \sigma_{prior})</script>
 
 <p>The MAP estimate of this distribution is then:</p>
 
-<script type="math/tex; mode=display">
-x_{estimated}=\frac{\sigma^2_{sensed}}{\sigma^2_{sensed}+\sigma^2_{prior}}[1\mathrm{cm}]+\frac{\sigma^2_{prior}}{\sigma^2_{sensed}+\sigma^2_{prior}}x_{sensed}
-</script>
+<script type="math/tex; mode=display">x_{estimated}=\frac{\sigma^2_{sensed}}{\sigma^2_{sensed}+\sigma^2_{prior}}[1\mathrm{cm}]+\frac{\sigma^2_{prior}}{\sigma^2_{sensed}+\sigma^2_{prior}}x_{sensed}</script>
 
 <p>I think that $\sigma_{sensed}$ here isn’t necessarily exactly the exact uncertainty from $\sigma_0$, $\sigma_M$, and $\sigma_L$, but a combination of that as well as intrinsic motor and/or perceptual uncertainty.</p>
 

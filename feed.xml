@@ -6,9 +6,58 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 11 Nov 2015 19:24:35 -0800</pubDate>
-    <lastBuildDate>Wed, 11 Nov 2015 19:24:35 -0800</lastBuildDate>
-    <generator>Jekyll v3.0.0</generator>
+    <pubDate>Wed, 16 Dec 2015 12:33:29 -0800</pubDate>
+    <lastBuildDate>Wed, 16 Dec 2015 12:33:29 -0800</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>A survey of Monte Carlo Tree Search methods</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Browne2012&quot;&gt;Browne, C., Powley, E., Whitehouse, D., Lucas, S., Cowling, P. I., Rohlfshagen, P., … Colton, S. (2012). A survey of Monte Carlo tree search methods. &lt;i&gt;IEEE Transactions On Computational Intelligence and AI in Games&lt;/i&gt;, &lt;i&gt;4&lt;/i&gt;(1), 1–10. doi:10.1109/TCIAIG.2012.2186810&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;This paper gives a comprehensive overview of the Monte Carlo Tree Search (MCTS) algorithm and the variations thereof. In reading this paper, I am focusing less on the variations of the algorithm and just on the core ideas behind how it works, which are laid out in pages 1-10.&lt;/p&gt;
+
+&lt;p&gt;The basic idea behind MCTS is to build up a tree, where each node corresponds to a state and each edge from a node corresponds to an action. Leaf nodes are chosen according to a particular algorithm, and then full games are simulated from those nodes until they terminate. Then, the results of the simulation are backpropagated up the tree all the way to the root node.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;The basic algorithm of MCTS is as follows:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;Selection&lt;/em&gt;: start at the root node, and walk down the tree according to the “tree policy” until either an expandable node is reached or a terminal state is reached. A node is “expandable” if it has previously unexplored children.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Expansion&lt;/em&gt;: expand one of the child nodes.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Simulation&lt;/em&gt;: run forward a simulation from the expanded child node until the simulation terminates according to some “default policy”.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Backpropagation&lt;/em&gt;: update the statistics of all nodes in the path from the root node to the expanded child node based on the results of the simulation.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;These steps are repeated while there is still computation time remaining. Then, the action is taken that corresponds to the best child node of the root node.&lt;/p&gt;
+
+&lt;p&gt;Browne et al. describe a tree policy called the &lt;em&gt;Upper Confidence Bound for Trees&lt;/em&gt; (UCT), which chooses a child node $j$ to maximize:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;UCT= \bar{X}_j + 2 C_p\sqrt{\frac{2\log n}{n_j}}&lt;/script&gt;
+
+&lt;p&gt;where \widebar{X}_j is the average reward of child $j$, $n$ is the number of times the parent node has been visited, $n_j$ is the number of times child $j$ has been visited, and $C_p&amp;gt;0$ is a constant. When $n_j=0$, the second term will be infinite, and thus will cause unexplored children to be explored prior to exploiting nodes that have been explored.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;MCTS is a successful approach to dealing with large state/action spaces, which product deep trees with large branching factors. MCTS offers a way to trade off between exploration and exploitation while still being able to roll out simulations all the way to termination. This means that even if rewards are only acheived at the end (e.g., win or lose), they can still be incorporated. And, unlike other RL techniques, MCTS does not require that the full state space be enumerated, which may be necessary to fully estimate the value of a state in terms of its future rewards.&lt;/p&gt;
+
+&lt;p&gt;Some thoughts/questions that I have:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How does MCTS work when rewards are asymmetric, e.g. in the case of a game where the goal is simply to keep playing for as long as possible? In this case, all terminal states would have a negative reward (for lose). I suppose you could perhaps give rewards that are instead equal to the length of the game that is played, but I’m not sure if that’s actually the correct approach.&lt;/li&gt;
+  &lt;li&gt;Sometimes the state/action space might not actually be a true tree, but just a DAG, because you can reach certain states in multiple ways. But, I think that MCTS would probably treat these states as separate and require that they be explored independently. This seems like it would be a waste of computation.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 11 Nov 2015 10:17:11 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/11/11/Browne2012.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/11/11/Browne2012.html</guid>
+        
+        
+        <category>Planning and decision making</category>
+        
+      </item>
     
       <item>
         <title>Concerning the perceptions in general</title>
@@ -22,7 +71,7 @@
   &lt;p&gt;Our intellect is the faculty of forming general conceptions. It has nothing to do with our sense-perceptions and experiences, unless it is able to form general conceptions or laws. These laws are then objectified and designated as causes. (pg. 34)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Interestingly, this idea is almost &lt;em&gt;exactly&lt;/em&gt; the one put forth by &lt;a href=&quot;/quals/generative%20models/2015/11/11/craik1943.html&quot;&gt;Craik&lt;/a&gt; about 50 years later:&lt;/p&gt;
+&lt;p&gt;Interestingly, this idea is almost &lt;em&gt;exactly&lt;/em&gt; the one put forth by &lt;a href=&quot;/quals/generative%20models/2015/11/11/Craik1943.html&quot;&gt;Craik&lt;/a&gt; about 50 years later:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;My hypothesis then is that thought models, or parallels, reality—that its essential feature is not ‘the mind’, ‘the self’, ‘sense-data’, nor propositions but symbolism, and that this symbolism is largely of the same kind as that which is familiar to us in mechanical devices which aid thought and calculation (pg. 57)&lt;/p&gt;
@@ -45,8 +94,8 @@
 &lt;p&gt;To sum up, Helmholtz discusses a lot of the ideas that are really core to the way that we think about things today in cognitive science, and also to probabilistic, generative models of cognition.&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Nov 2015 10:17:11 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/generative%20models/2015/11/11/helmholtz1924.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/11/helmholtz1924.html</guid>
+        <link>http://jhamrick.github.io/quals/generative%20models/2015/11/11/Helmholtz1924.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/11/Helmholtz1924.html</guid>
         
         
         <category>Generative models</category>
@@ -72,8 +121,8 @@
 &lt;p&gt;Craik seems to think that such a model is more reliable than what it probably actually is (“we can, for instance, design a bridge in our minds and know that it will bear a train passing over it instead of having to conduct a number of full-scale experiments”, pg. 59), but the core idea is an important one. By having a model of reality, we can make predictions about reality that we otherwise wouldn’t be able to make, because reality is too complicated.&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Nov 2015 10:17:11 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/generative%20models/2015/11/11/craik1943.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/11/craik1943.html</guid>
+        <link>http://jhamrick.github.io/quals/generative%20models/2015/11/11/Craik1943.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/11/Craik1943.html</guid>
         
         
         <category>Generative models</category>
@@ -82,7 +131,7 @@
     
       <item>
         <title>Speech recognition: a model and a program for research</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Halle1962&quot;&gt;Halle, M., &amp;amp; Stevens, K. N. (1962). Speech recognition: a model and a program for research. &lt;i&gt;IRE Transactions on Information Theory&lt;/i&gt;, &lt;i&gt;8&lt;/i&gt;(2), 155–159. doi:10.1109/TIT.1962.1057686&lt;/span&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;span id=&quot;Halle1962&quot;&gt;Halle, M., &amp;amp; Stevens, K. N. (1962). Speech recognition: a model and a program for research. &lt;i&gt;IRE Transactions On Information Theory&lt;/i&gt;, &lt;i&gt;8&lt;/i&gt;(2), 155–159. doi:10.1109/TIT.1962.1057686&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
 
@@ -98,7 +147,7 @@
   &lt;p&gt;It is then possible to store in the “permanent memory” of the analyzer only the rules for speech production discussed in the previous section. In this model the dictionary is replaced by &lt;em&gt;generative rules&lt;/em&gt; which can synthesize signals in response to instructions consisting of sequences of phonemes… The internally generated signal which provides the best match with the input signal then identifies the required phoneme sequence. (pg. 157)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;They go on to discuss the other common features of analysis by synthesis: first, that a “preliminary analysis” can cut down on the number of phoneme sequences that need to be analyzed, and second, that a “control” component can determine the order in which to test out phoneme sequences. The data-driven MCMC approach from &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/10/yuille2006.html&quot;&gt;Yuille &amp;amp; Kersten&lt;/a&gt; has echoes of this – in their case, different hypotheses are generated by simple cues (preliminary analysis) and then the MCMC algorithm performs a random walk in hypothesis space proportional to the posterior probability of the hypotheses (control).&lt;/p&gt;
+&lt;p&gt;They go on to discuss the other common features of analysis by synthesis: first, that a “preliminary analysis” can cut down on the number of phoneme sequences that need to be analyzed, and second, that a “control” component can determine the order in which to test out phoneme sequences. The data-driven MCMC approach from &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html&quot;&gt;Yuille &amp;amp; Kersten&lt;/a&gt; has echoes of this – in their case, different hypotheses are generated by simple cues (preliminary analysis) and then the MCMC algorithm performs a random walk in hypothesis space proportional to the posterior probability of the hypotheses (control).&lt;/p&gt;
 
 &lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
 
@@ -113,8 +162,8 @@
 &lt;p&gt;This is the foundational work on analysis by synthesis and is remarkably forward thinking. Even though it’s applied to speech perception here, it could easily be applied to many other areas of cognition (e.g., vision as Yuille &amp;amp; Kersten have already shown). It also seems like there is a lot of similarities to this approach and the increasingly popular idea of training a deep network on low-level features, and then using a structured Bayesian model on top of the the output of that network. The similarity is that the deep network takes the place of a powerful learning system for determining relevant cues, and the Bayesian model does the high level work of constraining and evaluating hypotheses.&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Nov 2015 05:35:12 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/halle1962.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/halle1962.html</guid>
+        <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Halle1962.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Halle1962.html</guid>
         
         
         <category>Analysis by synthesis</category>
@@ -127,7 +176,7 @@
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
 
-&lt;p&gt;Bever &amp;amp; Poeppel describe the &lt;em&gt;analysis by synthesis&lt;/em&gt; (AxS) approach and how it applies to language. AxS was apparently first proposed by &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/11/halle1962.html&quot;&gt;Halle &amp;amp; Stevens&lt;/a&gt; as a hypothesis for how speech production works. It follows the following steps:&lt;/p&gt;
+&lt;p&gt;Bever &amp;amp; Poeppel describe the &lt;em&gt;analysis by synthesis&lt;/em&gt; (AxS) approach and how it applies to language. AxS was apparently first proposed by &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/11/Halle1962.html&quot;&gt;Halle &amp;amp; Stevens&lt;/a&gt; as a hypothesis for how speech production works. It follows the following steps:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Form a rough hypothesis about the input based on simple cues&lt;/li&gt;
@@ -150,7 +199,7 @@
 
 &lt;h2 id=&quot;analysis-by-synthesis-in-vision&quot;&gt;Analysis by synthesis in vision&lt;/h2&gt;
 
-&lt;p&gt;Bever &amp;amp; Poepple reference &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/10/yuille2006.html&quot;&gt;Yuille &amp;amp; Kersten&lt;/a&gt;, among others, and discuss how AxS has been fruitful in vision. They note that given the wide array of cross-modal effects, if such a AxS process exists in vision, then it is likely to occur for audition/speech perception as well, perhaps utilizing some sort of general-purpose mechanism.&lt;/p&gt;
+&lt;p&gt;Bever &amp;amp; Poepple reference &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html&quot;&gt;Yuille &amp;amp; Kersten&lt;/a&gt;, among others, and discuss how AxS has been fruitful in vision. They note that given the wide array of cross-modal effects, if such a AxS process exists in vision, then it is likely to occur for audition/speech perception as well, perhaps utilizing some sort of general-purpose mechanism.&lt;/p&gt;
 
 &lt;h2 id=&quot;bayesian-approach&quot;&gt;Bayesian approach&lt;/h2&gt;
 
@@ -166,13 +215,13 @@
 
 &lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
 
-&lt;p&gt;AxS seems to be a promising approach in both vision and language. However, as I discussed a bit in my notes on &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/10/yuille2006.html&quot;&gt;Yuille &amp;amp; Kersten&lt;/a&gt;, I don’t necessarily see why the “synthesis” component is so crucial. If that’s what is necessary to compute the probability (e.g., if you are using some approach like Approximate Bayesian Computation), then sure, but I’m not convinced that it is. As long as you can compute the PDF at a particular point, then you can evaluate the likelihood of the data given the model without necessarily needing to created a synthesized version of the image or sound production.&lt;/p&gt;
+&lt;p&gt;AxS seems to be a promising approach in both vision and language. However, as I discussed a bit in my notes on &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html&quot;&gt;Yuille &amp;amp; Kersten&lt;/a&gt;, I don’t necessarily see why the “synthesis” component is so crucial. If that’s what is necessary to compute the probability (e.g., if you are using some approach like Approximate Bayesian Computation), then sure, but I’m not convinced that it is. As long as you can compute the PDF at a particular point, then you can evaluate the likelihood of the data given the model without necessarily needing to created a synthesized version of the image or sound production.&lt;/p&gt;
 
 &lt;p&gt;So in general, my takeaway from the “analysis by synthesis” approach doesn’t so much have to do with synthesis itself, but of the combination of low-level cues to generate hypotheses, and top-down knowledge to constrain those hypotheses. The reason for having this particular approach (as opposed to just doing inference over all hypotheses) is that the space of hypotheses is large enough so as to make it intractable to consider all possible hypotheses.&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Nov 2015 03:55:24 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/bever2010.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/bever2010.html</guid>
+        <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Bever2010.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Bever2010.html</guid>
         
         
         <category>Analysis by synthesis</category>
@@ -181,7 +230,7 @@
     
       <item>
         <title>Vision as Bayesian inference: analysis by synthesis?</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Yuille2006&quot;&gt;Yuille, A. L., &amp;amp; Kersten, D. (2006). Vision as Bayesian inference: analysis by synthesis? &lt;i&gt;Trends in Cognitive Sciences&lt;/i&gt;, &lt;i&gt;10&lt;/i&gt;(7), 301–308. doi:10.1016/j.tics.2006.05.002&lt;/span&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;span id=&quot;Yuille2006&quot;&gt;Yuille, A. L., &amp;amp; Kersten, D. (2006). Vision as Bayesian inference: analysis by synthesis? &lt;i&gt;Trends In Cognitive Sciences&lt;/i&gt;, &lt;i&gt;10&lt;/i&gt;(7), 301–308. doi:10.1016/j.tics.2006.05.002&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
 
@@ -201,29 +250,23 @@
 
 &lt;p&gt;They use a model similar to a probabilistic context-free grammar (PCFG) in which non-terminal nodes $i$ has attributes for the model type (face, texture, shading, etc.) $\zeta_i$, the region of the image $L_i$ that the model generates, and the model parameters $\theta_i$. The set of all non-terminal nodes is denoted by $W$, whose prior is:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-P(W)=p(N)\prod_{i=1}^N p(L_i)p(\zeta_i\vert L_i)p(\theta_i\vert \zeta_i)
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(W)=p(N)\prod_{i=1}^N p(L_i)p(\zeta_i\vert L_i)p(\theta_i\vert \zeta_i)&lt;/script&gt;
 
 &lt;p&gt;Note that the number of non-terminal nodes, $N$, is also a random variable – so non-terminal nodes are themselves another structure that inference is performed over.&lt;/p&gt;
 
 &lt;p&gt;Terminal nodes correspond to the actual image, and have a likelihood of $p(I_{R(L)}\vert \zeta,L,\theta)$ for the particular region of the image that they correspond to. Combining all the regions, the overall likelihood for an image is:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-P(I\vert W)=\prod_{i=1}^N p(I_{R(L_i)}\vert \zeta_i,L_i,\theta_i)
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(I\vert W)=\prod_{i=1}^N p(I_{R(L_i)}\vert \zeta_i,L_i,\theta_i)&lt;/script&gt;
 
 &lt;p&gt;Now given $P(I)$ and $P(I\vert W)$, inference can be performed to compute $\mathrm{arg}\max_W p(W\vert I)$ which corresponds to the most likely scene grammar given the observed image. To actually perform inference, they use “data-driven MCMC” which allows for using bottom-up discriminative cues to make proposals for a “transition kernel”:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-K_i(W,W^\prime)=q_i(W,W^\prime)a_i(W,W^\prime)
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;K_i(W,W^\prime)=q_i(W,W^\prime)a_i(W,W^\prime)&lt;/script&gt;
 
 &lt;p&gt;where each $K_i$ gives the probability for transitioning from $W$ to $W^\prime$ and corresponds to a particular operation on the parse tree. The $q_i$ function is the discriminative proposal function, and $a_i$ is the acceptance function.&lt;/p&gt;
 
 &lt;p&gt;The model from this paper is actually one described in more detail in another paper (which I have not yet read through, only the abstract):&lt;/p&gt;
 
-&lt;p&gt;&lt;span id=&quot;Tu2005&quot;&gt;Tu, Z., Chen, X., Yuille, A. L., &amp;amp; Zhu, S.-C. (2005). Image Parsing: Unifying Segmentation, Detection, and Recognition. &lt;i&gt;International Journal of Computer Vision&lt;/i&gt;, &lt;i&gt;63&lt;/i&gt;(2), 113–140. doi:10.1007/s11263-005-6642-x&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span id=&quot;Tu2005&quot;&gt;Tu, Z., Chen, X., Yuille, A. L., &amp;amp; Zhu, S.-C. (2005). Image Parsing: Unifying Segmentation, Detection, and Recognition. &lt;i&gt;International Journal Of Computer Vision&lt;/i&gt;, &lt;i&gt;63&lt;/i&gt;(2), 113–140. doi:10.1007/s11263-005-6642-x&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
 
@@ -232,8 +275,8 @@ K_i(W,W^\prime)=q_i(W,W^\prime)a_i(W,W^\prime)
 &lt;p&gt;It’s unclear to me whether there is actual “synthesis” going on in this model. Computing a likelihood function doesn’t necessarily mean that you have to sample from that likelihood. Do they actually syntesize image patches and compare them to the true image? Or are they just computing this likelihood function, without needing to synthesize anything? I do think it is important to have the &lt;em&gt;capacity&lt;/em&gt; for simulation/synthesis (certainly it seems we have this, based on mental imagery) but I’m not sure it’s necessary for actually performing inference. The generative capacity is necessary, perhaps, but “generative” still does not mean that images are being synthesized.&lt;/p&gt;
 </description>
         <pubDate>Tue, 10 Nov 2015 10:42:19 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/10/yuille2006.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/10/yuille2006.html</guid>
+        <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html</guid>
         
         
         <category>Analysis by synthesis</category>
@@ -260,21 +303,15 @@ K_i(W,W^\prime)=q_i(W,W^\prime)a_i(W,W^\prime)
 
 &lt;p&gt;Assuming the noise in each modality is Gaussian with variance $\sigma_i^2$, then the MLE estimate of the percept is:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-\hat{S}=\sum_i w_i\hat{S}_i
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{S}=\sum_i w_i\hat{S}_i&lt;/script&gt;
 
 &lt;p&gt;where&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-w_i=\frac{1/\sigma_i^2}{\sum_j 1/\sigma_j^2}
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;w_i=\frac{1/\sigma_i^2}{\sum_j 1/\sigma_j^2}&lt;/script&gt;
 
 &lt;p&gt;Assuming that the ratio of the visual weight to the haptic rate is the same as the ratio between the haptic and visual thresholds (PSEs), or $w_V/w_H=T_H^2/T_V^2$, then the weights are:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}&lt;/script&gt;
 
 &lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
 
@@ -285,8 +322,8 @@ w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}
 &lt;p&gt;Second, I’m not sure the choice of MLE/uniform prior is necessarily appropriate. Why not use MAP with a prior on the types of percepts people are likely to encounter? Even if the intuition is that the prior would be broad enough that it’s essentially uniform (or is actually uniform), it would be better to motivate this and have some discussion about it.&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 15:11:30 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/ernst2002.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/ernst2002.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Ernst2002.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Ernst2002.html</guid>
         
         
         <category>Probabilistic models of perception</category>
@@ -330,15 +367,11 @@ w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}
 
 &lt;p&gt;The goal is to estimate a distribution for the true displacement $x_{true}$, based on the observed $x_{sensed}$:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-p(x_{true}|x_{sensed})\propto\mathcal{N}(x_{sensed}; x_{true}, \sigma_{sensed})\mathcal{N}(x_{true}; 1\mathrm{cm}, \sigma_{prior})
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(x_{true}|x_{sensed})\propto\mathcal{N}(x_{sensed}; x_{true}, \sigma_{sensed})\mathcal{N}(x_{true}; 1\mathrm{cm}, \sigma_{prior})&lt;/script&gt;
 
 &lt;p&gt;The MAP estimate of this distribution is then:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-x_{estimated}=\frac{\sigma^2_{sensed}}{\sigma^2_{sensed}+\sigma^2_{prior}}[1\mathrm{cm}]+\frac{\sigma^2_{prior}}{\sigma^2_{sensed}+\sigma^2_{prior}}x_{sensed}
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;x_{estimated}=\frac{\sigma^2_{sensed}}{\sigma^2_{sensed}+\sigma^2_{prior}}[1\mathrm{cm}]+\frac{\sigma^2_{prior}}{\sigma^2_{sensed}+\sigma^2_{prior}}x_{sensed}&lt;/script&gt;
 
 &lt;p&gt;I think that $\sigma_{sensed}$ here isn’t necessarily exactly the exact uncertainty from $\sigma_0$, $\sigma_M$, and $\sigma_L$, but a combination of that as well as intrinsic motor and/or perceptual uncertainty.&lt;/p&gt;
 
@@ -347,8 +380,8 @@ x_{estimated}=\frac{\sigma^2_{sensed}}{\sigma^2_{sensed}+\sigma^2_{prior}}[1\mat
 &lt;p&gt;In motor learning tasks, people adapt to the statistics of the world that they are interacting with. They are able to learn about the uncertainty in processes affecting their movement (in this case, lateral movement, but this could also potentially be something like wind or the mass of an object inhibiting movement), whether that be a regular Gaussian distribution, or even a bimodal distribution. Moreover, people take into account sensory uncertainty – both their own (arising from noise in perceptual/motor processes?) and that imposed by the experimenter. Being able to account for this sensory uncertainty could be useful in learning how to deal with distorted perceptions (e.g. angle of refraction when looking into water, perhaps?). In particular, this adaption seems to be consistent with optimal Bayesian integration of prior and sensory uncertainty.&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 10:43:06 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/kording2004.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/kording2004.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Kording2004.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Kording2004.html</guid>
         
         
         <category>Probabilistic models of perception</category>
@@ -361,111 +394,111 @@ x_{estimated}=\frac{\sigma^2_{sensed}}{\sigma^2_{sensed}+\sigma^2_{prior}}[1\mat
 
 &lt;p&gt;First, just create our imports and define a few helper functions to get started:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy.stats&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;plt&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ipywidgets&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interact&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;%matplotlib inline
+import numpy as np
+import scipy.stats
+import matplotlib.pyplot as plt
+from ipywidgets import interact
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Show the probabilities as a function of x and y velocities.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;origin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;lower&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interpolation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;nearest&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;gray&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;xmid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ymid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ymid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;gray&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;gray&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_xticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([])&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_yticks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([])&lt;/span&gt;
+def imshow(ax, p):
+    &amp;quot;&amp;quot;&amp;quot;Show the probabilities as a function of x and y velocities.&amp;quot;&amp;quot;&amp;quot;
+    ax.imshow(p.T, origin=&amp;#39;lower&amp;#39;, interpolation=&amp;#39;nearest&amp;#39;, cmap=&amp;#39;gray&amp;#39;)
+    xmid = (p.shape[1] - 1) / 2
+    ymid = (p.shape[0] - 1) / 2
+    ax.vlines(ymid, 0, p.shape[1], color=&amp;#39;gray&amp;#39;)
+    ax.hlines(xmid, 0, p.shape[0], color=&amp;#39;gray&amp;#39;)
+    ax.set_xticks([])
+    ax.set_yticks([])
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Compute the log probability for a uniform random variable between (low, high).&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scipy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logpdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+def uniform(x, low, high):
+    &amp;quot;&amp;quot;&amp;quot;Compute the log probability for a uniform random variable between (low, high).&amp;quot;&amp;quot;&amp;quot;
+    return scipy.stats.uniform.logpdf(x, low, high - low)
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Compute the log probability for a Gaussian random variable with parameters μ and σ.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scipy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logpdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+def norm(x, mu, sigma):
+    &amp;quot;&amp;quot;&amp;quot;Compute the log probability for a Gaussian random variable with parameters μ and σ.&amp;quot;&amp;quot;&amp;quot;
+    return scipy.stats.norm.logpdf(x, mu, sigma)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Define a few options for the prior. In the paper, they used the equivalent of &lt;code&gt;prior1&lt;/code&gt;, but I’m also interested in comparing to a uniform prior and a Gaussian prior with different mean:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prior1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Zero-mean Gaussian prior with σ=25&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;def prior1(vx, vy):
+    &amp;quot;&amp;quot;&amp;quot;Zero-mean Gaussian prior with σ=25&amp;quot;&amp;quot;&amp;quot;
+    return norm(vx, 0, 25) + norm(vy, 0, 25)
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prior2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Velocity Average (VA) Gaussian prior with σ=5&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;17.88461538&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;14.42307692&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+def prior2(vx, vy):
+    &amp;quot;&amp;quot;&amp;quot;Velocity Average (VA) Gaussian prior with σ=5&amp;quot;&amp;quot;&amp;quot;
+    return norm(vx, 17.88461538, 5) + norm(vy, -14.42307692, 5)
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prior3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Uniform prior between -50 and 50&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+def prior3(vx, vy):
+    &amp;quot;&amp;quot;&amp;quot;Uniform prior between -50 and 50&amp;quot;&amp;quot;&amp;quot;
+    return uniform(vx, -50, 100) + uniform(vy, -50, 100)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now, define the full model. This assumes a thin rhombus, but the prior function and the contrast (i.e., inverse sigma) can be modified:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ogrid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;51&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;51&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prior_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;lh1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;lh2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;posterior&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lh1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lh2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;MAP&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unravel_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argmax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posterior&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posterior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;def model(prior_func, sigma):
+    vx, vy = np.ogrid[-50:51,-50:51]
+    prior = prior_func(vx, vy)
+    lh1 = uniform(vx, -50, 100) + norm(vy - vx + 30, 0, sigma)
+    lh2 = uniform(vx, -50, 100) + norm(vy - 1.5 * vx + 45, 0, sigma)
+    posterior = lh1 + lh2 + prior
+    MAP = np.unravel_index(np.argmax(posterior), posterior.shape)
 
-    &lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_size_inches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    fig, axes = plt.subplots(1, 4)
+    fig.set_size_inches(12, 3)
 
-    &lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Prior&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    imshow(axes[0], np.exp(prior))
+    axes[0].set_title(&amp;#39;Prior&amp;#39;)
     
-    &lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lh1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Likelihood 1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    imshow(axes[1], np.exp(lh1))
+    axes[1].set_title(&amp;#39;Likelihood 1&amp;#39;)
     
-    &lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lh2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Likelihood 2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    imshow(axes[2], np.exp(lh2))
+    axes[2].set_title(&amp;#39;Likelihood 2&amp;#39;)
     
-    &lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posterior&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Posterior&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;autoscale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;axes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MAP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MAP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;ro&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    imshow(axes[3], np.exp(posterior))
+    axes[3].set_title(&amp;#39;Posterior&amp;#39;)
+    axes[3].autoscale(enable=False)
+    axes[3].plot(MAP[0], MAP[1], &amp;#39;ro&amp;#39;)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Original prior, high contrast:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;model(prior1, 1)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_9_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Original prior, low contrast:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;model(prior1, 10)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_11_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;VA prior, high contrast:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;model(prior2, 1)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_13_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;VA prior, low contrast:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;model(prior2, 10)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_15_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Uniform prior, high contrast:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;model(prior3, 1)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_17_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Uniform prior, low contrast:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;model(prior3, 10)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;img src=&quot;/quals/notebooks/Weiss2002_files/Weiss2002_19_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 09 Nov 2015 08:55:41 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002-ipynb.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002-ipynb.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Weiss2002-ipynb.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Weiss2002-ipynb.html</guid>
         
         
         <category>Probabilistic models of perception</category>
@@ -499,29 +532,21 @@ x_{estimated}=\frac{\sigma^2_{sensed}}{\sigma^2_{sensed}+\sigma^2_{prior}}[1\mat
 
 &lt;p&gt;The assumption is that points in the world move but do not change their intensity over time, but that the observation of this constraint is noisy, i.e.:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-I(x,y,t)=I(x+v_x\delta t, y+v_y\delta t, t+\delta t) + \eta
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;I(x,y,t)=I(x+v_x\delta t, y+v_y\delta t, t+\delta t) + \eta&lt;/script&gt;
 
 &lt;p&gt;where $\eta\sim \mathcal{N}(0,\sigma)$. Computing the first-order Taylor series expansion:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-P(I(x_i,y_i,t)\vert v_i)\propto \exp\left(-\frac{1}{2\sigma^2}\int_{x,y} w_i(x,y)(\frac{\partial I}{\partial x}(x,y,t)v_x+\frac{\partial I}{\partial y}(x,y,t)v_t+\frac{\partial I}{\partial t}(x,y,t))^2\ \mathrm{d}x\ \mathrm{d}y\right)
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(I(x_i,y_i,t)\vert v_i)\propto \exp\left(-\frac{1}{2\sigma^2}\int_{x,y} w_i(x,y)(\frac{\partial I}{\partial x}(x,y,t)v_x+\frac{\partial I}{\partial y}(x,y,t)v_t+\frac{\partial I}{\partial t}(x,y,t))^2\ \mathrm{d}x\ \mathrm{d}y\right)&lt;/script&gt;
 
 &lt;p&gt;where $w_i(x,y)$ is a window centered on $(x_i,y_i)$. In practice they say they used “a small Gaussian window”, though they do not explicitly define what size that is.&lt;/p&gt;
 
 &lt;p&gt;They chose a prior to favor slow speeds:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-P(v)\propto \exp(-\lVert v\rVert ^2/2\sigma_p^2)
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(v)\propto \exp(-\lVert v\rVert ^2/2\sigma_p^2)&lt;/script&gt;
 
 &lt;p&gt;And so the posterior is then:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)
-&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)&lt;/script&gt;
 
 &lt;p&gt;where the product is computed over all locations $i$ that are moving with a common velocity $v$ (in practice this is done over the entire image, which is moving with the same velocity vector).&lt;/p&gt;
 
@@ -531,59 +556,14 @@ P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)
 
 &lt;p&gt;They describe the effect of modulating the noise in the likelihood, but it would have also been interesting to see what the effect of changing the prior is. What if they assumed a uniform distribution of speeds? Or what is the prior were centered on the true velocity instead? Would you find that this model collapses into pure IOC behavior or pure VA behavior?&lt;/p&gt;
 
-&lt;p&gt;From &lt;a href=&quot;/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002-ipynb.html&quot;&gt;playing around with this&lt;/a&gt;, it seems as though a uniform prior collapses to IOC. Having a prior centered on VA obviously biases towards VA, though the strength of that biases depends strongly on the variance. In other words, if the prior is Gaussian, even if it’s not zero-mean, you still get largely the same behavior as what they report in the paper.&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&quot;/quals/probabilistic%20models%20of%20perception/2015/11/09/Weiss2002-ipynb.html&quot;&gt;playing around with this&lt;/a&gt;, it seems as though a uniform prior collapses to IOC. Having a prior centered on VA obviously biases towards VA, though the strength of that biases depends strongly on the variance. In other words, if the prior is Gaussian, even if it’s not zero-mean, you still get largely the same behavior as what they report in the paper.&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 06:27:59 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Weiss2002.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Weiss2002.html</guid>
         
         
         <category>Probabilistic models of perception</category>
-        
-      </item>
-    
-      <item>
-        <title>Pure reasoning in 12-month-old infants as probabilistic inference</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Teglas2011&quot;&gt;Teglas, E., Vul, E., Girotto, V., Gonzalez, M., Tenenbaum, J. B., &amp;amp; Bonatti, L. L. (2011). Pure reasoning in 12-month-old infants as probabilistic inference. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;332&lt;/i&gt;(6033), 1054–9. doi:10.1126/science.1196404&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Previous work has shown that infants are sensitive to physical laws, such as rigidity (objects can’t pass through walls) and spatiotemporal continuity (objects can’t teleport). Can infants also reason about these properties in combination? Teglas et al. argue that they can, and present an experiment and model to support their claim. They also show how their model can qualitatively account for other results in the developmental literature relating to rigidity and spatiotemporal continuity.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;Teglas et al. showed infants videos of four objects bouncing around in a container. Three of the objects were one color (blue) and one was another color (red). Infants saw the container be occluded, and then saw one of the objects come out of the container. Depending on the length of the occlusion, infants were more or less surprised when the exited object was originally far away from the opening at the time of occlusion:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;If the occlusion was short, then they were surprised when the exited object was not near the opening, and not surprised when it was.&lt;/li&gt;
-  &lt;li&gt;If the occlusion was medium, then they were still surprised if it wasn’t near the opening, but less so, and their judgments seemed to also be consistent with the &lt;em&gt;frequency&lt;/em&gt; of objects.&lt;/li&gt;
-  &lt;li&gt;If the occlusion was long, then their looking time seemed to be only determined by the frequency of different objects: they looked longer when the single red object exited, than when one of the three blue objects exited.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Teglas et al. assume an ideal observer model with the form of a HMM, where $S_t$ is the true state of the system at time $t$ and where $D_t$ is the data observed at time $t$.&lt;/p&gt;
-
-&lt;p&gt;The transition model ($P(S_t\vert S_{t-1})$) specifies rigidty and spatiotemporal continuity constraints, and is given a Brownian motion distribution on object dynamics (product of constrained Gaussians for each object in the scene, where constraints are given by the boundaries of the container).&lt;/p&gt;
-
-&lt;p&gt;The observation model ($P(D_t\vert S_t)$) is not explained in detail, but the supplementary material says it is determined by “Boolean consistency with a set of key features” (hamming distance?).&lt;/p&gt;
-
-&lt;p&gt;They take $k$ samples from the model and average over them in a Monte Carlo approximation, to obtain:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-P(D_F\vert D_{0,\ldots{},F-1})\propto \sum_{k=1}^K \left[P(D_F\vert S_F^k)\prod_{t=1}^F P(S_t^k\vert S_{t-1}^k)P(D_{t-1}\vert S_{t-1}^k)\right]
-&lt;/script&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I hadn’t read this paper this closely before, but it really shows how this was a precursor to my intuitive physics work: there are a lot of parallels between the two. In short, the idea is that by using a simulation-based model that reflects real physical constraints (if not necessarily true dynamics), you can predict infants’ looking time on tasks that require them to reason about both physical continuity/rigidity and/or spatiotemporal continuity.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 08 Nov 2015 11:23:45 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/teglas2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/08/teglas2011.html</guid>
-        
-        
-        <category>Probabilistic models of cognition</category>
         
       </item>
     

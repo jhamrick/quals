@@ -11,7 +11,7 @@
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Weiss2002.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -99,29 +99,21 @@
 
 <p>The assumption is that points in the world move but do not change their intensity over time, but that the observation of this constraint is noisy, i.e.:</p>
 
-<script type="math/tex; mode=display">
-I(x,y,t)=I(x+v_x\delta t, y+v_y\delta t, t+\delta t) + \eta
-</script>
+<script type="math/tex; mode=display">I(x,y,t)=I(x+v_x\delta t, y+v_y\delta t, t+\delta t) + \eta</script>
 
 <p>where $\eta\sim \mathcal{N}(0,\sigma)$. Computing the first-order Taylor series expansion:</p>
 
-<script type="math/tex; mode=display">
-P(I(x_i,y_i,t)\vert v_i)\propto \exp\left(-\frac{1}{2\sigma^2}\int_{x,y} w_i(x,y)(\frac{\partial I}{\partial x}(x,y,t)v_x+\frac{\partial I}{\partial y}(x,y,t)v_t+\frac{\partial I}{\partial t}(x,y,t))^2\ \mathrm{d}x\ \mathrm{d}y\right)
-</script>
+<script type="math/tex; mode=display">P(I(x_i,y_i,t)\vert v_i)\propto \exp\left(-\frac{1}{2\sigma^2}\int_{x,y} w_i(x,y)(\frac{\partial I}{\partial x}(x,y,t)v_x+\frac{\partial I}{\partial y}(x,y,t)v_t+\frac{\partial I}{\partial t}(x,y,t))^2\ \mathrm{d}x\ \mathrm{d}y\right)</script>
 
 <p>where $w_i(x,y)$ is a window centered on $(x_i,y_i)$. In practice they say they used “a small Gaussian window”, though they do not explicitly define what size that is.</p>
 
 <p>They chose a prior to favor slow speeds:</p>
 
-<script type="math/tex; mode=display">
-P(v)\propto \exp(-\lVert v\rVert ^2/2\sigma_p^2)
-</script>
+<script type="math/tex; mode=display">P(v)\propto \exp(-\lVert v\rVert ^2/2\sigma_p^2)</script>
 
 <p>And so the posterior is then:</p>
 
-<script type="math/tex; mode=display">
-P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)
-</script>
+<script type="math/tex; mode=display">P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)</script>
 
 <p>where the product is computed over all locations $i$ that are moving with a common velocity $v$ (in practice this is done over the entire image, which is moving with the same velocity vector).</p>
 
@@ -131,7 +123,7 @@ P(v\vert I)\propto P(v)\prod_{i:v_i=v} P(I(x_i,y_i,t)\vert v)
 
 <p>They describe the effect of modulating the noise in the likelihood, but it would have also been interesting to see what the effect of changing the prior is. What if they assumed a uniform distribution of speeds? Or what is the prior were centered on the true velocity instead? Would you find that this model collapses into pure IOC behavior or pure VA behavior?</p>
 
-<p>From <a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/weiss2002-ipynb.html">playing around with this</a>, it seems as though a uniform prior collapses to IOC. Having a prior centered on VA obviously biases towards VA, though the strength of that biases depends strongly on the variance. In other words, if the prior is Gaussian, even if it’s not zero-mean, you still get largely the same behavior as what they report in the paper.</p>
+<p>From <a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/Weiss2002-ipynb.html">playing around with this</a>, it seems as though a uniform prior collapses to IOC. Having a prior centered on VA obviously biases towards VA, though the strength of that biases depends strongly on the variance. In other words, if the prior is Gaussian, even if it’s not zero-mean, you still get largely the same behavior as what they report in the paper.</p>
 
   </article>
 

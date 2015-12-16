@@ -11,7 +11,7 @@
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/06/tenenbaum2001.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20cognition/2015/11/06/Tenenbaum2001.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -74,7 +74,7 @@
   </header>
 
   <article class="post-content">
-    <p><span id="Tenenbaum2001">Tenenbaum, J. B., &amp; Griffiths, T. L. (2001). Generalization, similarity, and Bayesian inference. <i>The Behavioral and Brain Sciences</i>, <i>24</i>, 629–640; discussion 652–791. doi:10.1017/S0140525X01000061</span></p>
+    <p><span id="Tenenbaum2001">Tenenbaum, J. B., &amp; Griffiths, T. L. (2001). Generalization, similarity, and Bayesian inference. <i>The Behavioral And Brain Sciences</i>, <i>24</i>, 629–640; discussion 652–791. doi:10.1017/S0140525X01000061</span></p>
 
 <h1 id="summary">Summary</h1>
 
@@ -102,9 +102,7 @@
 
 <p>The assumption is made that there is some unknown consequential region $C$ and a hypothesis space $\mathcal{H}$ (of which there is some $h\in \mathcal{H}$ such that $h=C$). Then, given examples $x\in C$, the probability of $y\in C$ is:</p>
 
-<script type="math/tex; mode=display">
-p(y\in C) = \sum_{h:y\in h} \frac{p(x\vert h)p(h)}{\sum_{h^\prime\in \mathcal{H}} p(x\vert h^\prime)p(h^\prime)}
-</script>
+<script type="math/tex; mode=display">p(y\in C) = \sum_{h:y\in h} \frac{p(x\vert h)p(h)}{\sum_{h^\prime\in \mathcal{H}} p(x\vert h^\prime)p(h^\prime)}</script>
 
 <p>where $p(x\vert h)$ can be determined either by <em>weak sampling</em> or <em>strong sampling</em>:</p>
 
@@ -121,9 +119,7 @@ p(y\in C) = \sum_{h:y\in h} \frac{p(x\vert h)p(h)}{\sum_{h^\prime\in \mathcal{H}
 
 <p>I have the quesetion of: why do consequential regions have to discrete sets or ranges? If you got an example of a wolf, that is kind of a dog, but not exactly – so should it be included as an example of a not-dog, or of a dog? I don’t think this framework allows for that possibility. Actually, as I am writing this, though, I am realizing that it does. Really, the likelihood $p(x\vert h)$ can be arbitrary and doesn’t need to adhere to strong or wheak sampling… e.g. your hypotheses could be the parameters for a Gaussian distribution, in which case you can calculate e.g.</p>
 
-<script type="math/tex; mode=display">
-\int_\mu \int_\sigma \mathcal{N}(x; \mu, \sigma)p(\mu)p(\sigma)\ \mathrm{d}\mu \ \mathrm{d}\sigma
-</script>
+<script type="math/tex; mode=display">\int_\mu \int_\sigma \mathcal{N}(x; \mu, \sigma)p(\mu)p(\sigma)\ \mathrm{d}\mu \ \mathrm{d}\sigma</script>
 
   </article>
 

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Humans integrate visual and haptic information in a statistically optimal fashion</title>
+    <title>A survey of Monte Carlo Tree Search methods</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Ernst2002.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/11/11/Browne2012.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -69,46 +69,48 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Humans integrate visual and haptic information in a statistically optimal fashion</h1>
-    <p class="post-meta">Nov 9, 2015 • Probabilistic models of perception</p>
+    <h1 class="post-title">A survey of Monte Carlo Tree Search methods</h1>
+    <p class="post-meta">Nov 11, 2015 • Planning and decision making</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Ernst2002">Ernst, M. O., &amp; Banks, M. S. (2002). Humans integrate visual and haptic information in a statistically optimal fashion. <i>Nature</i>, <i>415</i>(6870), 429–433. doi:10.1038/415429a</span></p>
+    <p><span id="Browne2012">Browne, C., Powley, E., Whitehouse, D., Lucas, S., Cowling, P. I., Rohlfshagen, P., … Colton, S. (2012). A survey of Monte Carlo tree search methods. <i>IEEE Transactions On Computational Intelligence and AI in Games</i>, <i>4</i>(1), 1–10. doi:10.1109/TCIAIG.2012.2186810</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>People get information from multiple modalities – for example, from haptic feedback and from visual perception. Ernst &amp; Banks asked, how do people decide which modality of information to rely on? Or, do they combine modalities, and if so, how do they weigh the respective information? They hypothesized that people perform a MLE estimate of the sensory information based on a weighted average of the information from each modality, and present quantitative fits for this model.</p>
+<p>This paper gives a comprehensive overview of the Monte Carlo Tree Search (MCTS) algorithm and the variations thereof. In reading this paper, I am focusing less on the variations of the algorithm and just on the core ideas behind how it works, which are laid out in pages 1-10.</p>
 
-<h1 id="methods">Methods</h1>
-
-<p>There were three different experiments. In all the experiments, they had participants judge the height of a bar relative to a standard stimulus (i.e., judging whether the current stimulus is higher or lower than the standard one).</p>
-
-<p>First, there were two experiments (visual-only and haptic-only) that they used to estimate the PSE (point of subjective equality) for each modality. These PSE estimates are a proxy for how much uncertainty people have. For the haptic-only experiment, there was no variance in the noise, while in the visual-only experiment, they varied the noise levels between 0 and 200%.</p>
-
-<p>The third experiment combined haptic and visual feedback, and again varied the visual noise level.</p>
+<p>The basic idea behind MCTS is to build up a tree, where each node corresponds to a state and each edge from a node corresponds to an action. Leaf nodes are chosen according to a particular algorithm, and then full games are simulated from those nodes until they terminate. Then, the results of the simulation are backpropagated up the tree all the way to the root node.</p>
 
 <h1 id="algorithm">Algorithm</h1>
 
-<p>Assuming the noise in each modality is Gaussian with variance $\sigma_i^2$, then the MLE estimate of the percept is:</p>
+<p>The basic algorithm of MCTS is as follows:</p>
 
-<script type="math/tex; mode=display">\hat{S}=\sum_i w_i\hat{S}_i</script>
+<ol>
+  <li><em>Selection</em>: start at the root node, and walk down the tree according to the “tree policy” until either an expandable node is reached or a terminal state is reached. A node is “expandable” if it has previously unexplored children.</li>
+  <li><em>Expansion</em>: expand one of the child nodes.</li>
+  <li><em>Simulation</em>: run forward a simulation from the expanded child node until the simulation terminates according to some “default policy”.</li>
+  <li><em>Backpropagation</em>: update the statistics of all nodes in the path from the root node to the expanded child node based on the results of the simulation.</li>
+</ol>
 
-<p>where</p>
+<p>These steps are repeated while there is still computation time remaining. Then, the action is taken that corresponds to the best child node of the root node.</p>
 
-<script type="math/tex; mode=display">w_i=\frac{1/\sigma_i^2}{\sum_j 1/\sigma_j^2}</script>
+<p>Browne et al. describe a tree policy called the <em>Upper Confidence Bound for Trees</em> (UCT), which chooses a child node $j$ to maximize:</p>
 
-<p>Assuming that the ratio of the visual weight to the haptic rate is the same as the ratio between the haptic and visual thresholds (PSEs), or $w_V/w_H=T_H^2/T_V^2$, then the weights are:</p>
+<script type="math/tex; mode=display">UCT= \bar{X}_j + 2 C_p\sqrt{\frac{2\log n}{n_j}}</script>
 
-<script type="math/tex; mode=display">w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}</script>
+<p>where \widebar{X}_j is the average reward of child $j$, $n$ is the number of times the parent node has been visited, $n_j$ is the number of times child $j$ has been visited, and $C_p&gt;0$ is a constant. When $n_j=0$, the second term will be infinite, and thus will cause unexplored children to be explored prior to exploiting nodes that have been explored.</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>Based on these experiments, it would seem that people seem to trade-off between different sources of information depending on how reliable that information is. If a normally reliable source of information (e.g., vision) becomes unreliable, then people will fall back on another source (e.g., haptic).</p>
+<p>MCTS is a successful approach to dealing with large state/action spaces, which product deep trees with large branching factors. MCTS offers a way to trade off between exploration and exploitation while still being able to roll out simulations all the way to termination. This means that even if rewards are only acheived at the end (e.g., win or lose), they can still be incorporated. And, unlike other RL techniques, MCTS does not require that the full state space be enumerated, which may be necessary to fully estimate the value of a state in terms of its future rewards.</p>
 
-<p>I have two main questions regarding this paper. First, why didn’t they attempt to modulate the haptic feedback as well? Since that was constant, we don’t actually know whether participants optimally trade-off between vision and haptic feedback – only that they seem to appropriately modulate their reliance on visual information. It would be interesting to see if the same effect holds after introducing uncertainty into haptic feedback (perhaps making the participants wear gloves?).</p>
+<p>Some thoughts/questions that I have:</p>
 
-<p>Second, I’m not sure the choice of MLE/uniform prior is necessarily appropriate. Why not use MAP with a prior on the types of percepts people are likely to encounter? Even if the intuition is that the prior would be broad enough that it’s essentially uniform (or is actually uniform), it would be better to motivate this and have some discussion about it.</p>
+<ul>
+  <li>How does MCTS work when rewards are asymmetric, e.g. in the case of a game where the goal is simply to keep playing for as long as possible? In this case, all terminal states would have a negative reward (for lose). I suppose you could perhaps give rewards that are instead equal to the length of the game that is played, but I’m not sure if that’s actually the correct approach.</li>
+  <li>Sometimes the state/action space might not actually be a true tree, but just a DAG, because you can reach certain states in multiple ways. But, I think that MCTS would probably treat these states as separate and require that they be explored independently. This seems like it would be a waste of computation.</li>
+</ul>
 
   </article>
 
