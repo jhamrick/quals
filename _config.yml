@@ -6,7 +6,7 @@ baseurl: "/quals" # the subpath of your site, e.g. /blog/
 url: "http://jhamrick.github.io" # the base hostname & protocol for your site
 twitter_username: jhamrick
 github_username:  jhamrick
-highlighter: pygments
+highlighter: rogue
 gems: ['jekyll/scholar']
 
 # Build settings
