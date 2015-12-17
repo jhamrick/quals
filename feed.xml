@@ -6,8 +6,8 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 16 Dec 2015 16:13:29 -0800</pubDate>
-    <lastBuildDate>Wed, 16 Dec 2015 16:13:29 -0800</lastBuildDate>
+    <pubDate>Wed, 16 Dec 2015 16:22:21 -0800</pubDate>
+    <lastBuildDate>Wed, 16 Dec 2015 16:22:21 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -26,19 +26,12 @@
 
 &lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;The sequence of states and actions taken by the agent can be summarized as a sequence of &lt;em&gt;experience tuples&lt;/em&gt;, $\langle s, a, r, t \rangle$. The agent’s belief about the MDP (i.e. the true transition and reward functions) is $\mu$, so that $P(M&lt;/td&gt;
-      &lt;td&gt;\mu)$ is the agent’s prior over possible MDPs given their initial belief $\mu$. After one timestep, the agent has a new experience and the updated distribution can be written as:&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;The sequence of states and actions taken by the agent can be summarized as a sequence of &lt;em&gt;experience tuples&lt;/em&gt;, $\langle s, a, r, t \rangle$. The agent’s belief about the MDP (i.e. the true transition and reward functions) is $\mu$, so that $P(M\vert\mu)$ is the agent’s prior over possible MDPs given their initial belief $\mu$. After one timestep, the agent has a new experience and the updated distribution can be written as:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align*}
-P(M|\mu \circ \langle s, a, r, t \rangle) &amp;\propto P(\langle s, a, r, t \rangle | M)P(M|\mu)
-&amp;= P(s\rightarrow^a t|M)P(s\rightarrow^a r|M)P(M|\mu)
+P(M\vert\mu \circ \langle s, a, r, t \rangle) &amp;\propto P(\langle s, a, r, t \rangle \vert M)P(M\vert\mu)\\
+&amp;= P(s\rightarrow^a t\vert M)P(s\rightarrow^a r\vert M)P(M\vert\mu)
 \end{align*} %]]&gt;&lt;/script&gt;
 
 &lt;p&gt;We can represent the particular transition and reward functions by sets of parameters $\theta^t_{s,a,t}$ and $\theta^r_{s,a,r}$.&lt;/p&gt;

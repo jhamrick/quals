@@ -88,19 +88,12 @@
 
 <h1 id="algorithm">Algorithm</h1>
 
-<table>
-  <tbody>
-    <tr>
-      <td>The sequence of states and actions taken by the agent can be summarized as a sequence of <em>experience tuples</em>, $\langle s, a, r, t \rangle$. The agent’s belief about the MDP (i.e. the true transition and reward functions) is $\mu$, so that $P(M</td>
-      <td>\mu)$ is the agent’s prior over possible MDPs given their initial belief $\mu$. After one timestep, the agent has a new experience and the updated distribution can be written as:</td>
-    </tr>
-  </tbody>
-</table>
+<p>The sequence of states and actions taken by the agent can be summarized as a sequence of <em>experience tuples</em>, $\langle s, a, r, t \rangle$. The agent’s belief about the MDP (i.e. the true transition and reward functions) is $\mu$, so that $P(M\vert\mu)$ is the agent’s prior over possible MDPs given their initial belief $\mu$. After one timestep, the agent has a new experience and the updated distribution can be written as:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align*}
-P(M|\mu \circ \langle s, a, r, t \rangle) &\propto P(\langle s, a, r, t \rangle | M)P(M|\mu)
-&= P(s\rightarrow^a t|M)P(s\rightarrow^a r|M)P(M|\mu)
+P(M\vert\mu \circ \langle s, a, r, t \rangle) &\propto P(\langle s, a, r, t \rangle \vert M)P(M\vert\mu)\\
+&= P(s\rightarrow^a t\vert M)P(s\rightarrow^a r\vert M)P(M\vert\mu)
 \end{align*} %]]></script>
 
 <p>We can represent the particular transition and reward functions by sets of parameters $\theta^t_{s,a,t}$ and $\theta^r_{s,a,r}$.</p>
