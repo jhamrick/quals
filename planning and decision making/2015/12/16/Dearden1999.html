@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Categories</title>
+    <title>Model based Bayesian exploration</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/categories/">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/16/Dearden1999.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -69,160 +69,52 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Categories</h1>
+    <h1 class="post-title">Model based Bayesian exploration</h1>
+    <p class="post-meta">Dec 16, 2015 • Planning and decision making</p>
   </header>
 
   <article class="post-content">
-    
-<h2 id="rational-analysis">Rational analysis</h2>
-<ol>
+    <p><span id="Dearden1999">Dearden, R., Friedman, N., &amp; Andre, D. (1999). Model based Bayesian exploration. <i>Proceedings Of the Fifteenth Conference on Uncertainty in Artificial Intelligence</i>, 150–159. Retrieved from http://dl.acm.org/citation.cfm?id=2073814</span></p>
 
-  
-    
-  
+<h1 id="summary">Summary</h1>
 
-  
-    
-    <li><a href="/quals/rational%20analysis/2015/11/04/Chater1999.html">Ten years of the rational analysis of cognition</a></li>
-    
-  
-    
-    <li><a href="/quals/rational%20analysis/2015/11/04/Marr1971.html">The philosophy and the approach</a></li>
-    
-  
-    
-    <li><a href="/quals/rational%20analysis/2015/11/04/Anderson1990.html">Introduction to "The Adaptive Character of Thought"</a></li>
-    
-  
+<p>In reinforcement learning (RL), there are two main approaches: <em>model-based RL</em>, in which an explicit model of the transitions and/or rewards are estimated, and <em>model-free RL</em>, in which this mdoel is not estimated and just the value of a state is estimated. In the model-based case, however, the estimated model is typically just a point estimate (e.g. a maximum-likelihood estimate) and thus does not reflect any uncertainty about the transition or reward model.</p>
 
-</ol>
+<p>In this paper, Dearden et al. suggest using <em>Bayesian model-based RL</em> in which Bayesian inference is used to maintain a posterior distribution over the transition and reward models, thus capturing both an estimate of what the models are as well as confidence for how accurate that estimate is.</p>
 
-<h2 id="probabilistic-models-of-cognition">Probabilistic models of cognition</h2>
-<ol>
+<h1 id="methods">Methods</h1>
 
-  
-    
-  
+<p>n/a</p>
 
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/Teglas2011.html">Pure reasoning in 12-month-old infants as probabilistic inference</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/Tenenbaum2011.html">How to grow a mind: statistics, structure, and abstraction</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/Jacobs2011.html">Bayesian learning theory applied to human cognition</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/Kemp2008.html">The discovery of structural form</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/Griffiths2010.html">Probabilistic models of cognition: exploring representations and inductive biases</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/08/Griffiths2006.html">Optimal predictions in everyday cognition</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20cognition/2015/11/06/Tenenbaum2001.html">Generalization, similarity, and Bayesian inference</a></li>
-    
-  
+<h1 id="algorithm">Algorithm</h1>
 
-</ol>
+<table>
+  <tbody>
+    <tr>
+      <td>The sequence of states and actions taken by the agent can be summarized as a sequence of <em>experience tuples</em>, $\langle s, a, r, t \rangle$. The agent’s belief about the MDP (i.e. the true transition and reward functions) is $\mu$, so that $P(M</td>
+      <td>\mu)$ is the agent’s prior over possible MDPs given their initial belief $\mu$. After one timestep, the agent has a new experience and the updated distribution can be written as:</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2 id="probabilistic-models-of-perception">Probabilistic models of perception</h2>
-<ol>
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+P(M|\mu \circ \langle s, a, r, t \rangle) &\propto P(\langle s, a, r, t \rangle | M)P(M|\mu)
+&= P(s\rightarrow^a t|M)P(s\rightarrow^a r|M)P(M|\mu)
+\end{align*} %]]></script>
 
-  
-    
-  
+<p>We can represent the particular transition and reward functions by sets of parameters $\theta^t_{s,a,t}$ and $\theta^r_{s,a,r}$.</p>
 
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/Ernst2002.html">Humans integrate visual and haptic information in a statistically optimal fashion</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/Kording2004.html">Bayesian integration in sensorimotor learning</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/Weiss2002-ipynb.html">Demo: Motion illusions as optimal percepts</a></li>
-    
-  
-    
-    <li><a href="/quals/probabilistic%20models%20of%20perception/2015/11/09/Weiss2002.html">Motion illusions as optimal percepts</a></li>
-    
-  
+<p>Having a distribution over MDPs also induces a distribution over $Q$ functions. Rather than maximizing the $Q$ function directly, as is typically the case in RL, Dearden et al. choose actions which maximize:</p>
 
-</ol>
+<script type="math/tex; mode=display">VPI(s,a)-(\max_{a^\prime}E[q_{s,a^\prime}]-E[q_{s,a}])</script>
 
-<h2 id="analysis-by-synthesis">Analysis by synthesis</h2>
-<ol>
+<p>where $VPI$ is the <em>value of perfect information</em>, which is essentially how much information we would get from taking action $a$ in state $s$. What this strategy basically says is that we should take actions which give us more information, but not if we think the $Q$-value of that action is low relative to the $Q$-value of the best current action. Thus, the tradeoff between exploration and exploitation is given explicitly in terms of information (though this is not actually information in the information-theoretic sense—they are using “gain” here to mean the expected difference in value if we think the action is the best, and learn that it isn’t; or that we think the action isn’t the best, and learn that it is).</p>
 
-  
-    
-  
+<h1 id="takeaways">Takeaways</h1>
 
-  
-    
-    <li><a href="/quals/analysis%20by%20synthesis/2015/11/11/Halle1962.html">Speech recognition: a model and a program for research</a></li>
-    
-  
-    
-    <li><a href="/quals/analysis%20by%20synthesis/2015/11/11/Bever2010.html">Analysis by synthesis: A (re-)emerging program of research for language and vision</a></li>
-    
-  
-    
-    <li><a href="/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html">Vision as Bayesian inference: analysis by synthesis?</a></li>
-    
-  
+<p>Dearden et al. go on to discuss various ways of approximating the $Q$ distribution, but I am not going to go into these specifics. I think the more important takeaway from this paper is the idea that you can perform Bayesian inference over the transition and reward functions and thus capture uncertainty about how accurate your estimate is.</p>
 
-</ol>
-
-<h2 id="generative-models">Generative models</h2>
-<ol>
-
-  
-    
-  
-
-  
-    
-    <li><a href="/quals/generative%20models/2015/11/11/Helmholtz1924.html">Concerning the perceptions in general</a></li>
-    
-  
-    
-    <li><a href="/quals/generative%20models/2015/11/11/Craik1943.html">Hypothesis on the nature of thought</a></li>
-    
-  
-
-</ol>
-
-<h2 id="planning-and-decision-making">Planning and decision making</h2>
-<ol>
-
-  
-    
-  
-
-  
-    
-    <li><a href="/quals/planning%20and%20decision%20making/2015/12/16/Dearden1999.html">Model based Bayesian exploration</a></li>
-    
-  
-    
-    <li><a href="/quals/planning%20and%20decision%20making/2015/12/16/Browne2012.html">A survey of Monte Carlo Tree Search methods</a></li>
-    
-  
-
-</ol>
 
   </article>
 
