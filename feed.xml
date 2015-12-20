@@ -6,9 +6,53 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 20 Dec 2015 10:42:17 -0500</pubDate>
-    <lastBuildDate>Sun, 20 Dec 2015 10:42:17 -0500</lastBuildDate>
+    <pubDate>Sun, 20 Dec 2015 18:39:56 -0500</pubDate>
+    <lastBuildDate>Sun, 20 Dec 2015 18:39:56 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Robust Physics-Based Locomotion Using Low-Dimensional Planning</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Mordatch2010&quot;&gt;Mordatch, I., de Lasa, M., &amp;amp; Hertzmann, A. (2010). Robust physics-based locomotion using low-dimensional planning. &lt;i&gt;ACM Transactions On Graphics&lt;/i&gt;, &lt;i&gt;29&lt;/i&gt;(4). doi:10.1145/1778765.1778808&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;How does an agent produce realistic-looking motion? Mordatch et al. propose a way to produce motion for 3D characters by optimizing a low-dimensional physical model. This is in contrast to previous approaches which either were highly specific to the type of motion (and therefore brittle), and/or relied on recorded demonstrated trajectories. This approach seems to work pretty well and can produce multiple types of motion (walking, running, standing, etc.)&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;The general approach that they take is:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Map the current state to a low-level physical model (e.g. an inverted pendulum)&lt;/li&gt;
+  &lt;li&gt;Compute a “preview optimization” of the optimal plan for the low-level model&lt;/li&gt;
+  &lt;li&gt;Convert the optimal plan to the full-body controller&lt;/li&gt;
+  &lt;li&gt;The full-body controller produces torques which animate the character&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The “preview model” that they use is based on the Spring-Loaded Inverted Pendulum (SLIP) and divides the plan into 6 phases: double stance, left single-stance, flight, double stance, right single-stance, and flight. By omitting certain phases, different behaviors emerge (e.g. omitting flight leads to walking).&lt;/p&gt;
+
+&lt;p&gt;The optimization is then done with respect to a “set of user-specified energy terms”. These take the form of various parameters that the user can specify, such as step duration, step length, COM height, etc.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;It is really cool to see a low-level physics model work so well to produce motion. However, it’s important to note that this is still fairly specific to locomotion for a humanoid (biped) character – the inverted pendulum model, for example, probably wouldn’t work for controlling a flying character. The authors have actually addressed this in a recent NIPS paper, in which they use a neural network to learn the appropriate dynamics for a range of characters:&lt;/p&gt;
+
+&lt;p&gt;http://www.eecs.berkeley.edu/~igor.mordatch/policy/index.html&lt;/p&gt;
+
+&lt;p&gt;It makes sense to me that motion planning should involve the use of a physical model of some sort. There’s evidence for the cerebellum using physical knowledge for motion planning in the brain – this is another one of my quals subtopics that I haven’t quite gotten to yet, but perhaps I will read those papers next!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 20 Dec 2015 13:02:45 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Mordatch2010.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Mordatch2010.html</guid>
+        
+        
+        <category>Physical reasoning with dynamics models</category>
+        
+      </item>
     
       <item>
         <title>Seeing Physics, or: Physics is for Prediction</title>
@@ -603,47 +647,6 @@ P(M\vert\mu \circ \langle s, a, r, t \rangle) &amp;\propto P(\langle s, a, r, t 
         
         
         <category>Generative models</category>
-        
-      </item>
-    
-      <item>
-        <title>Speech recognition: a model and a program for research</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Halle1962&quot;&gt;Halle, M., &amp;amp; Stevens, K. N. (1962). Speech recognition: a model and a program for research. &lt;i&gt;IRE Transactions On Information Theory&lt;/i&gt;, &lt;i&gt;8&lt;/i&gt;(2), 155–159. doi:10.1109/TIT.1962.1057686&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Halle &amp;amp; Stevens were the first to propose the technique of “analysis-by-synthesis”. Actually, they did so even earlier, in:&lt;/p&gt;
-
-&lt;p&gt;&lt;span id=&quot;Halle1959&quot;&gt;Halle, M., &amp;amp; Stevens, K. M. (1959). Analysis by synthesis. In W. Wathen-Dunn &amp;amp; L. E. Woods (Eds.), &lt;i&gt;Proceedings of the Seminar of Speech Compression and Processing&lt;/i&gt; (Vol. 2).&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, though, I have been unable to find this paper anywhere, but I assume that the present paper covers enough of the same ground.&lt;/p&gt;
-
-&lt;p&gt;Halle &amp;amp; Stevens essentially make an argument for the “infinite use of finite means” (Chomsky, Humboldt), saying:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It is then possible to store in the “permanent memory” of the analyzer only the rules for speech production discussed in the previous section. In this model the dictionary is replaced by &lt;em&gt;generative rules&lt;/em&gt; which can synthesize signals in response to instructions consisting of sequences of phonemes… The internally generated signal which provides the best match with the input signal then identifies the required phoneme sequence. (pg. 157)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;They go on to discuss the other common features of analysis by synthesis: first, that a “preliminary analysis” can cut down on the number of phoneme sequences that need to be analyzed, and second, that a “control” component can determine the order in which to test out phoneme sequences. The data-driven MCMC approach from &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html&quot;&gt;Yuille &amp;amp; Kersten&lt;/a&gt; has echoes of this – in their case, different hypotheses are generated by simple cues (preliminary analysis) and then the MCMC algorithm performs a random walk in hypothesis space proportional to the posterior probability of the hypotheses (control).&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This is the foundational work on analysis by synthesis and is remarkably forward thinking. Even though it’s applied to speech perception here, it could easily be applied to many other areas of cognition (e.g., vision as Yuille &amp;amp; Kersten have already shown). It also seems like there is a lot of similarities to this approach and the increasingly popular idea of training a deep network on low-level features, and then using a structured Bayesian model on top of the the output of that network. The similarity is that the deep network takes the place of a powerful learning system for determining relevant cues, and the Bayesian model does the high level work of constraining and evaluating hypotheses.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 11 Nov 2015 08:35:12 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Halle1962.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Halle1962.html</guid>
-        
-        
-        <category>Analysis by synthesis</category>
         
       </item>
     
