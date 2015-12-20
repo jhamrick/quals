@@ -6,9 +6,63 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 19 Dec 2015 19:26:58 -0500</pubDate>
-    <lastBuildDate>Sat, 19 Dec 2015 19:26:58 -0500</lastBuildDate>
+    <pubDate>Sat, 19 Dec 2015 23:57:32 -0500</pubDate>
+    <lastBuildDate>Sat, 19 Dec 2015 23:57:32 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Human-level control through deep reinforcement learning</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Mnih2015&quot;&gt;Mnih, V., Kavukcuoglu, K., Silver, D., Rusu, A. a, Veness, J., Bellemare, M. G., … Hassabis, D. (2015). Human-level control through deep reinforcement learning. &lt;i&gt;Nature&lt;/i&gt;, &lt;i&gt;518&lt;/i&gt;(7540), 529–533. doi:10.1038/nature14236&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Mnih et al. show how to combine deep learning with reinforcement learning in a stable manner, and scale it up to learn how to play a range of classic Atari video games.
+They use a convolutional deep network to learn an approximation to the Q function; this approach has been used before (e.g. TD-gammon) however there are two main modifications that Mnih et al. make:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Rather than using the full sequence of frames as training data, they randomly sample experiences (frames) from previous experience. This reduces the correlation between training examples, which smooths over the data distribution.&lt;/li&gt;
+  &lt;li&gt;Rather than using computing the gradient of the Q function with respect to itself, they clone the network and compute the gradient with respect to the cloned network, and only update the cloned network every so often rather than on every step.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;They trained the network on 49 Atari games, and for each game trained on a total of 50 million frames (which they say is about 38 days of game experience). The network itself had the following structure:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Input layer – $84\times 84\times 4$ image.&lt;/li&gt;
+  &lt;li&gt;Layer 1 – 32 filters of $8\times 8$ with stride 4 and followed by a rectifier nonlinearity, which is defined to be $\max(0, x)$.&lt;/li&gt;
+  &lt;li&gt;Layer 2 – 64 filters of $4\times 4$ with stride 2 and also followed by the rectifier nonlinearity.&lt;/li&gt;
+  &lt;li&gt;Layer 3 – 64 filters of $3\times 3$ with stride 1 and also followed by the rectifier nonlinearity.&lt;/li&gt;
+  &lt;li&gt;Layer 4 – fully connected with 512 rectifier units.&lt;/li&gt;
+  &lt;li&gt;Output layer – fully connected with linear units, one per action.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;The loss function used to train the network is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;L_i(\theta_i)=\mathbb{E}_{(s,a,r,s^\prime)\sim U(D)}\left[\left(r+\gamma \max_{a^\prime} Q(s^\prime, a^\prime; \theta_i^-)-Q(s,a;\theta_i)\right)^2\right]&lt;/script&gt;
+
+&lt;p&gt;where $D$ is the set of all experiences, $\gamma$ is the discount factor, $\theta_i$ are the network weights at iteration $i$ and $\theta_i^-$ are the cloned network weights at iteration $i$.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This paper is very impressive, and it super cool to see reinforcement learning succeeding at such a large scale. I am also really excited to see the emphasis on algorithms inspired by human neuroscience, though I think there’s still a ways to go.&lt;/p&gt;
+
+&lt;p&gt;For example, they trained each network for 38 days (!) which is vastly more experience than required by a human player. Looking at the training graphs, it seems that for example on Space Invaders, the network doesn’t get anywhere even close to human level performance until after about 10 training epochs, which I estimate to be about 40 hours of gameplay. Their human player only had about 2 hours of training per game, for comparison. This suggests that people are coming in with strong inductive biases with how to play these games that the network lacks.&lt;/p&gt;
+
+&lt;p&gt;Another thought is that they used a model-free form of Q-learning; however, I would actually expect that people do build a model of the game transitions and reward functions (e.g. people can figure out that if you kill a space invader, you get points; the network would only know that pressing “fire” at certain locations would be a good thing to do because it will lead to the highest expected reward – it doesn’t know anything about &lt;em&gt;why&lt;/em&gt; that reward would be good). So I’m not convinced that model-free is necessarily the way to go if we want to be able to capture the way that people learn to play these games.&lt;/p&gt;
+
+&lt;p&gt;I also wonder if having it learn a model of the transition/reward functions would negate the need for experience replay. I don’t think it’s necessarily a bad thing to have experience replay in general, but it actual is counterintuitive to me to train on experiences in a random uncorrelated manner. I would at least expect if this happens in humans, that the length of each experience is longer than just a few frames. Mnih et al. cite evidence from neuroscience, and specifically the hippocampus, which is an area I know very little about, however – so it’s certainly possible that my intuitions on this are completely off.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 19 Dec 2015 18:11:40 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Mnih2015.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Mnih2015.html</guid>
+        
+        
+        <category>Planning and decision making</category>
+        
+      </item>
     
       <item>
         <title>Demo: Bayes-Adaptive Monte-Carlo Tree Search</title>
@@ -279,17 +333,11 @@
 
 </description>
         <pubDate>Sat, 19 Dec 2015 14:24:40 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/planning/and/decision/making/2015/12/19/Guez2013-ipynb.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning/and/decision/making/2015/12/19/Guez2013-ipynb.html</guid>
+        <link>http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Guez2013-ipynb.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Guez2013-ipynb.html</guid>
         
         
-        <category>Planning</category>
-        
-        <category>and</category>
-        
-        <category>decision</category>
-        
-        <category>making</category>
+        <category>Planning and decision making</category>
         
       </item>
     
@@ -309,7 +357,7 @@ This results in essentially doing an approximate Monte-Carlo integration over al
 
 &lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
 
-&lt;p&gt;I implemented &lt;a href=&quot;/quals/planning/and/decision/making/2015/12/19/Guez2013-ipynb.html&quot;&gt;a demo of the BAMCP algorithm&lt;/a&gt;, rather than writing it here.&lt;/p&gt;
+&lt;p&gt;I implemented &lt;a href=&quot;/quals/planning%20and%20decision%20making/2015/12/19/Guez2013-ipynb.html&quot;&gt;a demo of the BAMCP algorithm&lt;/a&gt;, rather than writing it here.&lt;/p&gt;
 
 &lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
 
@@ -644,53 +692,6 @@ P(M\vert\mu \circ \langle s, a, r, t \rangle) &amp;\propto P(\langle s, a, r, t 
         
         
         <category>Analysis by synthesis</category>
-        
-      </item>
-    
-      <item>
-        <title>Humans integrate visual and haptic information in a statistically optimal fashion</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Ernst2002&quot;&gt;Ernst, M. O., &amp;amp; Banks, M. S. (2002). Humans integrate visual and haptic information in a statistically optimal fashion. &lt;i&gt;Nature&lt;/i&gt;, &lt;i&gt;415&lt;/i&gt;(6870), 429–433. doi:10.1038/415429a&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;People get information from multiple modalities – for example, from haptic feedback and from visual perception. Ernst &amp;amp; Banks asked, how do people decide which modality of information to rely on? Or, do they combine modalities, and if so, how do they weigh the respective information? They hypothesized that people perform a MLE estimate of the sensory information based on a weighted average of the information from each modality, and present quantitative fits for this model.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;There were three different experiments. In all the experiments, they had participants judge the height of a bar relative to a standard stimulus (i.e., judging whether the current stimulus is higher or lower than the standard one).&lt;/p&gt;
-
-&lt;p&gt;First, there were two experiments (visual-only and haptic-only) that they used to estimate the PSE (point of subjective equality) for each modality. These PSE estimates are a proxy for how much uncertainty people have. For the haptic-only experiment, there was no variance in the noise, while in the visual-only experiment, they varied the noise levels between 0 and 200%.&lt;/p&gt;
-
-&lt;p&gt;The third experiment combined haptic and visual feedback, and again varied the visual noise level.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Assuming the noise in each modality is Gaussian with variance $\sigma_i^2$, then the MLE estimate of the percept is:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{S}=\sum_i w_i\hat{S}_i&lt;/script&gt;
-
-&lt;p&gt;where&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;w_i=\frac{1/\sigma_i^2}{\sum_j 1/\sigma_j^2}&lt;/script&gt;
-
-&lt;p&gt;Assuming that the ratio of the visual weight to the haptic rate is the same as the ratio between the haptic and visual thresholds (PSEs), or $w_V/w_H=T_H^2/T_V^2$, then the weights are:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}&lt;/script&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;Based on these experiments, it would seem that people seem to trade-off between different sources of information depending on how reliable that information is. If a normally reliable source of information (e.g., vision) becomes unreliable, then people will fall back on another source (e.g., haptic).&lt;/p&gt;
-
-&lt;p&gt;I have two main questions regarding this paper. First, why didn’t they attempt to modulate the haptic feedback as well? Since that was constant, we don’t actually know whether participants optimally trade-off between vision and haptic feedback – only that they seem to appropriately modulate their reliance on visual information. It would be interesting to see if the same effect holds after introducing uncertainty into haptic feedback (perhaps making the participants wear gloves?).&lt;/p&gt;
-
-&lt;p&gt;Second, I’m not sure the choice of MLE/uniform prior is necessarily appropriate. Why not use MAP with a prior on the types of percepts people are likely to encounter? Even if the intuition is that the prior would be broad enough that it’s essentially uniform (or is actually uniform), it would be better to motivate this and have some discussion about it.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 09 Nov 2015 18:11:30 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Ernst2002.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Ernst2002.html</guid>
-        
-        
-        <category>Probabilistic models of perception</category>
         
       </item>
     

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Scalable and efficient Bayes-adaptive reinforcement learning based on Monte-Carlo tree search</title>
+    <title>Human-level control through deep reinforcement learning</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Guez2013.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Mnih2015.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -69,30 +69,53 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Scalable and efficient Bayes-adaptive reinforcement learning based on Monte-Carlo tree search</h1>
+    <h1 class="post-title">Human-level control through deep reinforcement learning</h1>
     <p class="post-meta">Dec 19, 2015 • Planning and decision making</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Guez2013">Guez, A., Silver, D., &amp; Dayan, P. (2013). Scalable and efficient Bayes-adaptive reinforcement learning based on Monte-Carlo tree search. <i>Journal Of Artificial Intelligence Research</i>, <i>48</i>, 841–883. doi:10.1613/jair.4117</span></p>
+    <p><span id="Mnih2015">Mnih, V., Kavukcuoglu, K., Silver, D., Rusu, A. a, Veness, J., Bellemare, M. G., … Hassabis, D. (2015). Human-level control through deep reinforcement learning. <i>Nature</i>, <i>518</i>(7540), 529–533. doi:10.1038/nature14236</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>In this paper, Guez et al. lay out an approach for performing Bayes-adaptive reinforcement learning (e.g. <a href="/quals/planning%20and%20decision%20making/2015/12/16/Dearden1999.html">Dearden et al., 1999</a>) using Monte-Carlo tree search (e.g. <a href="/quals/planning%20and%20decision%20making/2015/12/16/Browne2012.html">Browne et al., 2012</a>).
-They introduce an algorithm called BAMCP (Bayes-Adaptive Monte-Carlo Planner) which works by sampling a MDP from the agent’s beliefs over the transition/reward functions, and then performs one simulation according to Monte-Carlo Tree Search.
-This results in essentially doing an approximate Monte-Carlo integration over all rewards, over all possible MDPs.</p>
+<p>In this paper, Mnih et al. show how to combine deep learning with reinforcement learning in a stable manner, and scale it up to learn how to play a range of classic Atari video games.
+They use a convolutional deep network to learn an approximation to the Q function; this approach has been used before (e.g. TD-gammon) however there are two main modifications that Mnih et al. make:</p>
+
+<ol>
+  <li>Rather than using the full sequence of frames as training data, they randomly sample experiences (frames) from previous experience. This reduces the correlation between training examples, which smooths over the data distribution.</li>
+  <li>Rather than using computing the gradient of the Q function with respect to itself, they clone the network and compute the gradient with respect to the cloned network, and only update the cloned network every so often rather than on every step.</li>
+</ol>
 
 <h1 id="methods">Methods</h1>
 
-<p>n/a</p>
+<p>They trained the network on 49 Atari games, and for each game trained on a total of 50 million frames (which they say is about 38 days of game experience). The network itself had the following structure:</p>
+
+<ol>
+  <li>Input layer – $84\times 84\times 4$ image.</li>
+  <li>Layer 1 – 32 filters of $8\times 8$ with stride 4 and followed by a rectifier nonlinearity, which is defined to be $\max(0, x)$.</li>
+  <li>Layer 2 – 64 filters of $4\times 4$ with stride 2 and also followed by the rectifier nonlinearity.</li>
+  <li>Layer 3 – 64 filters of $3\times 3$ with stride 1 and also followed by the rectifier nonlinearity.</li>
+  <li>Layer 4 – fully connected with 512 rectifier units.</li>
+  <li>Output layer – fully connected with linear units, one per action.</li>
+</ol>
 
 <h1 id="algorithm">Algorithm</h1>
 
-<p>I implemented <a href="/quals/planning%20and%20decision%20making/2015/12/19/Guez2013-ipynb.html">a demo of the BAMCP algorithm</a>, rather than writing it here.</p>
+<p>The loss function used to train the network is:</p>
+
+<script type="math/tex; mode=display">L_i(\theta_i)=\mathbb{E}_{(s,a,r,s^\prime)\sim U(D)}\left[\left(r+\gamma \max_{a^\prime} Q(s^\prime, a^\prime; \theta_i^-)-Q(s,a;\theta_i)\right)^2\right]</script>
+
+<p>where $D$ is the set of all experiences, $\gamma$ is the discount factor, $\theta_i$ are the network weights at iteration $i$ and $\theta_i^-$ are the cloned network weights at iteration $i$.</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>Bayes-adaptive reinforcement learning is powerful and offers us the flexibility of incorporating structured priors into our planners, and planning properly under uncertain transitions/rewards. Although in the general case this may be intractable, MCTS offers a way to perform a Monte-Carlo approximation to the true posterior in a relatively efficient manner.</p>
+<p>This paper is very impressive, and it super cool to see reinforcement learning succeeding at such a large scale. I am also really excited to see the emphasis on algorithms inspired by human neuroscience, though I think there’s still a ways to go.</p>
+
+<p>For example, they trained each network for 38 days (!) which is vastly more experience than required by a human player. Looking at the training graphs, it seems that for example on Space Invaders, the network doesn’t get anywhere even close to human level performance until after about 10 training epochs, which I estimate to be about 40 hours of gameplay. Their human player only had about 2 hours of training per game, for comparison. This suggests that people are coming in with strong inductive biases with how to play these games that the network lacks.</p>
+
+<p>Another thought is that they used a model-free form of Q-learning; however, I would actually expect that people do build a model of the game transitions and reward functions (e.g. people can figure out that if you kill a space invader, you get points; the network would only know that pressing “fire” at certain locations would be a good thing to do because it will lead to the highest expected reward – it doesn’t know anything about <em>why</em> that reward would be good). So I’m not convinced that model-free is necessarily the way to go if we want to be able to capture the way that people learn to play these games.</p>
+
+<p>I also wonder if having it learn a model of the transition/reward functions would negate the need for experience replay. I don’t think it’s necessarily a bad thing to have experience replay in general, but it actual is counterintuitive to me to train on experiences in a random uncorrelated manner. I would at least expect if this happens in humans, that the length of each experience is longer than just a few frames. Mnih et al. cite evidence from neuroscience, and specifically the hippocampus, which is an area I know very little about, however – so it’s certainly possible that my intuitions on this are completely off.</p>
 
   </article>
 
