@@ -6,9 +6,44 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 20 Dec 2015 00:41:02 -0500</pubDate>
-    <lastBuildDate>Sun, 20 Dec 2015 00:41:02 -0500</lastBuildDate>
+    <pubDate>Sun, 20 Dec 2015 10:42:17 -0500</pubDate>
+    <lastBuildDate>Sun, 20 Dec 2015 10:42:17 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Seeing Physics, or: Physics is for Prediction</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Brand1995&quot;&gt;Brand, M., Cooper, P., &amp;amp; Birnbaum, L. (1995). Seeing Physics, or: Physics is for Prediction. &lt;i&gt;Proceedings Of the Workshop on Physics Based Modelling in Computer Vision&lt;/i&gt;. doi:10.1109/PBMCV.1995.514679&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Brand et al. argue for including physical knowledge in vision and robotics systems in order to describe scenes and make predictions about scenes. As he says, “there are physical reasons why for scenes are arranged the way they are, and we need to be aware of those reasons in order to understand the scene well enough to reach in and do something about it” (pg. 144). He describes two systems, SPROCKET and MugShot, which use physical knowledge to reason about and interact with physical scenes.&lt;/p&gt;
+
+&lt;p&gt;This paper makes use of qualitative physical reasoning, and maybe is more appropriate in the mental models category, but because it applies physical reasoning to robotics I’m including it here instead.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;SPROCKET views images of gears and basically does scene reconstruction using physical knowledge to constrain possible interpretations. It has explicit symbolic knowledge of how the scenes can be put together (e.g. that two meshing gears limit axial translation and fix axial rotation and nonaxial translation) and uses a constraint network to resolve the image into a scene that satisifies all the constraints.&lt;/p&gt;
+
+&lt;p&gt;MugShot is a system to allow robots to pick up objects with handles (e.g., mugs) and uses physical knowledge to inform how much force it needs to apply. Importantly, it also takes into account the physics of the robot’s effector as well as that of the object it is trying to grasp. The paper doesn’t really go into detail about how this works, just saying that “predicting the amount of force feedback to expect and the amount of force to apply requires visual observation as well as a causal-physical model of the object” (pg. 149). I would be interested to know what this actually entails… does it estimate the center-of-mass of the mug? Does it actually compute the points it would need to grasp it in order to keep it equilibrium? Or does it only just apply force on the fly as needed?&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;Having physical knowledge can greatly improve the ability of AI and robotics systems to reason about the world. There is one particular quote: “As might be expected in this bottom-up attempt at segmentation, image processing takes more than an order of magnitude more time than with SPROCKET’s semantic guidance”. I wonder if this would still be true with today’s object recognition systems.&lt;/p&gt;
+
+&lt;p&gt;I do wonder, though, how systems like SPROCKET and MugShot come to possess their physical knowledge. It seems like encoding a series of rules is brittle – what if a rule is not always correct? What if there is a system that can’t be resolved? I suppose that imbuing a system with a physics simulator is also a bit like hard coding rules, but a physics simulator is a bit more general in the sense that it can be applied to any physical situation as long as the initial conditions (e.g. positions and meshes) of the system can be constructed. That’s a pretty big requirement, though. I think any physical reasoning system still has a ways to go before we’ll be able to make it completely general, though perhaps something like deep learning will allow us to construct the appropriate inputs to the simulator, thus resulting in something that is more general.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 20 Dec 2015 05:13:37 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Brand1995.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Brand1995.html</guid>
+        
+        
+        <category>Physical reasoning with dynamics models</category>
+        
+      </item>
     
       <item>
         <title>Mental models</title>
@@ -606,64 +641,6 @@ P(M\vert\mu \circ \langle s, a, r, t \rangle) &amp;\propto P(\langle s, a, r, t 
         <pubDate>Wed, 11 Nov 2015 08:35:12 -0500</pubDate>
         <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Halle1962.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Halle1962.html</guid>
-        
-        
-        <category>Analysis by synthesis</category>
-        
-      </item>
-    
-      <item>
-        <title>Analysis by synthesis: A (re-)emerging program of research for language and vision</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Bever2010&quot;&gt;Bever, T. G., &amp;amp; Poeppel, D. (2010). Analysis by Synthesis: A (Re-)Emerging Program of Research for Language and Vision. &lt;i&gt;Biolinguistics&lt;/i&gt;, &lt;i&gt;43&lt;/i&gt;(2), 174–200. Retrieved from http://www.psych.nyu.edu/clash/dp_papers/bever.poeppel.pdf&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Bever &amp;amp; Poeppel describe the &lt;em&gt;analysis by synthesis&lt;/em&gt; (AxS) approach and how it applies to language. AxS was apparently first proposed by &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/11/Halle1962.html&quot;&gt;Halle &amp;amp; Stevens&lt;/a&gt; as a hypothesis for how speech production works. It follows the following steps:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Form a rough hypothesis about the input based on simple cues&lt;/li&gt;
-  &lt;li&gt;Synthesize a full simulation of the input based on that hypothesis&lt;/li&gt;
-  &lt;li&gt;Compare the simulated input to the real input&lt;/li&gt;
-  &lt;li&gt;If the two match, then the structure of 2 is taken to be the true structure of the input&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;If they don’t match, then some iterative process of error reduction is performed. This approach is motivated by the idea that “it is computationally intractable to go directly from the more concrete to the more abstract representation by way of filters or other kinds of ‘bottom-up’ triggering templates” (pg. 177).&lt;/p&gt;
-
-&lt;p&gt;Bever &amp;amp; Poepple go on to discuss how AxS is related to the motor theory of speech perception, how it is already being (implicitly) used in many automatic speech recognition systems, how it relates to AxS in vision, and the compatibility with Bayesian models.&lt;/p&gt;
-
-&lt;h2 id=&quot;motor-theory-of-speech-perception&quot;&gt;Motor theory of speech perception&lt;/h2&gt;
-
-&lt;p&gt;The &lt;em&gt;motor theory of speech perception&lt;/em&gt; states that “listeners are reconstructing the articulatory gestures of the speaker, and using those as the trigger for the perception of the underlying intended sequence of phones as though they actually occurred acoustically” (pg. 179). To me, this sounds a bit like the “simulation theory” in theory of mind.&lt;/p&gt;
-
-&lt;h2 id=&quot;automatic-speech-recognition&quot;&gt;Automatic speech recognition&lt;/h2&gt;
-
-&lt;p&gt;They note that automatic speech recognition systems often use generative models, for example of “words-to-waveforms”. This is different from the AxS approach proposed by Halle &amp;amp; Stevens, however, in that AxS uses a model of the articulatory system, while the ASR approaches store “vectors representing [Gaussian] mean and variance of spectral slices”. I suppose this difference essentially makes AxS closer to the motor theory of speech perception. At the computational level, I’m not sure how much this distinction matters, assuming the “fixed” model of speech production is detailed enough to capture the full range of effects that can actually occur when speaking a word.&lt;/p&gt;
-
-&lt;h2 id=&quot;analysis-by-synthesis-in-vision&quot;&gt;Analysis by synthesis in vision&lt;/h2&gt;
-
-&lt;p&gt;Bever &amp;amp; Poepple reference &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html&quot;&gt;Yuille &amp;amp; Kersten&lt;/a&gt;, among others, and discuss how AxS has been fruitful in vision. They note that given the wide array of cross-modal effects, if such a AxS process exists in vision, then it is likely to occur for audition/speech perception as well, perhaps utilizing some sort of general-purpose mechanism.&lt;/p&gt;
-
-&lt;h2 id=&quot;bayesian-approach&quot;&gt;Bayesian approach&lt;/h2&gt;
-
-&lt;p&gt;Ultimately, they say that there is no conflict with the Bayesian approach to implementing AxS. I agree with this; there’s no fundamental difference, using a Bayesian model is just a different way of formalizing it.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;AxS seems to be a promising approach in both vision and language. However, as I discussed a bit in my notes on &lt;a href=&quot;/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html&quot;&gt;Yuille &amp;amp; Kersten&lt;/a&gt;, I don’t necessarily see why the “synthesis” component is so crucial. If that’s what is necessary to compute the probability (e.g., if you are using some approach like Approximate Bayesian Computation), then sure, but I’m not convinced that it is. As long as you can compute the PDF at a particular point, then you can evaluate the likelihood of the data given the model without necessarily needing to created a synthesized version of the image or sound production.&lt;/p&gt;
-
-&lt;p&gt;So in general, my takeaway from the “analysis by synthesis” approach doesn’t so much have to do with synthesis itself, but of the combination of low-level cues to generate hypotheses, and top-down knowledge to constrain those hypotheses. The reason for having this particular approach (as opposed to just doing inference over all hypotheses) is that the space of hypotheses is large enough so as to make it intractable to consider all possible hypotheses.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 11 Nov 2015 06:55:24 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Bever2010.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Bever2010.html</guid>
         
         
         <category>Analysis by synthesis</category>
