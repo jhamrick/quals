@@ -15,8 +15,8 @@ def path2url(path):
 
 c = get_config()
 c.NbConvertApp.export_format = 'markdown'
-c.MarkdownExporter.template_file = 'jekyll-post'
+c.MarkdownExporter.template_file = 'nbconvert-jekyll-post'
 c.FilesWriter.build_directory = 'notebooks'
 c.MarkdownExporter.filters = {'path2url': path2url}
-c.Exporter.preprocessors = ['jekyll_nbconvert.ExtractTitle']
-c.NbConvertApp.postprocessor_class = 'jekyll_nbconvert.Rename'
+c.Exporter.preprocessors = ['nbconvert_utils.ExtractTitle']
+c.NbConvertApp.postprocessor_class = 'nbconvert_utils.Rename'

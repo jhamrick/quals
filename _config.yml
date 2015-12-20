@@ -6,10 +6,10 @@ baseurl: "/quals" # the subpath of your site, e.g. /blog/
 url: "http://jhamrick.github.io" # the base hostname & protocol for your site
 twitter_username: jhamrick
 github_username:  jhamrick
-highlighter: rogue
+markdown: kramdown
+highlighter: rouge
 gems: ['jekyll/scholar']
 
 # Build settings
-markdown: kramdown
-exclude: ['jekyll-post.py', 'jekyll-post.tpl', 'jekyll_nbconvert.py', 'readings', 'Makefile']
+exclude: ['convert_notebook.sh', 'nbconvert-jekyll-post.tpl', 'nbconvert_utils.py', 'nbconvert_config.py', 'readings', 'Makefile']
 include: ['readings.pdf']
