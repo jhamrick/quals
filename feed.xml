@@ -6,9 +6,39 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 19 Dec 2015 23:57:32 -0500</pubDate>
-    <lastBuildDate>Sat, 19 Dec 2015 23:57:32 -0500</lastBuildDate>
+    <pubDate>Sun, 20 Dec 2015 00:41:02 -0500</pubDate>
+    <lastBuildDate>Sun, 20 Dec 2015 00:41:02 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Mental models</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Gentner1983&quot;&gt;Gentner, D., &amp;amp; Stevens, A. (Eds.). (1983). &lt;i&gt;Mental Models&lt;/i&gt;. Lawrence Erlbaum Associates. Retrieved from http://amzn.com/0898592429&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an entire book, and as such, I am not going to use the same structure for this post as I have been using. Instead, I’ll have a separate section per chapter and give a brief summary for each chapter.&lt;/p&gt;
+
+&lt;h1 id=&quot;chapter-1&quot;&gt;Chapter 1&lt;/h1&gt;
+
+&lt;p&gt;Norman, D. (1983). Some Observations on Mental Models. 7–14.&lt;/p&gt;
+
+&lt;p&gt;Norman distinguishes between a few different types of models/systems:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;Target system&lt;/em&gt; – the actual system under consideration&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Conceptual model&lt;/em&gt; – a model of the target system as construed by an expert (e.g. an educator)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Mental model&lt;/em&gt; – a model of the target system as constructed mentally by individuals attempting to reason about it&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Scientist’s conceptualization&lt;/em&gt; – a model of someone’s mental model, constructed by a scientist trying to understand the mental model&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;He also discusses the fact that mental models are messy, and won’t be describable by “precise, elegant models”. He gives as example the behavior people exhibit when learning to use a calculator, such as when they attempt to clear the register multiple times. I actually wonder if that type of behavior could be described by a MDP where there is some probability that when you press the clear button, it doesn’t fully clear (reflecting motor noise, for example).&lt;/p&gt;
+</description>
+        <pubDate>Sat, 19 Dec 2015 19:40:46 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20models/2015/12/19/Gentner1983.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20models/2015/12/19/Gentner1983.html</guid>
+        
+        
+        <category>Mental models</category>
+        
+      </item>
     
       <item>
         <title>Human-level control through deep reinforcement learning</title>
@@ -634,61 +664,6 @@ P(M\vert\mu \circ \langle s, a, r, t \rangle) &amp;\propto P(\langle s, a, r, t 
         <pubDate>Wed, 11 Nov 2015 06:55:24 -0500</pubDate>
         <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Bever2010.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/11/Bever2010.html</guid>
-        
-        
-        <category>Analysis by synthesis</category>
-        
-      </item>
-    
-      <item>
-        <title>Vision as Bayesian inference: analysis by synthesis?</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Yuille2006&quot;&gt;Yuille, A. L., &amp;amp; Kersten, D. (2006). Vision as Bayesian inference: analysis by synthesis? &lt;i&gt;Trends In Cognitive Sciences&lt;/i&gt;, &lt;i&gt;10&lt;/i&gt;(7), 301–308. doi:10.1016/j.tics.2006.05.002&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Yuille &amp;amp; Kersten argue that vision research should not focus on simple, artificial stimuli (as is what is normally the case). Instead, they argue that real, naturalistic images should be used. However, the reason why they haven’t been used traditionally is that it is not clear how to analyze visual processing on these images due to their complexity. To deal with this issue, they suggest relying on generative Bayesian models as a way to formalize theories of visual processing, and present an example of one such model.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Their model has two main components: one for bottom-up proposals, and one for top-down validation:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;We propose an “analysis by synthesis” strategy where low-level cues, combined with spatial grouping ruls (similar to Gestalt laws), make bottom-up proposals which activate hypotheses about objects and scene structures. These hypotheses are accepted, or rejected, by direct comparison to the image (or a filtered version of it) in a top down process.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;They use a model similar to a probabilistic context-free grammar (PCFG) in which non-terminal nodes $i$ has attributes for the model type (face, texture, shading, etc.) $\zeta_i$, the region of the image $L_i$ that the model generates, and the model parameters $\theta_i$. The set of all non-terminal nodes is denoted by $W$, whose prior is:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(W)=p(N)\prod_{i=1}^N p(L_i)p(\zeta_i\vert L_i)p(\theta_i\vert \zeta_i)&lt;/script&gt;
-
-&lt;p&gt;Note that the number of non-terminal nodes, $N$, is also a random variable – so non-terminal nodes are themselves another structure that inference is performed over.&lt;/p&gt;
-
-&lt;p&gt;Terminal nodes correspond to the actual image, and have a likelihood of $p(I_{R(L)}\vert \zeta,L,\theta)$ for the particular region of the image that they correspond to. Combining all the regions, the overall likelihood for an image is:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(I\vert W)=\prod_{i=1}^N p(I_{R(L_i)}\vert \zeta_i,L_i,\theta_i)&lt;/script&gt;
-
-&lt;p&gt;Now given $P(I)$ and $P(I\vert W)$, inference can be performed to compute $\mathrm{arg}\max_W p(W\vert I)$ which corresponds to the most likely scene grammar given the observed image. To actually perform inference, they use “data-driven MCMC” which allows for using bottom-up discriminative cues to make proposals for a “transition kernel”:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;K_i(W,W^\prime)=q_i(W,W^\prime)a_i(W,W^\prime)&lt;/script&gt;
-
-&lt;p&gt;where each $K_i$ gives the probability for transitioning from $W$ to $W^\prime$ and corresponds to a particular operation on the parse tree. The $q_i$ function is the discriminative proposal function, and $a_i$ is the acceptance function.&lt;/p&gt;
-
-&lt;p&gt;The model from this paper is actually one described in more detail in another paper (which I have not yet read through, only the abstract):&lt;/p&gt;
-
-&lt;p&gt;&lt;span id=&quot;Tu2005&quot;&gt;Tu, Z., Chen, X., Yuille, A. L., &amp;amp; Zhu, S.-C. (2005). Image Parsing: Unifying Segmentation, Detection, and Recognition. &lt;i&gt;International Journal Of Computer Vision&lt;/i&gt;, &lt;i&gt;63&lt;/i&gt;(2), 113–140. doi:10.1007/s11263-005-6642-x&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;Generative Bayesian models allow us to build powerful, structured models that may allow us to better capture complex real-world phenomena such as realistic images. While Yuille &amp;amp; Kersten don’t explicitly turn their model of visual segmentation and processing into a theory for visual perception, it certainly provides a foundation that could be used in future work (and perhaps has been – I haven’t investigated this yet).&lt;/p&gt;
-
-&lt;p&gt;It’s unclear to me whether there is actual “synthesis” going on in this model. Computing a likelihood function doesn’t necessarily mean that you have to sample from that likelihood. Do they actually syntesize image patches and compare them to the true image? Or are they just computing this likelihood function, without needing to synthesize anything? I do think it is important to have the &lt;em&gt;capacity&lt;/em&gt; for simulation/synthesis (certainly it seems we have this, based on mental imagery) but I’m not sure it’s necessary for actually performing inference. The generative capacity is necessary, perhaps, but “generative” still does not mean that images are being synthesized.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 10 Nov 2015 13:42:19 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/analysis%20by%20synthesis/2015/11/10/Yuille2006.html</guid>
         
         
         <category>Analysis by synthesis</category>
