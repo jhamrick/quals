@@ -6,8 +6,8 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 21 Dec 2015 12:02:23 -0500</pubDate>
-    <lastBuildDate>Mon, 21 Dec 2015 12:02:23 -0500</lastBuildDate>
+    <pubDate>Mon, 21 Dec 2015 12:02:47 -0500</pubDate>
+    <lastBuildDate>Mon, 21 Dec 2015 12:02:47 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -60,9 +60,9 @@
 &lt;p&gt;I expect this would actually work well with rigid body dynamics as well, though perhaps in the presence of many collisions, it wouldn’t – it would be interesting to test it out in those cases.
 Additionally, it would be interesting to see how this could be extended to multiple object tracking. For example, could you use this method to track the objects in our block towers? I suspect that would be more difficult, as (I think) you would need to add an additional level of hierarchy to the probabilistic generative model to account for different objects. Or, perhaps it would work to just say there is one big object with multiple components that are independent? I’m not sure.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 20 Dec 2015 18:51:14 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Schulman2013b.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Schulman2013b.html</guid>
+        <pubDate>Mon, 21 Dec 2015 07:02:32 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/21/Schulman2013b.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/21/Schulman2013b.html</guid>
         
         
         <category>Physical reasoning with dynamics models</category>
