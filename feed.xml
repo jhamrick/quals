@@ -6,9 +6,63 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 20 Dec 2015 19:56:19 -0500</pubDate>
-    <lastBuildDate>Sun, 20 Dec 2015 19:56:19 -0500</lastBuildDate>
+    <pubDate>Mon, 21 Dec 2015 00:28:35 -0500</pubDate>
+    <lastBuildDate>Mon, 21 Dec 2015 00:28:35 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Model Learning for Robot Control: A Survey</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Nguyen-Tuong2011&quot;&gt;Nguyen-Tuong, D., &amp;amp; Peters, J. (2011). Model Learning for Robot Control: A Survey. &lt;i&gt;Cognitive Processing&lt;/i&gt;, &lt;i&gt;12&lt;/i&gt;, 319–340. doi:10.1007/s10339-011-0404-1&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;As this is a review paper, I will just give a summary and takeaways, and not include methods/algorithm.&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;This was a really nice survey paper of how dynamics models have been used in robotics (and in particular in control). First, Nguyen-Tuong &amp;amp; Peters distinguish between different model types:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Forward models – predict $s_{t+1}$ from $s_t$ and $a_t$&lt;/li&gt;
+  &lt;li&gt;Inverse models – infer $a_t$ from $s_t$ and $s_{t+1}$&lt;/li&gt;
+  &lt;li&gt;Mixed models – a combination of forward models and inverse models, which helps to constrain inverse models which are frequently ill-defined (i.e. there is no unique solution)&lt;/li&gt;
+  &lt;li&gt;Multi-step prediction models – predict the state for the next $k$ timesteps. This is more than just applying the forward model $k$ times, as this means errors accumulate. Instead there are “autoregressive” methods that use past predicted values to predict future values.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Second, Nguyen-Tuong &amp;amp; Peters discuss different architectures for learning these different types of models:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Direct modeling – learn a direct mapping between inputs and outputs. This can be used to learn all the types of models described above, though it can only be used to model inverse and mixed models if they are invertible.&lt;/li&gt;
+  &lt;li&gt;Indirect modeling – use error from a feedback controller to optimize the model. This can be used for learning inverse and mixed model types.&lt;/li&gt;
+  &lt;li&gt;Distal teacher – first learn a forward model, and then use the learned forward model to generate errors for use in learning an inverse model. This is mainly used for modeling mixed models.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Third, Nguyen-Tuong &amp;amp; Peters discuss challenges for model-based learning, which are (copied directly from Table 2, pg. 13):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Data challenges: high dimensionality, smoothness, richness of data, noise, outliers, redundant data, missing data&lt;/li&gt;
+  &lt;li&gt;Algorithmic constraints: incremental updates, real-time, online learning, efficiency, large data sets, prior knowledge, sparse data&lt;/li&gt;
+  &lt;li&gt;Real-world challenges: safety, robustness, generalization, interaction, stability, uncertainty in the environment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Fourth, Nguyen-Tuong &amp;amp; Peters given an overview of how some of the above challenges can be addressed by machine learning techniques. They break the approaches down into two main categories: global learning techniques (which learn the entire global function) and local techniques (which approximate local functions around a fixed point). They give a lot of examples but don’t go much into the details, so I will need to take a further look at some of their referenced papers.&lt;/p&gt;
+
+&lt;p&gt;Finally, the authors present three case studies as examples of how predictive model-based control has been successfully applied. Their first case study, on “simulation-based optimization”, refers to using forward models for controlling a helicopter. In particular, they reference one particular paper (Ng et al.) in which they use explicit rollouts of the simulator in order to learn the appropriate control policy. Their second case study involves “approximation-based inverse dynamics control”, in which inverse dynamics must be learned (rather than pre-programmed) because for most robotic platforms, rigid-body physics is not applicable. Their third case study focuses on “learning operational space control”, which is the idea of learning a control policy in task space, rather than in e.g. position space.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;There are a few interesting things that I noted while reading this article. First, the traditional notion of discriminative/generative models kind of breaks down in this discussion. Nguyen-Tuong &amp;amp; Peters are talking in general about learning forward (i.e. generative models), yet they discuss ways to learn these models which resemble discriminative (i.e., direct learning) or generative (i.e., distal teacher learning) approaches. So, I suppose if you are learning a hierarchical model, you could have different parts be generative or discriminative—the whole thing doesn’t have to be one way or the other.&lt;/p&gt;
+
+&lt;p&gt;Nguyen-Tuong &amp;amp; Peters also discuss how the combination of forward and inverse models (i.e. mixed models) is useful because “information encoded in the forward model can help to resolve the non-uniqueness, i.e., the ill-posedness, of the inverse model” (pg. 7). This is not something I’d thought about before in that particular way—I’ve thought for a long time that it’s useful to have a generative model and then learn a discriminative model from that, but I hadn’t thought about the possibility that the generative model could constrain the discriminative model when the function it’s trying to learn isn’t one-to-one.&lt;/p&gt;
+
+&lt;p&gt;I’m interested in reading more about the distal-teacher learning technique, which sounds to me like something that could potentially be used when learning from mental simulations. Though, Nguyen-Tuong &amp;amp; Peters say that “distal teacher learning has several potential disadvantages, such as learning stability, numerical stability, and error accumulation” (pg. 13). They don’t cite sources for that, unfortunately. But in general I would like to understand better the strengths and weaknesses of that approach.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 20 Dec 2015 18:51:14 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Nguyen-Tuong2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Nguyen-Tuong2011.html</guid>
+        
+        
+        <category>Physical reasoning with dynamics models</category>
+        
+      </item>
     
       <item>
         <title>Robust Physics-Based Locomotion Using Low-Dimensional Planning</title>
@@ -617,33 +671,6 @@ P(M\vert\mu \circ \langle s, a, r, t \rangle) &amp;\propto P(\langle s, a, r, t 
         <pubDate>Wed, 11 Nov 2015 13:17:11 -0500</pubDate>
         <link>http://jhamrick.github.io/quals/generative%20models/2015/11/11/Helmholtz1924.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/11/Helmholtz1924.html</guid>
-        
-        
-        <category>Generative models</category>
-        
-      </item>
-    
-      <item>
-        <title>Hypothesis on the nature of thought</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Craik1943&quot;&gt;Craik, K. (1943). Hypothesis on the nature of thought. In &lt;i&gt;The Nature of Explanation&lt;/i&gt; (pp. 50–61).&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Craik was one of the first modern psychologists to explicitly propose the idea of having a generative model of the world. There are two main points that he makes.&lt;/p&gt;
-
-&lt;p&gt;First, the mind uses a different representation than either sensory/motor inputs or outputs. There are “three essential processes” which consist of translation of external stimuli into symbols, processing of these symbols into other symbols, and retranslation of the new symbols into a new external representation (such as action).&lt;/p&gt;
-
-&lt;p&gt;Second, te way that we process symbols is by using a “model”, which he defines in relation to real, physical processes in the world. As in the famous quote that everybody likes to use:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;If the organism carries a ‘small-scale model’ of external reality and of its own possible actions within its head, it is able to try out various alternatives, conclude which is the best of them, react to future situations before they arise, utilise the knowledge of past events in dealing with the present and future, and in every way react in a much fuller, safer, and more competent manner to the emergencies which face it. (pg. 61)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Craik seems to think that such a model is more reliable than what it probably actually is (“we can, for instance, design a bridge in our minds and know that it will bear a train passing over it instead of having to conduct a number of full-scale experiments”, pg. 59), but the core idea is an important one. By having a model of reality, we can make predictions about reality that we otherwise wouldn’t be able to make, because reality is too complicated.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 11 Nov 2015 13:17:11 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/generative%20models/2015/11/11/Craik1943.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2015/11/11/Craik1943.html</guid>
         
         
         <category>Generative models</category>
