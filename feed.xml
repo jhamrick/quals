@@ -6,8 +6,8 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 21 Dec 2015 12:02:47 -0500</pubDate>
-    <lastBuildDate>Mon, 21 Dec 2015 12:02:47 -0500</lastBuildDate>
+    <pubDate>Mon, 21 Dec 2015 12:05:14 -0500</pubDate>
+    <lastBuildDate>Mon, 21 Dec 2015 12:05:14 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -70,7 +70,7 @@ Additionally, it would be interesting to see how this could be extended to multi
       </item>
     
       <item>
-        <title>Model Learning for Robot Control: A Survey</title>
+        <title>Model learning for robot control: A survey</title>
         <description>&lt;p&gt;&lt;span id=&quot;Nguyen-Tuong2011&quot;&gt;Nguyen-Tuong, D., &amp;amp; Peters, J. (2011). Model Learning for Robot Control: A Survey. &lt;i&gt;Cognitive Processing&lt;/i&gt;, &lt;i&gt;12&lt;/i&gt;, 319–340. doi:10.1007/s10339-011-0404-1&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;As this is a review paper, I will just give a summary and takeaways, and not include methods/algorithm.&lt;/p&gt;
@@ -124,7 +124,7 @@ Additionally, it would be interesting to see how this could be extended to multi
       </item>
     
       <item>
-        <title>Robust Physics-Based Locomotion Using Low-Dimensional Planning</title>
+        <title>Robust physics-based locomotion using low-dimensional planning</title>
         <description>&lt;p&gt;&lt;span id=&quot;Mordatch2010&quot;&gt;Mordatch, I., de Lasa, M., &amp;amp; Hertzmann, A. (2010). Robust physics-based locomotion using low-dimensional planning. &lt;i&gt;ACM Transactions On Graphics&lt;/i&gt;, &lt;i&gt;29&lt;/i&gt;(4). doi:10.1145/1778765.1778808&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
@@ -168,7 +168,7 @@ Additionally, it would be interesting to see how this could be extended to multi
       </item>
     
       <item>
-        <title>Seeing Physics, or: Physics is for Prediction</title>
+        <title>Seeing physics, or: Physics is for prediction</title>
         <description>&lt;p&gt;&lt;span id=&quot;Brand1995&quot;&gt;Brand, M., Cooper, P., &amp;amp; Birnbaum, L. (1995). Seeing Physics, or: Physics is for Prediction. &lt;i&gt;Proceedings Of the Workshop on Physics Based Modelling in Computer Vision&lt;/i&gt;. doi:10.1109/PBMCV.1995.514679&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
