@@ -6,8 +6,8 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 21 Dec 2015 15:09:24 -0500</pubDate>
-    <lastBuildDate>Mon, 21 Dec 2015 15:09:24 -0500</lastBuildDate>
+    <pubDate>Mon, 21 Dec 2015 15:12:00 -0500</pubDate>
+    <lastBuildDate>Mon, 21 Dec 2015 15:12:00 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -36,7 +36,7 @@
 
 &lt;p&gt;They then calculate the expected falling risk as:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;R(a,\mathbf{x}\_0)=\int p(W,\mathbf{x}\_0)R(a, \mathbf{x}\_0, W)\ \mathrm{d}W&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;R(a,\mathbf{x}_0)=\int p(W,\mathbf{x}_0)R(a, \mathbf{x}_0, W)\ \mathrm{d}W&lt;/script&gt;
 
 &lt;p&gt;where $p(W,\mathbf{x}_0)$ is given by the disturbance field and $R(a, \mathbf{x}_0, W)$ is the maximum energy that the object can release when it is moved out of its energy barrier by work $W$. This is related to, for example, how high up the object is – there will be a higher risk if the object is high up because it can fall further.&lt;/p&gt;
 
