@@ -15,6 +15,16 @@
 
 \section{Probabilistic models of cognition (36)}
 
+Cognitive science has seen many approaches to modeling: symbolic/logical systems, connectionist architectures, and most recently, probabilistic models of cognition.
+Simultaneously, the approach of rational analysis has also gained traction in cognitive science, and is complementary to probabilistic models.
+Rational analysis emphasizes focusing on the problems that the system is trying to solve, and what possible solutions there are to those problems under certain environmental constraints.
+Probabilistic modeling is a framework for explicitly writing down solutions to these problems as well as the the desired constraints.
+
+In this topic, I have included papers that start with the foundations of rational analysis, and move on to papers that discuss or reflect the core concepts behind probabilistic models of cognition.
+I also include several papers that are success stories for probabilistic modeling, both in higher-level cognition as well as perception.
+One of the core concepts in probabilistic modeling is that of generative models, and thus I also include sections on generative models, analysis-by-synthesis, and theory learning, which span a range of thinking in terms of what generative models are.
+Finally, I include several papers that challenge the probabilistic approach to cognition, and several papers on rational process models which address some of the ``optimality'' concerns with the probabilistic/rational analysis approach.
+
 \subsection{Rational analysis (3)}
 \fullcitebib{Marr1971,Anderson1990,Chater1999}
 
@@ -24,24 +34,38 @@
 \subsection{Probabilistic models of perception (3)}
 \fullcitebib{Weiss2002,Ernst2002,Kording2004}
 
-\subsection{Analysis by synthesis (3)}
-\fullcitebib{Halle1962,Yuille2006,Bever2010}
-
 \subsection{Generative models (6)}
 \fullcitebib{Helmholtz1924,Craik1943,Dayan1995,Ng2002,Battaglia2012,Clark2013}
+
+\subsection{Analysis by synthesis (3)}
+\fullcitebib{Halle1962,Yuille2006,Bever2010}
 
 \subsection{Theory learning (4)}
 \fullcitebib{Kemp2007,Griffiths2009,Kemp2010,Ullman2012}
 
+\subsection{Challenges for probabilistic models of cognition (6)}
+\fullcitebib{Kahneman1973,Tversky1974,Mozer2008,Jones2011,Marcus2013,Jones2014}
+
 \subsection{Rational process models (4)}
 \fullcitebib{Hay2012,Lieder2012,Vul2014,Griffiths2015}
 
-\subsection{Challenges for probabilistic models of cognition (6)}
-\fullcitebib{Kahneman1973,Tversky1974,Mozer2008,Jones2011,Marcus2013,Jones2014}
+\subsection{Questions}
+
+\begin{enumerate}
+\item What are probabilistic models of cognition? In particular, what are probabilistic models in the broad sense, and how does this contrast with how they are used in practice? How are they related to generative models and structured types of representations (such as theories)?
+\item Are probabilistic models of cognition formulated at the computational level of analysis useful to the study of the mind? Discuss the ways in which they have been successful, and the ways in which they have not (or, alternately, weaknesses to the approach). How might such failures or weaknesses be resolved?
+\end{enumerate}
 
 
 \newpage
 \section{Aspects of simulation in cognitive science (38)}
+
+``Simulation'' is a bit of a loaded term in cognitive science, as it has been used in many different ways to refer to many different lines of research.
+To complicate things further, there are areas of research could might be construed as a type of simulation, but which are not referred to as such.
+Based on the amount of research that touches on simulation, it seems as if there is some important underlying theme that many different cognitive scientists have been picking up on, even if they do not all necessarily use the term in the same way.
+In this topic, I explore different definitions of simulation which span the following areas of research: perception, language, motor control, theory of mind, and thought experiments.\footnote{Note, however, that this is a very crude breakdown of what is a very complex overarching topic.
+Even the subtopics here are not necessarily separable: for example, several of the mental models papers could arguably also go under physical reasoning.}
+
 
 \subsection{Mental imagery (7)}
 \fullcitebib{Shepard1971,Just1976,Kosslyn1988,Finke1988,Grush2004,Flusberg2011,Schacter2012}
@@ -67,9 +91,29 @@
 \subsection{Thought experiments (5)}
 \fullcitebib{Kahneman1981,Gendler1998,Trickett2007,Clement2009,Brown2014}
 
+\subsection{Questions}
+
+\begin{enumerate}
+\item What is ``simulation''? Discuss the various ways that the concept of simulation has been used in explanations or models of the mind. How are these uses of simulation similar or different? Is there any core insight that can be gleaned from the intersection of these topics?
+\item What is the relationship between simulation and probabilistic models of cognition? Specifically, one interpretation is that simulations might be thought of as samples from a probability distribution. Does this interpretation work for all the ways in which simulation has been used to explain cognition? Discuss why or why not.
+\end{enumerate}
+
 
 \newpage
 \section{Simulation and physical reasoning in computer science and robotics (34)}
+
+``Simulation'' has also been used extensively in computer science and robotics, in almost as many different ways as it has been in cognitive science.
+For example, models of physical dynamics have been used in planning algorithms for robotics; approximate physical simulations are computed in computer graphics; and simulations are run to approximate posterior distributions in machine learning.
+These are, as in cognitive science, quite different interpretations of the term ``simulation''.
+
+In this topic, I begin with two foundational topics: probabilistic simulation, and planning and decision making in reinforcement learning (with an emphasis on model-based and/or simulation-based planning).
+Next, I include several papers on planning under uncertain dynamics in order to better understand the challenges (and potential solutions) to using simulation when the dynamics of the world are unknown.
+The next two subtopics focus more directly on the particular area of physical reasoning, both implicitly (e.g. for motor control) and explicitly (e.g. for predicting what will happen in a scene).
+In order to understand where simulation is useful, and where it is not, I survey a collection of papers that either do or do not use an explicit dynamics model.
+Finally, the last topic covers the fundamentals of physically-based animation for computer graphics.
+
+\subsection{Probabilistic simulation (4)}
+\fullcitebib{Chib1995,VanDerMerwe2000,Neal2003,Neal2011}
 
 \subsection{Planning and decision making (6)}
 \fullcitebib{Sutton1998,Dearden1999,Ross2008,Browne2012,Guez2013,Mnih2015}
@@ -86,7 +130,11 @@
 \subsection{Physically-based animation (8)}
 \fullcitebib{Baraff1997,Stam1999,Muller2002,Guendelman2003,Bridson2003,Muller2003,Nealen2006,Boeing2007}
 
-\subsection{Probabilistic simulation (4)}
-\fullcitebib{Chib1995,VanDerMerwe2000,Neal2003,Neal2011}
+\subsection{Questions}
+
+\begin{enumerate}
+\item How has simulation been used in the context of planning and decision making for robotic systems? In what ways has been successful, and in what ways has it failed? What are challenges for simulation-based algorithms in terms of tractability? What potential improvements over model-free methods do they bring to the table?
+\item How does use of simulation in computer science and robotics relate to the use of simulation in cognitive science? Are there ways in which simulation is used in robotics and computer science that could be applicable to cognitive modeling? Be sure to discuss multiple types of simulation, including probabilistic simulation, simulations in planning (e.g. Monte-Carlo Tree Search), physical simulation for computer graphics, and combinations thereof.
+\end{enumerate}
 
 \end{document}
