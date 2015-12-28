@@ -6,9 +6,96 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 23 Dec 2015 09:42:09 -0500</pubDate>
-    <lastBuildDate>Wed, 23 Dec 2015 09:42:09 -0500</lastBuildDate>
+    <pubDate>Mon, 28 Dec 2015 13:24:03 -0500</pubDate>
+    <lastBuildDate>Mon, 28 Dec 2015 13:24:03 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Physics-based trajectory optimization for grasping in cluttered environments</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Kitaev2015&quot;&gt;Kitaev, N., Mordatch, I., Patil, S., &amp;amp; Abbeel, P. (2015). Physics-Based Trajectory Optimization for Grasping in Cluttered Environments. &lt;i&gt;Proceedings Of the IEEE International Conference on Robotics and Automation&lt;/i&gt;. Retrieved from http://www.eecs.berkeley.edu/\simpabbeel/papers/2015-ICRA-clutter.pdf&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Kitaev et al. use rollouts from a physics engine in order to compute the gradient of the object, which takes into account physical dynamics. They compare two different methods: a baseline which only uses straight trajectories, and their physics-based method. They find that the physics-based method is able to produce behavior that is similar to that exhibited by people (e.g. weaving through cluttered objects) and which avoids catastrophic physical events.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;h2 id=&quot;baseline-method&quot;&gt;Baseline method&lt;/h2&gt;
+
+&lt;p&gt;First, the baseline approach finds a straight line trajectory at some particular approach angle $\alpha$. For any particular value of $\alpha$, the trajectory $\mathbf{q}_\alpha$ is computed using sequental quadratic programming to minimize an objective function:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\min_{\mathbf{q}^{1,\ldots{},\Delta}} \sum_t \sum_k w_k c_k^t (\mathbf{q}^t,\mathbf{q}^{t-1})&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\mathrm{s.t.}\ \ &amp; \mathbf{p}_\mathrm{gripper}(\mathbf{q}^\Delta)=\mathbf{p}_\mathrm{gripper}(\mathbf{q}_\alpha^\Delta)\\
+&amp; R_\mathrm{gripper}(\mathbf{q}^\Delta)=R_\mathrm{gripper}(\mathbf{q}_\alpha^\Delta)
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{p}_\mathrm{gripper}$ is the position of the gripper and $R_\mathrm{gripper}$ is the rotation of the gripper. The cost terms are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$c_\mathrm{static\underline{\ }hull}$ – penalizes penetration between the robot and static obstacles if they are closer than some distance $d_\mathrm{safe}$.&lt;/li&gt;
+  &lt;li&gt;$c_\mathrm{vel}$ – penalizes the robot’s velocity to ensure smooth trajectories&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Trajectories are computed for each value of $\alpha$ and then physics simulations are used to evaluate each $\mathbf{q}_\alpha$ (criteria described below). The $\alpha$ corresponding to the best trajectory is chosen.&lt;/p&gt;
+
+&lt;h2 id=&quot;physics-based-method&quot;&gt;Physics-based method&lt;/h2&gt;
+
+&lt;p&gt;The physics-based method also takes into account the physical dynamics of the static objects – not just that of the robot. The objective is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+&amp; \min_{\mathbf{q}^{1,\ldots{},\Delta}} \sum_t \sum_k \sum_i w_k c_k^t (\mathbf{q}^t,\mathbf{q}^{t-1},\mathbf{x}_i^t)\\
+&amp; \mathrm{s.t.}\ \ \mathcal{X}^t=\phi(\mathcal{X}^{t-1},\mathbf{q}^t),\ \mathcal{X}^1\ \mathrm{is\ fixed}
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $\phi$ is the physical dynamics. They solve this optimization by picking an initial trajectory and rolling out physics for that trajectory. Then, they linearize the dynamics around that trajectory (which they can do by taking the derivative of the dynamics using a smooth contact model), and optimize that approximation.&lt;/p&gt;
+
+&lt;p&gt;The cost terms are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$c_\mathrm{static}$ – similar to $c_\mathrm{static\underline{\ }hull}$, except that it checks collision at each time step rather than using the swept-out convex hull between timesteps&lt;/li&gt;
+  &lt;li&gt;$c_\mathrm{acc}$ – similar to $c_\mathrm{vel}$, but ensures smooth acceleration rather than velocity&lt;/li&gt;
+  &lt;li&gt;$c_\mathrm{force}$ – penalizes contact forces to prevent kinematically impossible trajectories&lt;/li&gt;
+  &lt;li&gt;$c_\mathrm{motion}$ – penalizes static objects falling off the table&lt;/li&gt;
+  &lt;li&gt;$c_\mathrm{upright}$ – penalizes static objects tipping over&lt;/li&gt;
+  &lt;li&gt;$c_\mathrm{grasp}$ – encourages the gripper to be close to the target object&lt;/li&gt;
+  &lt;li&gt;$c_\mathrm{grp\underline{\ }horiz}$ – enforces that the gripper must be horizontal&lt;/li&gt;
+  &lt;li&gt;$c_\mathrm{grp\underline{\ }open}$ – enforces that the gripper must be open on the last timestep&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(there are a few other cost terms that are used in pre- and post-processing steps, but I am not going to go into the details of those here).&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;Kitaev et al. evaluate their approach on “shelf” and “refridgerator” scenes with varying numbers of objects, and they define success as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Success&lt;/em&gt; – the robot grasps the target object without knocking over any other objects&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Partial success&lt;/em&gt; – the robot grasps the target object and some of the other objects are tipped over (but not knocked off the shelf)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Failure&lt;/em&gt; – any other behavior, including failure to grasp the object, knocking objects off the shelf, and kinematic failures (e.g. attempting to move through a static object).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;The problem that Kitaev et al. are solving here is that sometimes when reaching for an object, there will be other objects in the way. Traditionally, trajectory optimization has just dealt with situations where this isn’t an issue by avoiding obstacles entirely, but this isn’t always an option. Instead, some situations call for actually reasoning about the dynamics of objects and executing a trajectory that does collide with those objects, but that does so in an intelligent way such that they are less likely to fall over or cause other objects to fall over.&lt;/p&gt;
+
+&lt;p&gt;The approach that they take in this paper is to include a term for linearized approximate dynamics in the objective function. They make the simplifying assumption that the dynamics are smooth (e.g. rather than having a step function saying “in contact” and “not in contact”, there is some smooth function that varies between the two).&lt;/p&gt;
+
+&lt;p&gt;It’s not clear to me how well this approach would work in practice, though. Their experiments show improvement over the baseline, but the baseline seems to be pretty simple and doesn’t include cost terms that might be helpful to it (e.g. by allowing the gripper to rotate and remain closed until the end). For the most crowded cases, these things probably wouldn’t help the baseline much, but for intermediate cases a better baseline would probably be one that allows the gripper to move around rather than enforcing a straight line. Additionally, would the smooth contact model work well in scenarios in which objects need to remain stacked, for example? Especially in the case of the fridge scenario, there are often objects stacked on top of each other, and it would be important to represent this in the simulation. I’m not sure if their smooth contact model would be stable for stacked objects, though.&lt;/p&gt;
+
+&lt;p&gt;That said, it is really cool that they seem to find realistic behavior emerging from the physics-based approach – for example, the “snaking” behavior of the gripper in very crowded scenes to push objects to the side, rather than forward. And, it is interesting to see this as yet another type of approach that can be used to incorporate physical knowledge into reasoning about the world.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 28 Dec 2015 07:17:48 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Kitaev2015.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Kitaev2015.html</guid>
+        
+        
+        <category>Physical reasoning with dynamics models</category>
+        
+      </item>
     
       <item>
         <title>Detecting potential falling objects by inferring human action and natural disturbance</title>
@@ -631,52 +718,6 @@ This results in essentially doing an approximate Monte-Carlo integration over al
         <pubDate>Sat, 19 Dec 2015 12:21:04 -0500</pubDate>
         <link>http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Guez2013.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Guez2013.html</guid>
-        
-        
-        <category>Planning and decision making</category>
-        
-      </item>
-    
-      <item>
-        <title>Model based Bayesian exploration</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Dearden1999&quot;&gt;Dearden, R., Friedman, N., &amp;amp; Andre, D. (1999). Model based Bayesian exploration. &lt;i&gt;Proceedings Of the Fifteenth Conference on Uncertainty in Artificial Intelligence&lt;/i&gt;, 150–159. Retrieved from http://dl.acm.org/citation.cfm?id=2073814&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In reinforcement learning (RL), there are two main approaches: &lt;em&gt;model-based RL&lt;/em&gt;, in which an explicit model of the transitions and/or rewards are estimated, and &lt;em&gt;model-free RL&lt;/em&gt;, in which this mdoel is not estimated and just the value of a state is estimated. In the model-based case, however, the estimated model is typically just a point estimate (e.g. a maximum-likelihood estimate) and thus does not reflect any uncertainty about the transition or reward model.&lt;/p&gt;
-
-&lt;p&gt;In this paper, Dearden et al. suggest using &lt;em&gt;Bayesian model-based RL&lt;/em&gt; in which Bayesian inference is used to maintain a posterior distribution over the transition and reward models, thus capturing both an estimate of what the models are as well as confidence for how accurate that estimate is.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;The sequence of states and actions taken by the agent can be summarized as a sequence of &lt;em&gt;experience tuples&lt;/em&gt;, $\langle s, a, r, t \rangle$. The agent’s belief about the MDP (i.e. the true transition and reward functions) is $\mu$, so that $P(M\vert\mu)$ is the agent’s prior over possible MDPs given their initial belief $\mu$. After one timestep, the agent has a new experience and the updated distribution can be written as:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-P(M\vert\mu \circ \langle s, a, r, t \rangle) &amp;\propto P(\langle s, a, r, t \rangle \vert M)P(M\vert\mu)\\
-&amp;= P(s\rightarrow^a t\vert M)P(s\rightarrow^a r\vert M)P(M\vert\mu)
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;We can represent the particular transition and reward functions by sets of parameters $\theta^t_{s,a,t}$ and $\theta^r_{s,a,r}$.&lt;/p&gt;
-
-&lt;p&gt;Having a distribution over MDPs also induces a distribution over $Q$ functions. Rather than maximizing the $Q$ function directly, as is typically the case in RL, Dearden et al. choose actions which maximize:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;VPI(s,a)-(\max_{a^\prime}E[q_{s,a^\prime}]-E[q_{s,a}])&lt;/script&gt;
-
-&lt;p&gt;where $VPI$ is the &lt;em&gt;value of perfect information&lt;/em&gt;, which is essentially how much information we would get from taking action $a$ in state $s$. What this strategy basically says is that we should take actions which give us more information, but not if we think the $Q$-value of that action is low relative to the $Q$-value of the best current action. Thus, the tradeoff between exploration and exploitation is given explicitly in terms of information (though this is not actually information in the information-theoretic sense—they are using “gain” here to mean the expected difference in value if we think the action is the best, and learn that it isn’t; or that we think the action isn’t the best, and learn that it is).&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;Dearden et al. go on to discuss various ways of approximating the $Q$ distribution, but I am not going to go into these specifics. I think the more important takeaway from this paper is the idea that you can perform Bayesian inference over the transition and reward functions and thus capture uncertainty about how accurate your estimate is.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 16 Dec 2015 11:12:21 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/16/Dearden1999.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/16/Dearden1999.html</guid>
         
         
         <category>Planning and decision making</category>
