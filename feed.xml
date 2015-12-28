@@ -6,9 +6,66 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 28 Dec 2015 13:24:03 -0500</pubDate>
-    <lastBuildDate>Mon, 28 Dec 2015 13:24:03 -0500</lastBuildDate>
+    <pubDate>Mon, 28 Dec 2015 15:57:26 -0500</pubDate>
+    <lastBuildDate>Mon, 28 Dec 2015 15:57:26 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Model-based reinforcement learning with parametrized physical models and optimism-driven exploration</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Xie2015&quot;&gt;Xie, C., Patil, S., Moldovan, T., Levine, S., &amp;amp; Abbeel, P. (2015). Model-based Reinforcement Learning with Parametrized Physical Models and Optimism-Driven Exploration. &lt;i&gt;ArXiv Preprint ArXiv:1509.06824v1 [Cs.LG]&lt;/i&gt;. Retrieved from http://arxiv.org/abs/1509.06824&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Xie et al. use a linear approximation to physical dynamics using dynamics features in order to perform optimism-based exploration for model-based reinforcement learning. For certain dynamical systems, such as a pendulum or robot arm, this approach works remarkably well because the dynamics can be factored into a linear least-squares model where certain features are known (e.g. joint angles) and others must be learned (e.g. link weights or lengths) as part of the RL process. This can either be done by hand or with the help of libraries like &lt;a href=&quot;https://github.com/cdsousa/sympybotics&quot;&gt;SymPyBotics&lt;/a&gt; (which looks super cool!).&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;There are a few components to this algorithm, which I will describe separately.&lt;/p&gt;
+
+&lt;h2 id=&quot;optimism-based-exploration&quot;&gt;Optimism-based exploration&lt;/h2&gt;
+
+&lt;p&gt;The idea behind optimism-based exploration is related to the idea of having slack variables in an optimization. Essentially, you have some estimate of the dynamics, and you can act greedily with respect to those dynamics:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{\ddot{q}}_t=\hat{f}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t)&lt;/script&gt;
+
+&lt;p&gt;where $\hat{f}$ are the forward dynamics. To make it optimism-based:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{\ddot{q}}_t=\hat{f}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t)+\mathbf{xi}_t=\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{xi}_t)&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{\xi}_t$ is a slack variable. This variable is constrained based on the amount of uncertainty in the estimate of the dynamics $\hat{f}$. Rather than explicitly estimating this uncertainty, Xie et al. simply include a penalty term of the form $\frac{1}{m}\lVert\mathbf{\xi}_t\rVert^2$ where $m$ is proportional to the number of samples.&lt;/p&gt;
+
+&lt;h2 id=&quot;linear-least-squares-model&quot;&gt;Linear least squares model&lt;/h2&gt;
+
+&lt;p&gt;The equations of motion can be factored into a linear equation:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;H(\mathbf{q},\mathbf{\dot{q}}, \mathbf{\ddot{q}})\cdot{}\Delta=\mathbf{\tau}&lt;/script&gt;
+
+&lt;p&gt;where $\Delta$ are the system parameters to be estimated and $H$ are the physical features (e.g. joint angles). Given observations of $[\mathbf{q},\mathbf{\dot{q}}, \mathbf{\ddot{q}}]$, $\Delta$ can be estimated using least-squares regression, thus giving the forward dynamics model ($\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{xi}_t)$) that can then be used in model-predictive control.&lt;/p&gt;
+
+&lt;h2 id=&quot;model-predictive-control&quot;&gt;Model-predictive control&lt;/h2&gt;
+
+&lt;p&gt;The MPC algorithm used by Xie et al. is the same as that used by &lt;a href=&quot;/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Kitaev2015.html&quot;&gt;Kitaev et al.&lt;/a&gt; (iterative linear quadratic regulator). Briefly:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The algorithm iteratively computes first order expansions of the dynamics and second order expansions of the cost around the current trajectory, and then analytically computes the sequence of optimal controls with respect to this approximation. This sequence of controls is then executed to obtain a new trajectory, and the process repeats until convergence or for a fixed number of iterations.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;By using prior knowledge of the &lt;em&gt;structure&lt;/em&gt; of dynamics, it is possible to quickly learn the correct model parameters needed to use model-predictive control. This is really powerful, because model-predictive control can be much more efficient and accurate than a model-free method, especially for systems with complex dynamics (e.g. a 7 DOF robot arm). If some information about the dynamics of the system can be specified (e.g. the number of robot links and their joint angles) then the rest can be quickly inferred because the really hard part (the structure) is already present – the parameters of that structure just need to be learned.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 28 Dec 2015 10:06:19 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html</guid>
+        
+        
+        <category>Physical reasoning with dynamics models</category>
+        
+      </item>
     
       <item>
         <title>Physics-based trajectory optimization for grasping in cluttered environments</title>
@@ -687,37 +744,6 @@ They use a convolutional deep network to learn an approximation to the Q functio
         <pubDate>Sat, 19 Dec 2015 14:24:40 -0500</pubDate>
         <link>http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Guez2013-ipynb.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Guez2013-ipynb.html</guid>
-        
-        
-        <category>Planning and decision making</category>
-        
-      </item>
-    
-      <item>
-        <title>Scalable and efficient Bayes-adaptive reinforcement learning based on Monte-Carlo tree search</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Guez2013&quot;&gt;Guez, A., Silver, D., &amp;amp; Dayan, P. (2013). Scalable and efficient Bayes-adaptive reinforcement learning based on Monte-Carlo tree search. &lt;i&gt;Journal Of Artificial Intelligence Research&lt;/i&gt;, &lt;i&gt;48&lt;/i&gt;, 841–883. doi:10.1613/jair.4117&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Guez et al. lay out an approach for performing Bayes-adaptive reinforcement learning (e.g. &lt;a href=&quot;/quals/planning%20and%20decision%20making/2015/12/16/Dearden1999.html&quot;&gt;Dearden et al., 1999&lt;/a&gt;) using Monte-Carlo tree search (e.g. &lt;a href=&quot;/quals/planning%20and%20decision%20making/2015/12/16/Browne2012.html&quot;&gt;Browne et al., 2012&lt;/a&gt;).
-They introduce an algorithm called BAMCP (Bayes-Adaptive Monte-Carlo Planner) which works by sampling a MDP from the agent’s beliefs over the transition/reward functions, and then performs one simulation according to Monte-Carlo Tree Search.
-This results in essentially doing an approximate Monte-Carlo integration over all rewards, over all possible MDPs.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;I implemented &lt;a href=&quot;/quals/planning%20and%20decision%20making/2015/12/19/Guez2013-ipynb.html&quot;&gt;a demo of the BAMCP algorithm&lt;/a&gt;, rather than writing it here.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;Bayes-adaptive reinforcement learning is powerful and offers us the flexibility of incorporating structured priors into our planners, and planning properly under uncertain transitions/rewards. Although in the general case this may be intractable, MCTS offers a way to perform a Monte-Carlo approximation to the true posterior in a relatively efficient manner.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 19 Dec 2015 12:21:04 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Guez2013.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/19/Guez2013.html</guid>
         
         
         <category>Planning and decision making</category>
