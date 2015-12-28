@@ -6,8 +6,8 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 28 Dec 2015 17:36:19 -0500</pubDate>
-    <lastBuildDate>Mon, 28 Dec 2015 17:36:19 -0500</lastBuildDate>
+    <pubDate>Mon, 28 Dec 2015 18:12:35 -0500</pubDate>
+    <lastBuildDate>Mon, 28 Dec 2015 18:12:35 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -132,7 +132,7 @@
     
       <item>
         <title>Physics-based trajectory optimization for grasping in cluttered environments</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Kitaev2015&quot;&gt;Kitaev, N., Mordatch, I., Patil, S., &amp;amp; Abbeel, P. (2015). Physics-Based Trajectory Optimization for Grasping in Cluttered Environments. &lt;i&gt;Proceedings Of the IEEE International Conference on Robotics and Automation&lt;/i&gt;. Retrieved from http://www.eecs.berkeley.edu/\simpabbeel/papers/2015-ICRA-clutter.pdf&lt;/span&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;span id=&quot;Kitaev2015&quot;&gt;Kitaev, N., Mordatch, I., Patil, S., &amp;amp; Abbeel, P. (2015). Physics-Based Trajectory Optimization for Grasping in Cluttered Environments. &lt;i&gt;Proceedings Of the IEEE International Conference on Robotics and Automation&lt;/i&gt;. Retrieved from http://www.eecs.berkeley.edu/ pabbeel/papers/2015-ICRA-clutter.pdf&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
 
