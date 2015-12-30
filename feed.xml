@@ -6,9 +6,51 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 30 Dec 2015 16:07:17 -0500</pubDate>
-    <lastBuildDate>Wed, 30 Dec 2015 16:07:17 -0500</lastBuildDate>
+    <pubDate>Wed, 30 Dec 2015 18:41:21 -0500</pubDate>
+    <lastBuildDate>Wed, 30 Dec 2015 18:41:21 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Model-free probabilistic movement primitives for physical interaction</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Paraschos2015&quot;&gt;Paraschos, A., Rueckert, E., Peters, J., &amp;amp; Neumann, G. (2015). Model-Free Probabilistic Movement Primitives for Physical Interaction. &lt;i&gt;Proceedings Of the IEEE/RSJ Conference on Intelligent Robots and Systems&lt;/i&gt;. Retrieved from http://www.ausy.tu-darmstadt.de/uploads/Team/PubAlexParaschos/Paraschos_IROS_2015.pdf&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this work (and in previous work), Paraschos et al. present a framework for learning “probabilistic motion primitives” (ProMPs), which is essentially a way of learning a distribution over trajectories. In this paper, they explicitly encode the trajectory distributions to not just be over states, but also over controls (forces/torques) and sensory information. That is, they define a trajectory as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\mathbf{y}_t&amp;=[q_t,\dot{q}_t,u_t]^\top\\
+\mathbf{\tau}&amp;=[\mathbf{y}_1, \ldots{}, \mathbf{y}_T]
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;They then define the trajectory in terms of basis functions:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{\tau}\vert w)=\prod_t \mathcal{N}(\mathbf{y}_t\vert \mathbf{\Phi}_t \mathbf{w},\mathbf{\Sigma_y})&lt;/script&gt;
+
+&lt;p&gt;and learn the distribution over trajectories in terms of a hierarchical Bayesian model, marginalizing out the weights:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{\tau};\mathbf{\theta})=\int p(\mathbf{\tau}\vert \mathbf{w})p(\mathbf{w};\mathbf{\theta})\ \mathrm{d}\mathbf{w}&lt;/script&gt;
+
+&lt;p&gt;Paraschos et al. assume that pretty much everything is Gaussian, which allows them to derive nice analytical solutions for everything, including the controller $p(\mathbf{u}_t\vert \tilde{\mathbf{y}}_t)$ (where $\tilde{\mathbf{y}}_t$ is the observable state of the system).&lt;/p&gt;
+
+&lt;p&gt;As described in their previous paper (NIPS ‘13), this type of system provides a lot of nice properties: it is easy to condition on a particular aspect of a trajectory; to combine multiple motion primitives by multiplying the distributions; to blend multiple primitives according to an activation function; etc. By also including the control information, they are not only able to produce the desired trajectory in these scenarios, but the controls to achieve that trajectory as well. This is a somewhat similar approach to &lt;a href=&quot;/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Lee2015.html&quot;&gt;Lee et al.&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This is a cool paper that really demonstrates the power of maintaining a full generative model. It brings up an interesting distinction between model-based control and generative models—in this paper, Paraschos et al. explicitly are not using a model-based approach for controlling the robot (i.e., there is no dynamics model of the robot or the object), but they do estimate a full joint distribution over pose, velocity, force, and sensor data. With enough data, such a joint distribution could be essentially analogous to learning a model for control; in that case, the model is just not explicitly represented. You could even simulate forward by conditioning on the previous state.&lt;/p&gt;
+
+&lt;p&gt;As with all of these papers that I’ve been reading, though, it seems like these approaches that rely solely on demonstrations won’t be able to generalize to novel objects or actions. I suppose that people do have tons of experience; after only a few weeks after birth babies will have already been exposed to thousands of trajectories (of course, those are not expert demonstrations). I wonder how well this sort of approach would work with some type of self-supervised learning: i.e., you learn the joint distribution over states and actions, but the examples you have are self-generated and are not as reliable as expert demonstrations. I also wonder if you could combine this with something like &lt;a href=&quot;/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html&quot;&gt;Xie et al.&lt;/a&gt;, where instead of learning model-free controls, you do learn an explicit model, but you learn the model online along with the rest of the distribution.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 30 Dec 2015 12:34:01 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Paraschos2015.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Paraschos2015.html</guid>
+        
+        
+        <category>Physical reasoning without dynamics models</category>
+        
+      </item>
     
       <item>
         <title>Stabilizing novel objects by learning to predict tactile slip</title>
@@ -255,7 +297,7 @@ L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&amp;\ap
 
 &lt;p&gt;where $\hat{f}$ are the forward dynamics. To make it optimism-based:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{\ddot{q}}_t=\hat{f}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t)+\mathbf{xi}_t=\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{xi}_t)&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{\ddot{q}}_t=\hat{f}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t)+\mathbf{\xi}_t=\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{\xi}_t)&lt;/script&gt;
 
 &lt;p&gt;where $\mathbf{\xi}_t$ is a slack variable. This variable is constrained based on the amount of uncertainty in the estimate of the dynamics $\hat{f}$. Rather than explicitly estimating this uncertainty, Xie et al. simply include a penalty term of the form $\frac{1}{m}\lVert\mathbf{\xi}_t\rVert^2$ where $m$ is proportional to the number of samples.&lt;/p&gt;
 
@@ -265,7 +307,7 @@ L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&amp;\ap
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;H(\mathbf{q},\mathbf{\dot{q}}, \mathbf{\ddot{q}})\cdot{}\Delta=\mathbf{\tau}&lt;/script&gt;
 
-&lt;p&gt;where $\Delta$ are the system parameters to be estimated and $H$ are the physical features (e.g. joint angles). Given observations of $[\mathbf{q},\mathbf{\dot{q}}, \mathbf{\ddot{q}}]$, $\Delta$ can be estimated using least-squares regression, thus giving the forward dynamics model ($\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{xi}_t)$) that can then be used in model-predictive control.&lt;/p&gt;
+&lt;p&gt;where $\Delta$ are the system parameters to be estimated and $H$ are the physical features (e.g. joint angles). Given observations of $[\mathbf{q},\mathbf{\dot{q}}, \mathbf{\ddot{q}}]$, $\Delta$ can be estimated using least-squares regression, thus giving the forward dynamics model ($\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{\xi}_t)$) that can then be used in model-predictive control.&lt;/p&gt;
 
 &lt;h2 id=&quot;model-predictive-control&quot;&gt;Model-predictive control&lt;/h2&gt;
 
@@ -471,60 +513,6 @@ Additionally, it would be interesting to see how this could be extended to multi
         <pubDate>Mon, 21 Dec 2015 07:02:32 -0500</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/21/Schulman2013b.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/21/Schulman2013b.html</guid>
-        
-        
-        <category>Physical reasoning with dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Model learning for robot control: a survey</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Nguyen-Tuong2011&quot;&gt;Nguyen-Tuong, D., &amp;amp; Peters, J. (2011). Model Learning for Robot Control: A Survey. &lt;i&gt;Cognitive Processing&lt;/i&gt;, &lt;i&gt;12&lt;/i&gt;, 319–340. doi:10.1007/s10339-011-0404-1&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;As this is a review paper, I will just give a summary and takeaways, and not include methods/algorithm.&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;This was a really nice survey paper of how dynamics models have been used in robotics (and in particular in control). First, Nguyen-Tuong &amp;amp; Peters distinguish between different model types:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Forward models – predict $s_{t+1}$ from $s_t$ and $a_t$&lt;/li&gt;
-  &lt;li&gt;Inverse models – infer $a_t$ from $s_t$ and $s_{t+1}$&lt;/li&gt;
-  &lt;li&gt;Mixed models – a combination of forward models and inverse models, which helps to constrain inverse models which are frequently ill-defined (i.e. there is no unique solution)&lt;/li&gt;
-  &lt;li&gt;Multi-step prediction models – predict the state for the next $k$ timesteps. This is more than just applying the forward model $k$ times, as this means errors accumulate. Instead there are “autoregressive” methods that use past predicted values to predict future values.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Second, Nguyen-Tuong &amp;amp; Peters discuss different architectures for learning these different types of models:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Direct modeling – learn a direct mapping between inputs and outputs. This can be used to learn all the types of models described above, though it can only be used to model inverse and mixed models if they are invertible.&lt;/li&gt;
-  &lt;li&gt;Indirect modeling – use error from a feedback controller to optimize the model. This can be used for learning inverse and mixed model types.&lt;/li&gt;
-  &lt;li&gt;Distal teacher – first learn a forward model, and then use the learned forward model to generate errors for use in learning an inverse model. This is mainly used for modeling mixed models.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Third, Nguyen-Tuong &amp;amp; Peters discuss challenges for model-based learning, which are (copied directly from Table 2, pg. 13):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Data challenges: high dimensionality, smoothness, richness of data, noise, outliers, redundant data, missing data&lt;/li&gt;
-  &lt;li&gt;Algorithmic constraints: incremental updates, real-time, online learning, efficiency, large data sets, prior knowledge, sparse data&lt;/li&gt;
-  &lt;li&gt;Real-world challenges: safety, robustness, generalization, interaction, stability, uncertainty in the environment&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Fourth, Nguyen-Tuong &amp;amp; Peters given an overview of how some of the above challenges can be addressed by machine learning techniques. They break the approaches down into two main categories: global learning techniques (which learn the entire global function) and local techniques (which approximate local functions around a fixed point). They give a lot of examples but don’t go much into the details, so I will need to take a further look at some of their referenced papers.&lt;/p&gt;
-
-&lt;p&gt;Finally, the authors present three case studies as examples of how predictive model-based control has been successfully applied. Their first case study, on “simulation-based optimization”, refers to using forward models for controlling a helicopter. In particular, they reference one particular paper (Ng et al.) in which they use explicit rollouts of the simulator in order to learn the appropriate control policy. Their second case study involves “approximation-based inverse dynamics control”, in which inverse dynamics must be learned (rather than pre-programmed) because for most robotic platforms, rigid-body physics is not applicable. Their third case study focuses on “learning operational space control”, which is the idea of learning a control policy in task space, rather than in e.g. position space.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;There are a few interesting things that I noted while reading this article. First, the traditional notion of discriminative/generative models kind of breaks down in this discussion. Nguyen-Tuong &amp;amp; Peters are talking in general about learning forward (i.e. generative models), yet they discuss ways to learn these models which resemble discriminative (i.e., direct learning) or generative (i.e., distal teacher learning) approaches. So, I suppose if you are learning a hierarchical model, you could have different parts be generative or discriminative—the whole thing doesn’t have to be one way or the other.&lt;/p&gt;
-
-&lt;p&gt;Nguyen-Tuong &amp;amp; Peters also discuss how the combination of forward and inverse models (i.e. mixed models) is useful because “information encoded in the forward model can help to resolve the non-uniqueness, i.e., the ill-posedness, of the inverse model” (pg. 7). This is not something I’d thought about before in that particular way—I’ve thought for a long time that it’s useful to have a generative model and then learn a discriminative model from that, but I hadn’t thought about the possibility that the generative model could constrain the discriminative model when the function it’s trying to learn isn’t one-to-one.&lt;/p&gt;
-
-&lt;p&gt;I’m interested in reading more about the distal-teacher learning technique, which sounds to me like something that could potentially be used when learning from mental simulations. Though, Nguyen-Tuong &amp;amp; Peters say that “distal teacher learning has several potential disadvantages, such as learning stability, numerical stability, and error accumulation” (pg. 13). They don’t cite sources for that, unfortunately. But in general I would like to understand better the strengths and weaknesses of that approach.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 20 Dec 2015 18:51:14 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Nguyen-Tuong2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Nguyen-Tuong2011.html</guid>
         
         
         <category>Physical reasoning with dynamics models</category>

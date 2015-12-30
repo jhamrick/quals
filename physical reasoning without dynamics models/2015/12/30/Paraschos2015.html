@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Model-based reinforcement learning with parametrized physical models and optimism-driven exploration</title>
+    <title>Model-free probabilistic movement primitives for physical interaction</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Paraschos2015.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -69,56 +69,41 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Model-based reinforcement learning with parametrized physical models and optimism-driven exploration</h1>
-    <p class="post-meta">Dec 28, 2015 • Physical reasoning with dynamics models</p>
+    <h1 class="post-title">Model-free probabilistic movement primitives for physical interaction</h1>
+    <p class="post-meta">Dec 30, 2015 • Physical reasoning without dynamics models</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Xie2015">Xie, C., Patil, S., Moldovan, T., Levine, S., &amp; Abbeel, P. (2015). Model-based Reinforcement Learning with Parametrized Physical Models and Optimism-Driven Exploration. <i>ArXiv Preprint ArXiv:1509.06824v1 [Cs.LG]</i>. Retrieved from http://arxiv.org/abs/1509.06824</span></p>
+    <p><span id="Paraschos2015">Paraschos, A., Rueckert, E., Peters, J., &amp; Neumann, G. (2015). Model-Free Probabilistic Movement Primitives for Physical Interaction. <i>Proceedings Of the IEEE/RSJ Conference on Intelligent Robots and Systems</i>. Retrieved from http://www.ausy.tu-darmstadt.de/uploads/Team/PubAlexParaschos/Paraschos_IROS_2015.pdf</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>In this paper, Xie et al. use a linear approximation to physical dynamics using dynamics features in order to perform optimism-based exploration for model-based reinforcement learning. For certain dynamical systems, such as a pendulum or robot arm, this approach works remarkably well because the dynamics can be factored into a linear least-squares model where certain features are known (e.g. joint angles) and others must be learned (e.g. link weights or lengths) as part of the RL process. This can either be done by hand or with the help of libraries like <a href="https://github.com/cdsousa/sympybotics">SymPyBotics</a> (which looks super cool!).</p>
+<p>In this work (and in previous work), Paraschos et al. present a framework for learning “probabilistic motion primitives” (ProMPs), which is essentially a way of learning a distribution over trajectories. In this paper, they explicitly encode the trajectory distributions to not just be over states, but also over controls (forces/torques) and sensory information. That is, they define a trajectory as:</p>
 
-<h1 id="methods">Methods</h1>
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+\mathbf{y}_t&=[q_t,\dot{q}_t,u_t]^\top\\
+\mathbf{\tau}&=[\mathbf{y}_1, \ldots{}, \mathbf{y}_T]
+\end{align*} %]]></script>
 
-<p>n/a</p>
+<p>They then define the trajectory in terms of basis functions:</p>
 
-<h1 id="algorithm">Algorithm</h1>
+<script type="math/tex; mode=display">p(\mathbf{\tau}\vert w)=\prod_t \mathcal{N}(\mathbf{y}_t\vert \mathbf{\Phi}_t \mathbf{w},\mathbf{\Sigma_y})</script>
 
-<p>There are a few components to this algorithm, which I will describe separately.</p>
+<p>and learn the distribution over trajectories in terms of a hierarchical Bayesian model, marginalizing out the weights:</p>
 
-<h2 id="optimism-based-exploration">Optimism-based exploration</h2>
+<script type="math/tex; mode=display">p(\mathbf{\tau};\mathbf{\theta})=\int p(\mathbf{\tau}\vert \mathbf{w})p(\mathbf{w};\mathbf{\theta})\ \mathrm{d}\mathbf{w}</script>
 
-<p>The idea behind optimism-based exploration is related to the idea of having slack variables in an optimization. Essentially, you have some estimate of the dynamics, and you can act greedily with respect to those dynamics:</p>
+<p>Paraschos et al. assume that pretty much everything is Gaussian, which allows them to derive nice analytical solutions for everything, including the controller $p(\mathbf{u}_t\vert \tilde{\mathbf{y}}_t)$ (where $\tilde{\mathbf{y}}_t$ is the observable state of the system).</p>
 
-<script type="math/tex; mode=display">\mathbf{\ddot{q}}_t=\hat{f}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t)</script>
-
-<p>where $\hat{f}$ are the forward dynamics. To make it optimism-based:</p>
-
-<script type="math/tex; mode=display">\mathbf{\ddot{q}}_t=\hat{f}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t)+\mathbf{\xi}_t=\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{\xi}_t)</script>
-
-<p>where $\mathbf{\xi}_t$ is a slack variable. This variable is constrained based on the amount of uncertainty in the estimate of the dynamics $\hat{f}$. Rather than explicitly estimating this uncertainty, Xie et al. simply include a penalty term of the form $\frac{1}{m}\lVert\mathbf{\xi}_t\rVert^2$ where $m$ is proportional to the number of samples.</p>
-
-<h2 id="linear-least-squares-model">Linear least squares model</h2>
-
-<p>The equations of motion can be factored into a linear equation:</p>
-
-<script type="math/tex; mode=display">H(\mathbf{q},\mathbf{\dot{q}}, \mathbf{\ddot{q}})\cdot{}\Delta=\mathbf{\tau}</script>
-
-<p>where $\Delta$ are the system parameters to be estimated and $H$ are the physical features (e.g. joint angles). Given observations of $[\mathbf{q},\mathbf{\dot{q}}, \mathbf{\ddot{q}}]$, $\Delta$ can be estimated using least-squares regression, thus giving the forward dynamics model ($\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{\xi}_t)$) that can then be used in model-predictive control.</p>
-
-<h2 id="model-predictive-control">Model-predictive control</h2>
-
-<p>The MPC algorithm used by Xie et al. is the same as that used by <a href="/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Kitaev2015.html">Kitaev et al.</a> (iterative linear quadratic regulator). Briefly:</p>
-
-<blockquote>
-  <p>The algorithm iteratively computes first order expansions of the dynamics and second order expansions of the cost around the current trajectory, and then analytically computes the sequence of optimal controls with respect to this approximation. This sequence of controls is then executed to obtain a new trajectory, and the process repeats until convergence or for a fixed number of iterations.</p>
-</blockquote>
+<p>As described in their previous paper (NIPS ‘13), this type of system provides a lot of nice properties: it is easy to condition on a particular aspect of a trajectory; to combine multiple motion primitives by multiplying the distributions; to blend multiple primitives according to an activation function; etc. By also including the control information, they are not only able to produce the desired trajectory in these scenarios, but the controls to achieve that trajectory as well. This is a somewhat similar approach to <a href="/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Lee2015.html">Lee et al.</a>.</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>By using prior knowledge of the <em>structure</em> of dynamics, it is possible to quickly learn the correct model parameters needed to use model-predictive control. This is really powerful, because model-predictive control can be much more efficient and accurate than a model-free method, especially for systems with complex dynamics (e.g. a 7 DOF robot arm). If some information about the dynamics of the system can be specified (e.g. the number of robot links and their joint angles) then the rest can be quickly inferred because the really hard part (the structure) is already present – the parameters of that structure just need to be learned.</p>
+<p>This is a cool paper that really demonstrates the power of maintaining a full generative model. It brings up an interesting distinction between model-based control and generative models—in this paper, Paraschos et al. explicitly are not using a model-based approach for controlling the robot (i.e., there is no dynamics model of the robot or the object), but they do estimate a full joint distribution over pose, velocity, force, and sensor data. With enough data, such a joint distribution could be essentially analogous to learning a model for control; in that case, the model is just not explicitly represented. You could even simulate forward by conditioning on the previous state.</p>
+
+<p>As with all of these papers that I’ve been reading, though, it seems like these approaches that rely solely on demonstrations won’t be able to generalize to novel objects or actions. I suppose that people do have tons of experience; after only a few weeks after birth babies will have already been exposed to thousands of trajectories (of course, those are not expert demonstrations). I wonder how well this sort of approach would work with some type of self-supervised learning: i.e., you learn the joint distribution over states and actions, but the examples you have are self-generated and are not as reliable as expert demonstrations. I also wonder if you could combine this with something like <a href="/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html">Xie et al.</a>, where instead of learning model-free controls, you do learn an explicit model, but you learn the model online along with the rest of the distribution.</p>
+
 
   </article>
 
