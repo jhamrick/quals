@@ -6,9 +6,42 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 30 Dec 2015 12:04:05 -0500</pubDate>
-    <lastBuildDate>Wed, 30 Dec 2015 12:04:05 -0500</lastBuildDate>
+    <pubDate>Wed, 30 Dec 2015 16:07:17 -0500</pubDate>
+    <lastBuildDate>Wed, 30 Dec 2015 16:07:17 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Stabilizing novel objects by learning to predict tactile slip</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Veiga2015&quot;&gt;Veiga, F., van Hoof, H., Peters, J., &amp;amp; Hermans, T. (2015). Stabilizing Novel Objects by Learning to Predict Tactile Slip. &lt;i&gt;Proceedings Of the IEEE/RSJ Conference on Intelligent Robots and Systems&lt;/i&gt;. Retrieved from http://www.ausy.tu-darmstadt.de/uploads/Site/EditPublication/IROS2015veiga.pdf&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Veiga et al. compare a variety of supervised machine learning methods for learning to detect and predict tactile slip. They compare both SVMs and random forest classifiers and use features that come from a tactile sensor based on the human finger. More specifically, they have three different ways of constructing features:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Single element features – based only on the current timestep, $\phi(\mathbf{x}_{1:t})=\mathbf{x}_t$&lt;/li&gt;
+  &lt;li&gt;Delta features – based on the current timestep, as well as the change from the last timestep, $\phi(\mathbf{x}_{1:t})=[\mathbf{x}_t,\Delta\mathbf{x}_t]$&lt;/li&gt;
+  &lt;li&gt;Time window features – based on a window of previous time steps, $\phi(\mathbf{x}_{1:t})=\mathbf{x}_{t-\tau:t}$, where $\tau$ is the size of the time window&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The random forest classifiers tend to do the best, particularly with the delta features.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Veiga et al. use purely discriminative methods to detect and predict slip based on features extracted from a tactile sensor. This means that their method works independently of object-specific features and thus does not take into account anything about the actual dynamics of the object. In this case, this approach actually makes a lot of sense to me—it feels like it would be overkill to need to have a full dynamics model of how the object behaves just to determine if it is slipping. That said, I do wonder if having &lt;em&gt;some&lt;/em&gt; approximate knowledge of the object dynamics (e.g. curvature, overall mass, distribution of mass, etc.) would help, particularly in having the controller adjust once it has detected that the object is slipping.&lt;/p&gt;
+
+&lt;p&gt;I also wonder to what extent these learned classifiers will generalize to greater changes in mass/shape/friction—e.g. will the same classifier work for a very heavy object as opposed to a very light object? Or a very smooth object vs. a rough object? And, will it generalize to other types of scenarios where slip might occur (e.g. holding an object with two hands, as opposed to up against a wall; and also, the location where the object is being held).&lt;/p&gt;
+
+&lt;p&gt;This paper also made me think a bit about what constitutes simulation. In this paper, Veiga et al. are able to predict several timesteps into the future whether slip &lt;em&gt;will&lt;/em&gt; occur. Even though they don’t have a dynamics model of how slip changes over time, for example, does this type of prediction still count as “simulation”? I’m tempted to say no, not unless they can predict at each timestep &lt;em&gt;how much&lt;/em&gt; slip is going to occur—e.g. in the next timestep, there will be a small amount of slip, in the following timestep, it will increase by so much, etc. I don’t think this type of prediction would be particularly hard to do, though, if they could perhaps attach sensors to their objects in order to more precisely quantify what slip is (in this paper, they labeled parts of the video as “slip” or “not slip” just by human visual judgments).&lt;/p&gt;
+</description>
+        <pubDate>Wed, 30 Dec 2015 10:48:29 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Veiga2015.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Veiga2015.html</guid>
+        
+        
+        <category>Physical reasoning without dynamics models</category>
+        
+      </item>
     
       <item>
         <title>Learning force-based manipulations of deformable objects from multiple demonstrations</title>
@@ -492,50 +525,6 @@ Additionally, it would be interesting to see how this could be extended to multi
         <pubDate>Sun, 20 Dec 2015 18:51:14 -0500</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Nguyen-Tuong2011.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Nguyen-Tuong2011.html</guid>
-        
-        
-        <category>Physical reasoning with dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Robust physics-based locomotion using low-dimensional planning</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Mordatch2010&quot;&gt;Mordatch, I., de Lasa, M., &amp;amp; Hertzmann, A. (2010). Robust physics-based locomotion using low-dimensional planning. &lt;i&gt;ACM Transactions On Graphics&lt;/i&gt;, &lt;i&gt;29&lt;/i&gt;(4). doi:10.1145/1778765.1778808&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;How does an agent produce realistic-looking motion? Mordatch et al. propose a way to produce motion for 3D characters by optimizing a low-dimensional physical model. This is in contrast to previous approaches which either were highly specific to the type of motion (and therefore brittle), and/or relied on recorded demonstrated trajectories. This approach seems to work pretty well and can produce multiple types of motion (walking, running, standing, etc.)&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;The general approach that they take is:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Map the current state to a low-level physical model (e.g. an inverted pendulum)&lt;/li&gt;
-  &lt;li&gt;Compute a “preview optimization” of the optimal plan for the low-level model&lt;/li&gt;
-  &lt;li&gt;Convert the optimal plan to the full-body controller&lt;/li&gt;
-  &lt;li&gt;The full-body controller produces torques which animate the character&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The “preview model” that they use is based on the Spring-Loaded Inverted Pendulum (SLIP) and divides the plan into 6 phases: double stance, left single-stance, flight, double stance, right single-stance, and flight. By omitting certain phases, different behaviors emerge (e.g. omitting flight leads to walking).&lt;/p&gt;
-
-&lt;p&gt;The optimization is then done with respect to a “set of user-specified energy terms”. These take the form of various parameters that the user can specify, such as step duration, step length, COM height, etc.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;It is really cool to see a low-level physics model work so well to produce motion. However, it’s important to note that this is still fairly specific to locomotion for a humanoid (biped) character – the inverted pendulum model, for example, probably wouldn’t work for controlling a flying character. The authors have actually addressed this in a recent NIPS paper, in which they use a neural network to learn the appropriate dynamics for a range of characters:&lt;/p&gt;
-
-&lt;p&gt;http://www.eecs.berkeley.edu/~igor.mordatch/policy/index.html&lt;/p&gt;
-
-&lt;p&gt;It makes sense to me that motion planning should involve the use of a physical model of some sort. There’s evidence for the cerebellum using physical knowledge for motion planning in the brain – this is another one of my quals subtopics that I haven’t quite gotten to yet, but perhaps I will read those papers next!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 20 Dec 2015 13:02:45 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Mordatch2010.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Mordatch2010.html</guid>
         
         
         <category>Physical reasoning with dynamics models</category>
