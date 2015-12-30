@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Humans integrate visual and haptic information in a statistically optimal fashion</title>
+    <title>Learning from demonstrations through the use of non-rigid registration</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/probabilistic%20models%20of%20perception/2015/11/09/Ernst2002.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/29/Schulman2013a.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -69,46 +69,42 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Humans integrate visual and haptic information in a statistically optimal fashion</h1>
-    <p class="post-meta">Nov 9, 2015 • Probabilistic models of perception</p>
+    <h1 class="post-title">Learning from demonstrations through the use of non-rigid registration</h1>
+    <p class="post-meta">Dec 29, 2015 • Physical reasoning without dynamics models</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Ernst2002">Ernst, M. O., &amp; Banks, M. S. (2002). Humans integrate visual and haptic information in a statistically optimal fashion. <i>Nature</i>, <i>415</i>(6870), 429–433. doi:10.1038/415429a</span></p>
+    <p><span id="Schulman2013a">Schulman, J., Ho, J., Lee, C., &amp; Abbeel, P. (2013). Learning from Demonstrations Through the Use of Non-Rigid Registration. <i>Proceedings Of the 16th International Symposium on Robotics Research</i>. Retrieved from http://www.cs.berkeley.edu/ pabbeel/papers/SchulmanHoLeeAbbeel_ISRR2013.pdf</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>People get information from multiple modalities – for example, from haptic feedback and from visual perception. Ernst &amp; Banks asked, how do people decide which modality of information to rely on? Or, do they combine modalities, and if so, how do they weigh the respective information? They hypothesized that people perform a MLE estimate of the sensory information based on a weighted average of the information from each modality, and present quantitative fits for this model.</p>
+<p>Schulman et al. describe a way to learn from demonstration for performing tasks with deformable objects (e.g., rope tying). The core idea behind their method is essentially to compute a geometric transformation $\mathbf{f}$ which maps from one state to another state, and which can be applied to the demonstrated trajectory to produce a new trajectory. This approach, combined with a nearest-neighbors selection policy, works well for transforming given trajectories to new trajectories as long as the nearest neighbor is close enough.</p>
 
-<h1 id="methods">Methods</h1>
+<p>Their approach rests on the following property (the <em>cost function invariance</em>):</p>
 
-<p>There were three different experiments. In all the experiments, they had participants judge the height of a bar relative to a standard stimulus (i.e., judging whether the current stimulus is higher or lower than the standard one).</p>
+<script type="math/tex; mode=display">L(\mathrm{State},\mathrm{Traj})=L(\mathbf{f}(\mathrm{State}),\mathbf{f}(\mathrm{Traj}))</script>
 
-<p>First, there were two experiments (visual-only and haptic-only) that they used to estimate the PSE (point of subjective equality) for each modality. These PSE estimates are a proxy for how much uncertainty people have. For the haptic-only experiment, there was no variance in the noise, while in the visual-only experiment, they varied the noise levels between 0 and 200%.</p>
+<p>where $L$ is the loss function. Using this property, the following approximation follows:</p>
 
-<p>The third experiment combined haptic and visual feedback, and again varied the visual noise level.</p>
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&\approx L(\mathbf{f}(\mathrm{State}_\mathrm{train}),\mathbf{f}(\mathrm{Traj}_\mathrm{train}))\\
+&= L(\mathrm{State}_\mathrm{train},\mathrm{Traj}_\mathrm{train})
+\end{align*} %]]></script>
 
-<h1 id="algorithm">Algorithm</h1>
+<p>An alternate intuition for why this works is that of <em>dynamics invariance</em>, in which the “dynamics of the system are approximately invariant—more properly, <em>covariant</em>—under sufficiently smooth coordinate transformations”. This is true if and only if:</p>
 
-<p>Assuming the noise in each modality is Gaussian with variance $\sigma_i^2$, then the MLE estimate of the percept is:</p>
+<script type="math/tex; mode=display">\mathbf{f}(\Pi_\mathrm{Traj}(\mathrm{State}^t))=\Pi_{\mathbf{f}(\mathrm{Traj})}(f(\mathrm{State}^t))</script>
 
-<script type="math/tex; mode=display">\hat{S}=\sum_i w_i\hat{S}_i</script>
+<p>where $\Pi_\mathrm{Traj}(\mathrm{State})$ applies trajectory $\mathrm{Traj}$ to state $\mathrm{State}$.</p>
 
-<p>where</p>
-
-<script type="math/tex; mode=display">w_i=\frac{1/\sigma_i^2}{\sum_j 1/\sigma_j^2}</script>
-
-<p>Assuming that the ratio of the visual weight to the haptic rate is the same as the ratio between the haptic and visual thresholds (PSEs), or $w_V/w_H=T_H^2/T_V^2$, then the weights are:</p>
-
-<script type="math/tex; mode=display">w_V=1-w_H=\frac{T_H^2}{T_V^2+T_H^2}</script>
+<p>Of course, there are cases where this will not hold. The example they give in the paper is a rigid transformation where the “absolution orientation of the robot’s end-effector matters”. However, based on their results, it seems that for a wide range of states and trajectories it does hold well enough to generalize to new states.</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>Based on these experiments, it would seem that people seem to trade-off between different sources of information depending on how reliable that information is. If a normally reliable source of information (e.g., vision) becomes unreliable, then people will fall back on another source (e.g., haptic).</p>
+<p>This is a clever use of nearest neighbors to generalize from examples without needing to have any knowledge of the domain (besides being able to perceive the position/topology of the relevant object, e.g. the rope). However, I wonder how far this will really generalize, even with many examples. For example, if you had to tie a rope around another object, I don’t think this would work as well—and this intuition seems to be correct, based on their experimental results (1/10 successes for the clove hitch, which involves tying a rope around a pole). I would expect it to be even harder if the task involved tying a rope around a nonrigid object. There is simply so much noise in the system that without some model of how the objects behave, you are going to quickly run into scenarios that you don’t have examples for.</p>
 
-<p>I have two main questions regarding this paper. First, why didn’t they attempt to modulate the haptic feedback as well? Since that was constant, we don’t actually know whether participants optimally trade-off between vision and haptic feedback – only that they seem to appropriately modulate their reliance on visual information. It would be interesting to see if the same effect holds after introducing uncertainty into haptic feedback (perhaps making the participants wear gloves?).</p>
-
-<p>Second, I’m not sure the choice of MLE/uniform prior is necessarily appropriate. Why not use MAP with a prior on the types of percepts people are likely to encounter? Even if the intuition is that the prior would be broad enough that it’s essentially uniform (or is actually uniform), it would be better to motivate this and have some discussion about it.</p>
+<p>I also think you would probably quickly run into scenarios where the transformation between states isn’t smooth. For example, if the task were to place a block on a stack of blocks and have the tower remain stable, the stability of the tower doesn’t vary smoothly as a function of the positions of the blocks. So even if you had encountered a very similar tower in the past, it’s entirely possible that even a slight difference between that tower and the current one could result in nonlinearities—e.g. in the first tower you need to place the block in position A to keep the tower stable, but position A in the second tower will always be unstable.</p>
 
   </article>
 
