@@ -6,9 +6,70 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 30 Dec 2015 09:54:07 -0500</pubDate>
-    <lastBuildDate>Wed, 30 Dec 2015 09:54:07 -0500</lastBuildDate>
+    <pubDate>Wed, 30 Dec 2015 12:04:05 -0500</pubDate>
+    <lastBuildDate>Wed, 30 Dec 2015 12:04:05 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Learning force-based manipulations of deformable objects from multiple demonstrations</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Lee2015&quot;&gt;Lee, A. X., Lu, H., Gupta, A., Levine, S., &amp;amp; Abbeel, P. (2015). Learning Force-Based Manipulation of Deformable Objects from Multiple Demonstrations. &lt;i&gt;Proceedings Of the IEEE International Conference on Robotics and Automation&lt;/i&gt;. doi:10.1109/ICRA.2015.7138997&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;This paper builds on &lt;a href=&quot;/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/29/Schulman2013a.html&quot;&gt;Schulman et al.&lt;/a&gt; by not only warping the pose of the robot’s trajectory, but also the force that is applied to the objects. This makes for a more robust and generalizable scheme for manipulating deformable objects (such as rope).&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;The algorithm has several steps:&lt;/p&gt;
+
+&lt;h2 id=&quot;step-1&quot;&gt;Step 1&lt;/h2&gt;
+
+&lt;p&gt;Perform scene registration, where the points from the test scene are mapped to the points from the demonstrated scene in order to come up with a function $f$ that transforms between the two.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-2&quot;&gt;Step 2&lt;/h2&gt;
+
+&lt;p&gt;The trajectories from demonstrated scenes are mapped to the new scene using $f$: the poses are given by $\tilde{\mathbf{Q}}^d=f(\hat{\mathbf{Q}}^d)$ and the forces are given by $\tilde{\mathbf{U}}^d=\frac{df^d}{d\mathbf{p}}(\hat{\mathbf{Q}}^d)\hat{\mathbf{U}}^d$.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-3&quot;&gt;Step 3&lt;/h2&gt;
+
+&lt;p&gt;The trajectories are time-aligned using “dynamic time warping” such that all demonstrated trajectories follow the same time course. This yields $\mathbf{Q}^d$ and $\mathbf{U}^d$.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-4&quot;&gt;Step 4&lt;/h2&gt;
+
+&lt;p&gt;To extract the final trajectory based on the time-aligned demonstrated trajectories, Lee et al. use a Gaussian model of the force:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{u}^d_t\vert \mathbf{q}_t^d,\mathbf{\dot{q}}_t^d)=\mathcal{N}(\mathbf{K}_{pt}(\mathbf{\bar{q}}_t-\mathbf{q}_t^d)+\mathbf{K}_{vt}(\dot{\bar{\mathbf{q}}}_t-\dot{\mathbf{q}}_t^d)+\bar{\mathbf{u}}_t; \mathbf{C}_t)&lt;/script&gt;
+
+&lt;p&gt;Here, $\bar{\mathbf{q}}_t$, $\dot{\bar{\mathbf{q}}}_t$, and $\bar{\mathbf{u}}_t$ are the positions, velocities, and forces of the desired trajectory and are computed by fitting a joint Gaussian distribution to $[\mathbf{q}_t^d,\dot{\mathbf{q}}_t^d,\mathbf{u}_t^d]$ at each time step and then taking the mean of that distribution. The variables $\mathbf{K}_{pt}$ and $\mathbf{K}_{vt}$ are the position and velocity gains and are computed from the covariances of the fitted joint Gaussians: $\mathbf{K}_{pt}=-\Sigma_{\mathbf{uq},t}\Sigma^{-1}_{\mathbf{qq},t}$ and $\mathbf{K}_{vt}=-\Sigma_{\mathbf{u\dot{q}},t}\Sigma^{-1}_{\mathbf{\dot{q}q},t}$ (see Section 8.1.3 of the Matrix Cookbook for a better intuition of where this comes from).&lt;/p&gt;
+
+&lt;p&gt;Rather than directly fitting the covariances $\Sigma_t$, they use a inverse-Wishart prior on the covariance in order to encourage the gains to be non-negative. They additionally include samples from nearby time points which encourages the estimate to vary smoothly over time.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-5&quot;&gt;Step 5&lt;/h2&gt;
+
+&lt;p&gt;Lee et al. now optimize the robot joint angles $\Theta=[\theta_1,\ldots{},\theta_T]^\top$ to match the desired trajectory (as computed in the previous step). Then, they convert the gains into joint-space gains $\mathbf{K}_{pt}^\theta$ and $\mathbf{K}_{vt}^\theta$ and compute the torque as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}_t=\mathbf{K}_{pt}^\theta(\theta_t-\theta_\mathrm{obs})+\mathbf{K}_{vt}^\theta(\dot{\theta}_t-\dot{\theta}_\mathrm{obs})+\mathbf{J}(\theta)^\top\bar{\mathbf{u}}_t&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{J}(\theta)$ is the Jacobian and where $\theta_\mathrm{obs}$ and $\dot{\theta}_\mathrm{obs}$ are the observed joint angles and velocities.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This approach is a significant improvement over previous work, which was unable to generalize to situations in which the applied force was more important than the exact position (e.g. folding a larger towel than the one in the demonstrations requires applying the same force, but moving the arms out further in order to apply that force). The core idea is still the same, however: without having any task-specific or physical knowledge, map from demonstrated trajectories (including forces) to new situations.&lt;/p&gt;
+
+&lt;p&gt;I think it’s really interesting that they are able to take force into account and trade off between force and position without actually having knowledge of the task; I’m surprised it works as well as it does! The intuition behind why it works is that when there is variance in the demonstrations, that implies that absolute position is less important, and that something else is more important—for example, force. Thus, where there is more variance in position, the force should be considered more strongly, and when there is low variance, position should be considered more strongly. I do wonder though whether this property always holds true. For example, if you were trying to unscrew a cap from a jar, and different demonstrations had caps that were stuck more or less tightly, I &lt;em&gt;think&lt;/em&gt; that the position of the gripper would end up still being about the same—it would be the force that differs. In that case, this wouldn’t work (I think) because it would move the gripper in the appropriate way, but not apply the right force; and in fact, having demonstrations of the force wouldn’t necessarily be sufficient either—to accomplish this task, you would have to have some notion of the position of the jar and the cap and how much the cap is moving, etc.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 30 Dec 2015 05:52:02 -0500</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Lee2015.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Lee2015.html</guid>
+        
+        
+        <category>Physical reasoning without dynamics models</category>
+        
+      </item>
     
       <item>
         <title>Learning from demonstrations through the use of non-rigid registration</title>
@@ -475,41 +536,6 @@ Additionally, it would be interesting to see how this could be extended to multi
         <pubDate>Sun, 20 Dec 2015 13:02:45 -0500</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Mordatch2010.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Mordatch2010.html</guid>
-        
-        
-        <category>Physical reasoning with dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Seeing physics, or: physics is for prediction</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Brand1995&quot;&gt;Brand, M., Cooper, P., &amp;amp; Birnbaum, L. (1995). Seeing Physics, or: Physics is for Prediction. &lt;i&gt;Proceedings Of the Workshop on Physics Based Modelling in Computer Vision&lt;/i&gt;. doi:10.1109/PBMCV.1995.514679&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Brand et al. argue for including physical knowledge in vision and robotics systems in order to describe scenes and make predictions about scenes. As he says, “there are physical reasons why for scenes are arranged the way they are, and we need to be aware of those reasons in order to understand the scene well enough to reach in and do something about it” (pg. 144). He describes two systems, SPROCKET and MugShot, which use physical knowledge to reason about and interact with physical scenes.&lt;/p&gt;
-
-&lt;p&gt;This paper makes use of qualitative physical reasoning, and maybe is more appropriate in the mental models category, but because it applies physical reasoning to robotics I’m including it here instead.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;SPROCKET views images of gears and basically does scene reconstruction using physical knowledge to constrain possible interpretations. It has explicit symbolic knowledge of how the scenes can be put together (e.g. that two meshing gears limit axial translation and fix axial rotation and nonaxial translation) and uses a constraint network to resolve the image into a scene that satisifies all the constraints.&lt;/p&gt;
-
-&lt;p&gt;MugShot is a system to allow robots to pick up objects with handles (e.g., mugs) and uses physical knowledge to inform how much force it needs to apply. Importantly, it also takes into account the physics of the robot’s effector as well as that of the object it is trying to grasp. The paper doesn’t really go into detail about how this works, just saying that “predicting the amount of force feedback to expect and the amount of force to apply requires visual observation as well as a causal-physical model of the object” (pg. 149). I would be interested to know what this actually entails… does it estimate the center-of-mass of the mug? Does it actually compute the points it would need to grasp it in order to keep it equilibrium? Or does it only just apply force on the fly as needed?&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;Having physical knowledge can greatly improve the ability of AI and robotics systems to reason about the world. There is one particular quote: “As might be expected in this bottom-up attempt at segmentation, image processing takes more than an order of magnitude more time than with SPROCKET’s semantic guidance”. I wonder if this would still be true with today’s object recognition systems.&lt;/p&gt;
-
-&lt;p&gt;I do wonder, though, how systems like SPROCKET and MugShot come to possess their physical knowledge. It seems like encoding a series of rules is brittle – what if a rule is not always correct? What if there is a system that can’t be resolved? I suppose that imbuing a system with a physics simulator is also a bit like hard coding rules, but a physics simulator is a bit more general in the sense that it can be applied to any physical situation as long as the initial conditions (e.g. positions and meshes) of the system can be constructed. That’s a pretty big requirement, though. I think any physical reasoning system still has a ways to go before we’ll be able to make it completely general, though perhaps something like deep learning will allow us to construct the appropriate inputs to the simulator, thus resulting in something that is more general.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 20 Dec 2015 05:13:37 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Brand1995.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Brand1995.html</guid>
         
         
         <category>Physical reasoning with dynamics models</category>
