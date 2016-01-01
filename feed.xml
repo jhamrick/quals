@@ -6,9 +6,53 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 31 Dec 2015 16:02:10 -0800</pubDate>
-    <lastBuildDate>Thu, 31 Dec 2015 16:02:10 -0800</lastBuildDate>
+    <pubDate>Thu, 31 Dec 2015 18:24:19 -0800</pubDate>
+    <lastBuildDate>Thu, 31 Dec 2015 18:24:19 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Aspects of a cognitive neuroscience of mental imagery</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Kosslyn1988&quot;&gt;Kosslyn, S. M. (1988). Aspect of a Cognitive Neuroscience of Mental Imagery. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;240&lt;/i&gt;(4859), 1621–1626. Retrieved from http://www.jstor.org/stable/1701012&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Kosslyn presents neuroscientific evidence for how mental images are generated in the brain. He argues there are two separate systems:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The first system encodes object &lt;em&gt;shape&lt;/em&gt;, which may be either a low-resolution image of the entire object or higher-resolution images of object parts&lt;/li&gt;
+  &lt;li&gt;The second system encodes object &lt;em&gt;location&lt;/em&gt;, which may be either represented categorically (e.g. using symbolic/linguistic terms, such as “next to” or “inside of”) or via absolute coordinates.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;These two systems interact so that when a mental image is generated, “the patterns in the images are built up by activating parts individually and that parts are imaged in roughly the order in which they are typically drawn” (pg. 1622).&lt;/p&gt;
+
+&lt;p&gt;In particular, Kosslyn hypothesizes (and provides evidence for) the left cerebral hemisphere being better at arranging object parts according to categorical relations, while the right cerebral hemisphere is better at arranging object parts according to absolute locations. Both hemispheres are equally good at generating whole objects (that are not broken down into individual parts).&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;Kosslyn reports results both from split-brain patients as well as undergraduates. Both types of experiments rely on a technique called &lt;em&gt;lateralization&lt;/em&gt;, in which the stimulus is presented in only the left or right half of the visual field for a brief period of time (150ms; short enough such that participants could not move their eyes to move the stimulus into the other part of the visual field). In the case of the split-brain patients, there is no communication between the halves of the brain, so only one half of the brain will receive the visual information. In the case of the undergraduates with intact corpus callosi, Kosslyn measured reaction time (i.e. something presented to the right side of the brain that requires the left side of the brain for processing should elicit slower reaction times than if the same thing were directly presented to the left side of the brain).&lt;/p&gt;
+
+&lt;p&gt;For the split-brain patient J.W., one task was to observe a lowercase probe and then determine whether the uppercase version of the letter had any curved lines. For the left hemisphere, J.W. had perfect performance; for the right hemisphere, performance was significantly reduced. This result suggests that the left hemisphere is involved in generating images that are composed of parts (e.g. strokes). To further supplement this finding, they ran another experiment that involved judging dimensions of holistic object (e.g., if an object like a belt buckle was wider than it was tall). In this case, both hemispheres performed equally well.&lt;/p&gt;
+
+&lt;p&gt;For the undergraduates, the task was to view a lowercase letter in a grid. There were probe points in some of the grid cells, and participants had to determine wither the uppercase version of the letter would cover the probe points. As predicted, responses were faster when the probe was presented to the left hemisphere rather than the right hempisphere. If instead of a grid the letter was presented in just a box, participants were forced to remember the absolute position of the letter parts (rather than their symbolic relations) and in this case, the left hemisphere performed worse tha the right hemisphere.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This is a collection of really elegant results showing how mental images are stored and produced in the brain. It would be interesting to come up with a model that efficiently trades off between the different forms of representation to solve these tasks. Such a model should store representations at different levels of granularity (Joe Austerweil has some work related to this, which I want to remember to reread now) and should additionally store representations both using symbolic relations as well as absolute positions. This is actually pretty similar to Brenden Lake’s work on motor program induction—I’m not sure about the representation of where the parts go (I will have to go back and read the details more carefully) but I think it is symbolic/categorical. So it would be interesting to try to augment that sort of model with the capability for also absolute positioning, and different granularities of the parts.&lt;/p&gt;
+
+&lt;p&gt;I also wonder how these types of representations interact with manipulation of the images. For example, if I say “imagine a F lying on its side”, do people imagine an upright F, and the rotate it holistically? Or do they imagine one part of the F, rotate it, and then attach the other parts to it? Or do they imagine all the parts rotated independently, and then attach them to each other? Subjectively, I feel like I first generate the image, and then rotate it, but I’m not sure subjective reports are necessarily reliable. Based on the work from &lt;a href=&quot;/quals/mental%20imagery/2015/12/31/Just1976.html&quot;&gt;Just &amp;amp; Carpenter&lt;/a&gt;, the answer seems more likely to be that one part is rotated, and then the others are “attached”.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 31 Dec 2015 09:41:38 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Kosslyn1988.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Kosslyn1988.html</guid>
+        
+        
+        <category>Mental imagery</category>
+        
+      </item>
     
       <item>
         <title>Eye fixations and cognitive processes</title>
@@ -385,63 +429,6 @@ L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&amp;\ap
         <pubDate>Mon, 28 Dec 2015 08:54:26 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Davis.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Davis.html</guid>
-        
-        
-        <category>Physical reasoning with dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Model-based reinforcement learning with parametrized physical models and optimism-driven exploration</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Xie2015&quot;&gt;Xie, C., Patil, S., Moldovan, T., Levine, S., &amp;amp; Abbeel, P. (2015). Model-based Reinforcement Learning with Parametrized Physical Models and Optimism-Driven Exploration. &lt;i&gt;ArXiv Preprint ArXiv:1509.06824v1 [Cs.LG]&lt;/i&gt;. Retrieved from http://arxiv.org/abs/1509.06824&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Xie et al. use a linear approximation to physical dynamics using dynamics features in order to perform optimism-based exploration for model-based reinforcement learning. For certain dynamical systems, such as a pendulum or robot arm, this approach works remarkably well because the dynamics can be factored into a linear least-squares model where certain features are known (e.g. joint angles) and others must be learned (e.g. link weights or lengths) as part of the RL process. This can either be done by hand or with the help of libraries like &lt;a href=&quot;https://github.com/cdsousa/sympybotics&quot;&gt;SymPyBotics&lt;/a&gt; (which looks super cool!).&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;There are a few components to this algorithm, which I will describe separately.&lt;/p&gt;
-
-&lt;h2 id=&quot;optimism-based-exploration&quot;&gt;Optimism-based exploration&lt;/h2&gt;
-
-&lt;p&gt;The idea behind optimism-based exploration is related to the idea of having slack variables in an optimization. Essentially, you have some estimate of the dynamics, and you can act greedily with respect to those dynamics:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{\ddot{q}}_t=\hat{f}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t)&lt;/script&gt;
-
-&lt;p&gt;where $\hat{f}$ are the forward dynamics. To make it optimism-based:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{\ddot{q}}_t=\hat{f}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t)+\mathbf{\xi}_t=\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{\xi}_t)&lt;/script&gt;
-
-&lt;p&gt;where $\mathbf{\xi}_t$ is a slack variable. This variable is constrained based on the amount of uncertainty in the estimate of the dynamics $\hat{f}$. Rather than explicitly estimating this uncertainty, Xie et al. simply include a penalty term of the form $\frac{1}{m}\lVert\mathbf{\xi}_t\rVert^2$ where $m$ is proportional to the number of samples.&lt;/p&gt;
-
-&lt;h2 id=&quot;linear-least-squares-model&quot;&gt;Linear least squares model&lt;/h2&gt;
-
-&lt;p&gt;The equations of motion can be factored into a linear equation:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;H(\mathbf{q},\mathbf{\dot{q}}, \mathbf{\ddot{q}})\cdot{}\Delta=\mathbf{\tau}&lt;/script&gt;
-
-&lt;p&gt;where $\Delta$ are the system parameters to be estimated and $H$ are the physical features (e.g. joint angles). Given observations of $[\mathbf{q},\mathbf{\dot{q}}, \mathbf{\ddot{q}}]$, $\Delta$ can be estimated using least-squares regression, thus giving the forward dynamics model ($\mathbf{\tilde{f}}(\mathbf{q}_t,\mathbf{\dot{q}}_t,\tau_t,\mathbf{\xi}_t)$) that can then be used in model-predictive control.&lt;/p&gt;
-
-&lt;h2 id=&quot;model-predictive-control&quot;&gt;Model-predictive control&lt;/h2&gt;
-
-&lt;p&gt;The MPC algorithm used by Xie et al. is the same as that used by &lt;a href=&quot;/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Kitaev2015.html&quot;&gt;Kitaev et al.&lt;/a&gt; (iterative linear quadratic regulator). Briefly:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The algorithm iteratively computes first order expansions of the dynamics and second order expansions of the cost around the current trajectory, and then analytically computes the sequence of optimal controls with respect to this approximation. This sequence of controls is then executed to obtain a new trajectory, and the process repeats until convergence or for a fixed number of iterations.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;By using prior knowledge of the &lt;em&gt;structure&lt;/em&gt; of dynamics, it is possible to quickly learn the correct model parameters needed to use model-predictive control. This is really powerful, because model-predictive control can be much more efficient and accurate than a model-free method, especially for systems with complex dynamics (e.g. a 7 DOF robot arm). If some information about the dynamics of the system can be specified (e.g. the number of robot links and their joint angles) then the rest can be quickly inferred because the really hard part (the structure) is already present – the parameters of that structure just need to be learned.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 28 Dec 2015 07:06:19 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html</guid>
         
         
         <category>Physical reasoning with dynamics models</category>
