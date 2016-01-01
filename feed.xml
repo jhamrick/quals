@@ -6,9 +6,40 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 31 Dec 2015 18:24:19 -0800</pubDate>
-    <lastBuildDate>Thu, 31 Dec 2015 18:24:19 -0800</lastBuildDate>
+    <pubDate>Fri, 01 Jan 2016 11:56:42 -0800</pubDate>
+    <lastBuildDate>Fri, 01 Jan 2016 11:56:42 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Explorations of a creative visual synthesis in mental imagery</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Finke1988&quot;&gt;Finke, R. A., &amp;amp; Slayton, K. (1988). Explorations of creative visual synthesis in mental imagery. &lt;i&gt;Memory &amp;amp;Amp; Cognition&lt;/i&gt;, &lt;i&gt;16&lt;/i&gt;(3), 252–257. doi:10.3758/BF03197758&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Finke and Slayton asked participants to use mental imagery to imagine objects composed out of a given set of basic geometric parts. They found that in almost 40% of trials, participants were able to come up with a recognizible arrangement of the parts, demonstrating that mental imagery isn’t just used as a way of encoding visual information, but that it is an active process of simulation that people can use to discover new things.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;On each trial, participants saw three geometric forms (out of: circle, square, rectangle, triangle, horizontal line, vertical line, D, C, L, T, J, 8, X, V, P) and were told to combine them into a recognizable form. They could scale and rotate the parts, but not skew or otherwise distort them. Participants had 2 minutes to come up with a response, at the end of which they were to write down the name of the form they came up with (if they were able to come up with one) and then to draw out the form. Once they had drawn the form they couldn’t change their answer (to ensure that they were actually using mental imagery).&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I think these result are really cool, and illustrate how powerful mental imagery really can be: it’s not just some epiphenomenon, but a true generative process that can be used to run a certain type of simulation.&lt;/p&gt;
+
+&lt;p&gt;I also think this paper is interesting because it presents a uniquely difficult challenge for AI systems or computational models. How do you model the synthesis of something entirely new? I would argue that it’s not truly a new synthesis, because we have strong prior knowledge about object categories and prototypes. One potential way to approach this would be to do something like Google’s inceptionism. First, train a neural network to recognize various categories of images. Second, generate an input image from the parts used in this experiment. Then, “enhance” that image to maximize the network’s objective function, except that rather than modifying the image on the pixel level, modify it by changing the position, rotation, and scale of the parts. I wonder if doing this would actually produce something recognizable—I’m not sure if having such schematized line drawings would work, but it would be a cool thing to try.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 01 Jan 2016 03:20:28 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Finke1988.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Finke1988.html</guid>
+        
+        
+        <category>Mental imagery</category>
+        
+      </item>
     
       <item>
         <title>Aspects of a cognitive neuroscience of mental imagery</title>
@@ -369,69 +400,6 @@ L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&amp;\ap
         
         
         <category>Planning and decision making</category>
-        
-      </item>
-    
-      <item>
-        <title>The scope and limits of simulation in automated reasoning</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Davis&quot;&gt;Davis, E., &amp;amp; Marcus, G. F. The Scope and Limits of Simulation in Automated Reasoning. &lt;i&gt;Artificial Intelligence&lt;/i&gt;. Retrieved from http://www.cs.nyu.edu/faculty/davise/papers/SimulationSubmitAIJ.pdf&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Davis &amp;amp; Marcus summarize some of the challenges that they seen in using simulation for automated reasoning (and in particular physical reasoning). The twelve challenges that they discuss are:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Choosing an appropriate model&lt;/strong&gt;. For example, what kind of cutting instrument should be used for firewood? (Not scissors.)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Discretizing time&lt;/strong&gt;. There are various issues with this, for example having objects pass through each other, running into instability due to inappropriate discretizations, or violating constrainst such as conservation of matter.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Discontinuous dynamics&lt;/strong&gt;. Small perturbations can lead to large changes in dynamics (e.g. rolling a die, chaotic systems).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Choosing an idealization&lt;/strong&gt;. What representation should be used in the simulation? e.g., should a pendulum be represented by a point mass moving on a circle, by a rigid shape constrained to be a certain distance from the origin, by a rigid shape on a (deformable) string, etc.?&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Drawing “easy” inferences&lt;/strong&gt;. Some types of inferences are “easy” but simulation is not well-suited to them. For example:
-    &lt;ul&gt;
-      &lt;li&gt;Invariance under irrelevant changes (if a jar fits on a shelf, and you fill it, it will still fit on the shelf)&lt;/li&gt;
-      &lt;li&gt;Invariance under changes of scale (e.g. kinematics is the same regardless of the size of the objects)&lt;/li&gt;
-      &lt;li&gt;Approximation (e.g. containers of similar sizes will hold similar amounts of liquid)&lt;/li&gt;
-      &lt;li&gt;Ordering on a relevant dimension (e.g. if a toy fits in a box, then it will fit in a larger box)&lt;/li&gt;
-      &lt;li&gt;Decomposition (e.g. if there are two independent subsystems, they can be reasoned about independently)&lt;/li&gt;
-      &lt;li&gt;Rules of thumb (e.g. you spill coffee in your office –&amp;gt; it won’t end up in another office)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Incorporating extra-physical information&lt;/strong&gt;. Sometimes information that is non-physical can still be useful in predicting physical systems (e.g. general accuracy of a baseball pitcher)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Incomplete information&lt;/strong&gt;. You don’t always have fully specified information about the system, such as occluded geometry, unobservable properties (like mass, friction), unknown dynamics, etc.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Irrelevant information&lt;/strong&gt;. How should the automated system determine what information is irrelevant and should be excluded? This is something that is typically done by hand (by the modeller) but in the general case needs to be handled by the system.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Range of scales&lt;/strong&gt;. How can simulation scale from very small scales (e.g. everyday objects) to very large scales (e.g. stars)?&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tasks other than prediction&lt;/strong&gt;. There are other types of tasks that simulation does not deal well with:
-    &lt;ul&gt;
-      &lt;li&gt;Interpolation&lt;/li&gt;
-      &lt;li&gt;Planning&lt;/li&gt;
-      &lt;li&gt;Inferring object shape&lt;/li&gt;
-      &lt;li&gt;Inferring physical properties&lt;/li&gt;
-      &lt;li&gt;Design of systems&lt;/li&gt;
-      &lt;li&gt;Comparative analysis (determining how a modification to a system would affect the solution)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;The frame problem&lt;/strong&gt;. Reasoning separately about things that are independent.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Checking simulations with common sense&lt;/strong&gt;. If simulation is the only reasoning mechanism, then there is nothing to check whether the simulation is correct.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I certainly agree with Davis &amp;amp; Marcus that simulation isn’t the only form of reasoning, and I think there are very interesting questions regarding how we trade off between different forms of reasoning. Any system that uses simulation almost certainly needs to incorporate the following choices:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Determine what type of reasoning to use, based on features of the problem.&lt;/li&gt;
-  &lt;li&gt;If simulation is appropriate, determine how to set up the simulation and how to evaluate/interpret the results of the simulation.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;I would argue that the majority of Davis &amp;amp; Marcus’ objections are just reformulations of the question of how to address these two choices. Points 1, 2, 4, 7, 8, 9, 11, and 12 are instances of “how to set up an appropriate simulation and interpret it?”. Points 5, 6, and 10 are instances of “should simulation be used, or something else?”. The only remaining point is Point 3, which doesn’t seem like a problem to me. Reasoning about the world is inherently uncertain, and any reasoning system needs to be able to take that type of uncertainty into account. Simulation needs to be precise in one sense (that things need to be fully specified), but it does not need to be &lt;em&gt;accurate&lt;/em&gt;, and the specification need not necessarily be precise, either.&lt;/p&gt;
-
-&lt;p&gt;I do think that the questions of whether to use simulation or something else, and then &lt;em&gt;how&lt;/em&gt; to use simulation, are incredibly important and extremely difficult questions. Also, the fact that I’ve boiled 12 points down into 2 doesn’t mean that those two choices aren’t &lt;em&gt;incredibly&lt;/em&gt; difficult and don’t have multiple subquestions. But I don’t think that the fact that simulation is a difficult topic means that we shouldn’t use it or research its capabilities and the extent of its utility. It seems to me that simulation—and generative models more broadly—are really powerful because they’re so flexible and can apply in so many ways to so many types of scenarios. The question is how to take full advantage of that flexbility.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 28 Dec 2015 08:54:26 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Davis.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Davis.html</guid>
-        
-        
-        <category>Physical reasoning with dynamics models</category>
         
       </item>
     
