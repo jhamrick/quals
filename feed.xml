@@ -6,9 +6,127 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 30 Dec 2015 18:41:21 -0500</pubDate>
-    <lastBuildDate>Wed, 30 Dec 2015 18:41:21 -0500</lastBuildDate>
+    <pubDate>Thu, 31 Dec 2015 16:02:10 -0800</pubDate>
+    <lastBuildDate>Thu, 31 Dec 2015 16:02:10 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Eye fixations and cognitive processes</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Just1976&quot;&gt;Just, M. A., &amp;amp; Carpenter, P. A. (1976). Eye fixations and cognitive processes. &lt;i&gt;Cognitive Psychology&lt;/i&gt;, &lt;i&gt;8&lt;/i&gt;, 441–480. doi:10.1016/0010-0285(76)90015-3&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Just &amp;amp; Carpenter explore three different tasks that rely on high-level cognitive processing, and recorded the eye movements of participants while performing these tasks. Their main hypothesis is that participants fixate on a region that is involved in whatever computation is currently taking place in the mind. I’m only going to go through the first of their experiments, however, as it is the most related to mental imagery and I feel the other two experiments are somewhat less revealing. Regarding the first mental rotation experiment, they ask three questions:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;How does the subject know which parts of the figure are to be rotated into each other?&lt;/li&gt;
+    &lt;li&gt;How does the subject know how far to rotate one of the objects?&lt;/li&gt;
+    &lt;li&gt;Once the required rotation has been performed, how does the subject know whether the two figures represent the same object or not?&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;Participants performed essentially the same task as that from &lt;a href=&quot;/quals/mental%20imagery/2015/12/31/Shepard1971.html&quot;&gt;Shepard &amp;amp; Metzler&lt;/a&gt;, though with far less data (120 trials vs 1600) and also fewer subjects (3 vs 8). Just &amp;amp; Carpenter find similar results, though not identical, results (i.e. monotonically increasing response times).&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;Just &amp;amp; Carpenter propose the following model of cognitive processing:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;First, participants engage in a “search” procedure, in which they look back and forth between the two images to find a corresponding segment of the objects.&lt;/li&gt;
+  &lt;li&gt;Second, participants engage in the “transform and compare” procedure, in which they mentally rotate the images toward each other in increments of $50^\circ$ until the images are within $25^\circ$ of each other.&lt;/li&gt;
+  &lt;li&gt;Third, participants engage in the “confirmation” procedure, in which they check that the other segments in the images also align. There are two proposed ways that they do this: either by executing a transformation on an additional segment of the stimulus, or by checking that the relations between the segments and the central part of the image are the same.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I think it makes sense that people would only actually focus on a single portion of the image at a time, rather than holistically transforming the entire image. I feel though that Just &amp;amp; Carpenter haven’t answered their first question, which is how exactly the “search” procedure works. They do bring up an interesting point regarding this, which is that one possible reason for the increase in response time is that participants pick one segment in one image, and then try to find that segment in the other image, first looking at the same location in the second image—so by design, it will take them longer to find the corresponding segment if it is further away (as it would be due to rotation).&lt;/p&gt;
+
+&lt;p&gt;I wonder how this procedure works with other types of objects, that don’t necessarily have such discrete “segments” as the stimuli used in this experiment. I suppose that this question might not actually be that relevant for realistic stimuli, though. If we use something like mental rotation to e.g. identify similar objects in the world, then we probably first rely on high-information, high-level features (color, texture, overall shape). Only if those features are absent (as is the case with the Shepard &amp;amp; Metzler stimuli) would one need to do something more detailed like a mental rotation.&lt;/p&gt;
+
+&lt;p&gt;One takeaway from all of this, I feel, is that mental rotation isn’t really all that useful/important in and of itself—I would hypothesize that we are not able to do rotations for the sake of doing rotations, but that we need that sort of capability in order to reason about how objects interact with each other or how they should be manipulated (e.g. how should I rotate this object so that it fits in the drawer?). So under a rational analysis the question isn’t, “how does mental rotation work?”, but rather, “what problem is mental rotation solving?”. It would be nice to be able to come up with a realistic task (or set of tasks), for example, in which mental rotation is clearly the right solution, and then see how people do it, and then compare models that do or do not use mental rotation to solve the task. Maybe some sort of bin-packing problem? I am sure someone has studied that sort of thing in cognitive science; I should remember to look up some of that research.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 31 Dec 2015 02:25:12 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Just1976.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Just1976.html</guid>
+        
+        
+        <category>Mental imagery</category>
+        
+      </item>
+    
+      <item>
+        <title>Mental rotation of three-dimensional objects</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Shepard1971&quot;&gt;Shepard, R. N., &amp;amp; Metzler, J. (1971). Mental Rotation of Three-Dimensional Objects. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;171&lt;/i&gt;(3972), 701–703. doi:10.1126/science.171.3972.701&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Shepard and Metzler showed participants 2D line drawings of 3D objects which differed by either a rotation (the “same” pairs) or a rotation and a reflection (the “different” pairs). They found that as the angle of rotation increased for the “same” pairs, participants’ response times increased linearly. The conclusion (based both on this response time data, as well as experience reports) was that participants were performing a “mental rotation” of the images in order to compare them.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;Shepard &amp;amp; Metzler had 8 participants who each judged 1600 (!) pairs of line drawings. 800 of the pairs were “picture plane” rotations, while the other 800 were “depth” rotations. Each of these sets of stimuli were further broken down into 400 “same” and 400 “different” pairs. These 400 pairs were composed of 10 unique stimuli repeated twice at each one of ten angles from $0^\circ$ to $180^\circ$ in $20^\circ$ increments (side note: there seems to be another factor of 2 missing here; I’m not sure where that comes from?). Participants had as much time to respond as they wanted, and they could look at the images as long as they wanted, though they were instructed to respond as quickly as possible while still being accurate.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I still think this is such a cool result, though I am still unsatisfied by the rotation explanation. One quote from the paper is potentially illuminating, though:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In the postexperimental interview, the subjects typically reported that they attempted to rotate one end of one object into congruence with the corresponding end of the other object; they discovered that the two objects were &lt;em&gt;different&lt;/em&gt; when, after this “rotation,” the two free ends still remained noncongruent.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This point is going to elaborated on further in the next paper I am going to read, by Just &amp;amp; Carpenter.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 31 Dec 2015 00:46:36 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Shepard1971.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Shepard1971.html</guid>
+        
+        
+        <category>Mental imagery</category>
+        
+      </item>
+    
+      <item>
+        <title>Robust Adaptive Markov Decision Processes</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Bertuccelli2012&quot;&gt;Bertuccelli, L. F., Bethke, B., &amp;amp; How, J. P. (2012). Robust adaptive Markov decision processes: Planning with model uncertainty. &lt;i&gt;IEEE Control Systems Magazine&lt;/i&gt;. doi:10.1109/MCS.2012.2205478&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Bertuccelli et al. describe the &lt;em&gt;Robust Adaptive Markov Decision Process&lt;/em&gt; (RAMDP), which is a type of MDP that takes into account uncertainty in the transition dynamics. This is somewhat similar to the BAMDP (see e.g. &lt;a href=&quot;/quals/planning%20and%20decision%20making/2015/12/19/Guez2013.html&quot;&gt;Guez et al.&lt;/a&gt;), which maintains a posterior distribution over the transition dynamics and/or reward function, and acts in a Bayes-optimal manner to maximize reward according to the posterior (i.e. by marginalizing over the uncertain dynamics). In contrast, the RAMDP maximizes a lower bound on the reward:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;J_R^*(i_0)=\min_{\mathcal{A}^\mu}\max_\mu \mathbb{E}[J_\mu(i_0)]&lt;/script&gt;
+
+&lt;p&gt;where $\mathcal{A}$ is the transition model, $\mu$ is the policy, $J_R$ is the robust objective function, $J_\mu$ is the objective function under policy $\mu$, and $i$ is the state.&lt;/p&gt;
+
+&lt;p&gt;To compute the minimum over transition models, they first define a feasible uncertainty set which, in this case, they choose to be the Dirichlet distribution. They then use a “scenario-based method”, which seems to just be sampling, over which to compute the minimum. Rather than taking a Monte-Carlo sampling approach, they compute &lt;em&gt;sigma points&lt;/em&gt;, which are optimal sampling locations based on the mean and variance of the Dirichlet distribution:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\mathcal{Y}_0&amp;=\bar{p}\\
+\mathcal{Y}_i&amp;=\bar{p}+\beta_i(\Sigma^{1/2})_i\ \ \mathrm{for\ all}\ i\leq N\\
+\mathcal{Y}_i&amp;=\bar{p}-\beta_i(\Sigma^{1/2})_i\ \ \mathrm{for\ all}\ N+1\leq i &lt;2N
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $\beta$ is “a tuning parameter that reflects the level of conservatism desired” (i.e. the range of the credible region), and $\bar{p}$ and $\Sigma$ are the mean and covariance of the Dirichlet distribution.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;It’s not entirely clear to me in terms of theoretical guarantees whether BAMDP or RAMDP is better. My intuition is that BAMDP is probably more flexible, as it could potentially be used with complex structured priors. I suppose you could technically do the same for RAMDPs as well, though you would need to reformulate how to perform efficient sampling (since the approach taken by Bertuccelli et al. makes a strong assumption about the Dirichlet distribution). It seems that BAMDPs may be a little bit more agnostic of the assumptions put into the prior, particularly when used with something like MCTS. That said, I suspect that RAMDP probably provides better worst-case guarantees given that it’s explicitly optimizing for the worst case. But, these are just my intuitions; I’m not sure how true that is in practice or how much the worst case matters in non-adversarial settings.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 30 Dec 2015 23:54:51 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2015/12/30/Bertuccelli2012.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2015/12/30/Bertuccelli2012.html</guid>
+        
+        
+        <category>Planning under uncertain dynamics</category>
+        
+      </item>
     
       <item>
         <title>Model-free probabilistic movement primitives for physical interaction</title>
@@ -43,7 +161,7 @@
 &lt;p&gt;As with all of these papers that I’ve been reading, though, it seems like these approaches that rely solely on demonstrations won’t be able to generalize to novel objects or actions. I suppose that people do have tons of experience; after only a few weeks after birth babies will have already been exposed to thousands of trajectories (of course, those are not expert demonstrations). I wonder how well this sort of approach would work with some type of self-supervised learning: i.e., you learn the joint distribution over states and actions, but the examples you have are self-generated and are not as reliable as expert demonstrations. I also wonder if you could combine this with something like &lt;a href=&quot;/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html&quot;&gt;Xie et al.&lt;/a&gt;, where instead of learning model-free controls, you do learn an explicit model, but you learn the model online along with the rest of the distribution.&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 30 Dec 2015 12:34:01 -0500</pubDate>
+        <pubDate>Wed, 30 Dec 2015 09:34:01 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Paraschos2015.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Paraschos2015.html</guid>
         
@@ -76,7 +194,7 @@
 
 &lt;p&gt;This paper also made me think a bit about what constitutes simulation. In this paper, Veiga et al. are able to predict several timesteps into the future whether slip &lt;em&gt;will&lt;/em&gt; occur. Even though they don’t have a dynamics model of how slip changes over time, for example, does this type of prediction still count as “simulation”? I’m tempted to say no, not unless they can predict at each timestep &lt;em&gt;how much&lt;/em&gt; slip is going to occur—e.g. in the next timestep, there will be a small amount of slip, in the following timestep, it will increase by so much, etc. I don’t think this type of prediction would be particularly hard to do, though, if they could perhaps attach sensors to their objects in order to more precisely quantify what slip is (in this paper, they labeled parts of the video as “slip” or “not slip” just by human visual judgments).&lt;/p&gt;
 </description>
-        <pubDate>Wed, 30 Dec 2015 10:48:29 -0500</pubDate>
+        <pubDate>Wed, 30 Dec 2015 07:48:29 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Veiga2015.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Veiga2015.html</guid>
         
@@ -137,7 +255,7 @@
 
 &lt;p&gt;I think it’s really interesting that they are able to take force into account and trade off between force and position without actually having knowledge of the task; I’m surprised it works as well as it does! The intuition behind why it works is that when there is variance in the demonstrations, that implies that absolute position is less important, and that something else is more important—for example, force. Thus, where there is more variance in position, the force should be considered more strongly, and when there is low variance, position should be considered more strongly. I do wonder though whether this property always holds true. For example, if you were trying to unscrew a cap from a jar, and different demonstrations had caps that were stuck more or less tightly, I &lt;em&gt;think&lt;/em&gt; that the position of the gripper would end up still being about the same—it would be the force that differs. In that case, this wouldn’t work (I think) because it would move the gripper in the appropriate way, but not apply the right force; and in fact, having demonstrations of the force wouldn’t necessarily be sufficient either—to accomplish this task, you would have to have some notion of the position of the jar and the cap and how much the cap is moving, etc.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 30 Dec 2015 05:52:02 -0500</pubDate>
+        <pubDate>Wed, 30 Dec 2015 02:52:02 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Lee2015.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Lee2015.html</guid>
         
@@ -180,7 +298,7 @@ L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&amp;\ap
 
 &lt;p&gt;I also think you would probably quickly run into scenarios where the transformation between states isn’t smooth. For example, if the task were to place a block on a stack of blocks and have the tower remain stable, the stability of the tower doesn’t vary smoothly as a function of the positions of the blocks. So even if you had encountered a very similar tower in the past, it’s entirely possible that even a slight difference between that tower and the current one could result in nonlinearities—e.g. in the first tower you need to place the block in position A to keep the tower stable, but position A in the second tower will always be unstable.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 29 Dec 2015 14:18:08 -0500</pubDate>
+        <pubDate>Tue, 29 Dec 2015 11:18:08 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/29/Schulman2013a.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/29/Schulman2013a.html</guid>
         
@@ -201,7 +319,7 @@ L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&amp;\ap
 
 &lt;p&gt;I am not going to go into the nitty-gritty details of the math in this paper—I think the important takeaway is that by doing Bayesian RL, we can maintain not only a distribution over what we think the transition function is, but we can incorporate structured prior knowledge into the inference procedure. So rather than assuming what is essentially a fully connected transition graph and estimating the parameters of each edge, we can keep open the possibility that the transition function has some form of higher-level structure. I think this is particularly important because it could potentially allow you to do inference about transitions or rewards from states that are different but are actually similar according to some high level structure. Actually, I think this is probably especially important for reward structures, even more so than transition structures—for example if the reward structure is based on something like the graph structures discussed by &lt;a href=&quot;/quals/probabilistic%20models%20of%20cognition/2015/11/08/Kemp2008.html&quot;&gt;Kemp &amp;amp; Tenenbaum&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 29 Dec 2015 07:16:31 -0500</pubDate>
+        <pubDate>Tue, 29 Dec 2015 04:16:31 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/29/Ross2008.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/29/Ross2008.html</guid>
         
@@ -264,7 +382,7 @@ L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&amp;\ap
 
 &lt;p&gt;I do think that the questions of whether to use simulation or something else, and then &lt;em&gt;how&lt;/em&gt; to use simulation, are incredibly important and extremely difficult questions. Also, the fact that I’ve boiled 12 points down into 2 doesn’t mean that those two choices aren’t &lt;em&gt;incredibly&lt;/em&gt; difficult and don’t have multiple subquestions. But I don’t think that the fact that simulation is a difficult topic means that we shouldn’t use it or research its capabilities and the extent of its utility. It seems to me that simulation—and generative models more broadly—are really powerful because they’re so flexible and can apply in so many ways to so many types of scenarios. The question is how to take full advantage of that flexbility.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 28 Dec 2015 11:54:26 -0500</pubDate>
+        <pubDate>Mon, 28 Dec 2015 08:54:26 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Davis.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Davis.html</guid>
         
@@ -321,198 +439,9 @@ L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&amp;\ap
 
 &lt;p&gt;By using prior knowledge of the &lt;em&gt;structure&lt;/em&gt; of dynamics, it is possible to quickly learn the correct model parameters needed to use model-predictive control. This is really powerful, because model-predictive control can be much more efficient and accurate than a model-free method, especially for systems with complex dynamics (e.g. a 7 DOF robot arm). If some information about the dynamics of the system can be specified (e.g. the number of robot links and their joint angles) then the rest can be quickly inferred because the really hard part (the structure) is already present – the parameters of that structure just need to be learned.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 28 Dec 2015 10:06:19 -0500</pubDate>
+        <pubDate>Mon, 28 Dec 2015 07:06:19 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Xie2015.html</guid>
-        
-        
-        <category>Physical reasoning with dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Physics-based trajectory optimization for grasping in cluttered environments</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Kitaev2015&quot;&gt;Kitaev, N., Mordatch, I., Patil, S., &amp;amp; Abbeel, P. (2015). Physics-Based Trajectory Optimization for Grasping in Cluttered Environments. &lt;i&gt;Proceedings Of the IEEE International Conference on Robotics and Automation&lt;/i&gt;. Retrieved from http://www.eecs.berkeley.edu/ pabbeel/papers/2015-ICRA-clutter.pdf&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Kitaev et al. use rollouts from a physics engine in order to compute the gradient of the object, which takes into account physical dynamics. They compare two different methods: a baseline which only uses straight trajectories, and their physics-based method. They find that the physics-based method is able to produce behavior that is similar to that exhibited by people (e.g. weaving through cluttered objects) and which avoids catastrophic physical events.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;h2 id=&quot;baseline-method&quot;&gt;Baseline method&lt;/h2&gt;
-
-&lt;p&gt;First, the baseline approach finds a straight line trajectory at some particular approach angle $\alpha$. For any particular value of $\alpha$, the trajectory $\mathbf{q}_\alpha$ is computed using sequental quadratic programming to minimize an objective function:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\min_{\mathbf{q}^{1,\ldots{},\Delta}} \sum_t \sum_k w_k c_k^t (\mathbf{q}^t,\mathbf{q}^{t-1})&lt;/script&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-\mathrm{s.t.}\ \ &amp; \mathbf{p}_\mathrm{gripper}(\mathbf{q}^\Delta)=\mathbf{p}_\mathrm{gripper}(\mathbf{q}_\alpha^\Delta)\\
-&amp; R_\mathrm{gripper}(\mathbf{q}^\Delta)=R_\mathrm{gripper}(\mathbf{q}_\alpha^\Delta)
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;where $\mathbf{p}_\mathrm{gripper}$ is the position of the gripper and $R_\mathrm{gripper}$ is the rotation of the gripper. The cost terms are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$c_\mathrm{static\underline{\ }hull}$ – penalizes penetration between the robot and static obstacles if they are closer than some distance $d_\mathrm{safe}$.&lt;/li&gt;
-  &lt;li&gt;$c_\mathrm{vel}$ – penalizes the robot’s velocity to ensure smooth trajectories&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Trajectories are computed for each value of $\alpha$ and then physics simulations are used to evaluate each $\mathbf{q}_\alpha$ (criteria described below). The $\alpha$ corresponding to the best trajectory is chosen.&lt;/p&gt;
-
-&lt;h2 id=&quot;physics-based-method&quot;&gt;Physics-based method&lt;/h2&gt;
-
-&lt;p&gt;The physics-based method also takes into account the physical dynamics of the static objects – not just that of the robot. The objective is:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-&amp; \min_{\mathbf{q}^{1,\ldots{},\Delta}} \sum_t \sum_k \sum_i w_k c_k^t (\mathbf{q}^t,\mathbf{q}^{t-1},\mathbf{x}_i^t)\\
-&amp; \mathrm{s.t.}\ \ \mathcal{X}^t=\phi(\mathcal{X}^{t-1},\mathbf{q}^t),\ \mathcal{X}^1\ \mathrm{is\ fixed}
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;where $\phi$ is the physical dynamics. They solve this optimization by picking an initial trajectory and rolling out physics for that trajectory. Then, they linearize the dynamics around that trajectory (which they can do by taking the derivative of the dynamics using a smooth contact model), and optimize that approximation.&lt;/p&gt;
-
-&lt;p&gt;The cost terms are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$c_\mathrm{static}$ – similar to $c_\mathrm{static\underline{\ }hull}$, except that it checks collision at each time step rather than using the swept-out convex hull between timesteps&lt;/li&gt;
-  &lt;li&gt;$c_\mathrm{acc}$ – similar to $c_\mathrm{vel}$, but ensures smooth acceleration rather than velocity&lt;/li&gt;
-  &lt;li&gt;$c_\mathrm{force}$ – penalizes contact forces to prevent kinematically impossible trajectories&lt;/li&gt;
-  &lt;li&gt;$c_\mathrm{motion}$ – penalizes static objects falling off the table&lt;/li&gt;
-  &lt;li&gt;$c_\mathrm{upright}$ – penalizes static objects tipping over&lt;/li&gt;
-  &lt;li&gt;$c_\mathrm{grasp}$ – encourages the gripper to be close to the target object&lt;/li&gt;
-  &lt;li&gt;$c_\mathrm{grp\underline{\ }horiz}$ – enforces that the gripper must be horizontal&lt;/li&gt;
-  &lt;li&gt;$c_\mathrm{grp\underline{\ }open}$ – enforces that the gripper must be open on the last timestep&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;(there are a few other cost terms that are used in pre- and post-processing steps, but I am not going to go into the details of those here).&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;Kitaev et al. evaluate their approach on “shelf” and “refridgerator” scenes with varying numbers of objects, and they define success as:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;Success&lt;/em&gt; – the robot grasps the target object without knocking over any other objects&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Partial success&lt;/em&gt; – the robot grasps the target object and some of the other objects are tipped over (but not knocked off the shelf)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Failure&lt;/em&gt; – any other behavior, including failure to grasp the object, knocking objects off the shelf, and kinematic failures (e.g. attempting to move through a static object).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;The problem that Kitaev et al. are solving here is that sometimes when reaching for an object, there will be other objects in the way. Traditionally, trajectory optimization has just dealt with situations where this isn’t an issue by avoiding obstacles entirely, but this isn’t always an option. Instead, some situations call for actually reasoning about the dynamics of objects and executing a trajectory that does collide with those objects, but that does so in an intelligent way such that they are less likely to fall over or cause other objects to fall over.&lt;/p&gt;
-
-&lt;p&gt;The approach that they take in this paper is to include a term for linearized approximate dynamics in the objective function. They make the simplifying assumption that the dynamics are smooth (e.g. rather than having a step function saying “in contact” and “not in contact”, there is some smooth function that varies between the two).&lt;/p&gt;
-
-&lt;p&gt;It’s not clear to me how well this approach would work in practice, though. Their experiments show improvement over the baseline, but the baseline seems to be pretty simple and doesn’t include cost terms that might be helpful to it (e.g. by allowing the gripper to rotate and remain closed until the end). For the most crowded cases, these things probably wouldn’t help the baseline much, but for intermediate cases a better baseline would probably be one that allows the gripper to move around rather than enforcing a straight line. Additionally, would the smooth contact model work well in scenarios in which objects need to remain stacked, for example? Especially in the case of the fridge scenario, there are often objects stacked on top of each other, and it would be important to represent this in the simulation. I’m not sure if their smooth contact model would be stable for stacked objects, though.&lt;/p&gt;
-
-&lt;p&gt;That said, it is really cool that they seem to find realistic behavior emerging from the physics-based approach – for example, the “snaking” behavior of the gripper in very crowded scenes to push objects to the side, rather than forward. And, it is interesting to see this as yet another type of approach that can be used to incorporate physical knowledge into reasoning about the world.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 28 Dec 2015 07:17:48 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Kitaev2015.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Kitaev2015.html</guid>
-        
-        
-        <category>Physical reasoning with dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Detecting potential falling objects by inferring human action and natural disturbance</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Zheng2014&quot;&gt;Zheng, B., Zhao, Y., Yu, J. C., Ikeuchi, K., &amp;amp; Zhu, S.-C. (2014). Detecting Potential Falling Objects by Inferring Human Action and Natural Disturbance. &lt;i&gt;Proceedings Of the IEEE International Conference on Robotics and Automation&lt;/i&gt;. doi:10.1109/ICRA.2014.6907351&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Zheng et al. outline a system for inferring how likely objects are to fall, based on various disturbance models (e.g. human motion, earthquake, wind) and work/energy calculations. They compare their model’s predictions to human judgments and find that they correspond fairly well (at least based on rank orderings).&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;First, they define the “energy barrier” to be the work required to move an object from it’s current resting position $x_0$ (in an energy minima) to an unstable equilibrium $\tilde{x}$. Then, the “falling risk” of an object is defined to be the amount of change in energy between the unstable equilibrium to a smaller local minima $x_{0^\prime}$.&lt;/p&gt;
-
-&lt;p&gt;Second, they define a “disturbance field” to be a probability distribution over forces in the scene:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Earthquake – horizontal forces distributed uniformly at random&lt;/li&gt;
-  &lt;li&gt;Wind – forces in a particular direction distributed uniformly at random&lt;/li&gt;
-  &lt;li&gt;Human action – they calculate this by convolving two different distributions. First, they calculate the areas that humans are most likely to be in, based on computing shortest paths between random pairs of points in the room and then computing how likely it is for someone to cross a particular point across all shortest paths. Second, they calculate the regions of space that a human’s arms or legs are most likely to move through, by using a 3D motion capture (they don’t say, though, what motions they used in the motion capture – just walking?). By convolving these two fields, they end up with a probability distribution for how likely it is for motion to occur at particular places in space.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;They then calculate the expected falling risk as:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;R(a,\mathbf{x}_0)=\int p(W,\mathbf{x}_0)R(a, \mathbf{x}_0, W)\ \mathrm{d}W&lt;/script&gt;
-
-&lt;p&gt;where $p(W,\mathbf{x}_0)$ is given by the disturbance field and $R(a, \mathbf{x}_0, W)$ is the maximum energy that the object can release when it is moved out of its energy barrier by work $W$. This is related to, for example, how high up the object is – there will be a higher risk if the object is high up because it can fall further.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;It is a really interesting idea to estimate how likely it is for things to fall based on computing a possible disturbance field. I wonder, though, how similar this is to how people estimate things. I definitely think we probably need something more efficient and robust than running simulations for every single object in the room (a la what we did with the tower simulations), but I also don’t believe that people would estimate how likely a place is to be walked in. Perhaps an approach that would be more similar to human behavior would be to include this type of calculate into the loss function. That is, for a given path, you estimate where movement is likely to occur &lt;em&gt;just for that path&lt;/em&gt; and then you can estimate the expected risk for objects near the path. Then you don’t need to consider the whole scene at once. This would essentially just take into account the local human disturbance field rather than the global one.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 21 Dec 2015 10:09:10 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/21/Zheng2014.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/21/Zheng2014.html</guid>
-        
-        
-        <category>Physical reasoning with dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Tracking deformable objects with point clouds</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Schulman2013b&quot;&gt;Schulman, J., Lee, A. X., Ho, J., &amp;amp; Abbeel, P. (2013). Tracking deformable objects with point clouds. &lt;i&gt;Proceedings Of the IEEE International Conference on Robotics and Automation&lt;/i&gt;. doi:10.1109/ICRA.2013.6630714&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this work, Schulman et al. propose an algorithm for tracking deformable objects (e.g. rope, cloth, sponges) using point clouds and a variation of the EM algorithm augmented with a real-time physics engine. They show that their algorithm can run in real-time and is fairly accurate provided there are not too many occlusions from external sources (e.g. human hands). Here is a video demonstrating their algorithm:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=3ps7gb_oxxI&quot;&gt;https://www.youtube.com/watch?v=3ps7gb_oxxI&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Schulman et al. define a probabilistic generative model for point tracking, which include the following variables:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathbf{m}_{1:K}={\mathbf{m}_1, \mathbf{m}_2, \ldots{}, \mathbf{m}_K}$ are a set of $K$ points in 3D space which define the (estimated) configuration/model of the object.&lt;/li&gt;
-  &lt;li&gt;$\mathbf{c}_{1:N}={\mathbf{c}_1, \mathbf{c}_2, \ldots{}, \mathbf{c}_N}$ are a set of $N$ points generated from the sensor hardware (i.e. the point cloud).&lt;/li&gt;
-  &lt;li&gt;$z_{kn}$ is an indicator variable that is 1 if the object surface nearest to $\mathbf{m}_{k}$ generated observation $\mathbf{c}_n$.&lt;/li&gt;
-  &lt;li&gt;$z_{K+1,n}$ is an indicator variable that is 1 if $\mathbf{c}_n$ is a point generated by noise.&lt;/li&gt;
-  &lt;li&gt;$v_k$ is an indicator variable that is 1 if $\mathbf{m}_k$ is visible from the camera&lt;/li&gt;
-  &lt;li&gt;$\Sigma_k=\mathrm{diag}((\sigma^x)^2, (\sigma^y)^2, (\sigma^z)^2)$ is a diagonal covariance matrix that parameterizes the noise in observations of points in the point cloud: $\mathbf{c}_n\sim \mathcal{N}(\mathbf{m}_k, \Sigma_k)$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I won’t go too much into the details of the densities in this model, except to note that they additionally place a prior on the model points:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{m}_{1:K})=e^{-\frac{1}{\eta} V_0(\mathbf{m}_{1:K})}&lt;/script&gt;
-
-&lt;p&gt;where $V_0(\mathbf{m}_{1:K})$ is the potential energy of the tracked object, which is infinite in infeasible states (e.g. interpenetration). This prior encourages the object model to stay in low-energy states—e.g. stationary (or moving slowly), not being bent too much, etc.&lt;/p&gt;
-
-&lt;p&gt;The inference procedure is a variation on the EM algorithm. First, in the E-step, they compute a lower bound on the log-probability:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-\log p(\mathbf{m}_{1:K},\mathbf{c}_{1:N})&amp;=\log p(\mathbf{m}_{1:K}) + \log p(\mathbf{c}_{1:N}\vert \mathbf{m}_{1:K})\\
-&amp;= V_0(\mathbf{m}_{1:K})+\sum_n\sum_k \alpha_{nk}\log\mathcal{N}(\mathbf{c}_n; \mathbf{m}_k, \Sigma_k)
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;where $\alpha_{nk}=\log p(z_{kn}=1 \vert \mathbf{m}_{1:K}, \mathbf{c}_{1:N})$. Then, in the M-step, they use a physics simulation in order to maximize the lower bound on the log probability. By just running it forward, it would just converge to the prior (a low-energy state), so to avoid this, they introduce external forces into the simulation engine at each point mass equal to the negative gradient of the log likelihood $p(\mathbf{c}_{1:N}\vert \mathbf{m}_{1:K})$. They also include a damping force to keep the total energy at a constant level.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This is a really clever use of a physics engine to compute a maximization over a posterior distribution. Essentially, the key idea is that the physics engine will naturally converge to the prior (a low-energy state); so, to make it converge to the posterior (i.e., take into accound observations), they introduce external forces into the physics engine proportional to the gradient of the log-likelihood. More broadly, this is an interesting and novel way to maintain a physically realistic model of an object (including the object’s dynamics) based on observations.&lt;/p&gt;
-
-&lt;p&gt;I expect this would actually work well with rigid body dynamics as well, though perhaps in the presence of many collisions, it wouldn’t – it would be interesting to test it out in those cases.
-Additionally, it would be interesting to see how this could be extended to multiple object tracking. For example, could you use this method to track the objects in our block towers? I suspect that would be more difficult, as (I think) you would need to add an additional level of hierarchy to the probabilistic generative model to account for different objects. Or, perhaps it would work to just say there is one big object with multiple components that are independent? I’m not sure.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 21 Dec 2015 07:02:32 -0500</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/21/Schulman2013b.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/21/Schulman2013b.html</guid>
         
         
         <category>Physical reasoning with dynamics models</category>
