@@ -6,9 +6,45 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 01 Jan 2016 18:01:06 -0800</pubDate>
-    <lastBuildDate>Fri, 01 Jan 2016 18:01:06 -0800</lastBuildDate>
+    <pubDate>Fri, 01 Jan 2016 19:32:17 -0800</pubDate>
+    <lastBuildDate>Fri, 01 Jan 2016 19:32:17 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>The future of memory: remembering, imagining, and the brain</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Schacter2012&quot;&gt;Schacter, D. L., Addis, D. R., Hassabis, D., Martin, V. C., Spreng, R. N., &amp;amp; Szpunar, K. K. (2012). The Future of Memory: Remembering, Imagining, and the Brain. &lt;i&gt;Neuron&lt;/i&gt;, &lt;i&gt;76&lt;/i&gt;(4), 677–694. doi:10.1016/j.neuron.2012.11.001&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Schacter et al. review neuroscientific evidence for the relationship between recalling episoding memories and constructing imagined events. Broadly, the conclusion is that these two processes are very similar and rely on a lot of the same mechanisms, but also have measureable differences. They make four main points:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Remembered events are always related to the past, but imagined events could be set in the past, present, or future. Thus, remembering vs. imagining shouldn’t be interpreted as past vs. future.&lt;/li&gt;
+  &lt;li&gt;There are differences between the processes involved in remembering and imagining. For example, imagining requires synthesizing an entirely new event and possibly concepts, while remembering—while perhaps a constructive process—need only retrieve existing pieces of information. Remembering the past has also been associated with a larger number and more vivid sensory details&lt;/li&gt;
+  &lt;li&gt;In terms of specific component processes, it seems that regions like the MPFC (medial prefrontal cortex) and posterior cingulate are involved in simulations of the self and social scenarios; regions like the medial temporal lobe and retrosplenial cortex are more involved in memory-based scene construction. The hippocampus is also involved in imagining and remembering, though its specific role isn’t as clear; there is some evidence that it’s involved specifically with retrieving relevant details, combining them into something coherent, and then storing the result.&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;default network&lt;/em&gt; is involved in both remembering and imagining and includes regions like the medial temporal lobe, frontal lobe, posterior cingulate cortex, retrosplenial cortex, and lateral parietal and temporal areas. This network can be coupled with other networks to support goal-directed simulations (particularly those that are autogbiographical).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In the conclusion, Schacter et al. suggest that “a key function of memory is to provide a basis for predicting the future via imagined scenarios and that the ability to flexibly recombine elements of past experience into simulations of novel future events is therefore an adaptive process”.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I think the most important takeaway for me is that mental simulation of (at least episodic) events is closely tied to the ability to retrieve existing memories and somehow recombine them. The interesting question for me, though, is &lt;em&gt;how&lt;/em&gt; this recombining is actually accomplished, and the way it is different between reconstructing or reinterpreting memories and creating new simulations. One hypothesis might be that when either remembering or imagining, people first construct or retrieve some high-level narrative structure of the event. Then, they fill in the details, either by retrieving the specific details that were stored (in the case of remembering), or by sampling specific details (in the case of simulation). This might be one way to explain why simulations tend to have fewer details, too: for remembering, you perhaps attempt to retrieve all the stuff the was stored, while for simulating, you only sample details until the simulation is “coherent enough”. For some definition of “coherent” and “enough”, this might not need to include things like small perceptual or sensory details.&lt;/p&gt;
+
+&lt;p&gt;On a different note, this paper illustrates a different way in which “simulation” is used—here, they are using simulation to refer to imagined &lt;em&gt;episodic&lt;/em&gt; events. This is in contrast to the simulation of mental imagery, in which simulation tends to mean something more along the lines of imagined objects or actions. Of course, to simulating an episodic event probably requires being able to simulate objects and actions, but it additionally requires being able to piece together multiple things into a coherent, high-level picture. Schacter et al. actually touch on this a bit in the paper (pg. 681):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Scene construction entails retrieving and intergrating perceptual, semantic, and contextual information into a coherent spatial context. Scene construction is held to be more complex than “simple” visual imagery for individual objects because it relies on binding together disparate types of information into a coherent whole, and likely involves processes mediated by several regions within the default network, most notably the medial temporal lobe. Scene construction is thought to be a critical component of both memory and imagination as mental simulations, whether of the past, future, or purely fictional, because they are all usually framed within a spatial context.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 01 Jan 2016 10:51:04 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/memory%20and%20imagination/2016/01/01/Schacter2012.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/memory%20and%20imagination/2016/01/01/Schacter2012.html</guid>
+        
+        
+        <category>Memory and imagination</category>
+        
+      </item>
     
       <item>
         <title>Are things that are hard to physically move also hard to imaging moving?</title>
@@ -371,67 +407,6 @@
         <pubDate>Wed, 30 Dec 2015 07:48:29 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Veiga2015.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Veiga2015.html</guid>
-        
-        
-        <category>Physical reasoning without dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Learning force-based manipulations of deformable objects from multiple demonstrations</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Lee2015&quot;&gt;Lee, A. X., Lu, H., Gupta, A., Levine, S., &amp;amp; Abbeel, P. (2015). Learning Force-Based Manipulation of Deformable Objects from Multiple Demonstrations. &lt;i&gt;Proceedings Of the IEEE International Conference on Robotics and Automation&lt;/i&gt;. doi:10.1109/ICRA.2015.7138997&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;This paper builds on &lt;a href=&quot;/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/29/Schulman2013a.html&quot;&gt;Schulman et al.&lt;/a&gt; by not only warping the pose of the robot’s trajectory, but also the force that is applied to the objects. This makes for a more robust and generalizable scheme for manipulating deformable objects (such as rope).&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;The algorithm has several steps:&lt;/p&gt;
-
-&lt;h2 id=&quot;step-1&quot;&gt;Step 1&lt;/h2&gt;
-
-&lt;p&gt;Perform scene registration, where the points from the test scene are mapped to the points from the demonstrated scene in order to come up with a function $f$ that transforms between the two.&lt;/p&gt;
-
-&lt;h2 id=&quot;step-2&quot;&gt;Step 2&lt;/h2&gt;
-
-&lt;p&gt;The trajectories from demonstrated scenes are mapped to the new scene using $f$: the poses are given by $\tilde{\mathbf{Q}}^d=f(\hat{\mathbf{Q}}^d)$ and the forces are given by $\tilde{\mathbf{U}}^d=\frac{df^d}{d\mathbf{p}}(\hat{\mathbf{Q}}^d)\hat{\mathbf{U}}^d$.&lt;/p&gt;
-
-&lt;h2 id=&quot;step-3&quot;&gt;Step 3&lt;/h2&gt;
-
-&lt;p&gt;The trajectories are time-aligned using “dynamic time warping” such that all demonstrated trajectories follow the same time course. This yields $\mathbf{Q}^d$ and $\mathbf{U}^d$.&lt;/p&gt;
-
-&lt;h2 id=&quot;step-4&quot;&gt;Step 4&lt;/h2&gt;
-
-&lt;p&gt;To extract the final trajectory based on the time-aligned demonstrated trajectories, Lee et al. use a Gaussian model of the force:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{u}^d_t\vert \mathbf{q}_t^d,\mathbf{\dot{q}}_t^d)=\mathcal{N}(\mathbf{K}_{pt}(\mathbf{\bar{q}}_t-\mathbf{q}_t^d)+\mathbf{K}_{vt}(\dot{\bar{\mathbf{q}}}_t-\dot{\mathbf{q}}_t^d)+\bar{\mathbf{u}}_t; \mathbf{C}_t)&lt;/script&gt;
-
-&lt;p&gt;Here, $\bar{\mathbf{q}}_t$, $\dot{\bar{\mathbf{q}}}_t$, and $\bar{\mathbf{u}}_t$ are the positions, velocities, and forces of the desired trajectory and are computed by fitting a joint Gaussian distribution to $[\mathbf{q}_t^d,\dot{\mathbf{q}}_t^d,\mathbf{u}_t^d]$ at each time step and then taking the mean of that distribution. The variables $\mathbf{K}_{pt}$ and $\mathbf{K}_{vt}$ are the position and velocity gains and are computed from the covariances of the fitted joint Gaussians: $\mathbf{K}_{pt}=-\Sigma_{\mathbf{uq},t}\Sigma^{-1}_{\mathbf{qq},t}$ and $\mathbf{K}_{vt}=-\Sigma_{\mathbf{u\dot{q}},t}\Sigma^{-1}_{\mathbf{\dot{q}q},t}$ (see Section 8.1.3 of the Matrix Cookbook for a better intuition of where this comes from).&lt;/p&gt;
-
-&lt;p&gt;Rather than directly fitting the covariances $\Sigma_t$, they use a inverse-Wishart prior on the covariance in order to encourage the gains to be non-negative. They additionally include samples from nearby time points which encourages the estimate to vary smoothly over time.&lt;/p&gt;
-
-&lt;h2 id=&quot;step-5&quot;&gt;Step 5&lt;/h2&gt;
-
-&lt;p&gt;Lee et al. now optimize the robot joint angles $\Theta=[\theta_1,\ldots{},\theta_T]^\top$ to match the desired trajectory (as computed in the previous step). Then, they convert the gains into joint-space gains $\mathbf{K}_{pt}^\theta$ and $\mathbf{K}_{vt}^\theta$ and compute the torque as:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}_t=\mathbf{K}_{pt}^\theta(\theta_t-\theta_\mathrm{obs})+\mathbf{K}_{vt}^\theta(\dot{\theta}_t-\dot{\theta}_\mathrm{obs})+\mathbf{J}(\theta)^\top\bar{\mathbf{u}}_t&lt;/script&gt;
-
-&lt;p&gt;where $\mathbf{J}(\theta)$ is the Jacobian and where $\theta_\mathrm{obs}$ and $\dot{\theta}_\mathrm{obs}$ are the observed joint angles and velocities.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This approach is a significant improvement over previous work, which was unable to generalize to situations in which the applied force was more important than the exact position (e.g. folding a larger towel than the one in the demonstrations requires applying the same force, but moving the arms out further in order to apply that force). The core idea is still the same, however: without having any task-specific or physical knowledge, map from demonstrated trajectories (including forces) to new situations.&lt;/p&gt;
-
-&lt;p&gt;I think it’s really interesting that they are able to take force into account and trade off between force and position without actually having knowledge of the task; I’m surprised it works as well as it does! The intuition behind why it works is that when there is variance in the demonstrations, that implies that absolute position is less important, and that something else is more important—for example, force. Thus, where there is more variance in position, the force should be considered more strongly, and when there is low variance, position should be considered more strongly. I do wonder though whether this property always holds true. For example, if you were trying to unscrew a cap from a jar, and different demonstrations had caps that were stuck more or less tightly, I &lt;em&gt;think&lt;/em&gt; that the position of the gripper would end up still being about the same—it would be the force that differs. In that case, this wouldn’t work (I think) because it would move the gripper in the appropriate way, but not apply the right force; and in fact, having demonstrations of the force wouldn’t necessarily be sufficient either—to accomplish this task, you would have to have some notion of the position of the jar and the cap and how much the cap is moving, etc.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 30 Dec 2015 02:52:02 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Lee2015.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Lee2015.html</guid>
         
         
         <category>Physical reasoning without dynamics models</category>
