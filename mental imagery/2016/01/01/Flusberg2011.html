@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Explorations of a creative visual synthesis in mental imagery</title>
+    <title>Are things that are hard to physically move also hard to imaging moving?</title>
     <meta name="description" content="Notes on readings for my qualifying exams.
 ">
 
     <link rel="stylesheet" href="/quals/css/main.css">
-    <link rel="canonical" href="http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Finke1988.html">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Flusberg2011.html">
 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -69,30 +69,28 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Explorations of a creative visual synthesis in mental imagery</h1>
+    <h1 class="post-title">Are things that are hard to physically move also hard to imaging moving?</h1>
     <p class="post-meta">Jan 1, 2016 • Mental imagery</p>
   </header>
 
   <article class="post-content">
-    <p><span id="Finke1988">Finke, R. A., &amp; Slayton, K. (1988). Explorations of creative visual synthesis in mental imagery. <i>Memory And Cognition</i>, <i>16</i>(3), 252–257. doi:10.3758/BF03197758</span></p>
+    <p><span id="Flusberg2011">Flusberg, S. J., &amp; Boroditsky, L. (2011). Are things that are hard to physically move also hard to imagine moving? <i>Psychonomic Bulletin And Review</i>, <i>18</i>(1), 158–164. doi:10.3758/s13423-010-0024-2</span></p>
 
 <h1 id="summary">Summary</h1>
 
-<p>In this paper, Finke and Slayton asked participants to use mental imagery to imagine objects composed out of a given set of basic geometric parts. They found that in almost 40% of trials, participants were able to come up with a recognizible arrangement of the parts, demonstrating that mental imagery isn’t just used as a way of encoding visual information, but that it is an active process of simulation that people can use to discover new things.</p>
+<p>Flusberg &amp; Boroditsky begin with the following important question (pg. 158-159):</p>
 
-<h1 id="methods">Methods</h1>
+<blockquote>
+  <p>On the one hand, there appear to be tight links among perception, action and mental imagery, both in behavior and in the underlying neural circuitry… On the other hand, what often seems to separate our imagination from the everyday world is that it appears free from the constraints imposed by the physical environment. Indeed, people often imagine actions or events that they have never seen or never could experience themselves… to what extent do our experiences with objects in the real world impinge on our ability to represent and manipulate those objects in mental imagery?</p>
+</blockquote>
 
-<p>On each trial, participants saw three geometric forms (out of: circle, square, rectangle, triangle, horizontal line, vertical line, D, C, L, T, J, 8, X, V, P) and were told to combine them into a recognizable form. They could scale and rotate the parts, but not skew or otherwise distort them. Participants had 2 minutes to come up with a response, at the end of which they were to write down the name of the form they came up with (if they were able to come up with one) and then to draw out the form. Once they had drawn the form they couldn’t change their answer (to ensure that they were actually using mental imagery).</p>
-
-<h1 id="algorithm">Algorithm</h1>
-
-<p>n/a</p>
+<p>To get at this question, they perform the classic mental rotation task but prime participants first by having them physically rotate the objects. The key manipulation was that some of the objects were more difficult to physically rotate than the others (denoted by color). Flusberg &amp; Boroditsky found that participants had longer response times when using <em>motor imagery</em> after performing the physical rotations (whereas there was no effect when using <em>visual imagery</em>), and also that there was an effect of the angle of rotation on the difficulty of rotation (i.e. the slope for the more difficult objects was higher than that for the less difficult objects, which is what would be expected from manually performing the rotations). However, they only saw this effect after excluding some of the participants post-hoc.</p>
 
 <h1 id="takeaways">Takeaways</h1>
 
-<p>I think these result are really cool, and illustrate how powerful mental imagery really can be: it’s not just some epiphenomenon, but a true generative process that can be used to run a certain type of simulation.</p>
+<p>I think this is a cool study, though I would have liked to see a more in depth evaluation—for example, more angles of rotation, and more than two levels of difficulty. I also think it would have been better to have participants do the mental rotation task on entirely different objects than the ones they physically rotated, because it’s not clear to me whether they measured an effect of <em>prior knowledge</em> (i.e. abstract knowledge about the difficulty of manipulating the object) or an effect of <em>prior experience</em> (i.e. they are just replaying an experience they had). I would be inclined to believe they actually are measuring prior knowledge (as they claim), but I would like to know for sure.</p>
 
-<p>I also think this paper is interesting because it presents a uniquely difficult challenge for AI systems or computational models. How do you model the synthesis of something entirely new? I would argue that it’s not truly a new synthesis, because we have strong prior knowledge about object categories and prototypes. One potential way to approach this would be to do something like Google’s inceptionism. First, train a neural network to recognize various categories of images. Second, generate an input image from the parts used in this experiment. Then, “enhance” that image to maximize the network’s objective function, except that rather than modifying the image on the pixel level, modify it by changing the position, rotation, and scale of the parts. I wonder if doing this would actually produce something recognizable—I’m not sure if having such schematized line drawings would work, but it would be a cool thing to try.</p>
+<p>Methodology aside, the fact that there is a difference between motor imagery and visual imagery is quite interesting. I want to know <em>why</em> this difference exists, though; I’m not convinced there is actually a hard line that can be drawn between the two. Typically, tasks like mental rotation do still involve some amount of motor activation in the brain, meaning that motor imagery isn’t entirely separate from visual imagery. Perhaps the distinction shouldn’t be between motor/visual, but just based on the mechanism by which the object is moving (or, put another way, how the simulated scene is constructed). If you are asked to imagine moving it yourself, then it makes sense that you would imagine what the effects of your motor actions are. If you are asked to imagine the object itself moving, then it perhaps you are imagining (for example) the object sitting on a rotating disk. It would be interesting to try to come up with a task that would require the “visual imagery” condition to still engage in some sort of motor imagery, but motor imager that is irrelevant to how difficult the object is to move. Would that cause an effect of difficulty to appear in the visual imagery condition? I hypothesize that it wouldn’t, which would imply that the distinction isn’t between motor and visual imagery but in terms of how the simulation is constructed, somehow.</p>
 
   </article>
 

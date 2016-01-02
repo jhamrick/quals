@@ -6,13 +6,112 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 01 Jan 2016 11:56:42 -0800</pubDate>
-    <lastBuildDate>Fri, 01 Jan 2016 11:56:42 -0800</lastBuildDate>
+    <pubDate>Fri, 01 Jan 2016 18:01:06 -0800</pubDate>
+    <lastBuildDate>Fri, 01 Jan 2016 18:01:06 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
+        <title>Are things that are hard to physically move also hard to imaging moving?</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Flusberg2011&quot;&gt;Flusberg, S. J., &amp;amp; Boroditsky, L. (2011). Are things that are hard to physically move also hard to imagine moving? &lt;i&gt;Psychonomic Bulletin And Review&lt;/i&gt;, &lt;i&gt;18&lt;/i&gt;(1), 158–164. doi:10.3758/s13423-010-0024-2&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Flusberg &amp;amp; Boroditsky begin with the following important question (pg. 158-159):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On the one hand, there appear to be tight links among perception, action and mental imagery, both in behavior and in the underlying neural circuitry… On the other hand, what often seems to separate our imagination from the everyday world is that it appears free from the constraints imposed by the physical environment. Indeed, people often imagine actions or events that they have never seen or never could experience themselves… to what extent do our experiences with objects in the real world impinge on our ability to represent and manipulate those objects in mental imagery?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To get at this question, they perform the classic mental rotation task but prime participants first by having them physically rotate the objects. The key manipulation was that some of the objects were more difficult to physically rotate than the others (denoted by color). Flusberg &amp;amp; Boroditsky found that participants had longer response times when using &lt;em&gt;motor imagery&lt;/em&gt; after performing the physical rotations (whereas there was no effect when using &lt;em&gt;visual imagery&lt;/em&gt;), and also that there was an effect of the angle of rotation on the difficulty of rotation (i.e. the slope for the more difficult objects was higher than that for the less difficult objects, which is what would be expected from manually performing the rotations). However, they only saw this effect after excluding some of the participants post-hoc.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I think this is a cool study, though I would have liked to see a more in depth evaluation—for example, more angles of rotation, and more than two levels of difficulty. I also think it would have been better to have participants do the mental rotation task on entirely different objects than the ones they physically rotated, because it’s not clear to me whether they measured an effect of &lt;em&gt;prior knowledge&lt;/em&gt; (i.e. abstract knowledge about the difficulty of manipulating the object) or an effect of &lt;em&gt;prior experience&lt;/em&gt; (i.e. they are just replaying an experience they had). I would be inclined to believe they actually are measuring prior knowledge (as they claim), but I would like to know for sure.&lt;/p&gt;
+
+&lt;p&gt;Methodology aside, the fact that there is a difference between motor imagery and visual imagery is quite interesting. I want to know &lt;em&gt;why&lt;/em&gt; this difference exists, though; I’m not convinced there is actually a hard line that can be drawn between the two. Typically, tasks like mental rotation do still involve some amount of motor activation in the brain, meaning that motor imagery isn’t entirely separate from visual imagery. Perhaps the distinction shouldn’t be between motor/visual, but just based on the mechanism by which the object is moving (or, put another way, how the simulated scene is constructed). If you are asked to imagine moving it yourself, then it makes sense that you would imagine what the effects of your motor actions are. If you are asked to imagine the object itself moving, then it perhaps you are imagining (for example) the object sitting on a rotating disk. It would be interesting to try to come up with a task that would require the “visual imagery” condition to still engage in some sort of motor imagery, but motor imager that is irrelevant to how difficult the object is to move. Would that cause an effect of difficulty to appear in the visual imagery condition? I hypothesize that it wouldn’t, which would imply that the distinction isn’t between motor and visual imagery but in terms of how the simulation is constructed, somehow.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 01 Jan 2016 09:29:15 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Flusberg2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Flusberg2011.html</guid>
+        
+        
+        <category>Mental imagery</category>
+        
+      </item>
+    
+      <item>
+        <title>The emulation theory of representation: motor control, imagery, and perception</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Grush2004&quot;&gt;Grush, R. (2004). The emulation theory of representation: motor control, imagery, and perception. &lt;i&gt;The Behavioral And Brain Sciences&lt;/i&gt;, &lt;i&gt;27&lt;/i&gt;(3), 377–96; discussion 396–442. doi:10.1017/S0140525X04000093&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Wow, this was such a cool paper to read! Grush lays out the “emulation” theory of motor control/perception/imagery/etc. which is very similar to the theory that I have been thinking of (but that I haven’t been able to explain nearly as eloquently). It is what he calls a “pseudo-closed-loop control” scheme, inspired by the ideas behind Kalman filtering. The core ideas from the Kalman filter are:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;There is some process that is created by a combination of a driving force as well as the internal process mechanism (and some noise in that mechanism). Measurements are made of the state of this process, but they are also corrupted by noise.&lt;/li&gt;
+  &lt;li&gt;There is an internal model (emulator) of the process mechanisms. Using this internal model plus the driving force, the next state of the system is computed.&lt;/li&gt;
+  &lt;li&gt;A measurement is made of the simulated state, and it is compared to the measurement that was made from the true process. The difference between these two measurements is combined with the inverse of the observation in order to compute a residual correction.&lt;/li&gt;
+  &lt;li&gt;Some proportion of correction is applied to the estimated state in order to produce a corrected estimate of the measurement.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In terms of cognition, the process is something like the state of a limb, or a representation of a scene. The driving force is the motor commands that are issued to change the state of the system. So, the hypothesis is essentially that during motor control or perception, the mind uses an internal model (the emulator) to keep track of a better estimate of the state of the system. But, by having an emulator, it can also be used for other things (such as mental imagery). In the case of imagery, the emulator itself can be used to make predictions about the future state of the system (without applying corrections).&lt;/p&gt;
+
+&lt;h2 id=&quot;motor-imagery&quot;&gt;Motor imagery&lt;/h2&gt;
+
+&lt;p&gt;Grush makes the distinction between &lt;em&gt;emulation theory&lt;/em&gt; and &lt;em&gt;simulation theory&lt;/em&gt;, where simulation theory is the idea that motor imagery comes from simulating motor commands, but not actually executing those controls. Emulation theory includes that aspect, but also includes the idea of having a separate model that emulates the state of the system. To quote from the paper:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;The differenceis that the simulation theory does not posit anything corresponding to an emulator&lt;/em&gt;; as far as I can tell, the simulator theory is conceived against the backdrop of closed-loop control, and motor imagery hypothesized to be the free-spinning of the controller (motor centers) when disengaged from the plant (body). In the emulation theory, by contrast, imagery is not produced by the mere free-spinning opertion of the efferent motor areas, but by the efferent motor areas driving an emulator of the musculoskeletal system. (pg. 382)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;visual-imagery&quot;&gt;Visual imagery&lt;/h2&gt;
+
+&lt;p&gt;In discussing how emulation theory applies to perception and visual imagery, Grush makes the distinction between &lt;em&gt;modal emulators&lt;/em&gt; and &lt;em&gt;amodal emulators&lt;/em&gt;. A modal emulator is an emulator which mimics one of the senses (e.g., by representing the state as pixels). An amodal emulator, by contrast, represents the state using a more structured abstract or symbolic representation (e.g., the underlying geometry, pose, and kinematics of objects and where the agent is in relation to them). The amodal emulator is clearly more flexible and encodes much more information than modal emulators; however, the modal emulators may be better at predicting information that is specific to a particular sensory domain. Thus, Grush proposes that the mind probably makes use of an amodal emulator as well as multiple modal emulators for vision, motor control, audition, etc.&lt;/p&gt;
+
+&lt;h2 id=&quot;sensation-and-perception&quot;&gt;Sensation and perception&lt;/h2&gt;
+
+&lt;p&gt;Grush goes as far as to say that modal emulators are really used in &lt;em&gt;sensation&lt;/em&gt; (i.e. receiving and processing sensory signals) while a particular amodal emulator, the &lt;em&gt;environment emulator&lt;/em&gt;, is what really produces our &lt;em&gt;perception&lt;/em&gt; (the interpretation of our sensations). The environment emulator is object-centric, and presumably is what allows us to do things like predict physical events.&lt;/p&gt;
+
+&lt;p&gt;There are two points that Grush makes here that are, in my opinion, very important. The first is:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;… the current scheme, exactly because it treats perception as one aspect of an integrated information processing strategy, sheds light on the nature of perception itself. In the first place, the scheme highlights the extent to which the outcome of the perceptual process, the state estimate embodied in the emulator, is tuned to sensorimotor requirements. The emulator represents objects and the environment &lt;em&gt;as things engaged with&lt;/em&gt; in certain ways as opposed to how they are considered apart from their role in the organism’s environmental engagements. (pg. 393)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I think this is an important point because I think the way we reason about the world—and the objects in it—is precisely because we have to interact in the world. The point of having an ability for mental simulation (emulation) isn’t because it’s useful for higher level problem solving or creativity, but because it’s essential for planning and predicting what is going to happen.&lt;/p&gt;
+
+&lt;p&gt;The second important point is:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Another shift in emphasis suggested by this account is that perception is shown to be not a matter of starting with materials provided in sensation and filling in blanks until a completed percept is available. Rather, completed percepts of the environment are the starting point, in that the emulator always has a potentially self-contained environment emulator estimate up and running… The role played by sensation is to constrain the configuration and evolution of this representation. In motto form, &lt;em&gt;perception is a controlled hallucination process&lt;/em&gt;. (pg. 393)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I love the characterization of perception as a controlled hallucination process. This is also exactly in line with a Bayesian interpretation: the prior is the internal model of how the world works (the hallucination), and the likelihood constrains the prior based on actual observations of the real world.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I think the emulation theory proposed by Grush is exactly the right way to think about perception and action. However, it is also a very high-level schematic of how to approach the problem: there are many questions that aren’t answered. For example:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;How are the internal models learned? Here, perspectives from robotics might be particularly useful. For example, something like the “distal teaching” approach discussed by &lt;a href=&quot;/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Nguyen-Tuong2011.html&quot;&gt;Nguyen-Tuong &amp;amp; Peters&lt;/a&gt; for training a mixed model (forward plus inverse models) could be used to learn new forward models and their inverses.&lt;/li&gt;
+  &lt;li&gt;The emulation theory as discussed here just takes as input to the controller some high level goal, which may or may not be produced by using the emulator to make further predictions. What is the tradeoff between using the emulator for tracking the current state of the system vs. doing planning? Or are there multiple emulators used?&lt;/li&gt;
+  &lt;li&gt;How does the controller decide what control signal to produce? Again, this is something that could potentially engage the emulator, which means there is also potentially a tradeoff for how the emulator gets used. For both this point and the previous point, work in robotics may provide some insight.&lt;/li&gt;
+  &lt;li&gt;The Kalman filtering approach described by Grush assumes that the forward dynamics are the same for both the real and imagined process. What if they aren’t? What sorts of implications does this model mismatch have?&lt;/li&gt;
+  &lt;li&gt;If such emulators are used for imagery, how is the initial state for them constructed in the first place?&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 01 Jan 2016 07:46:02 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Grush2004.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Grush2004.html</guid>
+        
+        
+        <category>Mental imagery</category>
+        
+      </item>
+    
+      <item>
         <title>Explorations of a creative visual synthesis in mental imagery</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Finke1988&quot;&gt;Finke, R. A., &amp;amp; Slayton, K. (1988). Explorations of creative visual synthesis in mental imagery. &lt;i&gt;Memory &amp;amp;Amp; Cognition&lt;/i&gt;, &lt;i&gt;16&lt;/i&gt;(3), 252–257. doi:10.3758/BF03197758&lt;/span&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;span id=&quot;Finke1988&quot;&gt;Finke, R. A., &amp;amp; Slayton, K. (1988). Explorations of creative visual synthesis in mental imagery. &lt;i&gt;Memory And Cognition&lt;/i&gt;, &lt;i&gt;16&lt;/i&gt;(3), 252–257. doi:10.3758/BF03197758&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
 
@@ -336,70 +435,6 @@
         
         
         <category>Physical reasoning without dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Learning from demonstrations through the use of non-rigid registration</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Schulman2013a&quot;&gt;Schulman, J., Ho, J., Lee, C., &amp;amp; Abbeel, P. (2013). Learning from Demonstrations Through the Use of Non-Rigid Registration. &lt;i&gt;Proceedings Of the 16th International Symposium on Robotics Research&lt;/i&gt;. Retrieved from http://www.cs.berkeley.edu/ pabbeel/papers/SchulmanHoLeeAbbeel_ISRR2013.pdf&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Schulman et al. describe a way to learn from demonstration for performing tasks with deformable objects (e.g., rope tying). The core idea behind their method is essentially to compute a geometric transformation $\mathbf{f}$ which maps from one state to another state, and which can be applied to the demonstrated trajectory to produce a new trajectory. This approach, combined with a nearest-neighbors selection policy, works well for transforming given trajectories to new trajectories as long as the nearest neighbor is close enough.&lt;/p&gt;
-
-&lt;p&gt;Their approach rests on the following property (the &lt;em&gt;cost function invariance&lt;/em&gt;):&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;L(\mathrm{State},\mathrm{Traj})=L(\mathbf{f}(\mathrm{State}),\mathbf{f}(\mathrm{Traj}))&lt;/script&gt;
-
-&lt;p&gt;where $L$ is the loss function. Using this property, the following approximation follows:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-L(\mathrm{State}_\mathrm{test},\mathbf{f}(\mathrm{Traj}_\mathrm{train}))&amp;\approx L(\mathbf{f}(\mathrm{State}_\mathrm{train}),\mathbf{f}(\mathrm{Traj}_\mathrm{train}))\\
-&amp;= L(\mathrm{State}_\mathrm{train},\mathrm{Traj}_\mathrm{train})
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;An alternate intuition for why this works is that of &lt;em&gt;dynamics invariance&lt;/em&gt;, in which the “dynamics of the system are approximately invariant—more properly, &lt;em&gt;covariant&lt;/em&gt;—under sufficiently smooth coordinate transformations”. This is true if and only if:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}(\Pi_\mathrm{Traj}(\mathrm{State}^t))=\Pi_{\mathbf{f}(\mathrm{Traj})}(f(\mathrm{State}^t))&lt;/script&gt;
-
-&lt;p&gt;where $\Pi_\mathrm{Traj}(\mathrm{State})$ applies trajectory $\mathrm{Traj}$ to state $\mathrm{State}$.&lt;/p&gt;
-
-&lt;p&gt;Of course, there are cases where this will not hold. The example they give in the paper is a rigid transformation where the “absolution orientation of the robot’s end-effector matters”. However, based on their results, it seems that for a wide range of states and trajectories it does hold well enough to generalize to new states.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This is a clever use of nearest neighbors to generalize from examples without needing to have any knowledge of the domain (besides being able to perceive the position/topology of the relevant object, e.g. the rope). However, I wonder how far this will really generalize, even with many examples. For example, if you had to tie a rope around another object, I don’t think this would work as well—and this intuition seems to be correct, based on their experimental results (1/10 successes for the clove hitch, which involves tying a rope around a pole). I would expect it to be even harder if the task involved tying a rope around a nonrigid object. There is simply so much noise in the system that without some model of how the objects behave, you are going to quickly run into scenarios that you don’t have examples for.&lt;/p&gt;
-
-&lt;p&gt;I also think you would probably quickly run into scenarios where the transformation between states isn’t smooth. For example, if the task were to place a block on a stack of blocks and have the tower remain stable, the stability of the tower doesn’t vary smoothly as a function of the positions of the blocks. So even if you had encountered a very similar tower in the past, it’s entirely possible that even a slight difference between that tower and the current one could result in nonlinearities—e.g. in the first tower you need to place the block in position A to keep the tower stable, but position A in the second tower will always be unstable.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 29 Dec 2015 11:18:08 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/29/Schulman2013a.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/29/Schulman2013a.html</guid>
-        
-        
-        <category>Physical reasoning without dynamics models</category>
-        
-      </item>
-    
-      <item>
-        <title>Model-based Bayesian reinforcement learning in large structured domains</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Ross2008&quot;&gt;Ross, S., &amp;amp; Pineau, J. (2008). Model-based Bayesian Reinforcement Learning in Large Structured Domains. &lt;i&gt;Proceedings Of the 24th Conference in Uncertainty in Artificial Intelligence&lt;/i&gt;, 476–483. Retrieved from http://arxiv.org/abs/1206.3281&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Ross &amp;amp; Pineau propose a method for performing Bayesian reinforcement learning when both the structure and parameters of the transition function are unknown. That is, they need to infer $P(G,\theta_G\vert D)$ where $G$ is the graph structure, $\theta_G$ are the parameters of the graph, and $D$ is the observed data. Then, given this posterior, they need to plan optimally with respect to it. Ross &amp;amp; Pineau show how this can be done by casting the problem as a POMDP (where the unobserved states consist of the original state, the graph structure, and the graph parameters) and then suggest an algorithm for planning in continuous, high-dimensional POMDPs such as this that uses particle filtering with resampling. They show that their method rapidly recovers the correct structure in simple cases and recovers incorrect but approximate structure in more complex cases, and that it is significantly faster and more accurate than a MDP which does full joint inference over transitions (i.e. does not take into account structure).&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I am not going to go into the nitty-gritty details of the math in this paper—I think the important takeaway is that by doing Bayesian RL, we can maintain not only a distribution over what we think the transition function is, but we can incorporate structured prior knowledge into the inference procedure. So rather than assuming what is essentially a fully connected transition graph and estimating the parameters of each edge, we can keep open the possibility that the transition function has some form of higher-level structure. I think this is particularly important because it could potentially allow you to do inference about transitions or rewards from states that are different but are actually similar according to some high level structure. Actually, I think this is probably especially important for reward structures, even more so than transition structures—for example if the reward structure is based on something like the graph structures discussed by &lt;a href=&quot;/quals/probabilistic%20models%20of%20cognition/2015/11/08/Kemp2008.html&quot;&gt;Kemp &amp;amp; Tenenbaum&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 29 Dec 2015 04:16:31 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/29/Ross2008.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20and%20decision%20making/2015/12/29/Ross2008.html</guid>
-        
-        
-        <category>Planning and decision making</category>
         
       </item>
     
