@@ -6,9 +6,42 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 02 Jan 2016 14:24:24 -0800</pubDate>
-    <lastBuildDate>Sat, 02 Jan 2016 14:24:24 -0800</lastBuildDate>
+    <pubDate>Sat, 02 Jan 2016 16:52:26 -0800</pubDate>
+    <lastBuildDate>Sat, 02 Jan 2016 16:52:26 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Learning compound multi-step controllers under unknown dynamics</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Han2015&quot;&gt;Han, W., Levine, S., &amp;amp; Abbeel, P. (2015). Learning Compound Multi-Step Controllers under Unknown Dynamics. &lt;i&gt;Proceedings Of the 28th IEEE/RSJ International Conference on Intelligent Robots and Systems&lt;/i&gt;. Retrieved from http://rll.berkeley.edu/reset_controller/reset_controller.pdf&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Han et al. build on the work of &lt;a href=&quot;/quals/planning%20under%20uncertain%20dynamics/2016/01/02/Levine2015.html&quot;&gt;Levine et al.&lt;/a&gt; to learn controllers for tasks involving multiple steps. This is a difficult problem for traditional approaches to control, which assume that tasks are stationary (i.e., that the initial conditions are the same), which isn’t usually the case for compound tasks because the initial state of each step depends on the end state of the previous step. To address this, Han et al. formulate a way to learn both forward and &lt;em&gt;reverse&lt;/em&gt; controllers simultaneously. Then, in the compound task, if a forward controller fails, the reverse controller can be used to reset the movement and try again. Training compound controllers in this way is much more effective than trying to learn one global controller.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;Training the forward and reset controllers is actually pretty straightfoward. Han et al. run the forward controller and reset controllers in sequence $N$ times, and use these samples to update both controllers according to the task-specific loss function (for the forward controller) or a reset cost (for the reset controller).&lt;/p&gt;
+
+&lt;p&gt;Training the compound controller follows largely the same idea. Each forward controller is executed in sequence. If a controller fails, then the corresponding reverse controller is used to undo the action, and the forward controller is run again. This is repeated until the controller succeeds. After $N$ samples are collected for a controller, it is refit according to those samples. These $N$ samples count as one “iteration”, and all controllers are trained for $K$ iterations.&lt;/p&gt;
+
+&lt;p&gt;As in the previous work, the individual linear-Gaussian controllers can also be used to train a more general parameterized policy (such as a neural network). The benefit of training both forward and reset controllers, though, means that the system can autonomously train the neural network by running the forward controllers, using those samples as training data for the network, and resetting automatically using the reset controller.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This way of training compound controllers is exciting, because it could potentially be integrated with higher-level planning algorithms to determine how to accomplish more sophisticated and complex tasks. This brings up an interesting distinction in the idea of simulation—that you can potentially have simulations at different levels of abstraction, as well as at different levels of granularity. In this case, the robot can learn a dynamics model for multiple motion primitives (the individual linear-Gaussian controllers) but it might also need to be able to learn a higher-level (perhaps more qualitative) form of simulation in order to reason about how to accomplish the task in the first place. In the case of screwing in a bolt, the robot might need high-level qualitative knowledge about how the task works (first need to pick up the wrench, then bring it to the bolt, then turn it because bolts need to be turned to go further into the hole, then repeat, etc.), but as shown by this work, it also needs low-level knowledge about the dynamics of the task in order to actually execute the subparts of the action.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 02 Jan 2016 08:22:37 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2016/01/02/Han2015.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2016/01/02/Han2015.html</guid>
+        
+        
+        <category>Planning under uncertain dynamics</category>
+        
+      </item>
     
       <item>
         <title>Learning contact-rich manipulation skills with guided policy search</title>
@@ -409,42 +442,6 @@
         
         
         <category>Mental imagery</category>
-        
-      </item>
-    
-      <item>
-        <title>Robust Adaptive Markov Decision Processes</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Bertuccelli2012&quot;&gt;Bertuccelli, L. F., Bethke, B., &amp;amp; How, J. P. (2012). Robust adaptive Markov decision processes: Planning with model uncertainty. &lt;i&gt;IEEE Control Systems Magazine&lt;/i&gt;. doi:10.1109/MCS.2012.2205478&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Bertuccelli et al. describe the &lt;em&gt;Robust Adaptive Markov Decision Process&lt;/em&gt; (RAMDP), which is a type of MDP that takes into account uncertainty in the transition dynamics. This is somewhat similar to the BAMDP (see e.g. &lt;a href=&quot;/quals/planning%20and%20decision%20making/2015/12/19/Guez2013.html&quot;&gt;Guez et al.&lt;/a&gt;), which maintains a posterior distribution over the transition dynamics and/or reward function, and acts in a Bayes-optimal manner to maximize reward according to the posterior (i.e. by marginalizing over the uncertain dynamics). In contrast, the RAMDP maximizes a lower bound on the reward:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;J_R^*(i_0)=\min_{\mathcal{A}^\mu}\max_\mu \mathbb{E}[J_\mu(i_0)]&lt;/script&gt;
-
-&lt;p&gt;where $\mathcal{A}$ is the transition model, $\mu$ is the policy, $J_R$ is the robust objective function, $J_\mu$ is the objective function under policy $\mu$, and $i$ is the state.&lt;/p&gt;
-
-&lt;p&gt;To compute the minimum over transition models, they first define a feasible uncertainty set which, in this case, they choose to be the Dirichlet distribution. They then use a “scenario-based method”, which seems to just be sampling, over which to compute the minimum. Rather than taking a Monte-Carlo sampling approach, they compute &lt;em&gt;sigma points&lt;/em&gt;, which are optimal sampling locations based on the mean and variance of the Dirichlet distribution:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-\mathcal{Y}_0&amp;=\bar{p}\\
-\mathcal{Y}_i&amp;=\bar{p}+\beta_i(\Sigma^{1/2})_i\ \ \mathrm{for\ all}\ i\leq N\\
-\mathcal{Y}_i&amp;=\bar{p}-\beta_i(\Sigma^{1/2})_i\ \ \mathrm{for\ all}\ N+1\leq i &lt;2N
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;where $\beta$ is “a tuning parameter that reflects the level of conservatism desired” (i.e. the range of the credible region), and $\bar{p}$ and $\Sigma$ are the mean and covariance of the Dirichlet distribution.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;It’s not entirely clear to me in terms of theoretical guarantees whether BAMDP or RAMDP is better. My intuition is that BAMDP is probably more flexible, as it could potentially be used with complex structured priors. I suppose you could technically do the same for RAMDPs as well, though you would need to reformulate how to perform efficient sampling (since the approach taken by Bertuccelli et al. makes a strong assumption about the Dirichlet distribution). It seems that BAMDPs may be a little bit more agnostic of the assumptions put into the prior, particularly when used with something like MCTS. That said, I suspect that RAMDP probably provides better worst-case guarantees given that it’s explicitly optimizing for the worst case. But, these are just my intuitions; I’m not sure how true that is in practice or how much the worst case matters in non-adversarial settings.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 30 Dec 2015 23:54:51 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2015/12/30/Bertuccelli2012.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2015/12/30/Bertuccelli2012.html</guid>
-        
-        
-        <category>Planning under uncertain dynamics</category>
         
       </item>
     
