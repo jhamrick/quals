@@ -6,9 +6,50 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 02 Jan 2016 16:52:26 -0800</pubDate>
-    <lastBuildDate>Sat, 02 Jan 2016 16:52:26 -0800</lastBuildDate>
+    <pubDate>Sat, 02 Jan 2016 19:56:50 -0800</pubDate>
+    <lastBuildDate>Sat, 02 Jan 2016 19:56:50 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>The Helmholtz machine</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Dayan1995&quot;&gt;Dayan, P., Hinton, G. E., Neal, R. M., &amp;amp; Zemel, R. S. (1995). The Helmholtz machine. &lt;i&gt;Neural Computation&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(5), 889–904. doi:10.1162/neco.1995.7.5.889&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Dayan et al. propose a method for learning about the underlying structure in data using self-supervised learning in a neural network. Specifically, they construct the network to have bottom-up &lt;em&gt;recognition&lt;/em&gt; weights and top-down &lt;em&gt;generative&lt;/em&gt; weights. The network is then trained according to a &lt;em&gt;wake-sleep algorithm&lt;/em&gt;, where the generative weights are trained during the “wake” phase and the recognition weights are trained during the “sleep” phase by simulating training examples from the generative model.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;The recognition probability of unit $j$ in layer $\ell$ is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;q_j^\ell(\phi,\mathbf{s}^{\ell-1})=\sigma\left(\sum_i s_i^{\ell-1}\phi_{i,j}^{\ell-1,\ell}\right)&lt;/script&gt;
+
+&lt;p&gt;where $\sigma$ is the sigmoid function and $\phi$ are the recognition weights. As mentioned earlier, the recognition weights are trained during the sleep phase by simulating training data from the generative model.&lt;/p&gt;
+
+&lt;p&gt;The generative probability of unit $j$ in layer $\ell$ is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p_j^\ell(\theta,\mathbf{s}^{\ell+1})=\sigma\left(\sum_i s_i^{\ell+1}\theta_{i,j}^{\ell+1,\ell}\right)&lt;/script&gt;
+
+&lt;p&gt;where $s$ are the unit activities. The generative model is trained by presenting data to input units and then activating units according to $q_j^\ell$. Then, the generative weights are updated to minimized the KL-divergence between the actual activations and the generative probabilities $p_j^\ell$.&lt;/p&gt;
+
+&lt;p&gt;The wake and sleep phases are computed iteratively and over time the weights should converge such that $Q(d)=P(\theta,d)$.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;The Helmholtz machine is a very cool idea, in that it is an unsupervised way of (approximately) learning highly complex structures by jointly training a recognition and generative model. This can be thought of as a way of implementing the EM algorithm in a neural network; it can also be interpreted as a particular type of autoencoder (e.g. if it is a one-layer Helmholtz machine, it is a folded-over autoencoder).&lt;/p&gt;
+</description>
+        <pubDate>Sat, 02 Jan 2016 10:25:21 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/generative%20models/2016/01/02/Dayan1995.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2016/01/02/Dayan1995.html</guid>
+        
+        
+        <category>Generative models</category>
+        
+      </item>
     
       <item>
         <title>Learning compound multi-step controllers under unknown dynamics</title>
@@ -404,41 +445,6 @@
         <pubDate>Thu, 31 Dec 2015 02:25:12 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Just1976.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Just1976.html</guid>
-        
-        
-        <category>Mental imagery</category>
-        
-      </item>
-    
-      <item>
-        <title>Mental rotation of three-dimensional objects</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Shepard1971&quot;&gt;Shepard, R. N., &amp;amp; Metzler, J. (1971). Mental Rotation of Three-Dimensional Objects. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;171&lt;/i&gt;(3972), 701–703. doi:10.1126/science.171.3972.701&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Shepard and Metzler showed participants 2D line drawings of 3D objects which differed by either a rotation (the “same” pairs) or a rotation and a reflection (the “different” pairs). They found that as the angle of rotation increased for the “same” pairs, participants’ response times increased linearly. The conclusion (based both on this response time data, as well as experience reports) was that participants were performing a “mental rotation” of the images in order to compare them.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;Shepard &amp;amp; Metzler had 8 participants who each judged 1600 (!) pairs of line drawings. 800 of the pairs were “picture plane” rotations, while the other 800 were “depth” rotations. Each of these sets of stimuli were further broken down into 400 “same” and 400 “different” pairs. These 400 pairs were composed of 10 unique stimuli repeated twice at each one of ten angles from $0^\circ$ to $180^\circ$ in $20^\circ$ increments (side note: there seems to be another factor of 2 missing here; I’m not sure where that comes from?). Participants had as much time to respond as they wanted, and they could look at the images as long as they wanted, though they were instructed to respond as quickly as possible while still being accurate.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I still think this is such a cool result, though I am still unsatisfied by the rotation explanation. One quote from the paper is potentially illuminating, though:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In the postexperimental interview, the subjects typically reported that they attempted to rotate one end of one object into congruence with the corresponding end of the other object; they discovered that the two objects were &lt;em&gt;different&lt;/em&gt; when, after this “rotation,” the two free ends still remained noncongruent.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This point is going to elaborated on further in the next paper I am going to read, by Just &amp;amp; Carpenter.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 31 Dec 2015 00:46:36 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Shepard1971.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Shepard1971.html</guid>
         
         
         <category>Mental imagery</category>
