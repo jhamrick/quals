@@ -6,9 +6,54 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 02 Jan 2016 23:36:36 -0800</pubDate>
-    <lastBuildDate>Sat, 02 Jan 2016 23:36:36 -0800</lastBuildDate>
+    <pubDate>Sun, 03 Jan 2016 14:46:57 -0800</pubDate>
+    <lastBuildDate>Sun, 03 Jan 2016 14:46:57 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Whatever next? Predictive brains, situated agents, and the future of cognitive science</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Clark2013&quot;&gt;Clark, A. (2013). Whatever next? Predictive brains, situated agents, and the future of cognitive science. &lt;i&gt;The Behavioral And Brain Sciences&lt;/i&gt;, &lt;i&gt;36&lt;/i&gt;(3), 181–204. doi:10.1017/S0140525X12000477&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this BBS article, Clark lays out a grand unified theory of cognition based on the idea that our brains are predictive machines. At the high levels of processing, our brains construct hypotheses/predictions of our percepts, and at the low levels of processing, our sensory systems compute error signals between what is predicted and what is actually sensed. He begins with the following assumption about what the brain is trying to accomplish:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;How, simply on the basis of patterns and changes in its own internal states, is [the brain] to alter and adapt its resources so as to tune itself to act as a useful node… for the origination of adaptive responses? Notice how different this conception is to ones in which the problem is posed as one of establishing a mapping relation between environmental and inner states. The task is not to find such a mapping but to infer the nature of the signal source (the world) from just the varying input signal itself. (pg. 183)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Clark next defines his overarching theory as that of “action-oriented predictive processing”, and quotes from Hawkins &amp;amp; Blakeslee (2004):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;As strange as it sounds, when your own behavior is involved, your predictions not only precede sensation, they determine sensation. Thinking of going to the next pattern in a sequence causes a cascading prediction of what you should experience next. As the cascading predition unfolds, it generates the motor commands necessary to fulfil the prediction. Thinking, predicting, and doing are all part of the same unfolding of sequences moving down the cortical hierarchy. (pg. 186)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In other words, action is just a way to bring the world into alignment with the brain’s predictions.&lt;/p&gt;
+
+&lt;p&gt;Clark goes on to describe a large body of work that supports these views, particularly from the realm of neuroscience and perceptual science. He also explains how the action-oriented predictive processing scheme unifies the levels of analysis, in that it is a neural implementation of what are actually generative Bayesian models.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I agree with a lot of what Clark says in this article, though there are a few points that I disagree with.&lt;/p&gt;
+
+&lt;p&gt;First, “predictive” is &lt;em&gt;not&lt;/em&gt; the same as “generative” (though all generative models are predictive, in a sense). Discriminative models are also predictive, in the sense that you receive an input $x$ and predict an output $y$. Generative models, by contrast, can jointly predict $x$ and $y$ simultaneously, making it possible to predict $y$ from $x$ but also the other way around (predicting $x$ from $y$). Thus, generative models have more predictive power in the sense that they can be used to predict more relationships between the data, but that doesn’t mean discriminative models aren’t predictive. Clark uses “predictive” and “generative” interchangeably, but I think that is a mistake.&lt;/p&gt;
+
+&lt;p&gt;I definitely agree that having a generative model is incredibly powerful because it allows us to make &lt;em&gt;a priori&lt;/em&gt; predictions in the absence of data. However, generative models can be more difficult to learn, and while they may be overall more general, that may come with the cost of a loss of precision for specific prediction tasks. Thus, discriminative models are important, too, and it is almost certainly incorrect to say that the brain never makes use of simple mappings.&lt;/p&gt;
+
+&lt;p&gt;I’m not sure I agree with Clark’s characterization of action. I do like the idea that our minds make predictions, and then we use action to make those predictions come true, but I think it is important to make a distinction between predictions of the generative process in the world (i.e., what is going to happen next in the absence of action) versus predictions of how the default process might change &lt;em&gt;if&lt;/em&gt; we were to act on it.&lt;/p&gt;
+
+&lt;p&gt;I am also not sure if I agree with the idea that the brain is trying to reduce &lt;em&gt;error&lt;/em&gt;, especially since “error” is not a well-defined term. Clark seems to use it in the sense of reducing entropy, but there’s a lot of other ways it could be used. By definition, any type of learning system is trying to optimize some objective function—the “error”—so while technically true, this  isn’t really that new of a concept, so I don’t feel that it provides all that much explanatory power.&lt;/p&gt;
+
+&lt;p&gt;The more important component of Clark’s argument is that of the large part generative models probably play. Yet, Clark doesn’t go into details about how those models are actually constructed, beyond referring to a few things like the Helmholtz machine. That is where I think the truly difficult problems lie—determining &lt;em&gt;what&lt;/em&gt; the generative models are, &lt;em&gt;how&lt;/em&gt; we construct them in the first place, and &lt;em&gt;when&lt;/em&gt; a generative model is the thing that’s constructed as opposed to a discriminative model. There are particularly difficult questions to be answered in domains where the models must be able to handle incredibly high-dimensional data and parse it into complex, structured models. Saying the brain constructs generative models is a useful starting point (and it’s a starting point that I agree with), but it really doesn’t say anything about what the actual structure of those models is.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 03 Jan 2016 06:05:44 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/generative%20models/2016/01/03/Clark2013.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2016/01/03/Clark2013.html</guid>
+        
+        
+        <category>Generative models</category>
+        
+      </item>
     
       <item>
         <title>The role of generative knowledge in object perception</title>
@@ -391,50 +436,6 @@
         <pubDate>Fri, 01 Jan 2016 03:20:28 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Finke1988.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Finke1988.html</guid>
-        
-        
-        <category>Mental imagery</category>
-        
-      </item>
-    
-      <item>
-        <title>Aspects of a cognitive neuroscience of mental imagery</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Kosslyn1988&quot;&gt;Kosslyn, S. M. (1988). Aspect of a Cognitive Neuroscience of Mental Imagery. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;240&lt;/i&gt;(4859), 1621–1626. Retrieved from http://www.jstor.org/stable/1701012&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Kosslyn presents neuroscientific evidence for how mental images are generated in the brain. He argues there are two separate systems:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The first system encodes object &lt;em&gt;shape&lt;/em&gt;, which may be either a low-resolution image of the entire object or higher-resolution images of object parts&lt;/li&gt;
-  &lt;li&gt;The second system encodes object &lt;em&gt;location&lt;/em&gt;, which may be either represented categorically (e.g. using symbolic/linguistic terms, such as “next to” or “inside of”) or via absolute coordinates.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;These two systems interact so that when a mental image is generated, “the patterns in the images are built up by activating parts individually and that parts are imaged in roughly the order in which they are typically drawn” (pg. 1622).&lt;/p&gt;
-
-&lt;p&gt;In particular, Kosslyn hypothesizes (and provides evidence for) the left cerebral hemisphere being better at arranging object parts according to categorical relations, while the right cerebral hemisphere is better at arranging object parts according to absolute locations. Both hemispheres are equally good at generating whole objects (that are not broken down into individual parts).&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;Kosslyn reports results both from split-brain patients as well as undergraduates. Both types of experiments rely on a technique called &lt;em&gt;lateralization&lt;/em&gt;, in which the stimulus is presented in only the left or right half of the visual field for a brief period of time (150ms; short enough such that participants could not move their eyes to move the stimulus into the other part of the visual field). In the case of the split-brain patients, there is no communication between the halves of the brain, so only one half of the brain will receive the visual information. In the case of the undergraduates with intact corpus callosi, Kosslyn measured reaction time (i.e. something presented to the right side of the brain that requires the left side of the brain for processing should elicit slower reaction times than if the same thing were directly presented to the left side of the brain).&lt;/p&gt;
-
-&lt;p&gt;For the split-brain patient J.W., one task was to observe a lowercase probe and then determine whether the uppercase version of the letter had any curved lines. For the left hemisphere, J.W. had perfect performance; for the right hemisphere, performance was significantly reduced. This result suggests that the left hemisphere is involved in generating images that are composed of parts (e.g. strokes). To further supplement this finding, they ran another experiment that involved judging dimensions of holistic object (e.g., if an object like a belt buckle was wider than it was tall). In this case, both hemispheres performed equally well.&lt;/p&gt;
-
-&lt;p&gt;For the undergraduates, the task was to view a lowercase letter in a grid. There were probe points in some of the grid cells, and participants had to determine wither the uppercase version of the letter would cover the probe points. As predicted, responses were faster when the probe was presented to the left hemisphere rather than the right hempisphere. If instead of a grid the letter was presented in just a box, participants were forced to remember the absolute position of the letter parts (rather than their symbolic relations) and in this case, the left hemisphere performed worse tha the right hemisphere.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This is a collection of really elegant results showing how mental images are stored and produced in the brain. It would be interesting to come up with a model that efficiently trades off between the different forms of representation to solve these tasks. Such a model should store representations at different levels of granularity (Joe Austerweil has some work related to this, which I want to remember to reread now) and should additionally store representations both using symbolic relations as well as absolute positions. This is actually pretty similar to Brenden Lake’s work on motor program induction—I’m not sure about the representation of where the parts go (I will have to go back and read the details more carefully) but I think it is symbolic/categorical. So it would be interesting to try to augment that sort of model with the capability for also absolute positioning, and different granularities of the parts.&lt;/p&gt;
-
-&lt;p&gt;I also wonder how these types of representations interact with manipulation of the images. For example, if I say “imagine a F lying on its side”, do people imagine an upright F, and the rotate it holistically? Or do they imagine one part of the F, rotate it, and then attach the other parts to it? Or do they imagine all the parts rotated independently, and then attach them to each other? Subjectively, I feel like I first generate the image, and then rotate it, but I’m not sure subjective reports are necessarily reliable. Based on the work from &lt;a href=&quot;/quals/mental%20imagery/2015/12/31/Just1976.html&quot;&gt;Just &amp;amp; Carpenter&lt;/a&gt;, the answer seems more likely to be that one part is rotated, and then the others are “attached”.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 31 Dec 2015 09:41:38 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Kosslyn1988.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Kosslyn1988.html</guid>
         
         
         <category>Mental imagery</category>
