@@ -6,9 +6,46 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 02 Jan 2016 19:56:50 -0800</pubDate>
-    <lastBuildDate>Sat, 02 Jan 2016 19:56:50 -0800</lastBuildDate>
+    <pubDate>Sat, 02 Jan 2016 23:36:36 -0800</pubDate>
+    <lastBuildDate>Sat, 02 Jan 2016 23:36:36 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>The role of generative knowledge in object perception</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Battaglia2012&quot;&gt;Battaglia, P. W., Kersten, D., &amp;amp; Schrater, P. R. (2012). The Role of Generative Knowledge in Object Perception. In J. Trommershauser, K. P. Körding, &amp;amp; M. S. Landy (Eds.), &lt;i&gt;Sensory Cue Integration&lt;/i&gt;. Oxford University Press.&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this chapter, Battaglia et al. describe the differing roles of the &lt;em&gt;generative process&lt;/em&gt;, people’s &lt;em&gt;generative knowledge&lt;/em&gt;, and how they related to perception (particularly for object perception). They first define several challenges/observations regarding perception:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The mapping from the world to our senses is often not invertible (e.g. recovering 3D shape from 2D data)&lt;/li&gt;
+  &lt;li&gt;Many sensory cues are not actually measurements of the relevant property we’re interested in, but provide only “auxiliary” information&lt;/li&gt;
+  &lt;li&gt;Sensory cues vary in quality relative to each other, depending on external and internal factors (e.g. fog, cataracts), and as a function of the world state.&lt;/li&gt;
+  &lt;li&gt;Objects’ spatial and material properties follow highly predictable patterns&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Next, they define the &lt;em&gt;sensory generative process&lt;/em&gt; to be the true process in the world that generates our sensations. In contrast, &lt;em&gt;sensory generative knowledge&lt;/em&gt; is people’s assumptions about how the sensory generative process works. In some cases, the generative process and generative knowledge may be the same, though not necessarily. If generative knowledge is at least a good approximation to the generative process, though, it can provide important information about how to interpret our sensations (addressing the challenges listed previously). Battaglia et al. make the distinction between being &lt;em&gt;subjectively optimal&lt;/em&gt; (in which people make optimal use of their generative knowledge, but the knowledge does not match the generative process), &lt;em&gt;objectively optimal&lt;/em&gt; (in which people make optimal use of their generative knowledge, which matches the generative process), and &lt;em&gt;suboptimal&lt;/em&gt; (in which people do not make optimal use of their generative knowledge).&lt;/p&gt;
+
+&lt;p&gt;Battaglia et al. also describe how a Bayesian observer model can account for several basic phenomena in perception: performing basic Bayesian inference, combining multiple cues, discounting nuisance information based on prior knowledge, and explaining away nuisance information based on auxiliary cues. In particular, discounting and explaining away rely heavily on generative knowledge, while basic Bayes and cue combination could theoretically be learned just via a discriminative mapping.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This chapter makes two important points:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Our internal models aren’t necessarily accurate imitations of the true generative process, but that doesn’t mean that people don’t make optimal use of the knowledge they have. Hence, when constructing models of cognition, it is important to be explicit about what the generative process is in the world that is generating people’s observations, and what generative knowledge we as scientists think people actually have.&lt;/li&gt;
+  &lt;li&gt;Having structured generative knowledge is important, because it makes it easier to interpret ambiguous sensations into reliable perceptions. For simpler things, such as cue combination, we don’t necessarily need to have a full generative model since a simple discriminative model can often be sufficient. But, for reasoning about more complex systems, and to be able to explain phenomena like discounting or explaining away, generative knowledge is crucially important.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 02 Jan 2016 14:18:13 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/generative%20models/2016/01/02/Battaglia2012.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2016/01/02/Battaglia2012.html</guid>
+        
+        
+        <category>Generative models</category>
+        
+      </item>
     
       <item>
         <title>The Helmholtz machine</title>
@@ -398,53 +435,6 @@
         <pubDate>Thu, 31 Dec 2015 09:41:38 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Kosslyn1988.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Kosslyn1988.html</guid>
-        
-        
-        <category>Mental imagery</category>
-        
-      </item>
-    
-      <item>
-        <title>Eye fixations and cognitive processes</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Just1976&quot;&gt;Just, M. A., &amp;amp; Carpenter, P. A. (1976). Eye fixations and cognitive processes. &lt;i&gt;Cognitive Psychology&lt;/i&gt;, &lt;i&gt;8&lt;/i&gt;, 441–480. doi:10.1016/0010-0285(76)90015-3&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Just &amp;amp; Carpenter explore three different tasks that rely on high-level cognitive processing, and recorded the eye movements of participants while performing these tasks. Their main hypothesis is that participants fixate on a region that is involved in whatever computation is currently taking place in the mind. I’m only going to go through the first of their experiments, however, as it is the most related to mental imagery and I feel the other two experiments are somewhat less revealing. Regarding the first mental rotation experiment, they ask three questions:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;How does the subject know which parts of the figure are to be rotated into each other?&lt;/li&gt;
-    &lt;li&gt;How does the subject know how far to rotate one of the objects?&lt;/li&gt;
-    &lt;li&gt;Once the required rotation has been performed, how does the subject know whether the two figures represent the same object or not?&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;Participants performed essentially the same task as that from &lt;a href=&quot;/quals/mental%20imagery/2015/12/31/Shepard1971.html&quot;&gt;Shepard &amp;amp; Metzler&lt;/a&gt;, though with far less data (120 trials vs 1600) and also fewer subjects (3 vs 8). Just &amp;amp; Carpenter find similar results, though not identical, results (i.e. monotonically increasing response times).&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Just &amp;amp; Carpenter propose the following model of cognitive processing:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;First, participants engage in a “search” procedure, in which they look back and forth between the two images to find a corresponding segment of the objects.&lt;/li&gt;
-  &lt;li&gt;Second, participants engage in the “transform and compare” procedure, in which they mentally rotate the images toward each other in increments of $50^\circ$ until the images are within $25^\circ$ of each other.&lt;/li&gt;
-  &lt;li&gt;Third, participants engage in the “confirmation” procedure, in which they check that the other segments in the images also align. There are two proposed ways that they do this: either by executing a transformation on an additional segment of the stimulus, or by checking that the relations between the segments and the central part of the image are the same.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I think it makes sense that people would only actually focus on a single portion of the image at a time, rather than holistically transforming the entire image. I feel though that Just &amp;amp; Carpenter haven’t answered their first question, which is how exactly the “search” procedure works. They do bring up an interesting point regarding this, which is that one possible reason for the increase in response time is that participants pick one segment in one image, and then try to find that segment in the other image, first looking at the same location in the second image—so by design, it will take them longer to find the corresponding segment if it is further away (as it would be due to rotation).&lt;/p&gt;
-
-&lt;p&gt;I wonder how this procedure works with other types of objects, that don’t necessarily have such discrete “segments” as the stimuli used in this experiment. I suppose that this question might not actually be that relevant for realistic stimuli, though. If we use something like mental rotation to e.g. identify similar objects in the world, then we probably first rely on high-information, high-level features (color, texture, overall shape). Only if those features are absent (as is the case with the Shepard &amp;amp; Metzler stimuli) would one need to do something more detailed like a mental rotation.&lt;/p&gt;
-
-&lt;p&gt;One takeaway from all of this, I feel, is that mental rotation isn’t really all that useful/important in and of itself—I would hypothesize that we are not able to do rotations for the sake of doing rotations, but that we need that sort of capability in order to reason about how objects interact with each other or how they should be manipulated (e.g. how should I rotate this object so that it fits in the drawer?). So under a rational analysis the question isn’t, “how does mental rotation work?”, but rather, “what problem is mental rotation solving?”. It would be nice to be able to come up with a realistic task (or set of tasks), for example, in which mental rotation is clearly the right solution, and then see how people do it, and then compare models that do or do not use mental rotation to solve the task. Maybe some sort of bin-packing problem? I am sure someone has studied that sort of thing in cognitive science; I should remember to look up some of that research.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 31 Dec 2015 02:25:12 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Just1976.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2015/12/31/Just1976.html</guid>
         
         
         <category>Mental imagery</category>
