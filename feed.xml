@@ -6,9 +6,43 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 03 Jan 2016 14:46:57 -0800</pubDate>
-    <lastBuildDate>Sun, 03 Jan 2016 14:46:57 -0800</lastBuildDate>
+    <pubDate>Sun, 03 Jan 2016 16:10:14 -0800</pubDate>
+    <lastBuildDate>Sun, 03 Jan 2016 16:10:14 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>On discriminative vs. generative classifiers: a comparison of logistic regression and naive Bayes</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Ng2002&quot;&gt;Ng, A. Y., &amp;amp; Jordan, M. I. (2002). On Discriminative vs. Generative classifiers: A comparison of logistic regression and naive Bayes. &lt;i&gt;Advances In Neural Information Processing Systems&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;.&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Ng &amp;amp; Jordan give a nice analysis of generative vs. discriminative classifiers, and show that there are actually two modes where either type of model might be preferred. They focus in particular on logistic regression vs. naive Bayes, but say that their analysis should be extendable to other generative-discriminative pairs of models.&lt;/p&gt;
+
+&lt;p&gt;There are two key results in their analysis:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The asymptotic error of a generative linear classifier is greater than the asymptotic error of a discriminative linear classifier (which converges to the best linear classifier overall).&lt;/li&gt;
+  &lt;li&gt;The number of training examples required for a discriminative linear classifier to reach its asymptotic error is $O(n)$, where $n$ is the &lt;a href=&quot;https://en.wikipedia.org/wiki/VC_dimension&quot;&gt;VC dimension&lt;/a&gt;. In contrast, the number of examples for a generative linear classifier is $O(\log{n})$.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;They show these propositions to be empirically true across a number of experiments on the UCI datasets.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;The results from Ng &amp;amp; Jordan suggest that generative classifiers may be more useful in situations where there are small amounts of data. However, if there is a lot of data available, it may be more useful to use a discriminative classifier because it will ultimately have less error. The intuition behind this (I think?) has to do with the fact that the generative classifier needs to make assumptions about the distributions for both the likelihood and the prior, while the discriminative model does not. In some cases, if the assumptions are correct, then the generative classifier should have the same asymptotic error as the discriminative classifier. If my intuition about this is correct, then the question is essentially: can you estimate how incorrect your assumptions are, and then use that estimate (combined with knowledge about how much data you have) to determine whether to train a generative vs. discriminative classifier?&lt;/p&gt;
+
+&lt;p&gt;Of course, there are also other reasons to potentially use a generative model besides just faster asymptotic error. In many cases, it may be necessary to be able to invert the model (i.e. sometimes you may need $p(x\vert y)$, and sometimes you may need $p(y\vert x)$). Intuitively, it seems like if you need to do this, it is going to be more efficient to train a generative model (from which you can compute both $p(y\vert x)$ and $p(x\vert y)$) rather than training multiple discriminative models.&lt;/p&gt;
+
+&lt;p&gt;One question I have about this is regarding training discriminative models with generative models—if you learn a generative model first, and then use samples from it to train a discriminative model, how does that affect the error of the discriminative model? Can the discriminative model only do as well as the generative model, in that case? I want to say the answer is yes, but perhaps combined with true data from the world (in addition to samples from the generative model) the discriminative model could eventually achieve a lower error.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 03 Jan 2016 07:45:06 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/generative%20models/2016/01/03/Ng2002.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2016/01/03/Ng2002.html</guid>
+        
+        
+        <category>Generative models</category>
+        
+      </item>
     
       <item>
         <title>Whatever next? Predictive brains, situated agents, and the future of cognitive science</title>
@@ -405,37 +439,6 @@
         <pubDate>Fri, 01 Jan 2016 07:46:02 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Grush2004.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Grush2004.html</guid>
-        
-        
-        <category>Mental imagery</category>
-        
-      </item>
-    
-      <item>
-        <title>Explorations of a creative visual synthesis in mental imagery</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Finke1988&quot;&gt;Finke, R. A., &amp;amp; Slayton, K. (1988). Explorations of creative visual synthesis in mental imagery. &lt;i&gt;Memory And Cognition&lt;/i&gt;, &lt;i&gt;16&lt;/i&gt;(3), 252–257. doi:10.3758/BF03197758&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Finke and Slayton asked participants to use mental imagery to imagine objects composed out of a given set of basic geometric parts. They found that in almost 40% of trials, participants were able to come up with a recognizible arrangement of the parts, demonstrating that mental imagery isn’t just used as a way of encoding visual information, but that it is an active process of simulation that people can use to discover new things.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;On each trial, participants saw three geometric forms (out of: circle, square, rectangle, triangle, horizontal line, vertical line, D, C, L, T, J, 8, X, V, P) and were told to combine them into a recognizable form. They could scale and rotate the parts, but not skew or otherwise distort them. Participants had 2 minutes to come up with a response, at the end of which they were to write down the name of the form they came up with (if they were able to come up with one) and then to draw out the form. Once they had drawn the form they couldn’t change their answer (to ensure that they were actually using mental imagery).&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I think these result are really cool, and illustrate how powerful mental imagery really can be: it’s not just some epiphenomenon, but a true generative process that can be used to run a certain type of simulation.&lt;/p&gt;
-
-&lt;p&gt;I also think this paper is interesting because it presents a uniquely difficult challenge for AI systems or computational models. How do you model the synthesis of something entirely new? I would argue that it’s not truly a new synthesis, because we have strong prior knowledge about object categories and prototypes. One potential way to approach this would be to do something like Google’s inceptionism. First, train a neural network to recognize various categories of images. Second, generate an input image from the parts used in this experiment. Then, “enhance” that image to maximize the network’s objective function, except that rather than modifying the image on the pixel level, modify it by changing the position, rotation, and scale of the parts. I wonder if doing this would actually produce something recognizable—I’m not sure if having such schematized line drawings would work, but it would be a cool thing to try.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 01 Jan 2016 03:20:28 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Finke1988.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Finke1988.html</guid>
         
         
         <category>Mental imagery</category>
