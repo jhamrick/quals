@@ -6,9 +6,60 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 03 Jan 2016 17:36:21 -0800</pubDate>
-    <lastBuildDate>Sun, 03 Jan 2016 17:36:21 -0800</lastBuildDate>
+    <pubDate>Sun, 03 Jan 2016 20:04:49 -0800</pubDate>
+    <lastBuildDate>Sun, 03 Jan 2016 20:04:49 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Spatial and linguistic aspects of visual imagery in sentence comprehension</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Bergen2007&quot;&gt;Bergen, B. K., Lindsay, S., Matlock, T., &amp;amp; Narayanan, S. (2007). Spatial and linguistic aspects of visual imagery in sentence comprehension. &lt;i&gt;Cognitive Science&lt;/i&gt;, &lt;i&gt;31&lt;/i&gt;(5), 733–64. doi:10.1080/03640210701530748&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Bergen et al. examine some of the ways that language triggers the use of visual mental imagery. In particular, they look at the Perky effect, which they describe as follows:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In a seminal study, Perky (1910) asked participants to imagine seeing an object (such as a banana or leaf) while they were looking at a blank screen. At the same time, unbeknownst to them, an actual image of the same object was projected on the screen, starting below the threshold for conscious perception, but with progressively greater and greater illumination. Perky found that many participants continued to believe that they were still just imagining the stimulus and failed to recognize that there was actually a real, projected image even at levels where the projected image was perfectly perceptible to participants not simultaneously performing imagery. (pg. 736)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The Perky effect can be explained based on competition for the same set of resources: visual perception uses some of the same resources as mental imagery, and so if mental imagery is engaged, it can interfere with our ability to perceive things. This paradigm can be extended to measure how mental imagery is being used in language comprehension, by having people listen to a sentence just before performing a visual perception task.&lt;/p&gt;
+
+&lt;p&gt;Using the above paradigm, Bergen et al. find that nouns and verbs that are associated with concrete motion or spatial locations (e.g. as in &lt;em&gt;The ceiling shook&lt;/em&gt; or &lt;em&gt;The ball dropped&lt;/em&gt;) do invoke mental imagery in the relevant location of the visual field. In contraast, metaphorical motion does not produce this effect (e.g. &lt;em&gt;The market fell&lt;/em&gt;), nor do abstract verbs that are associated with up/down but which do not literally mean up/down (e.g. &lt;em&gt;The quantity dwindled&lt;/em&gt;). Their conclusion is that concrete sentences evoke visual mental imagery, but metaphorical and abstract sentences—even if they do involve some form of motion of spatial location—do not engage imagery (or at least not in the same way).&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;In all experiments, the task was to listen to a sentence, after which a circle or square would appear in one portion of the screen (up, down, left, right). Participants had to judge whether the object was a circle or square. The hypothesis was that if mental imagery was being used in a particular portion of the visual field when the sentence was read, then it would take participants longer to judge the object if that object were in the same part of the visual field than if it was not.&lt;/p&gt;
+
+&lt;p&gt;Experiment 1 looked at up/down verbs (e.g. &lt;em&gt;dropped&lt;/em&gt;, &lt;em&gt;rose&lt;/em&gt;). They did find that sentences with up verbs resulted in longer processing when the object was in the upper part of the screen than when it was in the lower part of the screen (5/5), and that sentences with down verbs resulted in longer proceessing when the object was in the lower part of the screen than when it was in the upper part of the screen (3/5).&lt;/p&gt;
+
+&lt;p&gt;Experiment 2 looked at up/down nouns (e.g. &lt;em&gt;ceiling&lt;/em&gt;, &lt;em&gt;cellar&lt;/em&gt;). They found essentially the same results as before: sentences with up nouns resulted in longer processing times when the shape was in the upper part of the screen (3/5), and sentences with down nouns resulted in longer processing times when the shape was in the lower part of the screen (4/5).&lt;/p&gt;
+
+&lt;p&gt;Experiment 3 looked at metaphorical motion (e.g. &lt;em&gt;The market fell&lt;/em&gt;), but did not find the effect either for metaphorical up verbs (2/5) or for metaphorical down verbs (2/5).&lt;/p&gt;
+
+&lt;p&gt;Experiment 4 looked at abstract verbs with up/down connotations (e.g. &lt;em&gt;dwindled&lt;/em&gt;, &lt;em&gt;increased&lt;/em&gt;) and again did not find the effect either for abstract up verbs (3/5) or for abstract down verbs (2/5).&lt;/p&gt;
+
+&lt;p&gt;Experiment 5 looked at axis (horizontal versus vertical) effects, rather than directional (up versus down) effects. They also did not find an effect here.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;First—wow, the Perky effect is awesome! I have heard variants of that before (e.g. it is hard to read and listen to language simultaneously) but I hadn’t heard of people actually conflating mental imagery and true perceptions.&lt;/p&gt;
+
+&lt;p&gt;This paradigm used by Bergen et al. is really neat, though the fact that they didn’t find the expected effect for all of the individual sentences (even if they found it overall) is somewhat less compelling. It would be interesting to use eyetracking with these experiments to see if people are actually attending to the portion of the field that is hypothesized, particularly in the case of the abstract/metaphorical sentences—not finding saccades in those cases would strengthen their hypothesis that people are not actually constructing a concrete visual scene in the same way.&lt;/p&gt;
+
+&lt;p&gt;On a different note, given that these types of sentences do seem to evoke mental imagery, it would be interesting to try to reverse &lt;a href=&quot;http://arxiv.org/abs/1411.4555&quot;&gt;some of&lt;/a&gt; the &lt;a href=&quot;http://cs.stanford.edu/people/karpathy/deepimagesent/&quot;&gt;image captioning&lt;/a&gt; algorithms that are coming out of the machine learning literature in order to produce a type of simulated mental imagery, which perhaps could then augmented as more information comes in—so the first sentence might retrieve an image, which is then parsed into components, and as more sentences are heard, they modify the current scene to make it consistent with the linguistic description. Then, that scene could be used to do further reasoning about what is being said—e.g. verifying whether a description about it is true or not.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 03 Jan 2016 11:17:02 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Bergen2007.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Bergen2007.html</guid>
+        
+        
+        <category>Embodied language</category>
+        
+      </item>
     
       <item>
         <title>Fictive motion as cognitive simulation</title>
@@ -384,35 +435,6 @@
         
         
         <category>Memory and imagination</category>
-        
-      </item>
-    
-      <item>
-        <title>Are things that are hard to physically move also hard to imagine moving?</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Flusberg2011&quot;&gt;Flusberg, S. J., &amp;amp; Boroditsky, L. (2011). Are things that are hard to physically move also hard to imagine moving? &lt;i&gt;Psychonomic Bulletin And Review&lt;/i&gt;, &lt;i&gt;18&lt;/i&gt;(1), 158–164. doi:10.3758/s13423-010-0024-2&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Flusberg &amp;amp; Boroditsky begin with the following important question (pg. 158-159):&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;On the one hand, there appear to be tight links among perception, action and mental imagery, both in behavior and in the underlying neural circuitry… On the other hand, what often seems to separate our imagination from the everyday world is that it appears free from the constraints imposed by the physical environment. Indeed, people often imagine actions or events that they have never seen or never could experience themselves… to what extent do our experiences with objects in the real world impinge on our ability to represent and manipulate those objects in mental imagery?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;To get at this question, they perform the classic mental rotation task but prime participants first by having them physically rotate the objects. The key manipulation was that some of the objects were more difficult to physically rotate than the others (denoted by color). Flusberg &amp;amp; Boroditsky found that participants had longer response times when using &lt;em&gt;motor imagery&lt;/em&gt; after performing the physical rotations (whereas there was no effect when using &lt;em&gt;visual imagery&lt;/em&gt;), and also that there was an effect of the angle of rotation on the difficulty of rotation (i.e. the slope for the more difficult objects was higher than that for the less difficult objects, which is what would be expected from manually performing the rotations). However, they only saw this effect after excluding some of the participants post-hoc.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I think this is a cool study, though I would have liked to see a more in depth evaluation—for example, more angles of rotation, and more than two levels of difficulty. I also think it would have been better to have participants do the mental rotation task on entirely different objects than the ones they physically rotated, because it’s not clear to me whether they measured an effect of &lt;em&gt;prior knowledge&lt;/em&gt; (i.e. abstract knowledge about the difficulty of manipulating the object) or an effect of &lt;em&gt;prior experience&lt;/em&gt; (i.e. they are just replaying an experience they had). I would be inclined to believe they actually are measuring prior knowledge (as they claim), but I would like to know for sure.&lt;/p&gt;
-
-&lt;p&gt;Methodology aside, the fact that there is a difference between motor imagery and visual imagery is quite interesting. I want to know &lt;em&gt;why&lt;/em&gt; this difference exists, though; I’m not convinced there is actually a hard line that can be drawn between the two. Typically, tasks like mental rotation do still involve some amount of motor activation in the brain, meaning that motor imagery isn’t entirely separate from visual imagery. Perhaps the distinction shouldn’t be between motor/visual, but just based on the mechanism by which the object is moving (or, put another way, how the simulated scene is constructed). If you are asked to imagine moving it yourself, then it makes sense that you would imagine what the effects of your motor actions are. If you are asked to imagine the object itself moving, then it perhaps you are imagining (for example) the object sitting on a rotating disk. It would be interesting to try to come up with a task that would require the “visual imagery” condition to still engage in some sort of motor imagery, but motor imager that is irrelevant to how difficult the object is to move. Would that cause an effect of difficulty to appear in the visual imagery condition? I hypothesize that it wouldn’t, which would imply that the distinction isn’t between motor and visual imagery but in terms of how the simulation is constructed, somehow.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 01 Jan 2016 09:29:15 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Flusberg2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Flusberg2011.html</guid>
-        
-        
-        <category>Mental imagery</category>
         
       </item>
     
