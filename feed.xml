@@ -6,9 +6,50 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 03 Jan 2016 16:10:14 -0800</pubDate>
-    <lastBuildDate>Sun, 03 Jan 2016 16:10:14 -0800</lastBuildDate>
+    <pubDate>Sun, 03 Jan 2016 17:36:21 -0800</pubDate>
+    <lastBuildDate>Sun, 03 Jan 2016 17:36:21 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Fictive motion as cognitive simulation</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Matlock2004&quot;&gt;Matlock, T. (2004). Fictive motion as cognitive simulation. &lt;i&gt;Memory And Cognition&lt;/i&gt;, &lt;i&gt;32&lt;/i&gt;(8), 1389–1400. doi:10.3758/BF03206329&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Matlock asks whether mental simulation is involved in processing sentences that involve motion words but which do not actually describe literal motion (the term for this type of motion is &lt;em&gt;fictive motion&lt;/em&gt;). In a series of four quite elegant experiments, Matlock shows that people take longer to respond whether a sentence involving fictive motion was related to a story when the story described long/slow/difficult travel as opposed to short/fast/easy travel. The results suggest that people may be constructing a mental model of the scenario described by the story, and that then to understand the target sentence they simulate from this mental model. When the model actually involves motion that that is longer, slower, or more difficult, people accordingly run simulations that mimic those properties, and thus take a longer time to respond.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;Experiment 1 used stories involving long-distance vs. short-distance travel. For example, the story might be about someone driving across the desert to visit a relative, and the desert is either large or small. The target sentence would then be something like “the road crosses the desert”. In the control study, they instead used target sentences like “the road is in the desert”. In this case they found participants took about 400ms longer to judge the target sentence in the long-distance stories.&lt;/p&gt;
+
+&lt;p&gt;Experiment 2 used stories involving slow vs. fast motion. For example, the story might be about someone walking or running along a path. The target sentence would then be something like “the path follows the creek”. In the control study, they instead used target sentences like “the path is next to the creek”. In this case they found participants again took about 400ms longer to judge the target sentences in the slow-motion stories.&lt;/p&gt;
+
+&lt;p&gt;Experiment 3 used stories involving difficult vs. easy terrain. For example, the story might be about someone driving along a coastline which is either jagged and hilly or straight and flat. The target sentence would then be something like “a road runs along the peninsula”. In the control study, they instead used target sentences like “there is a road along the peninsula”. In this case they found participants took about 350ms longer to judge the target sentences in the rough terrain stories.&lt;/p&gt;
+
+&lt;p&gt;Experiment 4 used stories that didn’t actually involve motion at all—for example, a story describing an earthquake fault along terrain that is either difficult or easy. The target sentence would then be something like “an earthquake fault runs across the valley”. There was no control experiment here, but I would expect the results to be similar. They found participants took about 200ms longer to judge the target sentences in the difficult terrain stories.&lt;/p&gt;
+
+&lt;p&gt;In all the experiments there were “filler” scenarios that did not involve fictive motion but did involve regular motion.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;It’s not surprising to me that people might use something like mental simulation to help them interpret sentences, but I am surprised that the motion words have as strong of an effect as they do: i.e., that “the road crosses the desert” takes longer to read for a long-distance scenario than a short-distance scenario, while “the road is in the desert” is read at pretty much the same speed. I’m really curious to think about how this type of mental simulation serves interpretation of language from a computational point of view. Is it something like: we construct this mental model, and then when asked if “the road crosses the desert” is true, we look at our mental model and verify (perhaps visually) that it does in fact cross the desert (which would then take longer for longer distances)? Whereas, for “the road is in the desert”, all that is required is to verify that the road is in the desert, which should take the same amount of time regardless of how big the desert is?&lt;/p&gt;
+
+&lt;p&gt;I do wonder whether these results apply in the general case of interpreting language. For one, participants were explicitly told to imagine the scenario as they read it (and the first sentence of each story was of the form “imagine a road”). If they weren’t prompted to use imagery, would there still be an effect? Also, if the background story were described in much less detail, would there be an effect?&lt;/p&gt;
+
+&lt;p&gt;I also wonder if this is an effect just of something like a priming effect, versus being explicitly about running a mental simulation. In particular, they didn’t test reaction times on target sentences that were irrelevant to the scenario. For example, if the sentence was “the river crosses the road” (when the story was about a road and didn’t mention a river), would people still take longer in the long-distance condition? If so, then that might point to something more like a priming effect that is engaged when the person reads a motion word like “crosses”, rather than them running a mental simulation (because there is no reason for a mental simulation about a river crossing a road to take longer, as it is irrelevant to the long-distance aspects of the story).&lt;/p&gt;
+</description>
+        <pubDate>Sun, 03 Jan 2016 08:57:21 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Matlock2004.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Matlock2004.html</guid>
+        
+        
+        <category>Embodied language</category>
+        
+      </item>
     
       <item>
         <title>On discriminative vs. generative classifiers: a comparison of logistic regression and naive Bayes</title>
@@ -369,76 +410,6 @@
         <pubDate>Fri, 01 Jan 2016 09:29:15 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Flusberg2011.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Flusberg2011.html</guid>
-        
-        
-        <category>Mental imagery</category>
-        
-      </item>
-    
-      <item>
-        <title>The emulation theory of representation: motor control, imagery, and perception</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Grush2004&quot;&gt;Grush, R. (2004). The emulation theory of representation: motor control, imagery, and perception. &lt;i&gt;The Behavioral And Brain Sciences&lt;/i&gt;, &lt;i&gt;27&lt;/i&gt;(3), 377–96; discussion 396–442. doi:10.1017/S0140525X04000093&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Wow, this was such a cool paper to read! Grush lays out the “emulation” theory of motor control/perception/imagery/etc. which is very similar to the theory that I have been thinking of (but that I haven’t been able to explain nearly as eloquently). It is what he calls a “pseudo-closed-loop control” scheme, inspired by the ideas behind Kalman filtering. The core ideas from the Kalman filter are:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;There is some process that is created by a combination of a driving force as well as the internal process mechanism (and some noise in that mechanism). Measurements are made of the state of this process, but they are also corrupted by noise.&lt;/li&gt;
-  &lt;li&gt;There is an internal model (emulator) of the process mechanisms. Using this internal model plus the driving force, the next state of the system is computed.&lt;/li&gt;
-  &lt;li&gt;A measurement is made of the simulated state, and it is compared to the measurement that was made from the true process. The difference between these two measurements is combined with the inverse of the observation in order to compute a residual correction.&lt;/li&gt;
-  &lt;li&gt;Some proportion of correction is applied to the estimated state in order to produce a corrected estimate of the measurement.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;In terms of cognition, the process is something like the state of a limb, or a representation of a scene. The driving force is the motor commands that are issued to change the state of the system. So, the hypothesis is essentially that during motor control or perception, the mind uses an internal model (the emulator) to keep track of a better estimate of the state of the system. But, by having an emulator, it can also be used for other things (such as mental imagery). In the case of imagery, the emulator itself can be used to make predictions about the future state of the system (without applying corrections).&lt;/p&gt;
-
-&lt;h2 id=&quot;motor-imagery&quot;&gt;Motor imagery&lt;/h2&gt;
-
-&lt;p&gt;Grush makes the distinction between &lt;em&gt;emulation theory&lt;/em&gt; and &lt;em&gt;simulation theory&lt;/em&gt;, where simulation theory is the idea that motor imagery comes from simulating motor commands, but not actually executing those controls. Emulation theory includes that aspect, but also includes the idea of having a separate model that emulates the state of the system. To quote from the paper:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;The differenceis that the simulation theory does not posit anything corresponding to an emulator&lt;/em&gt;; as far as I can tell, the simulator theory is conceived against the backdrop of closed-loop control, and motor imagery hypothesized to be the free-spinning of the controller (motor centers) when disengaged from the plant (body). In the emulation theory, by contrast, imagery is not produced by the mere free-spinning opertion of the efferent motor areas, but by the efferent motor areas driving an emulator of the musculoskeletal system. (pg. 382)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;visual-imagery&quot;&gt;Visual imagery&lt;/h2&gt;
-
-&lt;p&gt;In discussing how emulation theory applies to perception and visual imagery, Grush makes the distinction between &lt;em&gt;modal emulators&lt;/em&gt; and &lt;em&gt;amodal emulators&lt;/em&gt;. A modal emulator is an emulator which mimics one of the senses (e.g., by representing the state as pixels). An amodal emulator, by contrast, represents the state using a more structured abstract or symbolic representation (e.g., the underlying geometry, pose, and kinematics of objects and where the agent is in relation to them). The amodal emulator is clearly more flexible and encodes much more information than modal emulators; however, the modal emulators may be better at predicting information that is specific to a particular sensory domain. Thus, Grush proposes that the mind probably makes use of an amodal emulator as well as multiple modal emulators for vision, motor control, audition, etc.&lt;/p&gt;
-
-&lt;h2 id=&quot;sensation-and-perception&quot;&gt;Sensation and perception&lt;/h2&gt;
-
-&lt;p&gt;Grush goes as far as to say that modal emulators are really used in &lt;em&gt;sensation&lt;/em&gt; (i.e. receiving and processing sensory signals) while a particular amodal emulator, the &lt;em&gt;environment emulator&lt;/em&gt;, is what really produces our &lt;em&gt;perception&lt;/em&gt; (the interpretation of our sensations). The environment emulator is object-centric, and presumably is what allows us to do things like predict physical events.&lt;/p&gt;
-
-&lt;p&gt;There are two points that Grush makes here that are, in my opinion, very important. The first is:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;… the current scheme, exactly because it treats perception as one aspect of an integrated information processing strategy, sheds light on the nature of perception itself. In the first place, the scheme highlights the extent to which the outcome of the perceptual process, the state estimate embodied in the emulator, is tuned to sensorimotor requirements. The emulator represents objects and the environment &lt;em&gt;as things engaged with&lt;/em&gt; in certain ways as opposed to how they are considered apart from their role in the organism’s environmental engagements. (pg. 393)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I think this is an important point because I think the way we reason about the world—and the objects in it—is precisely because we have to interact in the world. The point of having an ability for mental simulation (emulation) isn’t because it’s useful for higher level problem solving or creativity, but because it’s essential for planning and predicting what is going to happen.&lt;/p&gt;
-
-&lt;p&gt;The second important point is:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Another shift in emphasis suggested by this account is that perception is shown to be not a matter of starting with materials provided in sensation and filling in blanks until a completed percept is available. Rather, completed percepts of the environment are the starting point, in that the emulator always has a potentially self-contained environment emulator estimate up and running… The role played by sensation is to constrain the configuration and evolution of this representation. In motto form, &lt;em&gt;perception is a controlled hallucination process&lt;/em&gt;. (pg. 393)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I love the characterization of perception as a controlled hallucination process. This is also exactly in line with a Bayesian interpretation: the prior is the internal model of how the world works (the hallucination), and the likelihood constrains the prior based on actual observations of the real world.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I think the emulation theory proposed by Grush is exactly the right way to think about perception and action. However, it is also a very high-level schematic of how to approach the problem: there are many questions that aren’t answered. For example:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;How are the internal models learned? Here, perspectives from robotics might be particularly useful. For example, something like the “distal teaching” approach discussed by &lt;a href=&quot;/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Nguyen-Tuong2011.html&quot;&gt;Nguyen-Tuong &amp;amp; Peters&lt;/a&gt; for training a mixed model (forward plus inverse models) could be used to learn new forward models and their inverses.&lt;/li&gt;
-  &lt;li&gt;The emulation theory as discussed here just takes as input to the controller some high level goal, which may or may not be produced by using the emulator to make further predictions. What is the tradeoff between using the emulator for tracking the current state of the system vs. doing planning? Or are there multiple emulators used?&lt;/li&gt;
-  &lt;li&gt;How does the controller decide what control signal to produce? Again, this is something that could potentially engage the emulator, which means there is also potentially a tradeoff for how the emulator gets used. For both this point and the previous point, work in robotics may provide some insight.&lt;/li&gt;
-  &lt;li&gt;The Kalman filtering approach described by Grush assumes that the forward dynamics are the same for both the real and imagined process. What if they aren’t? What sorts of implications does this model mismatch have?&lt;/li&gt;
-  &lt;li&gt;If such emulators are used for imagery, how is the initial state for them constructed in the first place?&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Fri, 01 Jan 2016 07:46:02 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Grush2004.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20imagery/2016/01/01/Grush2004.html</guid>
         
         
         <category>Mental imagery</category>
