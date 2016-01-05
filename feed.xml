@@ -6,9 +6,105 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 04 Jan 2016 17:50:17 -0800</pubDate>
-    <lastBuildDate>Mon, 04 Jan 2016 17:50:17 -0800</lastBuildDate>
+    <pubDate>Mon, 04 Jan 2016 22:51:18 -0800</pubDate>
+    <lastBuildDate>Mon, 04 Jan 2016 22:51:18 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Inference with mental models</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Johnson-Laird2012&quot;&gt;Johnson-Laird, P. N. (2012). Inference with Mental Models. In &lt;i&gt;The Oxford Handbook of Thinking and Reasoning&lt;/i&gt; (pp. 134–145). doi:10.1093/oxfordhb/9780199734689.001.0001&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this chapter, Johnson-Laird describes the theory of mental models:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Perception yields models of the world that lies outside us. An understanding of discourse yields models of the world that the speaker describes for us. And thinking, which enables us to anticipate the world and to choose a course of action, relies on internal manipulations of these mental models. The present chapter is about this theory, which it refers to as the &lt;em&gt;model&lt;/em&gt; theory, and about its experimental corroborations. (pg. 134)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Johnson-Laird first defines what a mental model is. In particular, it follows three principles:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Mental models are iconic; that is, they have the same structure of the thing the model represents.&lt;/li&gt;
+  &lt;li&gt;Each mental model is the simplest way of describing a possibility (and thus implicitly incorporates other irrelevant possibilities).&lt;/li&gt;
+  &lt;li&gt;Mental models only represent what is possible, and not what is impossible.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;deduction&quot;&gt;Deduction&lt;/h2&gt;
+
+&lt;p&gt;Next, Johnson-Laird describes how model theory applies to deductive reasoning, and gives empirical evidence for several predictions:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fewer and simpler models require less time to process.&lt;/li&gt;
+  &lt;li&gt;People will overlook certain models of premises (e.g. because mental models encode implicit information) and thus produce certain errors.&lt;/li&gt;
+  &lt;li&gt;People can detect invalid inferences by coming up with counterexamples. Johnson-Laird emphasizes that there are two types of invalid inferences: first, that the conclusion is inconsistent with the premises (people seem to just be able to detect this inconsistency), and second, the conclusion is consistent with the premises but does not follow from them (people come up with a counterexample).&lt;/li&gt;
+  &lt;li&gt;People confidently make “illusory” inferences which are invalid. In particular, “when they think about the truth of one assertion, they fail to think about the consequences of the falsity of other assertions”.&lt;/li&gt;
+  &lt;li&gt;People who have never performed these sorts of deductions will develop their own strategies for doing so automatically.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;probabilistic-reasoning&quot;&gt;Probabilistic reasoning&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;intentional reasoning&lt;/strong&gt;: people use heuristics to infer the probability of an event from evidence&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;extensional reasoning&lt;/strong&gt;: people infer the probability of an event based on different ways the event might occur&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;principle of equiprobability&lt;/strong&gt;: mental models are uniformly equally probable (unless there is reason to believe otherwise)&lt;/p&gt;
+
+&lt;h2 id=&quot;induction&quot;&gt;Induction&lt;/h2&gt;
+
+&lt;p&gt;Johnson-Laird argues that there are two systems of inductive reasoning: one which is &lt;em&gt;intuitive&lt;/em&gt; (system 1) and which has no access to working memory (and thus can only make fast, but potentially erroneous inferences), and one which is &lt;em&gt;explicit&lt;/em&gt; (system 2) and which is “slow, voluntary, and conscious”. For intuitive inductions, they can be affected by &lt;em&gt;modulation&lt;/em&gt;, which is the idea that “the meanings of clauses, coreferential links between them, general knowledge, and knowledge of context, can modulate the core meanings of sentential connectives” (pg. 146). This can affect things like property relations (e.g. “if the dish is kidney beans, then its basis is beans” vs. “if the dish is made of meat, then it can be Portugese stew”, in which case not-A and B is ok in the first case but not the second) and also temporal relations (e.g. “if she put the book on the shelf, then it fell off”).&lt;/p&gt;
+
+&lt;h2 id=&quot;abduction&quot;&gt;Abduction&lt;/h2&gt;
+
+&lt;p&gt;Abduction is the idea of going beyond just inference (i.e. concluding something beyond the information given) to actually inferring a theory or explanation for the conclusions. For example, when asked “If the trigger is pulled, then the pistol will fire. The trigger is pulled, but the pistol does not fire. Why not?”, people seem to augment their mental models in order to find a set of premises that does make the conclusions valid, such as that there were no bullets in the pistol.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I spent a long time thinking about the illusory inferences, and I’m dissatisfied with the explanation. Here is an example of one, where only one of the propositions is true:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If there is a king then there is an ace or else if there isn’t a king then there is an ace.
+There is a king.
+What follows?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;People invariably say “there is an ace”, but this is technically incorrect. The reason is that the way this is supposed to be parsed is something like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;P1: king --&amp;gt; ace
+P2: not king --&amp;gt; ace
+P1 xor P2
+king
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Because only one of P1 or P2 can be true, that means if P1 were false then &lt;code class=&quot;highlighter-rouge&quot;&gt;king --&amp;gt; not ace&lt;/code&gt; and therefore “there is an ace” is not a valid conclusion. Johnson-Laird claims this is based on how people construct their mental models, but I think it has more to do with the language of the scenario. When I write it out as I did just above, the answer is much more obvious—it took me a long time to realize why it was obvious because I was actually parsing the entire situation incorrectly. Perhaps it is just my programming background, but I intuitively parsed this statement into a program like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;king = True
+if king:
+    ace = True
+elif not king:
+    ace = True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Clearly, at the end of execution, &lt;code class=&quot;highlighter-rouge&quot;&gt;ace&lt;/code&gt; will be true. I think the effect would be much lessened if instead the problem were given like:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;There are two rules, only one of which is true: (1) a king implies an ace, or (2) lack of a king implies an ace.
+There is a king.
+What follows?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;An informal test of $n=1$ suggests this is a better phrasing, as they correctly determined that there is nothing you can deduce here. Looking it up, I see that Johnson-Laird did test for exactly this in &lt;a href=&quot;http://mentalmodels.princeton.edu/papers/1999illusory.pdf&quot;&gt;Experiment 2 of this paper&lt;/a&gt;. They did find that more people got the correct answer when they changed the language (25% vs 0%), though the majority still made the error.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 04 Jan 2016 13:28:36 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20models/2016/01/04/Johnson-Laird2012.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20models/2016/01/04/Johnson-Laird2012.html</guid>
+        
+        
+        <category>Mental models</category>
+        
+      </item>
     
       <item>
         <title>Qualitative modeling</title>
@@ -402,39 +498,6 @@
         
         
         <category>Generative models</category>
-        
-      </item>
-    
-      <item>
-        <title>Learning compound multi-step controllers under unknown dynamics</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Han2015&quot;&gt;Han, W., Levine, S., &amp;amp; Abbeel, P. (2015). Learning Compound Multi-Step Controllers under Unknown Dynamics. &lt;i&gt;Proceedings Of the 28th IEEE/RSJ International Conference on Intelligent Robots and Systems&lt;/i&gt;. Retrieved from http://rll.berkeley.edu/reset_controller/reset_controller.pdf&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Han et al. build on the work of &lt;a href=&quot;/quals/planning%20under%20uncertain%20dynamics/2016/01/02/Levine2015.html&quot;&gt;Levine et al.&lt;/a&gt; to learn controllers for tasks involving multiple steps. This is a difficult problem for traditional approaches to control, which assume that tasks are stationary (i.e., that the initial conditions are the same), which isn’t usually the case for compound tasks because the initial state of each step depends on the end state of the previous step. To address this, Han et al. formulate a way to learn both forward and &lt;em&gt;reverse&lt;/em&gt; controllers simultaneously. Then, in the compound task, if a forward controller fails, the reverse controller can be used to reset the movement and try again. Training compound controllers in this way is much more effective than trying to learn one global controller.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Training the forward and reset controllers is actually pretty straightfoward. Han et al. run the forward controller and reset controllers in sequence $N$ times, and use these samples to update both controllers according to the task-specific loss function (for the forward controller) or a reset cost (for the reset controller).&lt;/p&gt;
-
-&lt;p&gt;Training the compound controller follows largely the same idea. Each forward controller is executed in sequence. If a controller fails, then the corresponding reverse controller is used to undo the action, and the forward controller is run again. This is repeated until the controller succeeds. After $N$ samples are collected for a controller, it is refit according to those samples. These $N$ samples count as one “iteration”, and all controllers are trained for $K$ iterations.&lt;/p&gt;
-
-&lt;p&gt;As in the previous work, the individual linear-Gaussian controllers can also be used to train a more general parameterized policy (such as a neural network). The benefit of training both forward and reset controllers, though, means that the system can autonomously train the neural network by running the forward controllers, using those samples as training data for the network, and resetting automatically using the reset controller.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This way of training compound controllers is exciting, because it could potentially be integrated with higher-level planning algorithms to determine how to accomplish more sophisticated and complex tasks. This brings up an interesting distinction in the idea of simulation—that you can potentially have simulations at different levels of abstraction, as well as at different levels of granularity. In this case, the robot can learn a dynamics model for multiple motion primitives (the individual linear-Gaussian controllers) but it might also need to be able to learn a higher-level (perhaps more qualitative) form of simulation in order to reason about how to accomplish the task in the first place. In the case of screwing in a bolt, the robot might need high-level qualitative knowledge about how the task works (first need to pick up the wrench, then bring it to the bolt, then turn it because bolts need to be turned to go further into the hole, then repeat, etc.), but as shown by this work, it also needs low-level knowledge about the dynamics of the task in order to actually execute the subparts of the action.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 02 Jan 2016 08:22:37 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2016/01/02/Han2015.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2016/01/02/Han2015.html</guid>
-        
-        
-        <category>Planning under uncertain dynamics</category>
         
       </item>
     
