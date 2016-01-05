@@ -107,6 +107,38 @@
 
 <p>To answer this question, people will rely on p-prims such as “rigidity” and “springiness”. For an expert, “rigidity” has a lower cuing priority than “springiness”, and thus they will be less likely to rely on rigidity as an explanation, whereas a novice might use rigidity. An expert has different notions of how reliable “springiness” is to the problem (e.g. seeing a bouncing ball as springy) than a novice would.</p>
 
+<h1 id="chapter-3">Chapter 3</h1>
+
+<p>Young, R. (1983). Surrogates and Mappings: Two Kinds of Conceptual Models for Interactive Devices. 35–52.</p>
+
+<p>Young discusses the “user’s conceptual model” (UCM), and how there are different types or aspects of mental models:</p>
+
+<ul>
+  <li>Strong analogy, e.g. “a video display unit is like a typewriter”</li>
+  <li>Surrogate, e.g. a runnable model of the device</li>
+  <li>Mapping models, which “mediate between the task the user is trying to perform and the actions he must take”</li>
+  <li>Coherence, i.e. making sure a set of facts fit within a particular schema</li>
+  <li>Vocabulary, i.e. how concepts in the mental model are represented (either as a new symbol entirely, or combinations of existing symbols)</li>
+  <li>Problem space</li>
+  <li>Commonality</li>
+</ul>
+
+<p>Young describes in depth surrogate models and mapping models, and conclues that surrogate models are unrealistic because people don’t necessarily need to know how a device is implemented ot understand how it works.</p>
+
+<h1 id="chapter-4">Chapter 4</h1>
+
+<p>Forbus, K. (1983). Qualitative Reasoning about Space and Motion. 53–73.</p>
+
+<p>Forbus discusses how qualitative reasoning can be used to reason about spatial and physical scenes, for example, a bouncing ball. His use of qualitative simulation is related to that discussed by <a href="/quals/mental%20models/2016/01/04/Kuipers1986.html">Kuipers</a>, though it is different in that Forbus explicitly does include some numerical information about the location and physical properties of the ball. There are a few components to Forbus’ system (FROB):</p>
+
+<ul>
+  <li>The <em>space graph</em>, which encodes geometry and locations of free space. Space is divided into non-overlapping regions which are connected if they are adjacent. The edges of the regions are also included in the space graph, and have relations to the nodes (regions) like left, right, up, down.</li>
+  <li>The <em>action sequence</em> is similar to the qualitative behavior of the system as described by Kuipers. It is a sequence of qualitative motion types (e.g. “fly” or “collide”) and qualitative states (e.g. the place and approximate heading) that alternate with the state of the object in between motions (which is a quantitative representation of location, speed, and heading).</li>
+  <li>The action sequence is described using “constraint language”, which includes “equations describing projectile motion to compute numerical values if numerical descriptions of the state parameters are obtained” (pg. 60). This is a departure from the qualitative simulation used by Kuipers, which does not require any precise equations—the whole point of the system described by Kuipers is to give a qualitative explanation of the behavior of the equation.</li>
+</ul>
+
+<p>The FROB system seems to me to be a simplified form of a regular physics engine: it makes a lot of the same assumptions (e.g. rigidity, point masses) and even actuall encodes the equations of motion. The more qualitative aspects of it seem to come from the ability to ask things like “will these two objects collide”, but the constraints required to answer these questions are put in by the human user. For example, in Figure 4.8, the constraint is added that “Fred” can’t be at segment S31—but what would be cool to see is if that segment were actually a wall, that the system would still figure out that the objects can’t collide. My sense is that it would, but I think it would then require manual repartitioning of the space.</p>
+
   </article>
 
 </div>

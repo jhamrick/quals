@@ -6,9 +6,120 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 04 Jan 2016 00:39:52 -0800</pubDate>
-    <lastBuildDate>Mon, 04 Jan 2016 00:39:52 -0800</lastBuildDate>
+    <pubDate>Mon, 04 Jan 2016 17:50:17 -0800</pubDate>
+    <lastBuildDate>Mon, 04 Jan 2016 17:50:17 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Qualitative modeling</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Forbus2011&quot;&gt;Forbus, K. D. (2011). Qualitative modeling. &lt;i&gt;Wiley Interdisciplinary Reviews: Cognitive Science&lt;/i&gt;, &lt;i&gt;2&lt;/i&gt;(4), 374–391. doi:10.1002/wcs.115&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this article, Forbus summarizes the state of the field of qualitative reasoning, explaining how qualitative reasoning works and what it can be applied to. He begins by outlining three principles that are core to qualitative modeling:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;Discretization&lt;/em&gt; – qualitative representations are almost always discrete.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Relevance&lt;/em&gt; – the manner in which the discretization is chosen (an in general how the model is set up) depends on the relevance of different aspects of the situation that is being modeled.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Ambiguity&lt;/em&gt; – predictions made by qualitative models are ambiguous and there may be multiple possible predictions.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Next, Forbus describes what a qualitative representation is. I won’t go into detail on this, since it’s mostly covered by my notes on &lt;a href=&quot;/quals/mental%20models/2016/01/04/Kuipers1986.html&quot;&gt;Kuipers&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Given the definitions for qualitative representations, Forbus describes the qualitative mathematical operations that can be applied to them. One of &lt;em&gt;qualitative proportionality&lt;/em&gt;, which is that “all else being equal, if $B$ increases, then $A$ will increase, and if $B$ decreases, then $A$ will decrease” (pg. 4). To get around the fact that not all functions are monotonic, Forbus describes to options. First, functions can be broken up into &lt;em&gt;model fragments&lt;/em&gt; where monotonicity holds within a given fragment. Second, a &lt;em&gt;compositional modeling language&lt;/em&gt; can be used instead. The notation used in the explanation of the compositional modeling language isn’t explained, though, so I’m not entirely clear on how it works. Same thing goes for &lt;em&gt;confluences&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Forbus moves on to describe the pieces of a qualitative model, which include &lt;em&gt;processes&lt;/em&gt; (e.g., heat flow), &lt;em&gt;components&lt;/em&gt; (individual discrete parts that can be combined), and &lt;em&gt;fields&lt;/em&gt; (a division of space in qualitatively distinct regions where some qualitative parameter is constant). These pieces, represented as model fragments, are assembed in the &lt;em&gt;compositional modeling&lt;/em&gt; methodology to form a &lt;em&gt;domain theory&lt;/em&gt;. There are also &lt;em&gt;modeling assumptions&lt;/em&gt; which represent choices that need to be made depending on their relevance to the situation (for example, whether a thermal object should be considered a regular thermal object or just a temperature source).&lt;/p&gt;
+
+&lt;p&gt;The qualitative model can then be used in a qualitative simulation. I also won’t go into details here as I already wrote about it in my notes on &lt;a href=&quot;/quals/mental%20models/2016/01/04/Kuipers1986.html&quot;&gt;Kuipers&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Forbus discusses how qualitative modeling can be used to model causality and spatial reasoning. For spatial reasoning, there are a few considerations: topology (which can be represented using a region connection calculus), direction, position, and shape. Space itself also needs to be decomposed into discrete regions and edges; this can be done with something called &lt;em&gt;place vocabularies&lt;/em&gt; (e.g. this is what was used by the FROB system, see &lt;a href=&quot;/quals/mental%20models/2015/12/19/Gentner1983.html&quot;&gt;Chapter 4 of Gentner&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;The term “simulation” when used in “qualitative simulation” does seem to mean something along the lines of simulation of a physical process—though because it is discrete and approximate, it is perhaps closer to something like the simulations used in Monte-Carlo Tree Search. It would be interesting to see how qualitative simulation would do in certain reinforcement learning settings when combined with something like MCTS. For example, in playing Atari games, maybe something like qualitative simulation would be useful for efficiently determining high-level actions a player could take (rather than the low level actions of left/right/jump/etc).&lt;/p&gt;
+
+&lt;p&gt;One thing that is not clear to me, though, is how qualitative modeling fits into scenarios where there is uncertainty about the environment. In one sense, it’s great at doing that, because you don’t necessarily need to numerically specify every parameter. In another sense, though, it doesn’t seem like qualitative modeling would work well in an uncertain case where, for example, it might be &lt;em&gt;possible&lt;/em&gt; for a situation to unfold in a certain way (depending on the initial conditions), but highly unlikely. It doesn’t seem like qualitative simulation is set up for being able to express the magnitude of uncertainty or quality.&lt;/p&gt;
+
+&lt;p&gt;Also, despite their suggestion to the contrary, qualitative models suffer from many of the same issues that are discussed by &lt;a href=&quot;/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Davis.html&quot;&gt;Davis &amp;amp; Marcus&lt;/a&gt; as physical simulation does. Importantly, qualitative modeling doesn’t free you from having to make hard choices about &lt;em&gt;how&lt;/em&gt; to set the simulation up, something that Forbus explicitly notes in this paper. You still have to make the relevant decisions about which properties are important, how to do the discretization, etc.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 04 Jan 2016 08:58:54 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20models/2016/01/04/Forbus2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20models/2016/01/04/Forbus2011.html</guid>
+        
+        
+        <category>Mental models</category>
+        
+      </item>
+    
+      <item>
+        <title>Qualitative simulation</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Kuipers1986&quot;&gt;Kuipers, B. (1986). Qualitative Simulation. &lt;i&gt;Artificial Intelligence&lt;/i&gt;, &lt;i&gt;29&lt;/i&gt;(3), 289–338. doi:10.1016/0004-3702(86)90073-1&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Kuipers gives an overview of what qualitative simulation is, how it can be used, and what some its limitations are. He focuses specifically on the QSIM system, which is similar to other qualitative reasoning systems (e.g. from de Kleer, Forbus) but which also has a few differences. Regardless of the specific system, the point of qualitative reasoning is to break down continuous sytems into discrete analogues. Given a set of constraints that the continuous system must follow, along with an initial qualitative state description, qualitative reasoning determines how the system must evolve without necessarily specifying any precise values. For example, qualitative reasoning can be used to infer that if a ball is thrown upwards, it must eventually come down again (but the specific position and velocity of the ball need not be specified).&lt;/p&gt;
+
+&lt;p&gt;Kuipers shows that the QSIM method will always produce the true behavior of the system that it describes, but it may additionally produce false behaviors if the proper constraints aren’t given (e.g. conservation of energy).&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;h2 id=&quot;qualitative-behavior&quot;&gt;Qualitative behavior&lt;/h2&gt;
+
+&lt;p&gt;The qualitative description of a continuous and differentiable function $f:[a,b]\rightarrow\mathbb{R}^*$ relies on a set of &lt;em&gt;landmark values&lt;/em&gt;, which include 0, $f(a)$, $f(b)$, and $f(t)$ where $t$ is a critical point of the function. A &lt;em&gt;distinguished time point&lt;/em&gt; is the corresponding $t$ for a landmark value.&lt;/p&gt;
+
+&lt;p&gt;Then, the &lt;em&gt;qualitative state&lt;/em&gt; of the function at a particular point in time is $\mathrm{QS}(f,t)=[\mathrm{qval},\mathrm{qdir}]$, where $\mathrm{qval}$ is either a landmark value or the interval between landmark values, and where $\mathrm{qdir}$ is $\mathrm{sgn}(f^\prime(t))$. The &lt;em&gt;qualitative behavior&lt;/em&gt; of a function is the sequence $[\mathrm{QS}(f,t_0),\mathrm{QS}(f,t_0,t_1),\mathrm{QS}(f,t_1),\ldots{},\mathrm{QS}(f,t_{n-1},t_n),\mathrm{QS}(f,t_n)]$, where each $t_i$ is a distinguished time point.&lt;/p&gt;
+
+&lt;p&gt;A &lt;em&gt;qualitative state transition&lt;/em&gt; is either a &lt;em&gt;P-transition&lt;/em&gt;, which is the transition from a distinguished time point to an interval between distinguished time points: $\mathrm{QS}(f,t_i)\Rightarrow \mathrm{QS}(f, t_i, t_{i+1})$. Similarly, a &lt;em&gt;I-transition&lt;/em&gt; is the other way around: $\mathrm{QS}(f,t_{i-1},t_i)\Rightarrow\mathrm{QS}(f,t_i)$.&lt;/p&gt;
+
+&lt;h2 id=&quot;qualitative-structure&quot;&gt;Qualitative structure&lt;/h2&gt;
+
+&lt;p&gt;Constraints can be imposed on either a single function, or on a pair of functions, for example:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{ADD}(f, g, h)$ is defined as $f(t)+g(t)=h(t)$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{MULT}(f, g, h)$ is defined as $f(t)\cdot{}g(t)=h(t)$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{MINUS}(f, g)$ is defined as $f(t)=-g(t)$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{DERIV}(f, g)$ is defined as $f^\prime(t)=g(t)$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{M}^+(f, g)$ is defined as $f(t)=H(g(t))$ where $H^\prime(x)&amp;gt;0$. This rougly says that $f$ and $g$ are directly proportional&lt;/li&gt;
+  &lt;li&gt;$\mathrm{M}^-(f, g)$ is defined as $f(t)=H(g(t))$ where $H^\prime(x)&amp;lt;0$. This roughly says that $f$ and $g$ are inversely proportional.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note that these constraints only need to hold for $t$ within the domain of $f$ and $g$ (i.e., so you could have $x=\cos\theta$ on $\theta\in(0,\pi)$ and then $\mathrm{M}^-(\theta, x)$ will be true for that specific range of $\theta$).&lt;/p&gt;
+
+&lt;h2 id=&quot;qualitative-simulation&quot;&gt;Qualitative simulation&lt;/h2&gt;
+
+&lt;p&gt;The qualitative simulation takes as input the functions, constraints, landmark values, upper and lower range limits, an initial time point $t_0$, and initial qualitative values for the functions.&lt;/p&gt;
+
+&lt;p&gt;The qualitative simulation returns as output the qualitative behavior descriptions for the given functions, which include: the distinguished time points, landmark values (which may include additional ones not given as input), and qualitative state descriptions for each distinguished time point and interal between time points.&lt;/p&gt;
+
+&lt;p&gt;The way that the simulation works for a single state is, roughly:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;For each function, determine the P-transitions and I-transitions for the current qualitative state&lt;/li&gt;
+  &lt;li&gt;For each constraint, form combinations of “transition tuples” for each of the functions involved in the constraint, and filter out those which violate the constraint&lt;/li&gt;
+  &lt;li&gt;For each constraint, filter our transition tuples for which there are no transition tuples for adjacent constraints that have the same transition for the shared parameter (e.g. $(I4,I9)$ for $\mathrm{DERIV}(Y,V)$ would be filtered out if there is no corresponding tuple beginning with $I9$ for $\mathrm{DERIV}(V, A)$).&lt;/li&gt;
+  &lt;li&gt;Generate possible global interpretations based on the remaining tuples&lt;/li&gt;
+  &lt;li&gt;Check which interpretations constitute either a state that has been visited before (cylce) or if the function diverges (goes to infinity). These are leaves of the seach tree; others are next possible states.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This was a really nice, detailed explanation of how (one particular version of) qualitative simulation and reasoning works. I think it’s cool that you can show that this type of qualitative reasoning will produce the right answer (even if it might also produce other answers). It seems like the big challenge is—as Kuipers points out in the discussion—is determining what the constraints on the system are in the first place. This is somewhat related to the question of how you set up a physical simulation in the first place (i.e. object positions, velocities), though in this case the choices that need to be made are the functional constraints, rather than specifics about the object. Certaintly in qualitative simulation it seems that it is easier to specify information about the state of the object: the hard part is in determining what information to specify about the function.&lt;/p&gt;
+
+&lt;p&gt;Also, this seems to apply specifically to continuous systems than can be described by a differential equation, though, so I’m interested in understanding better how this approach works with things that are not continuous (for example, colliding objects) or situations where there are additional types of constraints, such as inequality or equality constraints. I expect some of the next readings will give me a better sense of this.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 04 Jan 2016 04:25:40 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20models/2016/01/04/Kuipers1986.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20models/2016/01/04/Kuipers1986.html</guid>
+        
+        
+        <category>Mental models</category>
+        
+      </item>
     
       <item>
         <title>Embodied language: a review of the role of the motor system in language comprehension</title>
@@ -324,116 +435,6 @@
         
         
         <category>Planning under uncertain dynamics</category>
-        
-      </item>
-    
-      <item>
-        <title>Learning contact-rich manipulation skills with guided policy search</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Levine2015&quot;&gt;Levine, S., Wagener, N., &amp;amp; Abbeel, P. (2015). Learning Contact-Rich Manipulation Skills with Guided Policy Search. &lt;i&gt;Proceedings Of the IEEE International Conference on Robotics and Automation&lt;/i&gt;. Retrieved from http://arxiv.org/abs/1501.05611v1&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;This paper builds on previous work (Levine &amp;amp; Abbeel, NIPS 2013) that learns policies for object manipulation using a two step process. The first step is to learn local linear-Gaussian controllers for a few specific training examples. Then, the linear-Gaussian controllers are used to train parameters for a more complex policy (e.g., using a neural network) using a method called &lt;em&gt;guided policy search&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;h2 id=&quot;linear-gaussian-controllers&quot;&gt;Linear-Gaussian controllers&lt;/h2&gt;
-
-&lt;p&gt;First, they assume linear-Gaussian dynamics, i.e.:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{x}_{t+1}\vert \mathbf{x}_t,\mathbf{u}_t)=\mathcal{N}(f_{\mathbf{x}t}\mathbf{x}_t+f_{\mathbf{u}t}\mathbf{u}_t, \mathbf{F}_t)&lt;/script&gt;
-
-&lt;p&gt;They can fit these dynamics using samples collected under the previous version of the controller, and from there compute the linear-Gaussian controller:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{u}_t\vert \mathbf{x}_t)=\mathcal{N}(\hat{\mathbf{u}}_t+\mathbf{k}_t+\mathbf{K}_t(\mathbf{x}_t-\hat{\mathbf{x}}_t),Q_{\mathbf{u}, \mathbf{u}t}^{-1})&lt;/script&gt;
-
-&lt;p&gt;where $Q_{\mathbf{u}, \mathbf{u}t}$ is the Hessian of the $Q$-function, $\mathbf{k}_t=-Q_{\mathbf{u},\mathbf{u}t}^{-1}Q_{\mathbf{u}t}$ and $\mathbf{K}_t=-Q_{\mathbf{u},\mathbf{u}t}^{-1}Q_{\mathbf{u},\mathbf{x}t}$ and (I think?) where $\hat{\mathbf{u}}_t$ and $\hat{\mathbf{x}}_t$ are the mean state and control from the samples. The $Q$-function is computed using a dynamic programming algorithm, which I won’t go into the details of.&lt;/p&gt;
-
-&lt;p&gt;The controller is then updated subject to the constraint that the KL-divergence between the trajectory distribution $p(\tau)=\prod_t p(\mathbf{x}_{t+1}\vert \mathbf{x}_t,\mathbf{u}_t)p(\mathbf{u}_t\vert \mathbf{x}_t)$ and the old trajectory distribution is not more than a threshold $\epsilon$. They solve this optimization using dual gradient descent, which I also won’t go into the details of here.&lt;/p&gt;
-
-&lt;p&gt;Levine et al. minimize the number of samples needed by also estimating a Gaussain mixture model prior on the global dynamics, and adaptively adjust both the step size $\epsilon$ and sample count according to an estimate of the additional cost at each iteration due to unmodeled changes in the dynamics.&lt;/p&gt;
-
-&lt;h2 id=&quot;guided-policy-search&quot;&gt;Guided policy search&lt;/h2&gt;
-
-&lt;p&gt;Given the learned linear-Gaussian dynamics and controller, they can be used to train a more sophisticated policy with large numbers of parameters (e.g., a neural network). Rather than directly computing a policy, supervised learning is used to learn the policy using trajectories sampled from the linear-Gaussian controllers (this is kind of a form of learning-by-demonstration, I think, where the demonstrations are a combination of the actual trajectories run using the linear-Gaussian controller on the real robot, and synthesized trajectories from the linear-Gaussian controllers). The trajectories are then reoptimized as well to better match the state distribution of the policy, i.e.:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\min_{\theta,p(\tau)}E_{p(\tau)}[\ell(\tau)]\ \mathrm{s.t.}\ D_{\mathrm{KL}}(p(\mathbf{x}_t)\pi_\theta(\mathbf{u}_t\vert \mathbf{x}_t)\vert\vert p(\mathbf{x}_t, \mathbf{u}_t))=0\ \forall t&lt;/script&gt;
-
-&lt;p&gt;where $p(\tau)$ is the trajectory distribution (obtained from the linear-Gaussian dynamics) and $\pi_\theta$ is the parameterized policy. They solve this using another (different) application of dual gradient descent.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This is a cool way to combine deep learning with a more structured modeling approach. Essentially, the linear-Gaussian controllers are learning a generative model of the dynamics for specific motions, from which an optimal policy can be extracted with relatively little computation. The generative model is then used to train the discriminative model (the neural network). It’s an interesting contrast, though, because I generally think of generative models as being &lt;em&gt;more&lt;/em&gt; general, whereas in this case it’s actually that there are multiple generative models, each of which is local and therefore relatively fragile. But by combining them together a more powerful and flexible discriminative model can be trained.&lt;/p&gt;
-
-&lt;p&gt;Overall, it seems to me that this approach is quite similar similar to the approach taken by &lt;a href=&quot;/quals/physical%20reasoning%20without%20dynamics%20models/2015/12/30/Paraschos2015.html&quot;&gt;Paraschos et al.&lt;/a&gt;, at least in terms of using linear-Gaussian dynamics to learn local (or primitive) motion policies. This paper, though, goes the next step and shows how then those local motion policies can be combined in order to train a more sophisticated and general policy.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 02 Jan 2016 04:56:38 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2016/01/02/Levine2015.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/planning%20under%20uncertain%20dynamics/2016/01/02/Levine2015.html</guid>
-        
-        
-        <category>Planning under uncertain dynamics</category>
-        
-      </item>
-    
-      <item>
-        <title>The simulation heuristic</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Kahneman1981&quot;&gt;Kahneman, D., &amp;amp; Tversky, A. (1981). &lt;i&gt;The simulation heuristic&lt;/i&gt;. Retrieved from http://www.dtic.mil/cgi-bin/GetTRDoc?AD=ADA099504&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Kahneman &amp;amp; Tversky discuss how people construct mental simulations of hypothetical scenarios, and in particular, counterfactual scenarios. They argue that people rely on a “simulation heuristic”, which is defined as constructing scenarios in order to estimate the probability of events.&lt;/p&gt;
-
-&lt;p&gt;In the introduction, Kahneman &amp;amp; Tversky provide a nice definition of what they mean by simulation (pg. 1-2):&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Our starting point is a common introspection: there appear to be many situations in which questions about events are answered by an operation that resembles the running of a simulation model. The simulation can be constrained and controlled in several ways: the starting conditions for a ‘run’ can be left at their realistic default value, or modified to assume some special contingency; the outcomes can be left unsecified, or else a target state may be set, with the task of finding a path to that state from the initial conditions. A simulation does not necessarily produce a single story, which starts at the beginning and ends with a definite outcome. Rather, we construe the output of simulation as an assessment of the ease with which the model could produce different outcomes, given its initial conditions and operating parameters. Thus, we suggest that mental simulation yields a measure of the propensity of one’s model of the situation to generate various outcomes, much as the propensities of a statistical model can be assessed by Monte Carlo techniques.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;They also give a few use cases that seem to involve simulation:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Prediction&lt;/li&gt;
-  &lt;li&gt;Assessing the probability of a specified event&lt;/li&gt;
-  &lt;li&gt;Assessing conditioned probabilities&lt;/li&gt;
-  &lt;li&gt;Counterfactual assessments&lt;/li&gt;
-  &lt;li&gt;Assessments of causality&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;In this paper, they focus primarily on counterfactual assessments (i.e., “if only…” scenarios). The first type of task that they focus on is that involving regret. The example scenario is that of two people who miss their flight, but by different margins (5 minutes vs. 30 minutes), and ask participants to ask who feels worse. Almost universally people respond that the person who missed their flight by 5 minutes feels worse than the other person. Kahneman and Tversky argue that this is because it is easier to imagine making it to the airport 5 minutes earlier than it is to make it to the airport 30 minutes earlier.&lt;/p&gt;
-
-&lt;p&gt;The second type of task they focus on involves people actually producing alternate scenarios that could have prevented something happening (for example, someone dying in a car crash). There were two conditions; one in which the driver left work early (“time” version), and one in which they took an unusual route (“route” version). In the time version, participants came up with alterations to the scenario like “he should have left at a different time” (26%), “he should have crossed the intersection more quickly” (31%), or “the other driver shouldn’t have been driving” (29%). In the route version, the majority of participants said “he shouldn’t have taken the different route” (51%), with some also saying “he should have crossed the intersection more quickly” (22%) or “the other driver shouldn’t have been driving” (20%).&lt;/p&gt;
-
-&lt;p&gt;The route version involves an unusal element (the route), and correspondingly, participants are vastly more likely to undo this element in their counterfactual simulation than the participants in the time version. Kahneman and Tversky explain this as one of three types of changes that can occur:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Downhill change (increases probability, decreases surprise)&lt;/li&gt;
-  &lt;li&gt;Uphill change (decreases probability, increases surprise)&lt;/li&gt;
-  &lt;li&gt;Horizontal change (arbitrary value is changed, no change in probability or surprise)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;In particular, the change in the route version is an example of a downhill change; thus, Kahneman and Tversky argue that when constructing simulations, people are biased towards scenarios that are more probable and less surprising. Moreover, people are biased towards making alterations to the scenario that are related to the main object or character (e.g., the behavior of the original driver, and not the other driver).&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;Kahneman and Tversky characterize the simulation heuristic as being biased towards downhill changes. I wonder if this could be explained by something like a stochastic search in the space of scenarios (e.g. something like Monte-Carlo tree search), where people are trying to maximize something like the posterior probability of the scenario given the alternate outcome. Due to the prior, this would result in a bias towards less surprising scenarios (e.g. undoing the change in route). This bias isn’t necessarily a bad thing, though. The prior is a well-motivated component, because you need something to constrain the space of possible scenarios—the narrative structure of the situation still needs to be coherent, and the structure of the prior ensures that.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 02 Jan 2016 02:21:27 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/memory%20and%20imagination/2016/01/02/Kahneman1981.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/memory%20and%20imagination/2016/01/02/Kahneman1981.html</guid>
-        
-        
-        <category>Memory and imagination</category>
         
       </item>
     
