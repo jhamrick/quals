@@ -6,9 +6,69 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 04 Jan 2016 22:51:18 -0800</pubDate>
-    <lastBuildDate>Mon, 04 Jan 2016 22:51:18 -0800</lastBuildDate>
+    <pubDate>Tue, 05 Jan 2016 15:39:14 -0800</pubDate>
+    <lastBuildDate>Tue, 05 Jan 2016 15:39:14 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Kinematic mental simulations in abduction and deduction</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Khemlani2013&quot;&gt;Khemlani, S. S., Mackiewicz, R., Bucciarelli, M., &amp;amp; Johnson-Laird, P. N. (2013). Kinematic mental simulations in abduction and deduction. &lt;i&gt;Proceedings Of the National Academy of Sciences of the United States of America&lt;/i&gt;, &lt;i&gt;110&lt;/i&gt;(42), 16766–71. doi:10.1073/pnas.1316275110&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Khemlani et al. conduct a series of experiments in which they have people solve programming-like problems, come up with algorithmic solutions to those problems, and execute existing algorithms. Their experiments operate in a domain that involves train tracks with a set of cars where the problems are to rearrange the cars by sliding them to different sections of the tracks. They also propose a model of how people solve these types of tasks, based on &lt;a href=&quot;/quals/mental%20models/2016/01/04/Johnson-Laird2012.html&quot;&gt;Johnson-Laird’s model theory&lt;/a&gt; but with the extension to &lt;em&gt;kinematic&lt;/em&gt; mental models. Importantly, there are three assumptions that they make about the way in which people use mental models:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Mental models are iconic (i.e., they have the same form as the thing they represent)&lt;/li&gt;
+  &lt;li&gt;Kinematic mental models are based in time (i.e., the sequence of operations that they simulate are thus ordered in time)&lt;/li&gt;
+  &lt;li&gt;Mental models can be schematic (i.e., not necessarily a visual mental image)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The kinematic mental models theory makes several predictions about people’s performance on programming-like tasks:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Solutions that involve more steps, and steps that operate on more objects (operands), will take longer and be more prone to error. Thus a solution that takes 5 steps each operating on a single car should be faster than one that takes 7, but also faster than one that takes 5 steps each operating on two cars.&lt;/li&gt;
+  &lt;li&gt;People should find it easier to generate algorithms that use while loops than algorithms that use for loops, because “naive individuals use simulations to abduce algorithms”. (It’s not really clear to me how this follows?)&lt;/li&gt;
+  &lt;li&gt;People should find it more difficult to abduce algorithms that have higher Kolmogorov complexity.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;Experiment 1 (“problem solving”) had participants solve rearrangement problems. They were able to actually move the cars on the track using a computer interface. Khemlani et al. found that participants made more moves when their model made more moves, and that participants also made more moves as the number of operands increased. They found similar results with response times.&lt;/p&gt;
+
+&lt;p&gt;Experiment 2 (“abduction”) had participants come up with an algorithm to solve each problem (i.e. a description of how to solve the problem, in English). They for each type of problem, they had to solve it for 8 cars, and then for an unspecified number of cars. Participants were close to ceiling in coming up with algorithms for the 8 car problems, but varied on the problems that had an unspecified number of cars (where, as predicted, solutions with a higher Kolgomorov complexity had a lower success rate). Participants also used while loops more frequently.&lt;/p&gt;
+
+&lt;p&gt;Experiment 3 (“deduction”) gave participants a description of the procedure, the intial state of the trains, and asked them to determine what the end result would be after executing the procedure. They attempted to control for amount of information in the descriptions, by making sure that each description was the same length (number of words). They again found that people’s success was correlated with the algorithm’s Kolmogorov complexity.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;Creation of an algorithm (abduction) involves three steps: first computing solutions to two specific problems, then recovering the loop that must be performed, and then converting the structure of the solution into a verbal description. The specific solutions are solved using a “partial means-ends analysis”, in which the problem is broken down into subgoals, where the first goal is to get the rightmost car on the right track, and so on. The way their model recovers the loop is to first find repeated sequences of at least two moves in both of the solutions to the specific problems, and then either:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In the case of a for loop, solve a system of linear equations based on the solutions to the two specific problems.&lt;/li&gt;
+  &lt;li&gt;In the case of a while loop, determine the condition that needs to be satisified for the while loop to halt.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To compute Kolmogorov complexity of an algorithm, they simply take the number of characters in the LISP program and multiplied by the number of bits for each character.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This is a really cool exploration of how people reason about more structured plans such as algorithms. It would be really interesting to see if you coded people’s algorithms in Experiment 2 into actual code, how well they corresponded to the algorithms produced by mAbducer, rather than just comparing the success rate. That is, are people actually coming up with solutions like those predicted by the model theory?&lt;/p&gt;
+
+&lt;p&gt;I also wonder how well an approach based on some type of grammar would work (e.g. something like Kevin Ellis’ paper from NIPS 2015, “Unsupervised Learning by Program Synthesis”). I also wonder how their mAbducer program compares to typical approaches to program induction in general. Are there key differences that the model theory predicts that general program induction algorithms would not predict?&lt;/p&gt;
+
+&lt;p&gt;Khemlani et al. use a very specific notion of “simulation” in this paper, which is essentially the simulation of a computer program: the sequential application of known rules beginning with a given initial state. There are other types of computations that they assume, too (e.g. that are used to solve the problems in the first place), but once specific instances of the programs have been solved, simulations of those programs are used to abduce a general solution to the problem. Simulations of the general solution are then used to perform deduction on new problems.&lt;/p&gt;
+
+&lt;p&gt;One potential issue with the third experiment is that participants didn’t actually come up with the solutions themselves. I wonder if there is something important about the way that people form their mental models: it might be that you can’t just give them a description of the program, but that they actually need to abduce it themselves. If this were the case, I wonder if the accuracies at solving the deduction problems would be higher.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Jan 2016 06:06:28 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/mental%20models/2016/01/05/Khemlani2013.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20models/2016/01/05/Khemlani2013.html</guid>
+        
+        
+        <category>Mental models</category>
+        
+      </item>
     
       <item>
         <title>Inference with mental models</title>
@@ -454,47 +514,6 @@ What follows?&lt;/p&gt;
         <pubDate>Sat, 02 Jan 2016 14:18:13 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/generative%20models/2016/01/02/Battaglia2012.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2016/01/02/Battaglia2012.html</guid>
-        
-        
-        <category>Generative models</category>
-        
-      </item>
-    
-      <item>
-        <title>The Helmholtz machine</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Dayan1995&quot;&gt;Dayan, P., Hinton, G. E., Neal, R. M., &amp;amp; Zemel, R. S. (1995). The Helmholtz machine. &lt;i&gt;Neural Computation&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(5), 889–904. doi:10.1162/neco.1995.7.5.889&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Dayan et al. propose a method for learning about the underlying structure in data using self-supervised learning in a neural network. Specifically, they construct the network to have bottom-up &lt;em&gt;recognition&lt;/em&gt; weights and top-down &lt;em&gt;generative&lt;/em&gt; weights. The network is then trained according to a &lt;em&gt;wake-sleep algorithm&lt;/em&gt;, where the generative weights are trained during the “wake” phase and the recognition weights are trained during the “sleep” phase by simulating training examples from the generative model.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;The recognition probability of unit $j$ in layer $\ell$ is:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;q_j^\ell(\phi,\mathbf{s}^{\ell-1})=\sigma\left(\sum_i s_i^{\ell-1}\phi_{i,j}^{\ell-1,\ell}\right)&lt;/script&gt;
-
-&lt;p&gt;where $\sigma$ is the sigmoid function and $\phi$ are the recognition weights. As mentioned earlier, the recognition weights are trained during the sleep phase by simulating training data from the generative model.&lt;/p&gt;
-
-&lt;p&gt;The generative probability of unit $j$ in layer $\ell$ is:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p_j^\ell(\theta,\mathbf{s}^{\ell+1})=\sigma\left(\sum_i s_i^{\ell+1}\theta_{i,j}^{\ell+1,\ell}\right)&lt;/script&gt;
-
-&lt;p&gt;where $s$ are the unit activities. The generative model is trained by presenting data to input units and then activating units according to $q_j^\ell$. Then, the generative weights are updated to minimized the KL-divergence between the actual activations and the generative probabilities $p_j^\ell$.&lt;/p&gt;
-
-&lt;p&gt;The wake and sleep phases are computed iteratively and over time the weights should converge such that $Q(d)=P(\theta,d)$.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;The Helmholtz machine is a very cool idea, in that it is an unsupervised way of (approximately) learning highly complex structures by jointly training a recognition and generative model. This can be thought of as a way of implementing the EM algorithm in a neural network; it can also be interpreted as a particular type of autoencoder (e.g. if it is a one-layer Helmholtz machine, it is a folded-over autoencoder).&lt;/p&gt;
-</description>
-        <pubDate>Sat, 02 Jan 2016 10:25:21 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/generative%20models/2016/01/02/Dayan1995.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2016/01/02/Dayan1995.html</guid>
         
         
         <category>Generative models</category>
