@@ -6,9 +6,64 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 05 Jan 2016 22:04:21 -0800</pubDate>
-    <lastBuildDate>Tue, 05 Jan 2016 22:04:21 -0800</lastBuildDate>
+    <pubDate>Wed, 06 Jan 2016 14:32:31 -0800</pubDate>
+    <lastBuildDate>Wed, 06 Jan 2016 14:32:31 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>The experience of force: the role of haptic experience of forces in visual perception of object motion and interactions, mental simulation, and motion-related judgments</title>
+        <description>&lt;p&gt;&lt;span id=&quot;White2012a&quot;&gt;White, P. A. (2012). The experience of force: The role of haptic experience of forces in visual perception of object motion and interactions, mental simulation, and motion-related judgments. &lt;i&gt;Psychological Bulletin&lt;/i&gt;, &lt;i&gt;138&lt;/i&gt;(4), 589–615. doi:10.1037/a0025587&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, White proposes a theory of action and perception that is based on the notion of force. Specifically, he argues that during our interactions with the world, we perceive force from our haptic system (along with other sensory modalities), and these perceptions get stored in memory along with the relevant actions associated with them. Then, when we perceive new situations, we activate these stored representations which allows us to make predictions and judgments about motion and other factors.&lt;/p&gt;
+
+&lt;p&gt;First, White discusses evidence for forward models of action in the motor system, as well as evidence for the role of mechanoreceptor feedback. What is sounds like he proposes is a sort of forward model like this:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;[\mathbf{x}_{t+1}, \mathbf{s}_{t+1}] = f(\mathbf{x}_t,\mathbf{s}_t,\mathbf{u}_t)&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{x}$ is the state of the system, $\mathbf{s}$ is the sensory information (e.g. from the haptic system), and $\mathbf{u}$ are the controls (forces) of the system. A prediction error for the sensory information (e.g. mechanoreceptor feedback) is also computed:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{\delta}_t=\mathbf{s}_t - \hat{\mathbf{s}}_t&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{s}_t$ is the predicted sensory information and $\hat{\mathbf{s}}_t$ is the true sensory information. The feedback $\mathbf{\delta}_t$ is thus the error signal, which is going to be zero when our predictions of force are accurate. White also argues that perception of additional object properties (texture, rigidity, mass, etc.) are computed based on sensory information from mechanoreceptors. I’ll denote these properties as $\mathbf{\pi}$.&lt;/p&gt;
+
+&lt;p&gt;All of these different sources of information are stored in long-term memory, roughly (it seems) in the form of tuples such as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{m}_t=[\mathbf{x}_t,\mathbf{\delta}_t,\mathbf{\pi}]&lt;/script&gt;
+
+&lt;p&gt;White describes these as:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A stored representation of an action on an object is a multimodal episodic trace combining haptic information such as the disposition and movement of the limbs during execution of the action, visual information about body movement and the associated motion of the object acted on, auditory information such as sounds elicited by contact between extremity and object, and in principle, information in any sensory modality. Internally available information such as the content of the forward model also forms part of the representation. (pg. 607)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Importantly, we store our &lt;em&gt;prediction error&lt;/em&gt; of sensory information, rather than the absolute sensory information itself.
+These stored representations are activated by matching to similar perceptual stimuli (e.g. visual stimuli).&lt;/p&gt;
+
+&lt;p&gt;White uses this formulation of stored representations to offer a unifying account for several lines of research:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The storing of sensory feedback, rather than direct sensory information, predicts that when making judgments about force in terms of one moving object acting on a stationary, we assign notions of force &lt;em&gt;from&lt;/em&gt; the moving object (because we do store $\mathbf{u}_t$) but not &lt;em&gt;to&lt;/em&gt; the moving object (because, for static objects, the sensory prediction error should be zero). If both objects are moving, however, we should assign a notion of force that the second object is applying to the first object because the sensory prediction error is nonzero. This explains, for example, Michottean launching effects.&lt;/li&gt;
+  &lt;li&gt;To the extent that visual perception of motion matches stored representations corresponding to actions, we should perceive that motion as being internally caused. This extends to biological plausibility as well. Importantly, biologically generated motion has different velocity profiles than, for example, two nonbiological objects colliding—thus visual motion that matches the biological motion velocity profile should be interpreted as more biological.&lt;/li&gt;
+  &lt;li&gt;Representational momentum&lt;/li&gt;
+  &lt;li&gt;Perception of inanimate entities as intentional&lt;/li&gt;
+  &lt;li&gt;Mental simulation&lt;/li&gt;
+  &lt;li&gt;Perception of mass&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This is a surprisingly consistent and satisfying account of how perception arises from the combination of visual and haptic feedback. Assuming people do store information as something like $\mathbf{m}_t$ defined above, and they have access to forward an inverse models, it should be possible to reconstruct $\mathbf{u}_t$ (from both $\mathbf{x}_t$ and $\mathbf{x}_{t+1}$), which is consistent with White’s assertions. I am skeptical, though, that all we are doing is “storing” and “matching” representations. It is not at all clear to me how it would work to match the motion of a 2D ball (e.g. in the Michotte experiments) to the stored motion of ourselves. Additionally, it sounds like White is advocating for something like an exemplar model, but I find it much more likely that we use our experiences to build structured forward or inverse models. There may be multiple forward models (as suggested by Kawato) that are perhaps combined in certain ways, but give that there is evidence for some generalization (also described by Kawato), I would be very surprised if all that was going on was just storing and matching exemplars.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 06 Jan 2016 04:47:29 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/06/White2012a.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/06/White2012a.html</guid>
+        
+        
+        <category>Motor control and action</category>
+        
+      </item>
     
       <item>
         <title>Prediction precedes control in motor learning</title>
@@ -470,47 +525,6 @@ What follows?&lt;/p&gt;
         <pubDate>Sun, 03 Jan 2016 11:17:02 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Bergen2007.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Bergen2007.html</guid>
-        
-        
-        <category>Embodied language</category>
-        
-      </item>
-    
-      <item>
-        <title>Fictive motion as cognitive simulation</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Matlock2004&quot;&gt;Matlock, T. (2004). Fictive motion as cognitive simulation. &lt;i&gt;Memory And Cognition&lt;/i&gt;, &lt;i&gt;32&lt;/i&gt;(8), 1389–1400. doi:10.3758/BF03206329&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Matlock asks whether mental simulation is involved in processing sentences that involve motion words but which do not actually describe literal motion (the term for this type of motion is &lt;em&gt;fictive motion&lt;/em&gt;). In a series of four quite elegant experiments, Matlock shows that people take longer to respond whether a sentence involving fictive motion was related to a story when the story described long/slow/difficult travel as opposed to short/fast/easy travel. The results suggest that people may be constructing a mental model of the scenario described by the story, and that then to understand the target sentence they simulate from this mental model. When the model actually involves motion that that is longer, slower, or more difficult, people accordingly run simulations that mimic those properties, and thus take a longer time to respond.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;Experiment 1 used stories involving long-distance vs. short-distance travel. For example, the story might be about someone driving across the desert to visit a relative, and the desert is either large or small. The target sentence would then be something like “the road crosses the desert”. In the control study, they instead used target sentences like “the road is in the desert”. In this case they found participants took about 400ms longer to judge the target sentence in the long-distance stories.&lt;/p&gt;
-
-&lt;p&gt;Experiment 2 used stories involving slow vs. fast motion. For example, the story might be about someone walking or running along a path. The target sentence would then be something like “the path follows the creek”. In the control study, they instead used target sentences like “the path is next to the creek”. In this case they found participants again took about 400ms longer to judge the target sentences in the slow-motion stories.&lt;/p&gt;
-
-&lt;p&gt;Experiment 3 used stories involving difficult vs. easy terrain. For example, the story might be about someone driving along a coastline which is either jagged and hilly or straight and flat. The target sentence would then be something like “a road runs along the peninsula”. In the control study, they instead used target sentences like “there is a road along the peninsula”. In this case they found participants took about 350ms longer to judge the target sentences in the rough terrain stories.&lt;/p&gt;
-
-&lt;p&gt;Experiment 4 used stories that didn’t actually involve motion at all—for example, a story describing an earthquake fault along terrain that is either difficult or easy. The target sentence would then be something like “an earthquake fault runs across the valley”. There was no control experiment here, but I would expect the results to be similar. They found participants took about 200ms longer to judge the target sentences in the difficult terrain stories.&lt;/p&gt;
-
-&lt;p&gt;In all the experiments there were “filler” scenarios that did not involve fictive motion but did involve regular motion.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;It’s not surprising to me that people might use something like mental simulation to help them interpret sentences, but I am surprised that the motion words have as strong of an effect as they do: i.e., that “the road crosses the desert” takes longer to read for a long-distance scenario than a short-distance scenario, while “the road is in the desert” is read at pretty much the same speed. I’m really curious to think about how this type of mental simulation serves interpretation of language from a computational point of view. Is it something like: we construct this mental model, and then when asked if “the road crosses the desert” is true, we look at our mental model and verify (perhaps visually) that it does in fact cross the desert (which would then take longer for longer distances)? Whereas, for “the road is in the desert”, all that is required is to verify that the road is in the desert, which should take the same amount of time regardless of how big the desert is?&lt;/p&gt;
-
-&lt;p&gt;I do wonder whether these results apply in the general case of interpreting language. For one, participants were explicitly told to imagine the scenario as they read it (and the first sentence of each story was of the form “imagine a road”). If they weren’t prompted to use imagery, would there still be an effect? Also, if the background story were described in much less detail, would there be an effect?&lt;/p&gt;
-
-&lt;p&gt;I also wonder if this is an effect just of something like a priming effect, versus being explicitly about running a mental simulation. In particular, they didn’t test reaction times on target sentences that were irrelevant to the scenario. For example, if the sentence was “the river crosses the road” (when the story was about a road and didn’t mention a river), would people still take longer in the long-distance condition? If so, then that might point to something more like a priming effect that is engaged when the person reads a motion word like “crosses”, rather than them running a mental simulation (because there is no reason for a mental simulation about a river crossing a road to take longer, as it is irrelevant to the long-distance aspects of the story).&lt;/p&gt;
-</description>
-        <pubDate>Sun, 03 Jan 2016 08:57:21 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Matlock2004.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Matlock2004.html</guid>
         
         
         <category>Embodied language</category>
