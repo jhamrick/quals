@@ -6,9 +6,48 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 05 Jan 2016 17:32:40 -0800</pubDate>
-    <lastBuildDate>Tue, 05 Jan 2016 17:32:40 -0800</lastBuildDate>
+    <pubDate>Tue, 05 Jan 2016 21:08:05 -0800</pubDate>
+    <lastBuildDate>Tue, 05 Jan 2016 21:08:05 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Internal models for motor control and trajectory planning</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Kawato1999&quot;&gt;Kawato, M. (1999). Internal models for motor control and trajectory planning. &lt;i&gt;Current Opinions In Neurobiology&lt;/i&gt;, &lt;i&gt;9&lt;/i&gt;(6), 718–727. doi:10.1016/S0959-4388(99)00028-8&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this review article, Kawato discusses the role of internal models in motor control. He argues that both forward and inverse internal models are used in motor control. In particular:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fast and coordinated arm movements cannot be executed solely under feedback control, since biological feedback loops are slow and have small gains. Thus, the internal model hypothesis proposes that the brain needs to acquire an inverse dynamics model of the object to be controlled through motor learning, after which motor control can be executed in a pure feedforward manner.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;First, Kawato gives an overview of the existence of internal models. One piece of evidence comes from perturbing the dynamics of participants’ motions. Initially, people make the wrong movements under these novel dynamics. However, they eventually adapt and can make the correct motion. If the new dynamics are removed, then they again make errors because they are now using an incorrect model of the inverse dynamics. Another piece of evidence comes from &lt;em&gt;grip-force—load-force coupling&lt;/em&gt;, which is the coupling of a grip force (e.g. thumb and index finger) and load force (e.g. weight of the object that is being held). When gripping an object like this, and moving one’s arm to a new location, the motor system must both determing the appropriate trajectory for the arm as well as the grip force needed to hold the object. The way this works is:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The inverse model of the combined dynamics of the arm, hand, and object calculates the necessary motor commands from the desired trajectory of the arm. These commands are sent to the arm muscles as well as to the forward dynamics model as the efference copy. Then, the forward model can predict an arm trajectory that is slightly in the future. Given the predicted arm trajectory, the load force is calculated; then, by multiplying a friction coefficient and a safety factor, the necessary minimum level of grip force can be calculated.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Next, Kawato discusses neurological evidence for internal models in the cerebellum. I’m not going to go into detail on this.&lt;/p&gt;
+
+&lt;p&gt;Next, Kawato discusses the structure of internal models. Specifically, is it that internal models are just implemented as mappings between states and actions, or are they implemented using some sort of generalizable parameterization? To test this, the “generalization” paradigm is used, in which participants are trained to do a specific task under novel dynamics. They are then instructed to do another task, still under the novel dynamics, to see whether the dynamics have been fully generalized to new situations or not. The results are somewhere in the middle: some generalization occurs, but not perfect generalization.&lt;/p&gt;
+
+&lt;p&gt;Finally, Kawato discusses how the motor system computes trajectories. There are apparently two competing models: kinematic models (e.g. the minimum jerk model) and dynamics models (e.g. the minimum torque-change mdoel). Kawato proposes the &lt;em&gt;minimum variance&lt;/em&gt; model as middle ground between these two models. In the minimum variance model, the objective function minimizes a kinematic value (the variance of the end pose); however, the variance is determined by motor commands, which are part of the dynamics. If this model is correct, then it gives another motivation for there being both be a kinematic internal model (i.e. a forward model) as well as a dynamics internal model (i.e. a inverse dynamics model)&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;Based on this article, there is very strong evidence for internal models in the motor system. Moreover, there is evidence for &lt;em&gt;both&lt;/em&gt; forward kinematic models and inverse dynamics models which seem to work in tandem.&lt;/p&gt;
+
+&lt;p&gt;I wonder how these models are learned. In particular, when people’s motions are perturbed in some of the studies that Kawato describes, is it that people are updating their forward models, or their dynamics models, or both? Does learning in one affect the other, or are they independent?&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Jan 2016 11:48:31 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/05/Kawato1999.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/05/Kawato1999.html</guid>
+        
+        
+        <category>Motor control and action</category>
+        
+      </item>
     
       <item>
         <title>Temporal and kinematic properties of motor behavior reflected in mentally simulated action</title>
@@ -483,51 +522,6 @@ What follows?&lt;/p&gt;
         <pubDate>Sun, 03 Jan 2016 07:45:06 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/generative%20models/2016/01/03/Ng2002.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2016/01/03/Ng2002.html</guid>
-        
-        
-        <category>Generative models</category>
-        
-      </item>
-    
-      <item>
-        <title>Whatever next? Predictive brains, situated agents, and the future of cognitive science</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Clark2013&quot;&gt;Clark, A. (2013). Whatever next? Predictive brains, situated agents, and the future of cognitive science. &lt;i&gt;The Behavioral And Brain Sciences&lt;/i&gt;, &lt;i&gt;36&lt;/i&gt;(3), 181–204. doi:10.1017/S0140525X12000477&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this BBS article, Clark lays out a grand unified theory of cognition based on the idea that our brains are predictive machines. At the high levels of processing, our brains construct hypotheses/predictions of our percepts, and at the low levels of processing, our sensory systems compute error signals between what is predicted and what is actually sensed. He begins with the following assumption about what the brain is trying to accomplish:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;How, simply on the basis of patterns and changes in its own internal states, is [the brain] to alter and adapt its resources so as to tune itself to act as a useful node… for the origination of adaptive responses? Notice how different this conception is to ones in which the problem is posed as one of establishing a mapping relation between environmental and inner states. The task is not to find such a mapping but to infer the nature of the signal source (the world) from just the varying input signal itself. (pg. 183)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Clark next defines his overarching theory as that of “action-oriented predictive processing”, and quotes from Hawkins &amp;amp; Blakeslee (2004):&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;As strange as it sounds, when your own behavior is involved, your predictions not only precede sensation, they determine sensation. Thinking of going to the next pattern in a sequence causes a cascading prediction of what you should experience next. As the cascading predition unfolds, it generates the motor commands necessary to fulfil the prediction. Thinking, predicting, and doing are all part of the same unfolding of sequences moving down the cortical hierarchy. (pg. 186)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In other words, action is just a way to bring the world into alignment with the brain’s predictions.&lt;/p&gt;
-
-&lt;p&gt;Clark goes on to describe a large body of work that supports these views, particularly from the realm of neuroscience and perceptual science. He also explains how the action-oriented predictive processing scheme unifies the levels of analysis, in that it is a neural implementation of what are actually generative Bayesian models.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I agree with a lot of what Clark says in this article, though there are a few points that I disagree with.&lt;/p&gt;
-
-&lt;p&gt;First, “predictive” is &lt;em&gt;not&lt;/em&gt; the same as “generative” (though all generative models are predictive, in a sense). Discriminative models are also predictive, in the sense that you receive an input $x$ and predict an output $y$. Generative models, by contrast, can jointly predict $x$ and $y$ simultaneously, making it possible to predict $y$ from $x$ but also the other way around (predicting $x$ from $y$). Thus, generative models have more predictive power in the sense that they can be used to predict more relationships between the data, but that doesn’t mean discriminative models aren’t predictive. Clark uses “predictive” and “generative” interchangeably, but I think that is a mistake.&lt;/p&gt;
-
-&lt;p&gt;I definitely agree that having a generative model is incredibly powerful because it allows us to make &lt;em&gt;a priori&lt;/em&gt; predictions in the absence of data. However, generative models can be more difficult to learn, and while they may be overall more general, that may come with the cost of a loss of precision for specific prediction tasks. Thus, discriminative models are important, too, and it is almost certainly incorrect to say that the brain never makes use of simple mappings.&lt;/p&gt;
-
-&lt;p&gt;I’m not sure I agree with Clark’s characterization of action. I do like the idea that our minds make predictions, and then we use action to make those predictions come true, but I think it is important to make a distinction between predictions of the generative process in the world (i.e., what is going to happen next in the absence of action) versus predictions of how the default process might change &lt;em&gt;if&lt;/em&gt; we were to act on it.&lt;/p&gt;
-
-&lt;p&gt;I am also not sure if I agree with the idea that the brain is trying to reduce &lt;em&gt;error&lt;/em&gt;, especially since “error” is not a well-defined term. Clark seems to use it in the sense of reducing entropy, but there’s a lot of other ways it could be used. By definition, any type of learning system is trying to optimize some objective function—the “error”—so while technically true, this  isn’t really that new of a concept, so I don’t feel that it provides all that much explanatory power.&lt;/p&gt;
-
-&lt;p&gt;The more important component of Clark’s argument is that of the large part generative models probably play. Yet, Clark doesn’t go into details about how those models are actually constructed, beyond referring to a few things like the Helmholtz machine. That is where I think the truly difficult problems lie—determining &lt;em&gt;what&lt;/em&gt; the generative models are, &lt;em&gt;how&lt;/em&gt; we construct them in the first place, and &lt;em&gt;when&lt;/em&gt; a generative model is the thing that’s constructed as opposed to a discriminative model. There are particularly difficult questions to be answered in domains where the models must be able to handle incredibly high-dimensional data and parse it into complex, structured models. Saying the brain constructs generative models is a useful starting point (and it’s a starting point that I agree with), but it really doesn’t say anything about what the actual structure of those models is.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 03 Jan 2016 06:05:44 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/generative%20models/2016/01/03/Clark2013.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/generative%20models/2016/01/03/Clark2013.html</guid>
         
         
         <category>Generative models</category>
