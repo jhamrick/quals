@@ -6,9 +6,44 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 06 Jan 2016 14:32:31 -0800</pubDate>
-    <lastBuildDate>Wed, 06 Jan 2016 14:32:31 -0800</lastBuildDate>
+    <pubDate>Wed, 06 Jan 2016 16:08:18 -0800</pubDate>
+    <lastBuildDate>Wed, 06 Jan 2016 16:08:18 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Representing statics as forces in equilibrium</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Freyd1988&quot;&gt;Freyd, J. J., Pantzer, T. M., &amp;amp; Cheng, J. L. (1988). Representing Statics as Forces in Equilibrium. &lt;i&gt;Journal Of Experimental Psychology: General&lt;/i&gt;, &lt;i&gt;117&lt;/i&gt;, 395–407. doi:dx.doi.org/10.1037/0096-3445.117.4.395&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Freyd et al. hypothesize that the mind represents dynamic forces, even for static scenes. In particular, they point out that in static scenes, it is not truly the case that there are no forces: it is just that forces are in equilibrium. They run a series of four experiments to test this hypothesis, finding that people’s memory for static objects is distorted in the direction that those objects would move if they were unsupported.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;In Experiment 1, Freyd et al. showed participants a scene with a plant either on a table or hanging from a hook for 250ms. The scene was removed for 250ms at which point an identical scene was showed for 250ms, except that the table or hook was removed. The scene was again removed for 250ms, and then a new scene was shown which was either (1) the same, (2) different, with the plant moved slightly upwards, or (3) different, with the plant moved slightly downwards. Participants had to determine whether the last scene was the same as the original one or not. They found that people were quite accurate at determining “same” trials (8-13% error) and worse at detecting “down” trials (57% error) than “up” trials (37% error).&lt;/p&gt;
+
+&lt;p&gt;Experiment 2 was a control in which Freyd et al. never showed any form of support. The results showed basically no difference between the “down” trials (33%) vs. the “up” trials (34%). Interestingly, though, the error rate for the “same” trials was higher than in Experiment 1 (26%).&lt;/p&gt;
+
+&lt;p&gt;Experiment 3 was similar to Experiments 1 and 2, except that they used a different display (a lock hanging from a hook) and tested different distances from the true position. This was done in order to get a more fine-grained estimate of the distortion in people’s memories. As in Experiments 1 and 2, they found distortions when there was support, and that the shift was positive (i.e. “down” trials had more error) when there was support and that it was close to zero when there was no support.&lt;/p&gt;
+
+&lt;p&gt;In Experiment 4, Freyd et al. tested another new display, this time with a block resting on a spring. This allowed them to test for distortions in memory both in the upward and downward directions. There were two conditions: one in which there was initially no block (which would predict a downward shift, as the spring should compress), and one in which there was initially a block (which would predict an upward shift, as the spring should decompress). The results supported the predicted direction of memory distortions.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;These are a cool set of results, related to representational momentum, that indicate that people have strong perceptual expectations about the way that objects should move. In particular, I think the results of Experiment 4 are really striking: it’s not just that people expect things to move down due to gravity, but that they expect them to move in the way they actually would. I expect you would find similar results with objects that typically move up (e.g. balloons). I also wonder if you would find these effects if they depended on higher-level knowledge about object properties (such as mass). For example, in the spring experiment, if you knew the block was extremely light (and thus would not compress the spring), would the memory distortion still take place?&lt;/p&gt;
+</description>
+        <pubDate>Wed, 06 Jan 2016 07:09:25 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/physical%20reasoning/2016/01/06/Freyd1988.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning/2016/01/06/Freyd1988.html</guid>
+        
+        
+        <category>Physical reasoning</category>
+        
+      </item>
     
       <item>
         <title>The experience of force: the role of haptic experience of forces in visual perception of object motion and interactions, mental simulation, and motion-related judgments</title>
@@ -474,57 +509,6 @@ What follows?&lt;/p&gt;
         <pubDate>Sun, 03 Jan 2016 15:11:01 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Fischer2008.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Fischer2008.html</guid>
-        
-        
-        <category>Embodied language</category>
-        
-      </item>
-    
-      <item>
-        <title>Spatial and linguistic aspects of visual imagery in sentence comprehension</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Bergen2007&quot;&gt;Bergen, B. K., Lindsay, S., Matlock, T., &amp;amp; Narayanan, S. (2007). Spatial and linguistic aspects of visual imagery in sentence comprehension. &lt;i&gt;Cognitive Science&lt;/i&gt;, &lt;i&gt;31&lt;/i&gt;(5), 733–64. doi:10.1080/03640210701530748&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Bergen et al. examine some of the ways that language triggers the use of visual mental imagery. In particular, they look at the Perky effect, which they describe as follows:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In a seminal study, Perky (1910) asked participants to imagine seeing an object (such as a banana or leaf) while they were looking at a blank screen. At the same time, unbeknownst to them, an actual image of the same object was projected on the screen, starting below the threshold for conscious perception, but with progressively greater and greater illumination. Perky found that many participants continued to believe that they were still just imagining the stimulus and failed to recognize that there was actually a real, projected image even at levels where the projected image was perfectly perceptible to participants not simultaneously performing imagery. (pg. 736)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The Perky effect can be explained based on competition for the same set of resources: visual perception uses some of the same resources as mental imagery, and so if mental imagery is engaged, it can interfere with our ability to perceive things. This paradigm can be extended to measure how mental imagery is being used in language comprehension, by having people listen to a sentence just before performing a visual perception task.&lt;/p&gt;
-
-&lt;p&gt;Using the above paradigm, Bergen et al. find that nouns and verbs that are associated with concrete motion or spatial locations (e.g. as in &lt;em&gt;The ceiling shook&lt;/em&gt; or &lt;em&gt;The ball dropped&lt;/em&gt;) do invoke mental imagery in the relevant location of the visual field. In contraast, metaphorical motion does not produce this effect (e.g. &lt;em&gt;The market fell&lt;/em&gt;), nor do abstract verbs that are associated with up/down but which do not literally mean up/down (e.g. &lt;em&gt;The quantity dwindled&lt;/em&gt;). Their conclusion is that concrete sentences evoke visual mental imagery, but metaphorical and abstract sentences—even if they do involve some form of motion of spatial location—do not engage imagery (or at least not in the same way).&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;In all experiments, the task was to listen to a sentence, after which a circle or square would appear in one portion of the screen (up, down, left, right). Participants had to judge whether the object was a circle or square. The hypothesis was that if mental imagery was being used in a particular portion of the visual field when the sentence was read, then it would take participants longer to judge the object if that object were in the same part of the visual field than if it was not.&lt;/p&gt;
-
-&lt;p&gt;Experiment 1 looked at up/down verbs (e.g. &lt;em&gt;dropped&lt;/em&gt;, &lt;em&gt;rose&lt;/em&gt;). They did find that sentences with up verbs resulted in longer processing when the object was in the upper part of the screen than when it was in the lower part of the screen (5/5), and that sentences with down verbs resulted in longer proceessing when the object was in the lower part of the screen than when it was in the upper part of the screen (3/5).&lt;/p&gt;
-
-&lt;p&gt;Experiment 2 looked at up/down nouns (e.g. &lt;em&gt;ceiling&lt;/em&gt;, &lt;em&gt;cellar&lt;/em&gt;). They found essentially the same results as before: sentences with up nouns resulted in longer processing times when the shape was in the upper part of the screen (3/5), and sentences with down nouns resulted in longer processing times when the shape was in the lower part of the screen (4/5).&lt;/p&gt;
-
-&lt;p&gt;Experiment 3 looked at metaphorical motion (e.g. &lt;em&gt;The market fell&lt;/em&gt;), but did not find the effect either for metaphorical up verbs (2/5) or for metaphorical down verbs (2/5).&lt;/p&gt;
-
-&lt;p&gt;Experiment 4 looked at abstract verbs with up/down connotations (e.g. &lt;em&gt;dwindled&lt;/em&gt;, &lt;em&gt;increased&lt;/em&gt;) and again did not find the effect either for abstract up verbs (3/5) or for abstract down verbs (2/5).&lt;/p&gt;
-
-&lt;p&gt;Experiment 5 looked at axis (horizontal versus vertical) effects, rather than directional (up versus down) effects. They also did not find an effect here.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;First—wow, the Perky effect is awesome! I have heard variants of that before (e.g. it is hard to read and listen to language simultaneously) but I hadn’t heard of people actually conflating mental imagery and true perceptions.&lt;/p&gt;
-
-&lt;p&gt;This paradigm used by Bergen et al. is really neat, though the fact that they didn’t find the expected effect for all of the individual sentences (even if they found it overall) is somewhat less compelling. It would be interesting to use eyetracking with these experiments to see if people are actually attending to the portion of the field that is hypothesized, particularly in the case of the abstract/metaphorical sentences—not finding saccades in those cases would strengthen their hypothesis that people are not actually constructing a concrete visual scene in the same way.&lt;/p&gt;
-
-&lt;p&gt;On a different note, given that these types of sentences do seem to evoke mental imagery, it would be interesting to try to reverse &lt;a href=&quot;http://arxiv.org/abs/1411.4555&quot;&gt;some of&lt;/a&gt; the &lt;a href=&quot;http://cs.stanford.edu/people/karpathy/deepimagesent/&quot;&gt;image captioning&lt;/a&gt; algorithms that are coming out of the machine learning literature in order to produce a type of simulated mental imagery, which perhaps could then augmented as more information comes in—so the first sentence might retrieve an image, which is then parsed into components, and as more sentences are heard, they modify the current scene to make it consistent with the linguistic description. Then, that scene could be used to do further reasoning about what is being said—e.g. verifying whether a description about it is true or not.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 03 Jan 2016 11:17:02 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Bergen2007.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/embodied%20language/2016/01/03/Bergen2007.html</guid>
         
         
         <category>Embodied language</category>
