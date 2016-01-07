@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Visual perception and interception of falling objects: a review of evidence for an internal model of gravity</title>
+    <meta name="description" content="Notes on readings for my qualifying exams.
+">
+
+    <link rel="stylesheet" href="/quals/css/main.css">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/physical%20reasoning/2016/01/07/Zago2005.html">
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/quals/">Quals Reading Notes</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/quals/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
+        
+          
+        
+          
+        
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Visual perception and interception of falling objects: a review of evidence for an internal model of gravity</h1>
+    <p class="post-meta">Jan 7, 2016 • Physical reasoning</p>
+  </header>
+
+  <article class="post-content">
+    <p><span id="Zago2005">Zago, M., &amp; Lacquaniti, F. (2005). Visual perception and interception of falling objects: a review of evidence for an internal model of gravity. <i>Journal Of Neural Engineering</i>, <i>2</i>(3), S198–208. doi:10.1088/1741-2560/2/3/S04</span></p>
+
+<h1 id="summary">Summary</h1>
+
+<p>In this article, Zago &amp; Lacquaniti review evidence for the hypothesis that the brain has an internal model of gravity. They begin by layout out the computational problem, which is to solve for <em>time-to-contact</em> (TTC). Specifically, if an object starts at height $h_0$, and follows the equation $h(t)=h_0-0.5gt^2$, then solving for TTC involves solving for $h(t)=0$.</p>
+
+<p>Next, Zago &amp; Lacquaniti discuss evidence from visual perception that people take gravity into account. They summarize some work from Kim &amp; Spelke (1992) suggesting that infants are sensitive to the downward acceleration of gravity. Adults are also sensitive to gravity in visual perception, with evidence that it affects the perception of causality and naturalness of motion, absolute distance and size of falling objects, and even biological motion (details aren’t given for these examples, though, just citations).</p>
+
+<p>Zago &amp; Lacquaniti also give evidence that people take gravity into account when trying to catch a falling ball. For example, if a ball is dropped directly over a person’s hand, muscle activity can be detected just before the ball reaches the hand (with a delay accounting for processing of the motor system), and that the time this activity is detected is consistent even if the ball is dropped from different heights. The expected mass of the ball affected the magnitude of the muscle activity, but not the timing. Similar effects were shown even when people didn’t have visual access to the ball, though in these cases it was a reflex behavior, rather than anticipatory behavior. Still, the results indicate that “subjects are able to reach an internal estimate of the expected duration of fall even in the absence of vision, as demonstrated by the fact that they can easily detect randomly interspersed cases of inaccurate timing of the auditory cue” (pg. S200).</p>
+
+<p>However, Zago &amp; Lacquaniti also discuss the fact that visual perception is remarkably bad at estimating or detecting changes in acceleration. They suggest that, rather than people maintaining an estimate of gravity that can change, gravity is an “ecological constraint” that cannot change. They present evidence that shows that astronauts (in 0g) still predict objects to fall in the same manner as they do on earth. Even after spending extended time in 0g, astronauts only adapted very slightly, and even then readjusted to 1g almost immediately upon returning to Earth. Similarly, experiments conduced on participants using computer simulated gravity revealed that people were consistently able to punch a ball moving under 1g but prematurely punched a ball moving under 0g. Interestingly, they also found that participants seemed to ignore acceleration when the task was less motor based, i.e., if they just had to click a button to intercept the ball, leading to higher performance in 0g than in 1g. Thus, it would appear that perceptual and motor task demands determine whether the mind’s internal estimate of gravity is recruited, or whether just visual cues are used.</p>
+
+<p>Based on computational results (see Algorithm), it seems that people have an internal model of gravity that is fixed at 1g. Some adaptation can occur by modifying other parameters in the model, but not the actual estimate of the gravitational acceleration. There are results that suggest that the model of gravity is calculated by the vestibular system, and that this system is recruited less for tasks involving unnatural motion.</p>
+
+<h1 id="algorithm">Algorithm</h1>
+
+<p>Zago &amp; Lacquaniti discuss possible computation models of how people’s estimate of gravity works. One hypothesis is that they have two separate models of gravity (one for 0g and one for 1g). Another hypothesis is that they have a single model of gravity, but change it’s parameters. This second hypothesis can additionally be broken down into two hypotheses about <em>which</em> particular parameter is tuned. The model predicts:</p>
+
+<script type="math/tex; mode=display">\mathrm{TTC}(t)=\frac{-\hat{v}(t)+\sqrt{\hat{v}(t)^2+2\hat{g}\hat{h}(t)}}{\hat{g}}</script>
+
+<p>where $\hat{v}$ and $\hat{h}$ are the visually estimated velocity and height, respectively, and where $\hat{g}$ is the estimate of gravitational acceleration. If $\lambda$ is then the amount of time it takes to execute the action, then the action should be triggered at time $\epsilon$, where $\mathrm{TTC}(\epsilon)=\lambda$. If this model is used assuming $\hat{g}=1g$, but the true gravitational acceleration is $0g$, then the resulting error will be:</p>
+
+<script type="math/tex; mode=display">\delta=\frac{\hat{g}\lambda^2}{2v_0}</script>
+
+<p>This error could be reduced by either changing the value of $\hat{g}$ or the value of $\lambda$. If $\hat{g}$ is reduced, then this should affect responses under both 0g and 1g (because it is a variable in the TTC equation), but if $\lambda$ is reduced, then this should affect only 0g.</p>
+
+<p>On the other hand, if an entirely separate $0g$ model is learned, then it should predict:</p>
+
+<script type="math/tex; mode=display">\mathrm{TTC}(t)=\frac{\hat{h}(t)}{\hat{v}(t)}</script>
+
+<p>Empirical results suggest that adaptation is consistent with the first TTC model that has a fixed value of $\hat{g}=1g$ but which modifies $\lambda$.</p>
+
+<h1 id="takeaways">Takeaways</h1>
+
+<p>It is not too surprising that gravity plays such a prominent role in our ability to reason about the world. As it is essentially an invariant in our environments, it is also not surprising that it seems to be largely invariant to adaptation as well. What’s interesting are the results that seem to show that sometimes the vestibular estimate of gravity is used, while other times it isn’t. Perhaps, when faced with unnatural motion tasks (e.g. -1g), our brains are consistently computing the error in predicting motion for objects. If there is consistent error, then perhaps it switches to not relying on the internal estimate of gravity, and relies solely on visual cues. If the motion is consistent with natural gravitational acceleration, then that estimate is used—though it’s also interesting that sometimes that estimate is used for visual perception while other times it only seems to be recruitable when people are engaged in motor action. I’m not entirely sure what the right explanation is for all of these results. When do we take gravity into account, and when do we not, and why?</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Quals Reading Notes</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Quals Reading Notes</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/jhamrick">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">jhamrick</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jhamrick">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">jhamrick</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Notes on readings for my qualifying exams.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
