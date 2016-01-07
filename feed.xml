@@ -6,9 +6,44 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 07 Jan 2016 13:12:51 -0800</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 13:12:51 -0800</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 13:55:28 -0800</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 13:55:28 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Representational momentum</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Freyd1984&quot;&gt;Freyd, J. J., &amp;amp; Finke, R. A. (1984). Representational Momentum. &lt;i&gt;Journal Of Experimental Psychology: Learning, Memory, and Cognition&lt;/i&gt;, &lt;i&gt;10&lt;/i&gt;(1), 126–132. doi:10.1037/0278-7393.10.1.126&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Freyd &amp;amp; Finke present a number of experiments showing an effect of &lt;em&gt;representational momentum&lt;/em&gt; in which people’s memories for the position/rotation of an object are distorted in the direction of implied motion of the object.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;In Experiment 1, they showed participants a sequence of four images and asked them to determine whether the third and fourth images were the same or different. The first three images showed a rectangle in different orientations resulting from rotating it in a particular direction. The fourth image was either the same as the third, or rotated slightly forward or backwards from the third image (though not as much as the angular separation between the first three images). Freyd &amp;amp; Finke found that people were significantly faster and more accurate at judging the same (15.8% error) and reverse (6.4% error) stimuli, compared to the forward (43.9% error) stimuli.&lt;/p&gt;
+
+&lt;p&gt;In Experiment 2, they controlled for the effect of the result being somehow due to “some configural property of the inducing displays, independent of their temporal order”. Thus, they swapped the first and second images in the presentation. This caused the representational momentum effect to disappear entirely.&lt;/p&gt;
+
+&lt;p&gt;In Experiment 3, Freyd &amp;amp; Finke asked whether the representation momentum effect was due to sensory or cognitive processing. To test this, they increased the ISI (inter-stimulus interval) times to 500ms and 750ms (from 250ms). With these larger times, they still found the representational momentum effects, though they were less strong than at 250ms.&lt;/p&gt;
+
+&lt;p&gt;They additionally ran another control study to see if it was just whether people were extrapolating forward to the next image in the sequence (after the first three images). Instead of having small perturbations to the rotation of the third image, they used the next image in the sequence. They did not find the representational momentum effect using these larger rotations.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;There seems to be something about people’s predictive processing of visual stimuli that causes them to misremember the location or pose of objects. I wonder if something like this could be explained by a system that, rather than storing the actual current perception, stores an expectation for the next perception. If there has recently been motion, then this would give rise to something like the representational momentum effect. It doesn’t quite fit with their experimental setup, though, which is that they showed each image for 250ms, then removed it for 250ms, then showed the next, etc. These long presentation times mean that apparent motion isn’t generated, so it doesn’t seem as if people are estimating the angular velocity and then propagating that forward—if they were, then presumably the last control experiment that Freyd &amp;amp; Finke found would have still found the effect. Perhaps one explanation for this is that the visual system is estimating velocity from the implied motion, but it only propagates it for a fraction of the time forward—i.e., it doesn’t estimate the ISI time and factor that in. If this were the case, then it should be possible to demonstrate that different angular velocities result in memory distortions that are either closer or further away from the true image.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 07 Jan 2016 05:54:51 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/representational%20momentum/2016/01/07/Freyd1984.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/representational%20momentum/2016/01/07/Freyd1984.html</guid>
+        
+        
+        <category>Representational momentum</category>
+        
+      </item>
     
       <item>
         <title>Visual perception and interception of falling objects: a review of evidence for an internal model of gravity</title>
@@ -453,47 +488,6 @@ What follows?&lt;/p&gt;
         <pubDate>Mon, 04 Jan 2016 13:28:36 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/mental%20models/2016/01/04/Johnson-Laird2012.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20models/2016/01/04/Johnson-Laird2012.html</guid>
-        
-        
-        <category>Mental models</category>
-        
-      </item>
-    
-      <item>
-        <title>Qualitative modeling</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Forbus2011&quot;&gt;Forbus, K. D. (2011). Qualitative modeling. &lt;i&gt;Wiley Interdisciplinary Reviews: Cognitive Science&lt;/i&gt;, &lt;i&gt;2&lt;/i&gt;(4), 374–391. doi:10.1002/wcs.115&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this article, Forbus summarizes the state of the field of qualitative reasoning, explaining how qualitative reasoning works and what it can be applied to. He begins by outlining three principles that are core to qualitative modeling:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;em&gt;Discretization&lt;/em&gt; – qualitative representations are almost always discrete.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Relevance&lt;/em&gt; – the manner in which the discretization is chosen (an in general how the model is set up) depends on the relevance of different aspects of the situation that is being modeled.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Ambiguity&lt;/em&gt; – predictions made by qualitative models are ambiguous and there may be multiple possible predictions.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Next, Forbus describes what a qualitative representation is. I won’t go into detail on this, since it’s mostly covered by my notes on &lt;a href=&quot;/quals/mental%20models/2016/01/04/Kuipers1986.html&quot;&gt;Kuipers&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Given the definitions for qualitative representations, Forbus describes the qualitative mathematical operations that can be applied to them. One of &lt;em&gt;qualitative proportionality&lt;/em&gt;, which is that “all else being equal, if $B$ increases, then $A$ will increase, and if $B$ decreases, then $A$ will decrease” (pg. 4). To get around the fact that not all functions are monotonic, Forbus describes to options. First, functions can be broken up into &lt;em&gt;model fragments&lt;/em&gt; where monotonicity holds within a given fragment. Second, a &lt;em&gt;compositional modeling language&lt;/em&gt; can be used instead. The notation used in the explanation of the compositional modeling language isn’t explained, though, so I’m not entirely clear on how it works. Same thing goes for &lt;em&gt;confluences&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Forbus moves on to describe the pieces of a qualitative model, which include &lt;em&gt;processes&lt;/em&gt; (e.g., heat flow), &lt;em&gt;components&lt;/em&gt; (individual discrete parts that can be combined), and &lt;em&gt;fields&lt;/em&gt; (a division of space in qualitatively distinct regions where some qualitative parameter is constant). These pieces, represented as model fragments, are assembed in the &lt;em&gt;compositional modeling&lt;/em&gt; methodology to form a &lt;em&gt;domain theory&lt;/em&gt;. There are also &lt;em&gt;modeling assumptions&lt;/em&gt; which represent choices that need to be made depending on their relevance to the situation (for example, whether a thermal object should be considered a regular thermal object or just a temperature source).&lt;/p&gt;
-
-&lt;p&gt;The qualitative model can then be used in a qualitative simulation. I also won’t go into details here as I already wrote about it in my notes on &lt;a href=&quot;/quals/mental%20models/2016/01/04/Kuipers1986.html&quot;&gt;Kuipers&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Forbus discusses how qualitative modeling can be used to model causality and spatial reasoning. For spatial reasoning, there are a few considerations: topology (which can be represented using a region connection calculus), direction, position, and shape. Space itself also needs to be decomposed into discrete regions and edges; this can be done with something called &lt;em&gt;place vocabularies&lt;/em&gt; (e.g. this is what was used by the FROB system, see &lt;a href=&quot;/quals/mental%20models/2015/12/19/Gentner1983.html&quot;&gt;Chapter 4 of Gentner&lt;/a&gt;).&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;The term “simulation” when used in “qualitative simulation” does seem to mean something along the lines of simulation of a physical process—though because it is discrete and approximate, it is perhaps closer to something like the simulations used in Monte-Carlo Tree Search. It would be interesting to see how qualitative simulation would do in certain reinforcement learning settings when combined with something like MCTS. For example, in playing Atari games, maybe something like qualitative simulation would be useful for efficiently determining high-level actions a player could take (rather than the low level actions of left/right/jump/etc).&lt;/p&gt;
-
-&lt;p&gt;One thing that is not clear to me, though, is how qualitative modeling fits into scenarios where there is uncertainty about the environment. In one sense, it’s great at doing that, because you don’t necessarily need to numerically specify every parameter. In another sense, though, it doesn’t seem like qualitative modeling would work well in an uncertain case where, for example, it might be &lt;em&gt;possible&lt;/em&gt; for a situation to unfold in a certain way (depending on the initial conditions), but highly unlikely. It doesn’t seem like qualitative simulation is set up for being able to express the magnitude of uncertainty or quality.&lt;/p&gt;
-
-&lt;p&gt;Also, despite their suggestion to the contrary, qualitative models suffer from many of the same issues that are discussed by &lt;a href=&quot;/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/28/Davis.html&quot;&gt;Davis &amp;amp; Marcus&lt;/a&gt; as physical simulation does. Importantly, qualitative modeling doesn’t free you from having to make hard choices about &lt;em&gt;how&lt;/em&gt; to set the simulation up, something that Forbus explicitly notes in this paper. You still have to make the relevant decisions about which properties are important, how to do the discretization, etc.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 04 Jan 2016 08:58:54 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/mental%20models/2016/01/04/Forbus2011.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20models/2016/01/04/Forbus2011.html</guid>
         
         
         <category>Mental models</category>
