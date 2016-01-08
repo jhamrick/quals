@@ -6,9 +6,44 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 07 Jan 2016 16:12:01 -0800</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 16:12:01 -0800</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 18:12:15 -0800</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 18:12:15 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>The simulation theory: objections and misconceptions</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Gordon1992&quot;&gt;Gordon, R. M. (1992). The Simulation theory: Objections and misconceptions. &lt;i&gt;Mind And Language&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(1-2), 11–34. doi:10.1111/j.1468-0017.1992.tb00195.x&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Gordon attempts to define his own definition of &lt;em&gt;simulation theory&lt;/em&gt; (ST), and contrasts it with &lt;em&gt;theory theory&lt;/em&gt; (TT) as well as other forms of ST (“putting oneself in their shoes”, the Model Model).&lt;/p&gt;
+
+&lt;p&gt;First, Gordon explains why ST is not “putting oneself in the other’s place”. He says that ST is not this, because people don’t actually put themselves in others’ places most of the time (usually they are &lt;em&gt;told&lt;/em&gt; to do that). Rather, being told to put oneself in the other’s place means that “you shouldn’t just project your own situation and psychology on the other”. This implies that, to begin with, you &lt;em&gt;are&lt;/em&gt; projecting your own situation and psychology on the other, which is the core of what ST is about.&lt;/p&gt;
+
+&lt;p&gt;Gordon goes on to explain what he means by &lt;em&gt;projection&lt;/em&gt;, and specifically, &lt;em&gt;total projection&lt;/em&gt;. Total projection is the idea of projecting your own situation and psychology onto someone else, without making any adjustment (spatial or otherwise). This type of total projection is the default mode of simulation. In using projection, we search for explanations that would have caused ourselves to behave in the same way as other people. We can also adjust these projections in order to better explain other people’s actions, for example by imagining ourselves in their spatial location:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In general terms, what you are doing is shifting the locations and vectors of environmental features on your egocentric map—that is, the mental map in which things and events are represented in relation to yourself, here, and now—so as properly to engage your location-specific or vector-specific tendencies to action or emotion.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Alternately, you can “prep” yourself to have the appropriate attitudes or beliefs that would be necessary to understand the behavior of others. For example, to understand why someone likes the music of a particular artist that you do not particularly like, you find a suitable alternative that you enjoy to a similar degree and then use that alternative as a stand in for understanding the other person’s intentions (e.g. to go see that person in concert). Importantly, because we can make these adjustments to the projection, this allows us to simulate counterfactuals, which allows us to generate appropriate explanations.&lt;/p&gt;
+
+&lt;p&gt;Gordon contrasts ST with the idea that we might just use generalizations or laws to explain other people’s behavior. He argues that this cannot be the case, as generalizations/laws on their own are too brittle; we need to know when they are relevant so that we can appropriately apply them. Knowing when to apply them requires using our own knowledge about how the world works; this therefore ends up being just another way of using projection.&lt;/p&gt;
+
+&lt;p&gt;He also contrasts ST with the “Model” Model, which is the idea that simulation is just a model that you can use to run simulations (similar to running a simulation on a model of an airplane). Gordon argues that with the “Model” Model, you &lt;em&gt;would&lt;/em&gt; need something like a theory to explain the outputs of the model, as it is essentially a black box. But, under the hypothesis of projection, this is not necessary because you yourself already understand the workings of the model because you &lt;em&gt;are&lt;/em&gt; the model.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;From a computational standpoint, it is really difficult to see how Gordon’s version of the ST would work. It seems that the core of his argument is that because we are projecting ourselves, we get for free the ability to generate explanations of behavior. I don’t think this follows, and in particular, it still doesn’t give us any insight into how those explanations are generated (it feels a bit like saying, “we generate explanations of other people’s behavior by using ourselves to generate explanations of other people’s behavior”). I also think he doesn’t give enough credit to the difficulty in knowing what things about the projection to change. He basically implies it is as simple as “trying out various options until one clicks”, but for a given scenario there might be many possible things you could try to change. How do you know which dimension requires modification? And then how do you know the right modification to make? And then what does it mean for an explanation to “click”? What is a “good enough” explanation? All of these things seem like they need some form of metacognition or higher-level, structured knowledge—for example, a theory.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 07 Jan 2016 09:42:08 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Gordon1992.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Gordon1992.html</guid>
+        
+        
+        <category>Theory of mind</category>
+        
+      </item>
     
       <item>
         <title>Representational momentum and related displacements in spatial memory: a review of the findings</title>
@@ -394,66 +429,6 @@ These stored representations are activated by matching to similar perceptual sti
         
         
         <category>Motor control and action</category>
-        
-      </item>
-    
-      <item>
-        <title>Kinematic mental simulations in abduction and deduction</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Khemlani2013&quot;&gt;Khemlani, S. S., Mackiewicz, R., Bucciarelli, M., &amp;amp; Johnson-Laird, P. N. (2013). Kinematic mental simulations in abduction and deduction. &lt;i&gt;Proceedings Of the National Academy of Sciences of the United States of America&lt;/i&gt;, &lt;i&gt;110&lt;/i&gt;(42), 16766–71. doi:10.1073/pnas.1316275110&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Khemlani et al. conduct a series of experiments in which they have people solve programming-like problems, come up with algorithmic solutions to those problems, and execute existing algorithms. Their experiments operate in a domain that involves train tracks with a set of cars where the problems are to rearrange the cars by sliding them to different sections of the tracks. They also propose a model of how people solve these types of tasks, based on &lt;a href=&quot;/quals/mental%20models/2016/01/04/Johnson-Laird2012.html&quot;&gt;Johnson-Laird’s model theory&lt;/a&gt; but with the extension to &lt;em&gt;kinematic&lt;/em&gt; mental models. Importantly, there are three assumptions that they make about the way in which people use mental models:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Mental models are iconic (i.e., they have the same form as the thing they represent)&lt;/li&gt;
-  &lt;li&gt;Kinematic mental models are based in time (i.e., the sequence of operations that they simulate are thus ordered in time)&lt;/li&gt;
-  &lt;li&gt;Mental models can be schematic (i.e., not necessarily a visual mental image)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The kinematic mental models theory makes several predictions about people’s performance on programming-like tasks:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Solutions that involve more steps, and steps that operate on more objects (operands), will take longer and be more prone to error. Thus a solution that takes 5 steps each operating on a single car should be faster than one that takes 7, but also faster than one that takes 5 steps each operating on two cars.&lt;/li&gt;
-  &lt;li&gt;People should find it easier to generate algorithms that use while loops than algorithms that use for loops, because “naive individuals use simulations to abduce algorithms”. (It’s not really clear to me how this follows?)&lt;/li&gt;
-  &lt;li&gt;People should find it more difficult to abduce algorithms that have higher Kolmogorov complexity.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;Experiment 1 (“problem solving”) had participants solve rearrangement problems. They were able to actually move the cars on the track using a computer interface. Khemlani et al. found that participants made more moves when their model made more moves, and that participants also made more moves as the number of operands increased. They found similar results with response times.&lt;/p&gt;
-
-&lt;p&gt;Experiment 2 (“abduction”) had participants come up with an algorithm to solve each problem (i.e. a description of how to solve the problem, in English). They for each type of problem, they had to solve it for 8 cars, and then for an unspecified number of cars. Participants were close to ceiling in coming up with algorithms for the 8 car problems, but varied on the problems that had an unspecified number of cars (where, as predicted, solutions with a higher Kolgomorov complexity had a lower success rate). Participants also used while loops more frequently.&lt;/p&gt;
-
-&lt;p&gt;Experiment 3 (“deduction”) gave participants a description of the procedure, the intial state of the trains, and asked them to determine what the end result would be after executing the procedure. They attempted to control for amount of information in the descriptions, by making sure that each description was the same length (number of words). They again found that people’s success was correlated with the algorithm’s Kolmogorov complexity.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Creation of an algorithm (abduction) involves three steps: first computing solutions to two specific problems, then recovering the loop that must be performed, and then converting the structure of the solution into a verbal description. The specific solutions are solved using a “partial means-ends analysis”, in which the problem is broken down into subgoals, where the first goal is to get the rightmost car on the right track, and so on. The way their model recovers the loop is to first find repeated sequences of at least two moves in both of the solutions to the specific problems, and then either:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;In the case of a for loop, solve a system of linear equations based on the solutions to the two specific problems.&lt;/li&gt;
-  &lt;li&gt;In the case of a while loop, determine the condition that needs to be satisified for the while loop to halt.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To compute Kolmogorov complexity of an algorithm, they simply take the number of characters in the LISP program and multiplied by the number of bits for each character.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This is a really cool exploration of how people reason about more structured plans such as algorithms. It would be really interesting to see if you coded people’s algorithms in Experiment 2 into actual code, how well they corresponded to the algorithms produced by mAbducer, rather than just comparing the success rate. That is, are people actually coming up with solutions like those predicted by the model theory?&lt;/p&gt;
-
-&lt;p&gt;I also wonder how well an approach based on some type of grammar would work (e.g. something like Kevin Ellis’ paper from NIPS 2015, “Unsupervised Learning by Program Synthesis”). I also wonder how their mAbducer program compares to typical approaches to program induction in general. Are there key differences that the model theory predicts that general program induction algorithms would not predict?&lt;/p&gt;
-
-&lt;p&gt;Khemlani et al. use a very specific notion of “simulation” in this paper, which is essentially the simulation of a computer program: the sequential application of known rules beginning with a given initial state. There are other types of computations that they assume, too (e.g. that are used to solve the problems in the first place), but once specific instances of the programs have been solved, simulations of those programs are used to abduce a general solution to the problem. Simulations of the general solution are then used to perform deduction on new problems.&lt;/p&gt;
-
-&lt;p&gt;One potential issue with the third experiment is that participants didn’t actually come up with the solutions themselves. I wonder if there is something important about the way that people form their mental models: it might be that you can’t just give them a description of the program, but that they actually need to abduce it themselves. If this were the case, I wonder if the accuracies at solving the deduction problems would be higher.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 05 Jan 2016 06:06:28 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/mental%20models/2016/01/05/Khemlani2013.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/mental%20models/2016/01/05/Khemlani2013.html</guid>
-        
-        
-        <category>Mental models</category>
         
       </item>
     
