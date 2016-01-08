@@ -6,9 +6,51 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 07 Jan 2016 18:12:15 -0800</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 18:12:15 -0800</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 20:21:28 -0800</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 20:21:28 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Folk psychology: simulation or tacit theory?</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Stich1992&quot;&gt;Stich, S. P., &amp;amp; Nichols, S. (1992). Folk Psychology: Simulation or Tacit Theory? &lt;i&gt;Mind And Language&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(1-2), 35–71. doi:10.1111/j.1468-0017.1992.tb00196.x&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Stich &amp;amp; Nichols argue against simulation theory in favor of theory theory. They first give an overview of their interpretation of what simulation theory is positing, which seems consistent with what I’ve read so far. They make a particular point about calling the simulation theory &lt;em&gt;off-line simulation&lt;/em&gt; of the decision-making system. That is, they argue that simulation theory says that to run a simulation, the decision-making system is taken off-line. It is fed pretend beliefs and desires, and it outputs a decision, which is then fed to another system which explains and interprets decisions in terms of their inputs. They also clarify what they mean by “theory”, which is (as they put it) in the “wide” sense: that a theory need not necessarily be symbolic/logical, but could take the form of other representations like a neural network as well.&lt;/p&gt;
+
+&lt;p&gt;Stich &amp;amp; Nichols go through a number of arguments for the simulation theory, and give counter evidence to each one.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;What are the rules of the folk psychological theory?&lt;/em&gt; This is interpreting a “theory” in the narrow sense. And besides, not being able to specify the rules doesn’t make the theory invalid (example: language, folk physics).&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Mental simulation models have been successful.&lt;/em&gt; “Simulation” used in the context of “mental simulation” is actually closer to a theory that is ust not rule/sentence like.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Children can’t possibly have as sophisticated a theory as theory theory suggests.&lt;/em&gt; Theory theory doesn’t necessarily posit a theory that is the same type of stuff that you learn in the classroom. Besides, children learn other very complicated things (language, folk physics)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Simulation theory is simpler than theory theory.&lt;/em&gt; Specifying the “control mechanism” for coming up with pretend beliefs and desires is non-trivial. Essentially, in theory-theory, you get the control for free, while in simulation theory, you get the “database” of knowledge for free. They are equally complex theories.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Sometimes we imagine how others behave by imagining ourselves in their situation.&lt;/em&gt; Imagery is not the same thing as simulation. For example, to imagine yourself walking through your house and counting the number of windows, it’s not just running an off-line simulation—the knowledge about the number of windows has to come from somewhere.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Simulation theory is supported by developmental evidence.&lt;/em&gt; It is consistent with the evidence; that doesn’t it predicts it. Theory theory is also consistent with the evidence.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Autistic children are poor at engaging in pretend play and at reasoning about theory of mind.&lt;/em&gt; As in the previous point, simulation might be able to account for this, but so can theory theory.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;After refuting the arguments of off-line simulation theory, Stich &amp;amp; Nichols present a few arguments in favor of theory theory:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;There is developmental data that simulation theory can’t explain.&lt;/em&gt; In particular, there is evidence that children have accurate knowledge about what other children have seen and yet still make incorrect judgments about their beliefs. That is, it seems like children have all the correct inputs that would be used to run an off-line simulation, yet they still come up with the wrong answer, but only for &lt;em&gt;other&lt;/em&gt; people—they give a different answer themselves.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Theory theory is cognitively penetrable.&lt;/em&gt; Simulation theory is not cognitive penetrable. In particular, because it’s a simulation of one’s own behavior, if there are any quirks in our own behavior that we don’t consciously know about, they should still show up in our predictions of other people’s behavior. However, if the theory posited by theory theory doesn’t include these things explicitly, then it will make the wrong predictions because it is cognitively penetrable. There are many examples of cases where people predict that they (or others) would behave in a certain way, but then actually behave differently themselves. Thus the can’t have just been running a simulation.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I agree with pretty much all the points made by Stich &amp;amp; Nichols, though I do think they are a bit vague on the notion of what a theory is. Ideally, even if you can’t specify a set of rules, you should still be able to roughly sketch the mechanism by which it works, or by which it is acquired.&lt;/p&gt;
+
+&lt;p&gt;I do like how Stich &amp;amp; Nichols explicitly contrast offline simulation with other forms of simulation. They state that they don’t think offline simulation is involved at all, which I would probably agree with—though I do think some form of “simulation” probably is used. Perhaps the better term to use here is “emulation” (ala &lt;a href=&quot;/quals/mental%20imagery/2016/01/01/Grush2004.html&quot;&gt;Grush&lt;/a&gt;), to imply that it is a simulation from a &lt;em&gt;model&lt;/em&gt;, not a simulation from &lt;em&gt;oneself&lt;/em&gt;. Such a model could easily be a component in a theory; thus, this notion isn’t at odds with theory theory.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 07 Jan 2016 11:25:00 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Stich1992.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Stich1992.html</guid>
+        
+        
+        <category>Theory of mind</category>
+        
+      </item>
     
       <item>
         <title>The simulation theory: objections and misconceptions</title>
@@ -375,57 +417,6 @@ These stored representations are activated by matching to similar perceptual sti
         <pubDate>Tue, 05 Jan 2016 11:48:31 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/05/Kawato1999.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/05/Kawato1999.html</guid>
-        
-        
-        <category>Motor control and action</category>
-        
-      </item>
-    
-      <item>
-        <title>Temporal and kinematic properties of motor behavior reflected in mentally simulated action</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Parsons1994&quot;&gt;Parsons, L. M. (1994). Temporal and kinematic properties of motor behavior reflected in mentally simulated action. &lt;i&gt;Journal Of Experimental Psychology: Human Perception and Performance&lt;/i&gt;, &lt;i&gt;20&lt;/i&gt;(4), 709–730. doi:10.1037/0096-1523.20.4.709&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Parsons asks the question: how similar are mental simulations of motor actions to actual motor actions themselves? In a series of five experiments, he demonstrates that they correspond quite closely—though they differ in a few revealing ways—supporting the hyothesis that mental simulations do operate on a detailed model of the body and utilize the same type of trajectory optimization/motion planning that the motor system does.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;In all experiments, Parsons showed participants images of left and right hands from six cardinal perspectives and 12 orientations ($30^\circ$, $60^\circ$, $90^\circ$, $120^\circ$, and $150^\circ$; clockwise and counterclockwise).&lt;/p&gt;
-
-&lt;p&gt;In Experiment 1, participants first performed a task in which they had to move their hand into the specified target position. They then performed another task in which they had to determine whether the specified target position depicted a right hand or a left hand (which was hypothesized to elicit mental simulation). Results showed that response times for the movement task and the left-right judgments were nearly identical, and that they increased as the distance between the original hand position and the target posture increased (in trajectory space). The cases where the RTs were less similar between the two tasks was for awkward and uncommon hand positions, in which case the response times for the left-right judgments tended to be longer (perhaps because people have a less good kinematic model of their hands in those positions).&lt;/p&gt;
-
-&lt;p&gt;Experiment 2 was the same as Experiment 1, except that instead of making left-right judgments, participants were told to imagine moving their hand to the target position, thus explicitly engaging them in mental simulation. The results were pretty much the same as in Experiment 1, suggesting that participants in the left-right judgments were indeed using mental simulation.&lt;/p&gt;
-
-&lt;p&gt;Experiment 3 was a control condition in which Parsons controlled for the time to perceive the target. Under this control, participants had RTs that were about 300ms faster on average, and which were especially faster for positions which were more awkward, suggesting that the awkward positions also take more time to perceive.&lt;/p&gt;
-
-&lt;p&gt;Experiments 4 and 5 had participants make left-right judgments (Experiment 4) or move to the specified target position (Experiment 5) but additionally had participants begin with their hands in different initial positions. The idea was to test whether mental simulation began from a canonical body pose, or from the current body pose. Parsons found that the original position did influence RTs in a way that was similar both for the left-right judgments and for movements.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This is such a cool set of experiments. What’s really remarkable about this is that participants can look at a schematized drawing of a hand, map it to their own hand (without looking at their own hand), and make the desired movement. Given the results that people take the same amount of time to make the right-left judgments, or just to explicitly perform the mental simulation, this is fairly strong evidence that people have a detailed mental model of their own body that they can use for motion planning and trajectory optimization.&lt;/p&gt;
-
-&lt;p&gt;One might say that it is not necessarily the case that this mental model need be &lt;em&gt;kinematic&lt;/em&gt;—it could just be that people are determining the pose that they need to reach in configuration space, that they know their current pose in configuration space, and that then they compute some trajectory optimization and execute the resulting plan. But, it wouldn’t really make sense why people would need to do this for left-right judgments: if all it were was that people were trying to reach some point in configuration space, then they would presumably have the information already as to which hand it was. I suppose, though, that even if they have a kinematic model they wouldn’t necessarily &lt;em&gt;need&lt;/em&gt; to do a mental simulation in the left-right task if they’ve already mapped the stimulus onto their body. Or, perhaps, mapping the stimulus onto the body &lt;em&gt;is&lt;/em&gt; the mental simulation? It might be revealing to, instead of controlling for the perception time (as in Experiment 3), have people look at the stimulus and then indicate when they are ready to make the motion. If the perception itself is what is making use of the mental simulation, then that RT should be the same as the RT in the left-right judgments. But that would still just make things more puzzling: how is it that the mental simulation seems to match the actual movement if the point of the mental simulation is to determine how to make the movement?&lt;/p&gt;
-
-&lt;p&gt;To be more precise, in robotics, it seems that the process is something like:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Determine initial and goal states in configuration space.&lt;/li&gt;
-  &lt;li&gt;Perform trajectory optimization to find a path from the start to the goal.&lt;/li&gt;
-  &lt;li&gt;Execute the found trajectory.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So, one could say that a method of solving the right-left judgment would just be the first step of the above process: if you know the goal state, there is no need to actually compute and execute a trajectory. Perhaps the reason why we see something that looks like computation and execution of the trajectory is that we don’t deterministically compute the goal state. Instead, perhaps we form hypotheses about what the goal state is, and then attempt to compute multiple trajectories under these different hypotheses until we find one. If computing the trajectory is linear in the distance of the trajectory, then this should reflect the observed behavior.&lt;/p&gt;
-
-&lt;p&gt;A further question I thought of relates our mental simulation of action to the mental simulation of the motion of objects. Trajectory optimization in robotics tends to usually be in terms of control (i.e., torques); if the same is true in humans, and our mental simulations reflect this, then does that extend to our mental simulation of other objects? That is, do we mentally simulate the &lt;em&gt;control&lt;/em&gt; of those objects (e.g. in mental simulation do we imagine that they are being rotated &lt;em&gt;by&lt;/em&gt; some entity) or just the kinematic motion of those objects? Presumably, it is at least sometimes the control (e.g. if you imagine grasping a coffee cup and taking a sip of coffee), but presumably at other times it is not (e.g. if you imagine a leaf falling from a tree). In the mental rotation case, my intuition is that it really could be either one. Understanding this distinction is going to be an important question, I think.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 05 Jan 2016 08:32:04 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/05/Parsons1994.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/05/Parsons1994.html</guid>
         
         
         <category>Motor control and action</category>
