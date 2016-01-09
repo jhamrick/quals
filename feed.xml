@@ -6,9 +6,72 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 08 Jan 2016 12:23:30 -0800</pubDate>
-    <lastBuildDate>Fri, 08 Jan 2016 12:23:30 -0800</lastBuildDate>
+    <pubDate>Fri, 08 Jan 2016 16:55:36 -0800</pubDate>
+    <lastBuildDate>Fri, 08 Jan 2016 16:55:36 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Why the child&#39;s theory of mind really is a theory</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Gopnik1992&quot;&gt;Gopnik, A., &amp;amp; Wellman, H. M. (1992). Why the Child’s Theory of Mind Really Is a Theory. &lt;i&gt;Mind And Language&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(1-2), 145–171. doi:10.1111/j.1468-0017.1992.tb00202.x&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Gopnik &amp;amp; Wellman lay out a wealth of developmental evidence supporting the theory theory, and describe precisely what they take the theory theory to be and what it would predict. They begin with a definition of “theoretical construct”:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Theoretical constructs are abstract entities postulated, or recruited from elsewhere, to provide a separate causal-explanatory level of analysis that accounts for evidential phenomena… Theoretical constructs need not be definitely unobservable, but they must be appeals to a set of entities removed from, and underlying, the evidential phenomena themselves… Theoretical constructs do not work independently, they work together in systems characterized by laws or structure. (pg. 146-7)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There are two primary characteristics of theories: they are abstract, and they coherent. Because of these two properties, theories are able to generate predictions about a wide range of behavior, including situations that go beyond the data experienced so far. Theories may also produce incorrect predictions, in cases where they do not perfectly match the phenomena being described. Theories additionally provide &lt;em&gt;explanatory depth&lt;/em&gt; because, by definition, they “produce interpretations of evidence, not simply descriptions of evidence and generalizations about it”. Finally, theories can be modified in the face of new, conflicting evidence.&lt;/p&gt;
+
+&lt;p&gt;Gopnik &amp;amp; Wellman describe theory change as follows. First, there is an initial theory. If evidence is encountered that conflicts with this theory, it will initially be ignored as noise, and eventually start to accumulate as ad-hoc auxiliary rules tacked on to the original theory. Eventually, as the original theory gets unweildy, if a new competing theory is encountered or developed, it may replace the old theory. Elements of the new theory may first appear in the auxiliary rules, but its full predictive power is not utilized until it fully subsumes the old theory.&lt;/p&gt;
+
+&lt;p&gt;Gopnik &amp;amp; Wellman argue that this process of theory change is evident in the development of theory of mind in children, particularly between 2.5 and around 4 years of age. There are several stages of development:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;2-year-olds have some understanding of desires and perceptions. However, these concepts are relatively rudimentary and are “nonrepresentational”: desires are “drives towards object” and perceptions are an “awareness of objects”. This leads to simple causal rules like “if X can see an object, and X desires the object, then X will try to get the object”.&lt;/li&gt;
+  &lt;li&gt;At 3, children begin to exhibit some (non-representational) understanding of beliefs, though it does not seem to have much of an effect on their behavior. While it seems that they typically have a notion of belief that directly reflects what is true in the world, there is some evidence that 3-year-olds can acknowledge the idea of a false belief. Even if they might be able to acknowledge the idea of a false belief, though, their theory of how the world works does not include beliefs as a factor in producing actions.&lt;/li&gt;
+  &lt;li&gt;By 4 or 5 years, children seem to have developed a “representational theory of mind” in which desires, perceptions, beliefs, and pretenses are all included as &lt;em&gt;representations&lt;/em&gt; of reality, rather than being reflections of reality itself (i.e., &lt;em&gt;intentional&lt;/em&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Gopnik &amp;amp; Wellman next cite considerable evidence supporting this theory:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Explanations&lt;/strong&gt;: 2-year-old’s answers to questions like “why is she doing that?” tend to reflect desires (“she wants it”), while 3- and 4-year-old’s answers reflect beliefs (“she thinks it’s there”).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Predictions&lt;/strong&gt;: With the initial desire-perception theory, children should be able to predict that desires will differ and that people will do things given that they have a desire. They should also be able to predict the perceptions of other, but not that things might be perceived &lt;em&gt;differently&lt;/em&gt; by multiple people. And, they should not be able to predict anything that relies on the notion that people have different beliefs that may not reflect the true world. Evidence for this comes from the false-belief task, but other types of tasks as well (appearance-reality tasks, questions about sources of beliefs, understanding pictorial representation systems).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Interpretations&lt;/strong&gt;: Also with the initial desire-perception theory, children should initially ignore evidence that is counter to the theory. Indeed, children will misreport evidence they have just heard (e.g. someone saying “I think it is blue”, when it is white).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Transitional phenomena&lt;/strong&gt;: Children seem to initially realize that concepts like perception and desire do not necessarily reflect the world (i.e., they &lt;em&gt;misrepresent&lt;/em&gt; what is true) earlier than they come to the same realization about beliefs. When pressed, 3-year-olds may beging to explain inconsistencies in terms of misrepresentation when those inconsistencies are pointed out to them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Next, Gopnik &amp;amp; Wellman turn to their critique of simulation theory. They focus on two main issues: first, “the centrality of your own mind in any understanding of the minds of others”, and second, “how development should proceed” (pg. 160). The first point is similar to the one made by &lt;a href=&quot;/quals/theory%20of%20mind/2016/01/07/Stich1992.html&quot;&gt;Stich &amp;amp; Nichols&lt;/a&gt; about how a simulation should give the same results for oneself and for others (provided the inputs are correct). For the second point, they argue that ST should predict a developmental trajectory in which children make errors on states that are “hard” to simulate, and that they should originally make “egocentric” errors that reflect an inability to modify their simulations to reflect other people’s states. They give empirical evidence based on these two issues:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;“Three-year-old children make false attributions to themselves, that exactly parallel their false attributions to others.”&lt;/em&gt; From a simulation point of view, it doesn’t make sense why children would make mistakes about their &lt;em&gt;own&lt;/em&gt; mental states if they were just reading off the results from whatever mechanism is used to run the simulations. Additionally, 3-year-olds are good at reporting their mental states in terms of desires and perceptions, but not beliefs. Why would the simulation account predict &lt;em&gt;a priori&lt;/em&gt; for this to be the case? What is special about beliefs in the simulation case that makes them harder to simulate?&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;“Three-year-old children make correct non-egocentric attributions to themselves and others for some mental states.”&lt;/em&gt; Children can report that other people have different perceptions and desires than their own, so in terms of the simulation account, they are clearly able to adjust their simulations to incorporate other people’s perceptions and desires. Why can they not do the same for beliefs?&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;“Children refer to only some mental states in their explanations, and refer to different mental states at different stages of their development.”&lt;/em&gt; Younger children tend to give explanations about other people’s behavior in terms of desires, while older children appeal to beliefs. And, in either of these scenarios, children are preferring beliefs in desires over “fears and fantasies, pains and sensations or any of a vast number of experientially available mental states”. What about simulation theory would predict that they answer in this way? Why is “she fears that kitty is lost” a dispreferred explanation to “she wants the kitty” or “she thinks the kitty is there”? In theory theory, desires and beliefs are core constructs, and thus make sense as the types of concepts that children appeal to.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;“Children’s understanding of other psychological phenomena changes in parallel with their understanding of false belief.”&lt;/em&gt; While three-year-olds can report their beliefs, they seem unable to report &lt;em&gt;how&lt;/em&gt; they got that information, even if it was just told to them. Additionally, three-year-olds seem to be unable to gauge the reliability of a source of information (e.g. distinguishing between someone who knows, vs. someone who is just guessing). Theory theory predicts these other types of behavior because knowing where information comes from and how reliable it is is related to the idea of seeing beliefs as representational—i.e., separate entities from what they correspond to in the world. It is not clear why simulation theory would &lt;em&gt;a priori&lt;/em&gt; predict these types of results.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;In reading this paper I had a bit of a small epiphany regarding why simulation seems to be such a loaded word, and why it seems to be such a complicated issue (not just in terms of theory of mind, but in general).&lt;/p&gt;
+
+&lt;p&gt;Gopnik &amp;amp; Wellman seem to really be proposing what is a &lt;em&gt;computational-level&lt;/em&gt; analysis of theory of mind: we begin with theories based on our initial capabilities (i.e., perception) and urges (i.e., desires). The problem is then to update those theories as new information comes along. The specific changes that Gopnik &amp;amp; Wellman predict are really predictions about how a particular solution to that problem ends up playing out.&lt;/p&gt;
+
+&lt;p&gt;The simulation theorists (&lt;a href=&quot;/quals/theory%20of%20mind/2016/01/07/Gordon1992.html&quot;&gt;Gordon&lt;/a&gt; and &lt;a href=&quot;/quals/theory%20of%20mind/2016/01/08/Goldman1992.html&quot;&gt;Goldman&lt;/a&gt;) are proposing a squarely &lt;em&gt;algorithmic-level&lt;/em&gt; account. It is highly mechanistic and focuses on the solution as a particular algorithm (the one that is already implemented by our brains), though it is vague on the specific representation of inputs and outputs (beliefs, desires, perceptions, decisionse—but it is not clear exactly what forms those take).&lt;/p&gt;
+
+&lt;p&gt;In constrast, simulation &lt;em&gt;can&lt;/em&gt; actually be the (approximate) solution to a computational-level problem. In physical simulation, the computational-level problem can be expressed analytically as a differential equation, but it cannot be solved analytically. Numerical simulation, though an approximation, is the only known way to solve the problem short of setting up the actual physical situation in the real world. In probabilistic simulation, the story is similar. The computational-level problem can be expressed analytically, but often cannot be solve analytically. Monte-Carlo simulation is one particular class of methods for approximating the solution.&lt;/p&gt;
+
+&lt;p&gt;Thus, sometimes simulation is the correct approach when it is the approximate solution to a computational-level problem. However, it is not &lt;em&gt;always&lt;/em&gt; the right answer, and is certainly not the right solution &lt;em&gt;a priori&lt;/em&gt;. In particular, I think it is a mistake to talk about simulation as being the right solution just on the basis of having a black-box mechanism at our disposal. Just because a tool might be available for use doesn’t make it the &lt;em&gt;right&lt;/em&gt; tool to use. I think instead of talking about whether simulation is the mechanism that is used by the mind in some particular case, the discussion should be about what the &lt;em&gt;best&lt;/em&gt; thing to use would be, and whether that happens to be simulation or not.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 08 Jan 2016 06:10:48 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Gopnik1992.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Gopnik1992.html</guid>
+        
+        
+        <category>Theory of mind</category>
+        
+      </item>
     
       <item>
         <title>In defense of the simulation theory</title>
@@ -396,29 +459,6 @@ These stored representations are activated by matching to similar perceptual sti
         <pubDate>Wed, 06 Jan 2016 04:47:29 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/06/White2012a.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/06/White2012a.html</guid>
-        
-        
-        <category>Motor control and action</category>
-        
-      </item>
-    
-      <item>
-        <title>Prediction precedes control in motor learning</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Flanagan2003&quot;&gt;Flanagan, R. R., Vetter, P., Johansson, R. S., &amp;amp; Wolpert, D. M. (2003). Prediction precedes control in motor learning. &lt;i&gt;Current Biology&lt;/i&gt;, &lt;i&gt;13&lt;/i&gt;(2), 146–150. doi:10.1016/S0960-9822(03)00007-1&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Flanagan et al. describe an experiment in which participants must grip an object with their index finger and thumb, and move it in a straight line to a target. The dynamics of the object were modified so that when they moved it in the horizontal plane, a proportional vertical force was applied to the object. Thus, to learn to move it in a straight line, participants had to adapt to the vertical force.&lt;/p&gt;
-
-&lt;p&gt;Flanagan et al. found that participants took a long time (about 70 trials) before they were able to fully adjust their trajectories to be straight. However, they took much less time (about 10 trials) to adjust the force with which they gripped the object to match that of the corresponding load force. These results suggest that there are two internal models (one for the grip force, and one for the arm trajectory) that are being learned at separate rates. Specifically, Flanagan et al. suggest that in the first case, it is a forward kinematic model that is being learned, while in the second case, it is a inverse dynamics model that is being learned. This is consistent with the demands of the task: the novel dynamics of the object require learning a new mapping from desired trajectory to motor commands (the inverse model), but they do not require learning a new mapping for controlling the load force. Rather, the motor system needs only to predict the load force so that it can appropriately adjust for it.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This paper basically answers the question I ended with in &lt;a href=&quot;/quals/motor%20control%20and%20action/2016/01/05/Kawato1999.html&quot;&gt;Kawato’s review&lt;/a&gt;: learning operates independently in the forward and inverse models. Flanagan et al. suggest that, computationally, this may be able to be explained by something like &lt;a href=&quot;/quals/physical%20reasoning%20with%20dynamics%20models/2015/12/20/Nguyen-Tuong2011.html&quot;&gt;distal teacher learning&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 05 Jan 2016 13:30:48 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/05/Flanagan2003.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/motor%20control%20and%20action/2016/01/05/Flanagan2003.html</guid>
         
         
         <category>Motor control and action</category>
