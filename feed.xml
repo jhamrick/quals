@@ -6,9 +6,62 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 08 Jan 2016 23:58:47 -0800</pubDate>
-    <lastBuildDate>Fri, 08 Jan 2016 23:58:47 -0800</lastBuildDate>
+    <pubDate>Sat, 09 Jan 2016 13:34:57 -0800</pubDate>
+    <lastBuildDate>Sat, 09 Jan 2016 13:34:57 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>&quot;What if...&quot;: The use of conceptual simulations in scientific reasoning</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Trickett2007&quot;&gt;Trickett, S. B., &amp;amp; Trafton, J. G. (2007). “What if\ldots”: The Use of Conceptual Simulations in Scientific Reasoning. &lt;i&gt;Cognitive Science&lt;/i&gt;, &lt;i&gt;31&lt;/i&gt;(5), 843–875. doi:10.1080/03640210701530771&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Trickett &amp;amp; Trafton experimentally explore the use of &lt;em&gt;conceptual simulations&lt;/em&gt; by expert scientists when reasoning about problems in their domain of expertise. They have two main hypotheses: that conceptual simulations are a core strategy used in scientific reasoning, and that they are used in particular to reason about situations in which there are high levels of uncertainty (e.g. partial knowledge, violation of expectation, etc.). They define conceptual simulation as:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;…a three-step process that consists of first, visualizing some situation; second, carrying out one or more operations on it; and third, seeing what happens. The third part of the process—seeing what happens—is crucial. It distinguishes “what if” thinking from purely imagining because during this third phase &lt;em&gt;causal reasoning&lt;/em&gt; occurs to the results of the manipulation(s) of the second phase.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In their experiments, Trickett &amp;amp; Trafton found that scientists do spontaneously use conceptual simulation and that they use it in cases where their expectations are violated (i.e. they have more uncertainty):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The research shows how conceptual simulation helps resolve uncertainty: conceptual simulation facilitates reasoning about hypotheses by generating an altered representation under the purported conditions expressed in the hypothesis and providing a source of comparison with the actual data, in the process of alignment by similarity detection. (pg. 866)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Additionally, the results of these experiments combined with other results from the literature suggest that conceptual simulations are used in situations where there the answer truly is unknown. In other cases, people can rely on background knowledge, existing models, etc.:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Frequently, studies of experts employ problems that are well-understood for an expert and that can be solved by recalling either this very problem (i.e., by model-based search) or another that shares the same deep structure (i.e., by analogy; cf. Chi et al., 1981). In contrast, our studies show experts reasoning about problems for which neither they nor anyone else knows the answer. (pg. 867)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That is, conceptual simulation is a type of model &lt;em&gt;construction&lt;/em&gt; (pg. 866).&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;In Experiment 1, Trickett &amp;amp; Trafton performed an &lt;em&gt;in vivo&lt;/em&gt; study of scientists across several different domains of science. The scientists were filmed while they analyzed their own data, either individually (with a verbal protocol) or collaboratively. The utterances of the scientists were coded for instances of conceptual simulation, for hypotheses, for and for other scientific reasoning strategies (data focus, empirical test, consult a colleague, tie-in with theory and domain knowledge, analogy, or alignment). They found that data focus was the most commonly used strategy. The next most frequently used strategies were tie-in with theory, alignment, and conceptual simulation; these were used at approximately the same frequency.&lt;/p&gt;
+
+&lt;p&gt;In analyzing the relationship between strategies, they found that conceptual simulations were almost always followed by a process of alignment, which was then usually either the end of the chain of reasoning, or which was followed by a return to data focus. Trickett &amp;amp; Trafton hypothesized that this sequence of conceptual simulation followed by alignment was used “to link the internal (result of the conceptual simulation) and external (phenomena in the data) representations” (pg. 858).&lt;/p&gt;
+
+&lt;p&gt;They additionally coded the data for hypotheses that were generated either based on evidence that violated expectations or which was consistent with expectations. They found that conceptual simulation more frequently followed violation of expectation hypotheses than those that did not have a violation of expectation, suggesting that the scientists used conceptual simulation in situations where they were more uncertain.&lt;/p&gt;
+
+&lt;p&gt;To causally test the previous hypothesis (that conceptual simulations are used in situations with higher uncertainty), Trickett &amp;amp; Trafton ran a second experiment. In Experiment 2, they recruited expert cognitive psychologists and gave them different scenarios and results of phenomena they were familiar with. The results were either consistent with the given scenario (Expectation Confirmation, EC) or inconsistent (Expectation Violation, EV). The scientists were instructed to engage in a process of explaining the data, and again were recorded doing so. Consistent with the results of Experiment 1, they found that conceptual simulations were used more frequently in the EV condition than in the EC condition, at a rate of approximately 2:1.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;These types of “conceptual simulations”, as well as thought experiments like those described by &lt;a href=&quot;/quals/thought%20experiments/2016/01/08/Gendler1998.html&quot;&gt;Gendler&lt;/a&gt;, are really fascinating in that they seem to be qualitatively a very different sort of simulation than, for example, motor simulation or even certain types of mental imagery (like that which is used in language understanding). I think a relevant question is: are such types of conceptual simulations drawing on the same types of simulation processes that serve lower levels of reasoning? I would expect the answer to be “sometimes”, but I don’t have a good intuition for why certain low-level simulations would be available for high-level conceptual reasoning (e.g. imagery) while others wouldn’t (e.g. accurate simulation of physics via the motor system).&lt;/p&gt;
+</description>
+        <pubDate>Sat, 09 Jan 2016 04:33:40 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Trickett2007.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Trickett2007.html</guid>
+        
+        
+        <category>Thought experiments</category>
+        
+      </item>
     
       <item>
         <title>Galileo and the indispensability of scientific thought experiment</title>
@@ -431,49 +484,6 @@
         <pubDate>Thu, 07 Jan 2016 04:18:24 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning/2016/01/07/Zago2005.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning/2016/01/07/Zago2005.html</guid>
-        
-        
-        <category>Physical reasoning</category>
-        
-      </item>
-    
-      <item>
-        <title>Physical imagery: kinematic versus dynamic models</title>
-        <description>&lt;p&gt;(missing reference)&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Schwartz asks: is physical imagery based on kinematics or dynamics? Specifically, does it only rely on spatial information (kinematic model, KM), or does it also incorporate information about things like forces (dynamic model, DM)? Schwartz shows through a series of four experiments that physical imagery is consistent with the dynamics account.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;In Experiment 1, participants completed two tasks in one of two orders. One task was the “judge” task, which was to view two differently size glasses of water (with the same level of water) and to determine which glass needed to tilt farther for the water to spill out. The other task was the “tilt” task, in which participants physically rotated empty glasses with their eyes closed and imagined the water in the glasses. The hypothesis was that if people were using KM, if people performed the “judge” task before the “tilt” task, then their judgments should affect the outcome of the tilt (as the tilt would just be based on a spatial outcome). If people were using DM, then doing the “judge” task before the “tilt” task should interfere with people’s mental imagery (which based on previous work is accurate for tilting but inaccurate for judging). They found the results that were consistent with DM: when tilting first, people (correctly) tilted the thin glass further, but when judging first, they either tilted the wide glass further or tilted the two glasses the same. People were almost entirely incorrect in the explicit judgments, and judgments did not correspond to tilts.&lt;/p&gt;
-
-&lt;p&gt;In Experiment 2, participant performed the “tilt” task but were told to either imagine that the liquid in the glass was water or molasses. The hypothesis was that if people are using KM, then the type of liquid should have no effect; if they are using DM, then they should tilt the molasses glasses further, because the molasses moves more slowly than water. The results were again consistent with the DM account. People tilted the thin glasses further than wide glasses (as expected) and also turned the molasses glasses further than the water glasses. Schwartz makes an important point in the discussion of this experiment:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;People rely on the temporal coordinations of physical imagery to allow inferences to emerge; they do not first decide what the inference should be and then adjust the timing of things to portray that inference. (pg. 449)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In Experiment 3, Schwartz had people tilt glasses normally, or tilt them starting from a horizontal position. He also had people perform the tasks lying down. In addition to the tilting task, Schwartz had people rate the quality of their mental imagery, in order to gauge how well people were able to imagine the water in the glass. The idea was to see whether gravity would have an effect on people’s ability to perform the task. He found that, as before, people were able to perform the task when both they and the glass were upright. Interestingly, people could also perform the task if they were lying down, provided the glass was still upright with respect to gravity. They could not perform the task if the glass was horizontal, saying things like “the water began to pour out when I started to tilt the glass” (pg. 452). In terms of the quality of their imagery when the glass was sideways, it was typically high initially (before they started tilting), but image quality degraded as they began the glass tilt. These results also support the DM account.&lt;/p&gt;
-
-&lt;p&gt;Experiment 4 looked at another manipulation to test how perceptual information affects imagery. In this experiment, Schwartz had regular glasses and weighted glasses, and hypothesized that people would turn the weighted cups less than the regular cups because the extra weight from the glass introduces a torque that increases as the amount of rotation increases. In particular, as the water level decreases, people should increasingly under rotate because they have to rotate further into the torque. As predicted, this is what Schwartz found. He also ran a control version in which he had people rotate the glasses to a specified rotation (without water, 45 degrees). People were able to perform this task nearly perfectly, suggesting that the results from the main experiment were not due to people’s inability to represent the angle of the glass. Rather, Schwartz suggests that the effect is due to a relationship between the rate of work exerted in turning the glass and rate of change of the water. As the class is turned, the rate of work increases, causing the water to change more quickly, and thus causing people to underrotate.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;These experiments indicate that dynamic information is clearly incorporated in our ability to visualize objects and our actions on those objects. Schwartz makes the argument that, contrary to other mental imagery accounts, we do not represent transformations by computing the target spatial orientation, but that we represent the control and apply that control until the orientation is achieved. I like this account, but I still don’t quite know how it fits into the mental &lt;em&gt;rotation&lt;/em&gt; account. It cannot be that people just randomly pick a direction of rotation, as then their response times would average out to be constant.&lt;/p&gt;
-
-&lt;p&gt;Perhaps, as argued by &lt;a href=&quot;/quals/mental%20imagery/2015/12/31/Just1976.html&quot;&gt;Just and Carpenter&lt;/a&gt;, people do rely on some sort of feature matching in order to determine the direction of rotation—but not the final orientation. Then, they apply the relevant control in order to move the shape in that direction until they match the correct orientation. It’s still not clear to me exactly how you would tell if you’ve reached the correct orientation… I suppose if people only rotate one part of the shape, then that local piece would be easy to compare. Then, once the local rotation is found, people presumably know what the angle is and can rotate the rest of the shape to that angle, and don’t necessarily need to provide the control.&lt;/p&gt;
-
-&lt;p&gt;The control account is very compelling, but I wonder if there are really some cases where we use purely visual imagery, and other cases where we use dynamic imagery. For example, in the mental rotation case I just described, could one component of that be using dynamic imagery, while another component just uses spatial imagery? Would it be possible to test for this? Do these two cases differ in important ways (i.e., does it really matter if we only use one or the other)? I would expect that it does. I have read a lot of stuff in robotics that is based on knowing the goal state and applying control to get there, but I have read less about simply applying control until some conditions are satisfied (i.e. it is not explicitly a goal state in terms of pose). I need to think more about how these two things are different (or if they are different at all). Perhaps the latter isn’t really actually that different—it’s just that some higher level planner is making the goal states be not very far away from the current state.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 06 Jan 2016 14:33:50 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning/2016/01/06/Schwartz1999.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning/2016/01/06/Schwartz1999.html</guid>
         
         
         <category>Physical reasoning</category>
