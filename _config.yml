@@ -11,5 +11,5 @@ highlighter: rouge
 gems: ['jekyll/scholar']
 
 # Build settings
-exclude: ['convert_notebook.sh', 'nbconvert-jekyll-post.tpl', 'nbconvert_utils.py', 'nbconvert_config.py', 'readings', 'Makefile']
+exclude: ['_drafts', 'convert_notebook.sh', 'nbconvert-jekyll-post.tpl', 'nbconvert_utils.py', 'nbconvert_config.py', 'readings', 'Makefile']
 include: ['readings.pdf']
