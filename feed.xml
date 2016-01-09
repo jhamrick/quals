@@ -6,9 +6,82 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 08 Jan 2016 18:54:03 -0800</pubDate>
-    <lastBuildDate>Fri, 08 Jan 2016 18:54:03 -0800</lastBuildDate>
+    <pubDate>Fri, 08 Jan 2016 23:58:47 -0800</pubDate>
+    <lastBuildDate>Fri, 08 Jan 2016 23:58:47 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Galileo and the indispensability of scientific thought experiment</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Gendler1998&quot;&gt;Gendler, T. S. (1998). Galileo and the Indispensability of Scientific Thought Experiment. &lt;i&gt;The British Journal For the Philosophy of Science&lt;/i&gt;, &lt;i&gt;49&lt;/i&gt;(3), 397–424.&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Gendler argues that thought experiments are important and justified for the use of scientific inquiry, using Galileo’s thought experiment demonstrating that two objects with different masses fall at the same rate. The thought experiment goes, imagine that two objects with different weights are strapped together. Because the lighter object falls slower than the heavier object, it must slow the heavier object down, and thus the speed that they fall together must be somewhere in between the speed of the heavy object alone and the light object alone. But, together, they also have a greater mass, meaning that together they should fall faster than the heavy object alone. Thus, for there to not be a contradiction, the objects must actually fall at the same speed.&lt;/p&gt;
+
+&lt;p&gt;Gendler addresses the claim that thought experiments are just another form of deductive/inductive reasoning from a set of explicit premises, and explains what they add over and above pure argumentation. Specifically, she argues against the &lt;em&gt;Elimination Thesis&lt;/em&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;The Elimination Thesis&lt;/strong&gt;: Any conclusion reached by a (successful) scientific thought experiment will also be demonstrable by a non-thought-experimental argument. (pg. 398)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;She breaks the Elimination Thesis down into two separate claims:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;The Dispensibility Thesis&lt;/strong&gt;: Any good scientific thought experiment can be replaced, without loss of demonstrative force, by a non-thought-experimental argument. (pg. 401)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;and&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;The Derivativity Thesis&lt;/strong&gt;: The justificatory force of any good scientific thought experiment can only be explained by the fact that it can be replaced, without loss of demonstrative force, by a non-thought-experimental argument. (pg. 401)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;First, Gendler rephrases the thought experiment in terms of a few propositions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;(1) Natural speed is mediative [averaging].&lt;/li&gt;
+  &lt;li&gt;(2) Weight is additive.&lt;/li&gt;
+  &lt;li&gt;(3) Natural speed is not directly proportional to weight.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Next, she goes about disproving the Dispensibility Thesis by giving an example set of alternate premises that an Aristotelian might adhere to, given their existing belief that objects fall at the same weight:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;(4) Natural speed is not physically determinate for strapped-bodies.&lt;/li&gt;
+  &lt;li&gt;(5) Weight is not physically determinate for strapped-bodies.&lt;/li&gt;
+  &lt;li&gt;(6) Natural speed and weight are mediative for strapped-bodies that are &lt;em&gt;united&lt;/em&gt; (two objects). Natural speed and weight are additive for strapped-bodies that are &lt;em&gt;unified&lt;/em&gt; (one object).&lt;/li&gt;
+  &lt;li&gt;(7) Natural speed and weight for strapped-bodies are determined by a &lt;em&gt;degree of connectedness&lt;/em&gt; ($C$) such that the speed/weight of $B_1$-strapped-to-$B_2$ where $B_1$ has $w_1$ and $B_2$ has $w_2$ will be: $C(w_1+w_2)+(1-C)(w_1+w_2)/2$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That is, the Aristotelian takes this “degree of connectedness” as being a key relevant property, and thus is able to preserve the idea that speed and weight are proportional. Of course, this claim seems a bit ridiculous, and that is because, as Gendler claims, the thought experiment is revealing to us tacit assumptions that we did not realize we had:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;(8) Natural speed and weight are physically determined.&lt;/li&gt;
+  &lt;li&gt;(9) Entification [number of objects/entities that something counts as] is not physically determined.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;However, it is important to note that “prior to the thought experiment, the Aristotelian is explicitly committed to the &lt;em&gt;negation&lt;/em&gt; of (3), and this background commitment serves as a filter through which apparently contrary evidence will inevitably be reinterpreted” (pg. 409). Thus, it does not necessarily follow that anyone given (1) and (2) would reach the conclusion of (3)—particularly if they already thought (3) was false, they would look for ways of explaining away or disproving (1) and (2) so that (3) would remain false.&lt;/p&gt;
+
+&lt;p&gt;Next, Gendler moves on to disproving the Derivativity Thesis by showing that through the thought experiment knowledge has been gained, both in the sense that something new has been learned, and that this new knowledge is justified.&lt;/p&gt;
+
+&lt;p&gt;The first part of this argument (that something new has been learned) is a straightforward claim: presumably, altering one’s beliefs so that they &lt;em&gt;negate&lt;/em&gt; a piece of knowledge counts as having learned something “new”, as it is not simply a combination of previous beliefs. But even more importantly, the Aristotelian is led to think of speed as a different type of concept entirely: rather than being a derivative of weight, it is something else. As Gendler puts it, “it brings the Aristotelian to recognize the inadequacy of his conceptual framework for dealing with phenomena which—through the contemplation of this imaginary case—he comes to recognize as always having been part of his world.” (pg. 412)&lt;/p&gt;
+
+&lt;p&gt;The second part of the argument (that the knowledge is justified) is trickier. Gendler asks, “Why should we think that our pre-theoretical beliefs about the structure of the physical world are reliable?” (pg. 414). She doesn’t really give an answer to this question, but does argue that we do have (implied veridical) knowledge of the world, but it is not accessible by argument alone: it requires something like a thought experiment to tap into it.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This is a somewhat different take on the notion of simulation than what I’ve been thinking about so far. Although Gendler doesn’t refer to thought experiments as simulations per se, they are related in the sense of being a mental reproduction of something in the world.&lt;/p&gt;
+
+&lt;p&gt;I have more thoughts about this, but I’m too tired tonight to get them in a coherent enough form to write down. I will include them on my notes for the other papers in this topic (thought experiments) tomorrow.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 08 Jan 2016 12:31:41 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/08/Gendler1998.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/08/Gendler1998.html</guid>
+        
+        
+        <category>Thought experiments</category>
+        
+      </item>
     
       <item>
         <title>Against simulation: the argument from error</title>
@@ -401,41 +474,6 @@
         <pubDate>Wed, 06 Jan 2016 14:33:50 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/physical%20reasoning/2016/01/06/Schwartz1999.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning/2016/01/06/Schwartz1999.html</guid>
-        
-        
-        <category>Physical reasoning</category>
-        
-      </item>
-    
-      <item>
-        <title>Representing statics as forces in equilibrium</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Freyd1988&quot;&gt;Freyd, J. J., Pantzer, T. M., &amp;amp; Cheng, J. L. (1988). Representing Statics as Forces in Equilibrium. &lt;i&gt;Journal Of Experimental Psychology: General&lt;/i&gt;, &lt;i&gt;117&lt;/i&gt;, 395–407. doi:dx.doi.org/10.1037/0096-3445.117.4.395&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Freyd et al. hypothesize that the mind represents dynamic forces, even for static scenes. In particular, they point out that in static scenes, it is not truly the case that there are no forces: it is just that forces are in equilibrium. They run a series of four experiments to test this hypothesis, finding that people’s memory for static objects is distorted in the direction that those objects would move if they were unsupported.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;In Experiment 1, Freyd et al. showed participants a scene with a plant either on a table or hanging from a hook for 250ms. The scene was removed for 250ms at which point an identical scene was showed for 250ms, except that the table or hook was removed. The scene was again removed for 250ms, and then a new scene was shown which was either (1) the same, (2) different, with the plant moved slightly upwards, or (3) different, with the plant moved slightly downwards. Participants had to determine whether the last scene was the same as the original one or not. They found that people were quite accurate at determining “same” trials (8-13% error) and worse at detecting “down” trials (57% error) than “up” trials (37% error).&lt;/p&gt;
-
-&lt;p&gt;Experiment 2 was a control in which Freyd et al. never showed any form of support. The results showed basically no difference between the “down” trials (33%) vs. the “up” trials (34%). Interestingly, though, the error rate for the “same” trials was higher than in Experiment 1 (26%).&lt;/p&gt;
-
-&lt;p&gt;Experiment 3 was similar to Experiments 1 and 2, except that they used a different display (a lock hanging from a hook) and tested different distances from the true position. This was done in order to get a more fine-grained estimate of the distortion in people’s memories. As in Experiments 1 and 2, they found distortions when there was support, and that the shift was positive (i.e. “down” trials had more error) when there was support and that it was close to zero when there was no support.&lt;/p&gt;
-
-&lt;p&gt;In Experiment 4, Freyd et al. tested another new display, this time with a block resting on a spring. This allowed them to test for distortions in memory both in the upward and downward directions. There were two conditions: one in which there was initially no block (which would predict a downward shift, as the spring should compress), and one in which there was initially a block (which would predict an upward shift, as the spring should decompress). The results supported the predicted direction of memory distortions.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;These are a cool set of results, related to representational momentum, that indicate that people have strong perceptual expectations about the way that objects should move. In particular, I think the results of Experiment 4 are really striking: it’s not just that people expect things to move down due to gravity, but that they expect them to move in the way they actually would. I expect you would find similar results with objects that typically move up (e.g. balloons). I also wonder if you would find these effects if they depended on higher-level knowledge about object properties (such as mass). For example, in the spring experiment, if you knew the block was extremely light (and thus would not compress the spring), would the memory distortion still take place?&lt;/p&gt;
-</description>
-        <pubDate>Wed, 06 Jan 2016 07:09:25 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning/2016/01/06/Freyd1988.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning/2016/01/06/Freyd1988.html</guid>
         
         
         <category>Physical reasoning</category>
