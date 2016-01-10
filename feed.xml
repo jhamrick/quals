@@ -6,13 +6,63 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 09 Jan 2016 13:34:57 -0800</pubDate>
-    <lastBuildDate>Sat, 09 Jan 2016 13:34:57 -0800</lastBuildDate>
+    <pubDate>Sat, 09 Jan 2016 16:24:23 -0800</pubDate>
+    <lastBuildDate>Sat, 09 Jan 2016 16:24:23 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
+        <title>The role of imagistic simulation in scientific thought experiments</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Clement2009&quot;&gt;Clement, J. J. (2009). The Role of Imagistic Simulation in Scientific Thought Experiments. &lt;i&gt;Topics In Cognitive Science&lt;/i&gt;, &lt;i&gt;1&lt;/i&gt;(4), 686–710. doi:10.1111/j.1756-8765.2009.01031.x&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Clement poses the &lt;em&gt;fundamental paradox of thought experiments&lt;/em&gt; as being “How can findings that carry conviction result from a new experiment conducted entirely within the head?” (pg. 687). He attempts to provide a resolution to this paradox based on the idea of “imagistic simulation” (a.k.a. mental simulation, mental imagery, etc.) with evidence provided through a case study of a single expert subject (S2). S2 is posed with the following “spring problem”:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A weight is hung on a spring (Fig. 1). The original spring is replaced with a spring made of the same kind of wire, with the same number of coils, but with coils that are twice as wide in diameter. Will the spring stretch from its natural length more, less, or the same amount under the same weight? (Assume the mass of the spring is negligible). Why do you think so? (pg. 689)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Clement specifies his definition of “thought experiment” (TE) as being “the act of considering an untested, concrete system (the ‘experiment’ or case) and attempting to predict aspects of its behavior” (pg. 690-1). He isolates a number of TEs produced by S2, and analyzes the use of imagistic simulation in those TEs. He finds that S2 spontaneously engaged in “personal action projection (spontaneously redescribing a system action in terms of a human action) consistent with the use of kinesthetic imagery, depictive getures (gestures that depict objects, forces, locations, or movements of entities), and imagery reports” (pg. 694). Some of these are characteristic of using static imagery, but others are characteristic of &lt;em&gt;dynamic&lt;/em&gt; imagery.&lt;/p&gt;
+
+&lt;p&gt;To explain the use of dynamic imagery, Clement appeals to the idea of &lt;a href=&quot;https://en.wikipedia.org/wiki/Motor_program#Schmidt.E2.80.99s_schema_theory&quot;&gt;motor schema theory&lt;/a&gt; in which imagistic simulations are driven by the use of motor programs/schema. Specifically, he identifies four possible components to an imagistic simulation which allow such simulations to apply to situations which have not previously been encountered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Applying a schema to a use outside its normal domain&lt;/li&gt;
+  &lt;li&gt;Converting implicit knowledge into explicit knowledge&lt;/li&gt;
+  &lt;li&gt;Including spatial reasoning&lt;/li&gt;
+  &lt;li&gt;Combining multiple schemas into a &lt;em&gt;compound simulation&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Additionally, Clement argues that imagistic simulations are used to generate “enhanced” imagery:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;…the main source of conviction in the simulations is the tapping of implicit knowledge embedded in motor schemas and its conversion into explicit knowledge. The extreme case makes differences in implicit expectations larger and more ‘perceivable’ in this case. (pg. 698)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Clement argues that this formulation of imagistic simulation resolves the TE paradox:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;To address the TE paradox, the idea of perceptual motor schemas running imagistic simulations, and the four more specific sources of conviction within imagistic simulations… can account for ways that a TE can &lt;em&gt;feel&lt;/em&gt; empirical (via the inspection of imagery) or necessary (via confident schema extension or spatial reasoning). Yet these processes actually involve a considerable amount of nonformal reasoning and inference that goes beyond prior observations. (pg. 704)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In discussing the case study with S2, Clement also touches on the distinction between evaluative (disconfirmatory/confirmatory) and generative thought experiments.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I like this characterization of what thought experiments (and perhaps, even, mental simulations more generally) are; I think Clement is right in tying the use of thought experiments to action &lt;em&gt;and&lt;/em&gt; perception.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 09 Jan 2016 07:35:52 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Clement2009.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Clement2009.html</guid>
+        
+        
+        <category>Thought experiments</category>
+        
+      </item>
+    
+      <item>
         <title>&quot;What if...&quot;: The use of conceptual simulations in scientific reasoning</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Trickett2007&quot;&gt;Trickett, S. B., &amp;amp; Trafton, J. G. (2007). “What if\ldots”: The Use of Conceptual Simulations in Scientific Reasoning. &lt;i&gt;Cognitive Science&lt;/i&gt;, &lt;i&gt;31&lt;/i&gt;(5), 843–875. doi:10.1080/03640210701530771&lt;/span&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;span id=&quot;Trickett2007&quot;&gt;Trickett, S. B., &amp;amp; Trafton, J. G. (2007). “What if…”: The Use of Conceptual Simulations in Scientific Reasoning. &lt;i&gt;Cognitive Science&lt;/i&gt;, &lt;i&gt;31&lt;/i&gt;(5), 843–875. doi:10.1080/03640210701530771&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
 
@@ -440,53 +490,6 @@
         
         
         <category>Representational momentum</category>
-        
-      </item>
-    
-      <item>
-        <title>Visual perception and interception of falling objects: a review of evidence for an internal model of gravity</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Zago2005&quot;&gt;Zago, M., &amp;amp; Lacquaniti, F. (2005). Visual perception and interception of falling objects: a review of evidence for an internal model of gravity. &lt;i&gt;Journal Of Neural Engineering&lt;/i&gt;, &lt;i&gt;2&lt;/i&gt;(3), S198–208. doi:10.1088/1741-2560/2/3/S04&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this article, Zago &amp;amp; Lacquaniti review evidence for the hypothesis that the brain has an internal model of gravity. They begin by layout out the computational problem, which is to solve for &lt;em&gt;time-to-contact&lt;/em&gt; (TTC). Specifically, if an object starts at height $h_0$, and follows the equation $h(t)=h_0-0.5gt^2$, then solving for TTC involves solving for $h(t)=0$.&lt;/p&gt;
-
-&lt;p&gt;Next, Zago &amp;amp; Lacquaniti discuss evidence from visual perception that people take gravity into account. They summarize some work from Kim &amp;amp; Spelke (1992) suggesting that infants are sensitive to the downward acceleration of gravity. Adults are also sensitive to gravity in visual perception, with evidence that it affects the perception of causality and naturalness of motion, absolute distance and size of falling objects, and even biological motion (details aren’t given for these examples, though, just citations).&lt;/p&gt;
-
-&lt;p&gt;Zago &amp;amp; Lacquaniti also give evidence that people take gravity into account when trying to catch a falling ball. For example, if a ball is dropped directly over a person’s hand, muscle activity can be detected just before the ball reaches the hand (with a delay accounting for processing of the motor system), and that the time this activity is detected is consistent even if the ball is dropped from different heights. The expected mass of the ball affected the magnitude of the muscle activity, but not the timing. Similar effects were shown even when people didn’t have visual access to the ball, though in these cases it was a reflex behavior, rather than anticipatory behavior. Still, the results indicate that “subjects are able to reach an internal estimate of the expected duration of fall even in the absence of vision, as demonstrated by the fact that they can easily detect randomly interspersed cases of inaccurate timing of the auditory cue” (pg. S200).&lt;/p&gt;
-
-&lt;p&gt;However, Zago &amp;amp; Lacquaniti also discuss the fact that visual perception is remarkably bad at estimating or detecting changes in acceleration. They suggest that, rather than people maintaining an estimate of gravity that can change, gravity is an “ecological constraint” that cannot change. They present evidence that shows that astronauts (in 0g) still predict objects to fall in the same manner as they do on earth. Even after spending extended time in 0g, astronauts only adapted very slightly, and even then readjusted to 1g almost immediately upon returning to Earth. Similarly, experiments conduced on participants using computer simulated gravity revealed that people were consistently able to punch a ball moving under 1g but prematurely punched a ball moving under 0g. Interestingly, they also found that participants seemed to ignore acceleration when the task was less motor based, i.e., if they just had to click a button to intercept the ball, leading to higher performance in 0g than in 1g. Thus, it would appear that perceptual and motor task demands determine whether the mind’s internal estimate of gravity is recruited, or whether just visual cues are used.&lt;/p&gt;
-
-&lt;p&gt;Based on computational results (see Algorithm), it seems that people have an internal model of gravity that is fixed at 1g. Some adaptation can occur by modifying other parameters in the model, but not the actual estimate of the gravitational acceleration. There are results that suggest that the model of gravity is calculated by the vestibular system, and that this system is recruited less for tasks involving unnatural motion.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Zago &amp;amp; Lacquaniti discuss possible computation models of how people’s estimate of gravity works. One hypothesis is that they have two separate models of gravity (one for 0g and one for 1g). Another hypothesis is that they have a single model of gravity, but change it’s parameters. This second hypothesis can additionally be broken down into two hypotheses about &lt;em&gt;which&lt;/em&gt; particular parameter is tuned. The model predicts:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathrm{TTC}(t)=\frac{-\hat{v}(t)+\sqrt{\hat{v}(t)^2+2\hat{g}\hat{h}(t)}}{\hat{g}}&lt;/script&gt;
-
-&lt;p&gt;where $\hat{v}$ and $\hat{h}$ are the visually estimated velocity and height, respectively, and where $\hat{g}$ is the estimate of gravitational acceleration. If $\lambda$ is then the amount of time it takes to execute the action, then the action should be triggered at time $\epsilon$, where $\mathrm{TTC}(\epsilon)=\lambda$. If this model is used assuming $\hat{g}=1g$, but the true gravitational acceleration is $0g$, then the resulting error will be:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\delta=\frac{\hat{g}\lambda^2}{2v_0}&lt;/script&gt;
-
-&lt;p&gt;This error could be reduced by either changing the value of $\hat{g}$ or the value of $\lambda$. If $\hat{g}$ is reduced, then this should affect responses under both 0g and 1g (because it is a variable in the TTC equation), but if $\lambda$ is reduced, then this should affect only 0g.&lt;/p&gt;
-
-&lt;p&gt;On the other hand, if an entirely separate $0g$ model is learned, then it should predict:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathrm{TTC}(t)=\frac{\hat{h}(t)}{\hat{v}(t)}&lt;/script&gt;
-
-&lt;p&gt;Empirical results suggest that adaptation is consistent with the first TTC model that has a fixed value of $\hat{g}=1g$ but which modifies $\lambda$.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;It is not too surprising that gravity plays such a prominent role in our ability to reason about the world. As it is essentially an invariant in our environments, it is also not surprising that it seems to be largely invariant to adaptation as well. What’s interesting are the results that seem to show that sometimes the vestibular estimate of gravity is used, while other times it isn’t. Perhaps, when faced with unnatural motion tasks (e.g. -1g), our brains are consistently computing the error in predicting motion for objects. If there is consistent error, then perhaps it switches to not relying on the internal estimate of gravity, and relies solely on visual cues. If the motion is consistent with natural gravitational acceleration, then that estimate is used—though it’s also interesting that sometimes that estimate is used for visual perception while other times it only seems to be recruitable when people are engaged in motor action. I’m not entirely sure what the right explanation is for all of these results. When do we take gravity into account, and when do we not, and why?&lt;/p&gt;
-</description>
-        <pubDate>Thu, 07 Jan 2016 04:18:24 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/physical%20reasoning/2016/01/07/Zago2005.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/physical%20reasoning/2016/01/07/Zago2005.html</guid>
-        
-        
-        <category>Physical reasoning</category>
         
       </item>
     
