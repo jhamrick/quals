@@ -6,9 +6,97 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 09 Jan 2016 18:21:33 -0800</pubDate>
-    <lastBuildDate>Sat, 09 Jan 2016 18:21:33 -0800</lastBuildDate>
+    <pubDate>Sat, 09 Jan 2016 22:22:31 -0800</pubDate>
+    <lastBuildDate>Sat, 09 Jan 2016 22:22:31 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Learning overhypotheses with hierarchical Bayesian models</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Kemp2007&quot;&gt;Kemp, C., Perfors, A., &amp;amp; Tenenbaum, J. B. (2007). Learning overhypotheses with hierarchical Bayesian models. &lt;i&gt;Developmental Science&lt;/i&gt;, &lt;i&gt;10&lt;/i&gt;(3), 307–321. doi:10.1111/j.1467-7687.2007.00585.x&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Kemp et al. formulate a hierarchical Bayesian model (HBM) for learning overhypotheses and demonstrate how it can account for two kinds of empirical results (the shape bias, and grouping into ontological kinds).&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;The model is parameterized as follows:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\mathbf{z} &amp;\sim \mathrm{CRP}(\gamma)\\
+\alpha^k &amp;\sim \mathrm{Exponential}(\lambda)\\
+\mathbf{\beta}^k &amp;\sim \mathrm{Dirichlet}(1)\\
+\mathbf{\theta}^i &amp;\sim \mathrm{Dirichlet}(\alpha^{z_i}\mathbf{\beta}^{z_i})\\
+\mathbf{y}^i\ \vert\ n^i &amp;\sim \mathrm{Multinomial}(\mathbf{\theta}^i)
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{y}^i$ is the data (e.g. counts of features in category $i$), $n^i$ is the number of observations for category $i$, $\mathbf{\theta}^i$ specifies the distribution of features in category $i$, $\alpha^k$ is the degree of uniformity for features across categories within the ontological kind $z_i$, $\mathbf{\beta}^k$ is the distribution of features across all categories within the ontological kind $z_i$, and $\mathbf{z}$ is the partition (assignment) of categories to ontological kinds.&lt;/p&gt;
+
+&lt;p&gt;Given training data $\mathbf{y}$, the model can be fit to reflect the distribution of features within categories and across categories within a particular ontological kind, and also to reflect the assignment of categories to ontological kinds. Given a test exemplar $T$ (with known category) and three choice objects, the model needs to produce the probability that each choice object belongs to the same category as the exemplar. It’s not entirely clear to me what they specifically compute to get this. One possibility would be:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(c_C=i|i)\propto \int p(C|\mathbf{\theta}^i)p(\mathbf{\theta}^i|\mathbf{y}^i)\ \mathrm{d}\mathbf{\theta}^i&lt;/script&gt;
+
+&lt;p&gt;where $c_C$ is the category of the choice object, $C$ are the features of the choice object, and $i$ is the category of the exemplar.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This is a nice use of a HBM to show how theories/overhypotheses might be implemented in a computational-level framework. I do wonder thought how much of the heavy lifting is being done by the fact that they’ve only included features that could be relevant and they’ve discretized the feature domains. In the real world, things are going to be much more ambiguous than that. First, how does the child determine what features are relevant in the first place (why pay attention to overall shape, rather than ear shape)? Second, what if some dimensions (e.g. size) are continuous values rather than discrete values? In the continuous case, modeling the data as feature counts will not longer work.&lt;/p&gt;
+
+&lt;p&gt;It would be interesting to see if this type of framework could be applied as a way of classifying objects based on how they should be simulated. For example, this might be applicable to first grouping things ontologically (fluids, rigid bodies, soft bodies) which might determine the overall class of simulation that needs to be run. Then individual categories within each ontological kind might determine the types of parameters that need to be put into the simulation (e.g. mass, coefficient of friction, etc.). I’m not sure this is exactly the right framework for making those sorts of approximations but it might be a good place to start for at least looking at how we make the necessary decisions for setting up a simulation.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 09 Jan 2016 11:05:17 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/09/Kemp2007.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/09/Kemp2007.html</guid>
+        
+        
+        <category>Theory learning</category>
+        
+      </item>
+    
+      <item>
+        <title>Thought experiments</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Brown2014&quot;&gt;Brown, J. R., &amp;amp; Fehige, Y. (2014). Thought Experiments. In E. N. Zalta (Ed.), &lt;i&gt;The Stanford Encyclopedia of Philosophy&lt;/i&gt; (Fall 2014). Retrieved from http://plato.stanford.edu/archives/fall2014/entries/thought-experiment/&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;This entry in the Stanford Encyclopedia of Philosophy gives an outline of what thought experiments are, the history of thought experiments, and the main schools of thought regarding whether thought experiments are useful and how they work.&lt;/p&gt;
+
+&lt;p&gt;First, while the entry does not give a specific definition of thought experiments, it does describe some common features of them: visualizing a situation in our imagination, “running” it, seeing what happens, and drawing a conclusion. Thought experiments do not necessarily result in some objective truth (e.g., following the thought experiment about throwing a spear through the edge of the universe, we now know of topologies where the space could in fact be simultaneously finite and unbounded, like a circle). Thought experiments frequently cannot be run as real experiments “for physical, technological, ethical, or financial reasons… but this needn’t be a defining condition of thought experiments”.&lt;/p&gt;
+
+&lt;p&gt;One possible taxonomy for thought experiments categorizes them firstly as either &lt;em&gt;constructive&lt;/em&gt; or &lt;em&gt;destructive&lt;/em&gt;. Destructive thought experiments may illustrate a contradiction in a theory (e.g. Galileo’s falling objects), show that the theory is in contradiction with other beliefs (unrelated to the theory) that we hold (e.g. Schroedinger’s cat), undermine a premise of the though experiment itself (e.g. Thomson’s violinist), or slightly modify the original version of the thought experiment in order to produce an outcome which calls the conclusions from the original thought experiment into question. Constructive thought experiments provide positive support for a theory by illustrating the implications of a theory’s claims (e.g. Newton’s cannonball).&lt;/p&gt;
+
+&lt;p&gt;The first stage of philosophical investigation of thought experiments began in the 18th and 19th centuries (Novalis, Hans-Christian Orsted). It was again revived in the beginning of the 20th century, marking the 2nd stage (Duhem, Mach, Meinong), and then again in the first part of the second half of the 20th century (Koyre, Kuhn, Popper), marking the 3rd stage. The current investigation is the 4th stage (Brown, Norton).&lt;/p&gt;
+
+&lt;p&gt;There are a number of prominent views regarding thought experiments:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Skeptical objection&lt;/strong&gt; (e.g. Duhem, Wilkes) — a denial that thought experiments are useful, and that they are no substitute for a real experiment. Most skeptical objections are specific to particular fields, rather than to thought experiments as a whole.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Intuition&lt;/strong&gt; (e.g. Brown) — one version of the intuition account is &lt;em&gt;Platonic&lt;/em&gt; intuition, in which the claim is that what is determined in a thought experiment is “a priori (though still fallible) knowledge of nature, since there are no new data involved, nor is the conclusion derived from old data”. The other version is &lt;em&gt;naturalistic&lt;/em&gt; intuition, though it’s not entirely clear to me what this is.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Argument&lt;/strong&gt; (e.g. Norton) — thought experiments are really just inductive or deductive arguments.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Conceptual constructivism&lt;/strong&gt; (e.g. Van Dyck, Gendler, Camilleri, Kuhn) — thought experiments enable conceptual change; i.e. they “[help] us to re-conceptualize the world in a new way”.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Experimentalism&lt;/strong&gt; (e.g. Mach, Sorenson, Buzzoni) — thought experiments are just experiments which generate “uncontrollable images of facts acquired in past experiences with the world”.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mental model&lt;/strong&gt; — thought experiments are the manipulation of a non-propositional mental model, rather than a physical model. The mental model account ties into the idea of “literary fiction as thought experiments”. The idea is that fiction brings us to construct a hypothetical scenario and use our imagination to let it play out.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One more recent development in the understanding of thought experiments is the question of whether computer simulations can be thought experiments.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;There is something interesting about thought experiments—and mental simulation in general—in that we can imagine scenarios which are physically impossible and which may violate many natural laws. At the same time, as some of Schwartz’s experiments show, we can’t always use imagery in ways that violate natural laws. So why is it that we can in some cases, but cannot in others? There is something interesting going on between the interplay of actual perceptual or motor imagery (which presumably must approximately conform to experience with the world as it is goverened by our sensory modalities rather than higher level cognition) and the capacity for abstract of symbolic thought. I can &lt;em&gt;conceptualize&lt;/em&gt; the idea of gravity going in the opposite direction, and even run thought experiments regarding what the consequences would be of that. But I can’t do things like &lt;em&gt;visualize&lt;/em&gt; a glass with water in it rotating upside down without the water spilling out. So it seems to me that certain types of thought experiments—particularly ones which violate physical laws—are &lt;em&gt;not&lt;/em&gt; using information from low level sensorimotor processes. Or at least not using the full information the same way. So where does that information come from, then? Do we construct more abstract models about how the world works initially based on low-level information, but which are conceptual/abstract enough to be manipulated during the course of a thought experiment?&lt;/p&gt;
+</description>
+        <pubDate>Sat, 09 Jan 2016 10:21:27 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Brown2014.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Brown2014.html</guid>
+        
+        
+        <category>Thought experiments</category>
+        
+      </item>
     
       <item>
         <title>The role of imagistic simulation in scientific thought experiments</title>
@@ -54,46 +142,6 @@
         <pubDate>Sat, 09 Jan 2016 07:35:52 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Clement2009.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Clement2009.html</guid>
-        
-        
-        <category>Thought experiments</category>
-        
-      </item>
-    
-      <item>
-        <title>Thought experiments</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Brown2014&quot;&gt;Brown, J. R., &amp;amp; Fehige, Y. (2014). Thought Experiments. In E. N. Zalta (Ed.), &lt;i&gt;The Stanford Encyclopedia of Philosophy&lt;/i&gt; (Fall 2014). Retrieved from http://plato.stanford.edu/archives/fall2014/entries/thought-experiment/&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;This entry in the Stanford Encyclopedia of Philosophy gives an outline of what thought experiments are, the history of thought experiments, and the main schools of thought regarding whether thought experiments are useful and how they work.&lt;/p&gt;
-
-&lt;p&gt;First, while the entry does not give a specific definition of thought experiments, it does describe some common features of them: visualizing a situation in our imagination, “running” it, seeing what happens, and drawing a conclusion. Thought experiments do not necessarily result in some objective truth (e.g., following the thought experiment about throwing a spear through the edge of the universe, we now know of topologies where the space could in fact be simultaneously finite and unbounded, like a circle). Thought experiments frequently cannot be run as real experiments “for physical, technological, ethical, or financial reasons… but this needn’t be a defining condition of thought experiments”.&lt;/p&gt;
-
-&lt;p&gt;One possible taxonomy for thought experiments categorizes them firstly as either &lt;em&gt;constructive&lt;/em&gt; or &lt;em&gt;destructive&lt;/em&gt;. Destructive thought experiments may illustrate a contradiction in a theory (e.g. Galileo’s falling objects), show that the theory is in contradiction with other beliefs (unrelated to the theory) that we hold (e.g. Schroedinger’s cat), undermine a premise of the though experiment itself (e.g. Thomson’s violinist), or slightly modify the original version of the thought experiment in order to produce an outcome which calls the conclusions from the original thought experiment into question. Constructive thought experiments provide positive support for a theory by illustrating the implications of a theory’s claims (e.g. Newton’s cannonball).&lt;/p&gt;
-
-&lt;p&gt;The first stage of philosophical investigation of thought experiments began in the 18th and 19th centuries (Novalis, Hans-Christian Orsted). It was again revived in the beginning of the 20th century, marking the 2nd stage (Duhem, Mach, Meinong), and then again in the first part of the second half of the 20th century (Koyre, Kuhn, Popper), marking the 3rd stage. The current investigation is the 4th stage (Brown, Norton).&lt;/p&gt;
-
-&lt;p&gt;There are a number of prominent views regarding thought experiments:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Skeptical objection&lt;/strong&gt; (e.g. Duhem, Wilkes) — a denial that thought experiments are useful, and that they are no substitute for a real experiment. Most skeptical objections are specific to particular fields, rather than to thought experiments as a whole.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Intuition&lt;/strong&gt; (e.g. Brown) — one version of the intuition account is &lt;em&gt;Platonic&lt;/em&gt; intuition, in which the claim is that what is determined in a thought experiment is “a priori (though still fallible) knowledge of nature, since there are no new data involved, nor is the conclusion derived from old data”. The other version is &lt;em&gt;naturalistic&lt;/em&gt; intuition, though it’s not entirely clear to me what this is.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Argument&lt;/strong&gt; (e.g. Norton) — thought experiments are really just inductive or deductive arguments.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Conceptual constructivism&lt;/strong&gt; (e.g. Van Dyck, Gendler, Camilleri, Kuhn) — thought experiments enable conceptual change; i.e. they “[help] us to re-conceptualize the world in a new way”.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Experimentalism&lt;/strong&gt; (e.g. Mach, Sorenson, Buzzoni) — thought experiments are just experiments which generate “uncontrollable images of facts acquired in past experiences with the world”.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Mental model&lt;/strong&gt; — thought experiments are the manipulation of a non-propositional mental model, rather than a physical model. The mental model account ties into the idea of “literary fiction as thought experiments”. The idea is that fiction brings us to construct a hypothetical scenario and use our imagination to let it play out.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;One more recent development in the understanding of thought experiments is the question of whether computer simulations can be thought experiments.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;There is something interesting about thought experiments—and mental simulation in general—in that we can imagine scenarios which are physically impossible and which may violate many natural laws. At the same time, as some of Schwartz’s experiments show, we can’t always use imagery in ways that violate natural laws. So why is it that we can in some cases, but cannot in others? There is something interesting going on between the interplay of actual perceptual or motor imagery (which presumably must approximately conform to experience with the world as it is goverened by our sensory modalities rather than higher level cognition) and the capacity for abstract of symbolic thought. I can &lt;em&gt;conceptualize&lt;/em&gt; the idea of gravity going in the opposite direction, and even run thought experiments regarding what the consequences would be of that. But I can’t do things like &lt;em&gt;visualize&lt;/em&gt; a glass with water in it rotating upside down without the water spilling out. So it seems to me that certain types of thought experiments—particularly ones which violate physical laws—are &lt;em&gt;not&lt;/em&gt; using information from low level sensorimotor processes. Or at least not using the full information the same way. So where does that information come from, then? Do we construct more abstract models about how the world works initially based on low-level information, but which are conceptual/abstract enough to be manipulated during the course of a thought experiment?&lt;/p&gt;
-</description>
-        <pubDate>Sat, 09 Jan 2016 07:35:52 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Brown2014.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Brown2014.html</guid>
         
         
         <category>Thought experiments</category>
@@ -436,65 +484,6 @@
         
         
         <category>Theory of mind</category>
-        
-      </item>
-    
-      <item>
-        <title>Representational momentum and related displacements in spatial memory: a review of the findings</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Hubbard2005&quot;&gt;Hubbard, T. L. (2005). Representational momentum and related displacements in spatial memory: A review of the findings. &lt;i&gt;Psychonomic Bulletin And Review&lt;/i&gt;, &lt;i&gt;12&lt;/i&gt;(5), 822–851. doi:10.3758/BF03196775&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Hubbard consolidates a huge body of literature regarding the phenomena of &lt;em&gt;displacement&lt;/em&gt;. While this has sometimes been referred to as &lt;em&gt;representational momentum&lt;/em&gt;, Hubbard prefers the term “displacement” because the effect can be found in many domains:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Forward displacement (in the direction of motion)&lt;/li&gt;
-  &lt;li&gt;Downward displacement (due to gravity)&lt;/li&gt;
-  &lt;li&gt;Reduced displacement after contact (due to friction)&lt;/li&gt;
-  &lt;li&gt;Inward displacement along a curved trajectory (due to centripetal force)&lt;/li&gt;
-  &lt;li&gt;Displacement in auditory pitch&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There are many variables that seem to influence the amount and direction of displacement:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Target velocity (increased velocity increases displacement)&lt;/li&gt;
-  &lt;li&gt;Direction of motion (horizontal displacement is typically greater than vertical displacement, and vertical displacement is affected by gravity)&lt;/li&gt;
-  &lt;li&gt;Target identity and shape (displacement tends to be consistent with the typical direction certain shapes move)&lt;/li&gt;
-  &lt;li&gt;Target weight (larger downward displacement for larger objects)&lt;/li&gt;
-  &lt;li&gt;Target animacy&lt;/li&gt;
-  &lt;li&gt;Surrounding context (e.g. if there are “landmarks”, if the stimuli are realistic scenes, if the motion is from the point of view of an observer, etc.)&lt;/li&gt;
-  &lt;li&gt;Physical constraints (e.g. walls that the object can bounce off of)&lt;/li&gt;
-  &lt;li&gt;Structure of the motion (e.g. oscillitory motion)&lt;/li&gt;
-  &lt;li&gt;Internal vs. externally caused motion, as in the launching task&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It is also influenced by factors applying to the participant themselves:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Attention&lt;/li&gt;
-  &lt;li&gt;Fixation point (eye movements)&lt;/li&gt;
-  &lt;li&gt;Action plans&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Methodologically, displacement has been found for smooth-moving targets, for sequential series of discrete stimuli, for static images that imply motion, and for targets whose motion is controlled by the participant. The effect of displacement seems to decay after a period of time, though the results on this are somewhat mixed. Response measures have included judging same/different, clicking on the remembered position of the target, or reaching for the target.&lt;/p&gt;
-
-&lt;p&gt;Hubbard suggests that displacement does not solely reflect objective physical laws, though it might strongly be influenced by them. Importantly, this is because displacement can be affected by other factors (such as landmarks, or whether the motion is internally or externally caused) besides just kinematics and dynamics. Regarding naive physics, he suggests that “displacement might reflect subjective consequences of physical principles, rather than objective physical principles per se” (pg. 842).&lt;/p&gt;
-
-&lt;p&gt;In terms of a computational-level theory of displacement, Hubbard suggests that displacement serves the purpose of bridging the gap between perception and action by helping to localize the future spatial locations of objects. This is consistent with the idea of forward models, though displacement seems to often be less than what one would expect from an accurate prediction into the future. Hubbard suggests this might be a tradeoff for prediciting motion that is either predictable or unpredictable: some displacement helps bias action towards predictable motion, but it is also less than what would be expected, which makes it easier to recover when the motion is unpredictable.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I would be really curious to see if you could get the effects of displacement from a computational-level model whose goal is to execute an action to “catch” a moving object. This would involve predicting the next state of an object based on a variety of factors (position, rotation, velocity, shape, etc.) but also executing the action (with a latency similar to that found in humans). Would you end up finding the same types of displacement effects? Would this model predict new things about displacement?&lt;/p&gt;
-
-&lt;p&gt;Additionally, I wonder to what extent displacement/prediction is used simply as a tracking device. That is, it’s not used to inform the motor system of where to execute its action—just to help the perceptual system track the object through time.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 07 Jan 2016 07:41:52 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/representational%20momentum/2016/01/07/Hubbard2005.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/representational%20momentum/2016/01/07/Hubbard2005.html</guid>
-        
-        
-        <category>Representational momentum</category>
         
       </item>
     
