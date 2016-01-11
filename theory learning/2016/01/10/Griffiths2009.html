@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Theory-based causal induction</title>
+    <meta name="description" content="Notes on readings for my qualifying exams.
+">
+
+    <link rel="stylesheet" href="/quals/css/main.css">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Griffiths2009.html">
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/quals/">Quals Reading Notes</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/quals/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
+        
+          
+        
+          
+        
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Theory-based causal induction</h1>
+    <p class="post-meta">Jan 10, 2016 • Theory learning</p>
+  </header>
+
+  <article class="post-content">
+    <p><span id="Griffiths2009">Griffiths, T. L., &amp; Tenenbaum, J. B. (2009). Theory-based causal induction. <i>Psychological Review</i>, <i>116</i>(4), 661–716. doi:10.1037/a0017201</span></p>
+
+<h1 id="summary">Summary</h1>
+
+<p>In this paper, Griffiths &amp; Tenenbaum outline a probabilistic framework for causal induction that allows inference to be done over variables, graphs, and theories. The framework has three main components:</p>
+
+<ol>
+  <li>Ontology of entities, properties, and relations (i.e., “how entities are differentiated on the basis of their causal properties”, pg. 663)</li>
+  <li>Plausible relations between entities (i.e., what types of relationships should be considered in a given domain)</li>
+  <li>Functional forms of relations (i.e., the direction in which causes act, and how causes combine)</li>
+</ol>
+
+<p>These three components are implemented in a probabilistic graphical model as:</p>
+
+<ol>
+  <li>Ontology = variables</li>
+  <li>Plausible relations = graph (the <em>structure</em>)</li>
+  <li>Functional form = probability distribution (the <em>parameterization</em>)</li>
+</ol>
+
+<p>Given an existing ontology, learning the plausible relations is a type of <em>structure learning</em>, and learning the functional form is a type of <em>parameter estimation</em>.</p>
+
+<p>Griffiths &amp; Tenenbaum note, however, that knowledge of ontologies, plausible relations, and functional forms itself is not something that can be expressed through the framework of graphical models:</p>
+
+<blockquote>
+  <p>Knowledge about the ontology, plausibility, and functional form of causal relationships should influence the prior, likelihood, and hypothesis space for Bayesian inference. However, expressing this knowledge requires going beyond the representational capacities of causal graphical models. Although this knowledge can be <em>instantiated</em> in a causal graphical model, it generalizes over a set of such models, and thus cannot be <em>expressed</em> in any one model. (pg. 669)</p>
+</blockquote>
+
+<p>They argue that this type of knowledge is akin to the notion of an <em>intuitive theory</em>, and draw the relationship between theories and grammars; causal structures and syntactic structures; and data and sentences. To formalize theories in their framework, they make use of <em>hierarchical Bayesian models</em> which allow inference to be performed both at the level of the theory as well as the lower levels of causal structures and relationships.</p>
+
+<h1 id="methods">Methods</h1>
+
+<p>n/a</p>
+
+<h1 id="algorithm">Algorithm</h1>
+
+<h2 id="types-of-functional-forms">Types of functional forms</h2>
+
+<h3 id="noisy-or">Noisy-OR</h3>
+
+<script type="math/tex; mode=display">p(e^+\vert c; w_0, w_1)=1-(1-w_0)(1-w_1)^c</script>
+
+<p>where $e^+$ is the presence of the effect, $c$ is the presence/absence of the cause $w_0$ is the probability of the effect in the absence of the cause, and $w_1$ is the probability of the effect given a single cause.</p>
+
+<h3 id="noisy-and-not">Noisy-AND-NOT</h3>
+
+<script type="math/tex; mode=display">p(e^+\vert c; w_0, w_1)=w_0(1-w_1)^c</script>
+
+<h3 id="generic">Generic</h3>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+p(e^+\vert c^-)&=w_0\\
+p(e^+\vert c^+)&=w_1
+\end{align*} %]]></script>
+
+<h3 id="continuous-noisy-or">Continuous Noisy-OR</h3>
+
+<script type="math/tex; mode=display">\lambda(t)=\sum_i w_i\delta(t, t_i)</script>
+
+<p>where $w_i$ and $t_i$ are the weight and time associated with the $i$th cause.</p>
+
+<h2 id="medical-contingency-data">Medical contingency data</h2>
+
+<p>This case study shows how the framework can account for contingency data.</p>
+
+<h3 id="ontology">Ontology</h3>
+
+<p>Types:</p>
+
+<ul>
+  <li>$\mathrm{Chemical}$ ($N_C\sim P_C$)</li>
+  <li>$\mathrm{Gene}$ ($N_G\sim P_G$)</li>
+  <li>$\mathrm{Mouse}$ ($N_M\sim P_M$)</li>
+</ul>
+
+<p>Predicates:</p>
+
+<ul>
+  <li>$\mathrm{Injected}(\mathrm{Chemical}, \mathrm{Mouse}) \rightarrow [0, 1]$</li>
+  <li>$\mathrm{Expressed}(\mathrm{Gene}, \mathrm{Mouse}) \rightarrow [0, 1]$</li>
+</ul>
+
+<h3 id="plausible-relations">Plausible relations</h3>
+
+<ul>
+  <li>$\mathrm{Injected}(C, M) \rightarrow \mathrm{Expressed}(G, M)$, true for all $M$ with probability $p$ for each $C$, $G$ pair</li>
+</ul>
+
+<h3 id="functional-forms">Functional forms</h3>
+
+<ul>
+  <li>$\mathrm{Injected}(C, M) \sim \mathrm{Bernoulli}(\cdot{})$</li>
+  <li>$\mathrm{Expressed}(G, M) \sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR, noisy-AND-NOT, or generic functional form, where $w_0$ and $w_1$ are drawn from uniform distributions</li>
+</ul>
+
+<h2 id="blicket-detection">Blicket detection</h2>
+
+<p>This case study shows how the framework can account for small amounts of data.</p>
+
+<h3 id="ontology-1">Ontology</h3>
+
+<p>Types:</p>
+
+<ul>
+  <li>$\mathrm{Block}$ ($N_B\sim P_B$)
+    <ul>
+      <li>$\mathrm{Blicket}$ ($p$)</li>
+      <li>$\mathrm{NonBlicket}$ ($1-p$)</li>
+    </ul>
+  </li>
+  <li>$\mathrm{Detector}$ ($N_D\sim P_D$)</li>
+  <li>$\mathrm{Trial}$ ($N_T\sim P_T$)</li>
+</ul>
+
+<p>Predicates:</p>
+
+<ul>
+  <li>$\mathrm{Contact}(\mathrm{Block}, \mathrm{Detector}, \mathrm{Trial}) \rightarrow [0, 1]$</li>
+  <li>$\mathrm{Active}(\mathrm{Detector}, \mathrm{Trial}) \rightarrow [0, 1]$</li>
+</ul>
+
+<h3 id="plausible-relations-1">Plausible relations</h3>
+
+<ul>
+  <li>$\mathrm{Contact}(B, D, T) \rightarrow \mathrm{Active}(D, T)$ for all $T$ for any $D$ if $B$ is a $\mathrm{Blicket}$</li>
+</ul>
+
+<h3 id="functional-forms-1">Functional forms</h3>
+
+<ul>
+  <li>$\mathrm{Contact}(B, D, T) \sim \mathrm{Bernoulli}(\cdot{})$</li>
+  <li>$\mathrm{Active}(D, T) \sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR, where $w_0=\epsilon$ and $w_1=1-\epsilon$</li>
+</ul>
+
+<p>In the <em>deterministic detector</em> theory, $\epsilon=0$. In the <em>probabilistic dector</em> theory, $\epsilon&gt;0$.</p>
+
+<h2 id="stick-ball-machine">Stick ball machine</h2>
+
+<p>This case study shows how the framework can account for hidden causes.</p>
+
+<h3 id="ontology-2">Ontology</h3>
+
+<p>Types:</p>
+
+<ul>
+  <li>$\mathrm{Ball}$ ($N_B\sim P_B$)</li>
+  <li>$\mathrm{HiddenCause}$ ($N_H=\inf$)</li>
+  <li>$\mathrm{Trial}$ ($N_T\sim P_T$)</li>
+</ul>
+
+<p>Predicates:</p>
+
+<ul>
+  <li>$\mathrm{Moves}(\mathrm{Ball}, \mathrm{Trial}) \rightarrow [0, 1]$</li>
+  <li>$\mathrm{Active}(\mathrm{HiddenCause}, \mathrm{Trial}) \rightarrow [0, 1]$</li>
+</ul>
+
+<h3 id="plausible-relations-2">Plausible relations</h3>
+
+<ul>
+  <li>$\mathrm{Moves}(B_1, T) \rightarrow \mathrm{Moves}(B_2, T)$, true for all $T$ with probability $p$ for each $B_1\neq B_2$ pair</li>
+  <li>$\mathrm{Active}(H, T) \rightarrow \mathrm{Moves}(B, T)$, each $B$ has an edge from some $H$ with probability $q$. The particular $H$ is chosn according to a Chinese Restaurant Process (i.e. based on number of edges)</li>
+</ul>
+
+<h3 id="functional-forms-2">Functional forms</h3>
+
+<ul>
+  <li>$\mathrm{Active}(H, T) \sim \mathrm{Bernoulli}(\cdot{})$</li>
+  <li>$\mathrm{Moves}(B_1, T) \sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR, where $w_0=0$ and $w_i=\omega$ for the $i^{th}$ cause (either $B_2$ or some $H$)</li>
+</ul>
+
+<h2 id="lemur-colonies">Lemur colonies</h2>
+
+<p>This case study shows how the framework can account for hidden causes in a spatial domain.</p>
+
+<h3 id="ontology-3">Ontology</h3>
+
+<p>Types:</p>
+
+<ul>
+  <li>$\mathrm{Colony}$ ($N_C\sim P_C$)</li>
+  <li>$\mathrm{HiddenCause}$ ($N_H\in [0, 1]$)</li>
+</ul>
+
+<p>Predicates:</p>
+
+<ul>
+  <li>$\mathrm{Location}(\mathrm{Colony}) \rightarrow \mathcal{R}\subset\mathbb{R}^2$</li>
+  <li>$\mathrm{Nexus}(\mathrm{HiddenCause}) \rightarrow \mathcal{R}\subset\mathbb{R}^2$</li>
+</ul>
+
+<h3 id="plausible-relations-3">Plausible relations</h3>
+
+<ul>
+  <li>$\mathrm{Nexus}(H) \rightarrow \mathrm{Location}(C)$, true with probability $p$ for each $H$, $C$ pair</li>
+</ul>
+
+<h3 id="functional-forms-3">Functional forms</h3>
+
+<ul>
+  <li>$\mathrm{Nexus}(H) \sim \mathrm{Uniform}(\mathcal{R})$</li>
+  <li>$\mathrm{Location}(C) \sim \mathcal{N}(\mathrm{Nexus}(H),\Sigma)$ if $\mathrm{Nexus}(H) \rightarrow \mathrm{Location}(C)$, otherwise $\mathcal{N}((0, 0), \inf)$</li>
+</ul>
+
+<h2 id="exploding-cans">Exploding cans</h2>
+
+<p>This case study shows how the framework can account for hidden causes in a spatiotemporal domain.</p>
+
+<h3 id="ontology-4">Ontology</h3>
+
+<p>Types:</p>
+
+<ul>
+  <li>$\mathrm{Can}$ ($N_C\sim P_C$)</li>
+  <li>$\mathrm{HiddenCause}$ ($N_H=\inf$)</li>
+</ul>
+
+<p>Predicates:</p>
+
+<ul>
+  <li>$\mathrm{ExplosionTime}(\mathrm{Can}) \rightarrow \mathbb{R}+$ (time)</li>
+  <li>$\mathrm{ActivationTime}(\mathrm{HiddenCause}) \rightarrow \mathbb{R}+$</li>
+  <li>$\mathrm{Location}(\mathrm{Can}) \rightarrow \mathbb{R}$</li>
+</ul>
+
+<h3 id="plausible-relations-4">Plausible relations</h3>
+
+<ul>
+  <li>$\mathrm{ExplosionTime}(C_1) \rightarrow \mathrm{ExplosionTime}(C_2)$, true with probability 1 for each $C_1\neq C_2$ pair</li>
+  <li>$\mathrm{ActivationTime}(H)\rightarrow \mathrm{ExplosionTime}(C)$, each $C$ has an edge from some $H$ with probability 1. The particular $H$ is chosn according to a Chinese Restaurant Process (i.e. based on number of edges)</li>
+</ul>
+
+<h3 id="functional-forms-4">Functional forms</h3>
+
+<ul>
+  <li>$\mathrm{ActivationTime}(H)\sim \mathrm{Exponential}(\alpha)$</li>
+  <li>$\mathrm{ExplosionTime}(C_1)\sim \mathrm{Exponential}(\lambda(t))$ for $\lambda(t)$ from a continuous noisy-OR with $w_i=\omega$ for either times $t_i=\mathrm{ActivationTime}(H)$ or $t_i=\mathrm{ExplosionTime}(C_2)+\vert\mathrm{Location}(C_2)-\mathrm{Location}(C_1)\vert/\mu$</li>
+</ul>
+
+<h2 id="cross-domain-causal-induction">Cross-domain causal induction</h2>
+
+<h3 id="ontology-5">Ontology</h3>
+
+<p>Types:</p>
+
+<ul>
+  <li>$\mathrm{Cause}$ ($N_C\sim P_C$)
+    <ul>
+      <li>$\mathrm{InDomain}$</li>
+      <li>$\mathrm{OutDomain}$</li>
+    </ul>
+  </li>
+  <li>$\mathrm{Effect}$ ($N_E\sim P_E$)</li>
+  <li>$\mathrm{Trial}$ ($N_T\sim P_T$)</li>
+</ul>
+
+<p>Predicates:</p>
+
+<ul>
+  <li>$\mathrm{Present}(\mathrm{Cause}, \mathrm{Trial})\rightarrow [0, 1]$</li>
+  <li>$\mathrm{Active}(\mathrm{Effect}, \mathrm{Trial})\rightarrow [0, 1]$</li>
+</ul>
+
+<h3 id="plausible-relations-5">Plausible relations</h3>
+
+<ul>
+  <li>$\mathrm{Present}(C, T)\rightarrow \mathrm{Active}(E, T)$, true for all $T$ with probability $p$ for each $C$, $E$ pair when $C$ is an $\mathrm{InDomain}$ cause, and with probability $q$ for each $C$, $E$ pair where $C$ is an $\mathrm{OutDomain}$ cause.</li>
+</ul>
+
+<h3 id="functional-forms-5">Functional forms</h3>
+
+<ul>
+  <li>$\mathrm{Present}(C, T)\sim \mathrm{Bernoulli}(\cdot{})$</li>
+  <li>$\mathrm{Active}(E, T)\sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR with $w_0=\epsilon$ and $w_i=1-\epsilon$</li>
+</ul>
+
+<h1 id="takeaways">Takeaways</h1>
+
+<p>The framework outlined by Griffiths &amp; Tenenbaum is an extremely rich and flexible framework for causal reasoning across a wide range of domains. It would be really interesting to try to apply this to even more complex physical domains—for example, can this framework be extended to explain some of the results from Michotte experiments, such as the launching effect? It’s not immediately clear to me how you would do this, but my guess is that it would be somewhat similar to the exploding can example, which includes both spatial and temporal causes.</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Quals Reading Notes</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Quals Reading Notes</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/jhamrick">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">jhamrick</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jhamrick">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">jhamrick</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Notes on readings for my qualifying exams.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

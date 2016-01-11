@@ -6,9 +6,301 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 09 Jan 2016 22:22:31 -0800</pubDate>
-    <lastBuildDate>Sat, 09 Jan 2016 22:22:31 -0800</lastBuildDate>
+    <pubDate>Sun, 10 Jan 2016 17:18:08 -0800</pubDate>
+    <lastBuildDate>Sun, 10 Jan 2016 17:18:08 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Theory-based causal induction</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Griffiths2009&quot;&gt;Griffiths, T. L., &amp;amp; Tenenbaum, J. B. (2009). Theory-based causal induction. &lt;i&gt;Psychological Review&lt;/i&gt;, &lt;i&gt;116&lt;/i&gt;(4), 661–716. doi:10.1037/a0017201&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Griffiths &amp;amp; Tenenbaum outline a probabilistic framework for causal induction that allows inference to be done over variables, graphs, and theories. The framework has three main components:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ontology of entities, properties, and relations (i.e., “how entities are differentiated on the basis of their causal properties”, pg. 663)&lt;/li&gt;
+  &lt;li&gt;Plausible relations between entities (i.e., what types of relationships should be considered in a given domain)&lt;/li&gt;
+  &lt;li&gt;Functional forms of relations (i.e., the direction in which causes act, and how causes combine)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;These three components are implemented in a probabilistic graphical model as:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ontology = variables&lt;/li&gt;
+  &lt;li&gt;Plausible relations = graph (the &lt;em&gt;structure&lt;/em&gt;)&lt;/li&gt;
+  &lt;li&gt;Functional form = probability distribution (the &lt;em&gt;parameterization&lt;/em&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Given an existing ontology, learning the plausible relations is a type of &lt;em&gt;structure learning&lt;/em&gt;, and learning the functional form is a type of &lt;em&gt;parameter estimation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Griffiths &amp;amp; Tenenbaum note, however, that knowledge of ontologies, plausible relations, and functional forms itself is not something that can be expressed through the framework of graphical models:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Knowledge about the ontology, plausibility, and functional form of causal relationships should influence the prior, likelihood, and hypothesis space for Bayesian inference. However, expressing this knowledge requires going beyond the representational capacities of causal graphical models. Although this knowledge can be &lt;em&gt;instantiated&lt;/em&gt; in a causal graphical model, it generalizes over a set of such models, and thus cannot be &lt;em&gt;expressed&lt;/em&gt; in any one model. (pg. 669)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;They argue that this type of knowledge is akin to the notion of an &lt;em&gt;intuitive theory&lt;/em&gt;, and draw the relationship between theories and grammars; causal structures and syntactic structures; and data and sentences. To formalize theories in their framework, they make use of &lt;em&gt;hierarchical Bayesian models&lt;/em&gt; which allow inference to be performed both at the level of the theory as well as the lower levels of causal structures and relationships.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;h2 id=&quot;types-of-functional-forms&quot;&gt;Types of functional forms&lt;/h2&gt;
+
+&lt;h3 id=&quot;noisy-or&quot;&gt;Noisy-OR&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(e^+\vert c; w_0, w_1)=1-(1-w_0)(1-w_1)^c&lt;/script&gt;
+
+&lt;p&gt;where $e^+$ is the presence of the effect, $c$ is the presence/absence of the cause $w_0$ is the probability of the effect in the absence of the cause, and $w_1$ is the probability of the effect given a single cause.&lt;/p&gt;
+
+&lt;h3 id=&quot;noisy-and-not&quot;&gt;Noisy-AND-NOT&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(e^+\vert c; w_0, w_1)=w_0(1-w_1)^c&lt;/script&gt;
+
+&lt;h3 id=&quot;generic&quot;&gt;Generic&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+p(e^+\vert c^-)&amp;=w_0\\
+p(e^+\vert c^+)&amp;=w_1
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;continuous-noisy-or&quot;&gt;Continuous Noisy-OR&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\lambda(t)=\sum_i w_i\delta(t, t_i)&lt;/script&gt;
+
+&lt;p&gt;where $w_i$ and $t_i$ are the weight and time associated with the $i$th cause.&lt;/p&gt;
+
+&lt;h2 id=&quot;medical-contingency-data&quot;&gt;Medical contingency data&lt;/h2&gt;
+
+&lt;p&gt;This case study shows how the framework can account for contingency data.&lt;/p&gt;
+
+&lt;h3 id=&quot;ontology&quot;&gt;Ontology&lt;/h3&gt;
+
+&lt;p&gt;Types:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Chemical}$ ($N_C\sim P_C$)&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Gene}$ ($N_G\sim P_G$)&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Mouse}$ ($N_M\sim P_M$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Predicates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Injected}(\mathrm{Chemical}, \mathrm{Mouse}) \rightarrow [0, 1]$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Expressed}(\mathrm{Gene}, \mathrm{Mouse}) \rightarrow [0, 1]$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;plausible-relations&quot;&gt;Plausible relations&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Injected}(C, M) \rightarrow \mathrm{Expressed}(G, M)$, true for all $M$ with probability $p$ for each $C$, $G$ pair&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;functional-forms&quot;&gt;Functional forms&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Injected}(C, M) \sim \mathrm{Bernoulli}(\cdot{})$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Expressed}(G, M) \sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR, noisy-AND-NOT, or generic functional form, where $w_0$ and $w_1$ are drawn from uniform distributions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;blicket-detection&quot;&gt;Blicket detection&lt;/h2&gt;
+
+&lt;p&gt;This case study shows how the framework can account for small amounts of data.&lt;/p&gt;
+
+&lt;h3 id=&quot;ontology-1&quot;&gt;Ontology&lt;/h3&gt;
+
+&lt;p&gt;Types:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Block}$ ($N_B\sim P_B$)
+    &lt;ul&gt;
+      &lt;li&gt;$\mathrm{Blicket}$ ($p$)&lt;/li&gt;
+      &lt;li&gt;$\mathrm{NonBlicket}$ ($1-p$)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;$\mathrm{Detector}$ ($N_D\sim P_D$)&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Trial}$ ($N_T\sim P_T$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Predicates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Contact}(\mathrm{Block}, \mathrm{Detector}, \mathrm{Trial}) \rightarrow [0, 1]$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Active}(\mathrm{Detector}, \mathrm{Trial}) \rightarrow [0, 1]$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;plausible-relations-1&quot;&gt;Plausible relations&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Contact}(B, D, T) \rightarrow \mathrm{Active}(D, T)$ for all $T$ for any $D$ if $B$ is a $\mathrm{Blicket}$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;functional-forms-1&quot;&gt;Functional forms&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Contact}(B, D, T) \sim \mathrm{Bernoulli}(\cdot{})$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Active}(D, T) \sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR, where $w_0=\epsilon$ and $w_1=1-\epsilon$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the &lt;em&gt;deterministic detector&lt;/em&gt; theory, $\epsilon=0$. In the &lt;em&gt;probabilistic dector&lt;/em&gt; theory, $\epsilon&amp;gt;0$.&lt;/p&gt;
+
+&lt;h2 id=&quot;stick-ball-machine&quot;&gt;Stick ball machine&lt;/h2&gt;
+
+&lt;p&gt;This case study shows how the framework can account for hidden causes.&lt;/p&gt;
+
+&lt;h3 id=&quot;ontology-2&quot;&gt;Ontology&lt;/h3&gt;
+
+&lt;p&gt;Types:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Ball}$ ($N_B\sim P_B$)&lt;/li&gt;
+  &lt;li&gt;$\mathrm{HiddenCause}$ ($N_H=\inf$)&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Trial}$ ($N_T\sim P_T$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Predicates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Moves}(\mathrm{Ball}, \mathrm{Trial}) \rightarrow [0, 1]$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Active}(\mathrm{HiddenCause}, \mathrm{Trial}) \rightarrow [0, 1]$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;plausible-relations-2&quot;&gt;Plausible relations&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Moves}(B_1, T) \rightarrow \mathrm{Moves}(B_2, T)$, true for all $T$ with probability $p$ for each $B_1\neq B_2$ pair&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Active}(H, T) \rightarrow \mathrm{Moves}(B, T)$, each $B$ has an edge from some $H$ with probability $q$. The particular $H$ is chosn according to a Chinese Restaurant Process (i.e. based on number of edges)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;functional-forms-2&quot;&gt;Functional forms&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Active}(H, T) \sim \mathrm{Bernoulli}(\cdot{})$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Moves}(B_1, T) \sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR, where $w_0=0$ and $w_i=\omega$ for the $i^{th}$ cause (either $B_2$ or some $H$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;lemur-colonies&quot;&gt;Lemur colonies&lt;/h2&gt;
+
+&lt;p&gt;This case study shows how the framework can account for hidden causes in a spatial domain.&lt;/p&gt;
+
+&lt;h3 id=&quot;ontology-3&quot;&gt;Ontology&lt;/h3&gt;
+
+&lt;p&gt;Types:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Colony}$ ($N_C\sim P_C$)&lt;/li&gt;
+  &lt;li&gt;$\mathrm{HiddenCause}$ ($N_H\in [0, 1]$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Predicates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Location}(\mathrm{Colony}) \rightarrow \mathcal{R}\subset\mathbb{R}^2$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Nexus}(\mathrm{HiddenCause}) \rightarrow \mathcal{R}\subset\mathbb{R}^2$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;plausible-relations-3&quot;&gt;Plausible relations&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Nexus}(H) \rightarrow \mathrm{Location}(C)$, true with probability $p$ for each $H$, $C$ pair&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;functional-forms-3&quot;&gt;Functional forms&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Nexus}(H) \sim \mathrm{Uniform}(\mathcal{R})$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Location}(C) \sim \mathcal{N}(\mathrm{Nexus}(H),\Sigma)$ if $\mathrm{Nexus}(H) \rightarrow \mathrm{Location}(C)$, otherwise $\mathcal{N}((0, 0), \inf)$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;exploding-cans&quot;&gt;Exploding cans&lt;/h2&gt;
+
+&lt;p&gt;This case study shows how the framework can account for hidden causes in a spatiotemporal domain.&lt;/p&gt;
+
+&lt;h3 id=&quot;ontology-4&quot;&gt;Ontology&lt;/h3&gt;
+
+&lt;p&gt;Types:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Can}$ ($N_C\sim P_C$)&lt;/li&gt;
+  &lt;li&gt;$\mathrm{HiddenCause}$ ($N_H=\inf$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Predicates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{ExplosionTime}(\mathrm{Can}) \rightarrow \mathbb{R}+$ (time)&lt;/li&gt;
+  &lt;li&gt;$\mathrm{ActivationTime}(\mathrm{HiddenCause}) \rightarrow \mathbb{R}+$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Location}(\mathrm{Can}) \rightarrow \mathbb{R}$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;plausible-relations-4&quot;&gt;Plausible relations&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{ExplosionTime}(C_1) \rightarrow \mathrm{ExplosionTime}(C_2)$, true with probability 1 for each $C_1\neq C_2$ pair&lt;/li&gt;
+  &lt;li&gt;$\mathrm{ActivationTime}(H)\rightarrow \mathrm{ExplosionTime}(C)$, each $C$ has an edge from some $H$ with probability 1. The particular $H$ is chosn according to a Chinese Restaurant Process (i.e. based on number of edges)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;functional-forms-4&quot;&gt;Functional forms&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{ActivationTime}(H)\sim \mathrm{Exponential}(\alpha)$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{ExplosionTime}(C_1)\sim \mathrm{Exponential}(\lambda(t))$ for $\lambda(t)$ from a continuous noisy-OR with $w_i=\omega$ for either times $t_i=\mathrm{ActivationTime}(H)$ or $t_i=\mathrm{ExplosionTime}(C_2)+\vert\mathrm{Location}(C_2)-\mathrm{Location}(C_1)\vert/\mu$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;cross-domain-causal-induction&quot;&gt;Cross-domain causal induction&lt;/h2&gt;
+
+&lt;h3 id=&quot;ontology-5&quot;&gt;Ontology&lt;/h3&gt;
+
+&lt;p&gt;Types:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Cause}$ ($N_C\sim P_C$)
+    &lt;ul&gt;
+      &lt;li&gt;$\mathrm{InDomain}$&lt;/li&gt;
+      &lt;li&gt;$\mathrm{OutDomain}$&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;$\mathrm{Effect}$ ($N_E\sim P_E$)&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Trial}$ ($N_T\sim P_T$)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Predicates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Present}(\mathrm{Cause}, \mathrm{Trial})\rightarrow [0, 1]$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Active}(\mathrm{Effect}, \mathrm{Trial})\rightarrow [0, 1]$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;plausible-relations-5&quot;&gt;Plausible relations&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Present}(C, T)\rightarrow \mathrm{Active}(E, T)$, true for all $T$ with probability $p$ for each $C$, $E$ pair when $C$ is an $\mathrm{InDomain}$ cause, and with probability $q$ for each $C$, $E$ pair where $C$ is an $\mathrm{OutDomain}$ cause.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;functional-forms-5&quot;&gt;Functional forms&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathrm{Present}(C, T)\sim \mathrm{Bernoulli}(\cdot{})$&lt;/li&gt;
+  &lt;li&gt;$\mathrm{Active}(E, T)\sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR with $w_0=\epsilon$ and $w_i=1-\epsilon$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;The framework outlined by Griffiths &amp;amp; Tenenbaum is an extremely rich and flexible framework for causal reasoning across a wide range of domains. It would be really interesting to try to apply this to even more complex physical domains—for example, can this framework be extended to explain some of the results from Michotte experiments, such as the launching effect? It’s not immediately clear to me how you would do this, but my guess is that it would be somewhat similar to the exploding can example, which includes both spatial and temporal causes.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 Jan 2016 07:15:53 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Griffiths2009.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Griffiths2009.html</guid>
+        
+        
+        <category>Theory learning</category>
+        
+      </item>
     
       <item>
         <title>Learning overhypotheses with hierarchical Bayesian models</title>
@@ -446,41 +738,6 @@
         <pubDate>Thu, 07 Jan 2016 11:25:00 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Stich1992.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Stich1992.html</guid>
-        
-        
-        <category>Theory of mind</category>
-        
-      </item>
-    
-      <item>
-        <title>The simulation theory: objections and misconceptions</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Gordon1992&quot;&gt;Gordon, R. M. (1992). The Simulation theory: Objections and misconceptions. &lt;i&gt;Mind And Language&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(1-2), 11–34. doi:10.1111/j.1468-0017.1992.tb00195.x&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Gordon attempts to define his own definition of &lt;em&gt;simulation theory&lt;/em&gt; (ST), and contrasts it with &lt;em&gt;theory theory&lt;/em&gt; (TT) as well as other forms of ST (“putting oneself in their shoes”, the Model Model).&lt;/p&gt;
-
-&lt;p&gt;First, Gordon explains why ST is not “putting oneself in the other’s place”. He says that ST is not this, because people don’t actually put themselves in others’ places most of the time (usually they are &lt;em&gt;told&lt;/em&gt; to do that). Rather, being told to put oneself in the other’s place means that “you shouldn’t just project your own situation and psychology on the other”. This implies that, to begin with, you &lt;em&gt;are&lt;/em&gt; projecting your own situation and psychology on the other, which is the core of what ST is about.&lt;/p&gt;
-
-&lt;p&gt;Gordon goes on to explain what he means by &lt;em&gt;projection&lt;/em&gt;, and specifically, &lt;em&gt;total projection&lt;/em&gt;. Total projection is the idea of projecting your own situation and psychology onto someone else, without making any adjustment (spatial or otherwise). This type of total projection is the default mode of simulation. In using projection, we search for explanations that would have caused ourselves to behave in the same way as other people. We can also adjust these projections in order to better explain other people’s actions, for example by imagining ourselves in their spatial location:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In general terms, what you are doing is shifting the locations and vectors of environmental features on your egocentric map—that is, the mental map in which things and events are represented in relation to yourself, here, and now—so as properly to engage your location-specific or vector-specific tendencies to action or emotion.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Alternately, you can “prep” yourself to have the appropriate attitudes or beliefs that would be necessary to understand the behavior of others. For example, to understand why someone likes the music of a particular artist that you do not particularly like, you find a suitable alternative that you enjoy to a similar degree and then use that alternative as a stand in for understanding the other person’s intentions (e.g. to go see that person in concert). Importantly, because we can make these adjustments to the projection, this allows us to simulate counterfactuals, which allows us to generate appropriate explanations.&lt;/p&gt;
-
-&lt;p&gt;Gordon contrasts ST with the idea that we might just use generalizations or laws to explain other people’s behavior. He argues that this cannot be the case, as generalizations/laws on their own are too brittle; we need to know when they are relevant so that we can appropriately apply them. Knowing when to apply them requires using our own knowledge about how the world works; this therefore ends up being just another way of using projection.&lt;/p&gt;
-
-&lt;p&gt;He also contrasts ST with the “Model” Model, which is the idea that simulation is just a model that you can use to run simulations (similar to running a simulation on a model of an airplane). Gordon argues that with the “Model” Model, you &lt;em&gt;would&lt;/em&gt; need something like a theory to explain the outputs of the model, as it is essentially a black box. But, under the hypothesis of projection, this is not necessary because you yourself already understand the workings of the model because you &lt;em&gt;are&lt;/em&gt; the model.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;From a computational standpoint, it is really difficult to see how Gordon’s version of the ST would work. It seems that the core of his argument is that because we are projecting ourselves, we get for free the ability to generate explanations of behavior. I don’t think this follows, and in particular, it still doesn’t give us any insight into how those explanations are generated (it feels a bit like saying, “we generate explanations of other people’s behavior by using ourselves to generate explanations of other people’s behavior”). I also think he doesn’t give enough credit to the difficulty in knowing what things about the projection to change. He basically implies it is as simple as “trying out various options until one clicks”, but for a given scenario there might be many possible things you could try to change. How do you know which dimension requires modification? And then how do you know the right modification to make? And then what does it mean for an explanation to “click”? What is a “good enough” explanation? All of these things seem like they need some form of metacognition or higher-level, structured knowledge—for example, a theory.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 07 Jan 2016 09:42:08 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Gordon1992.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Gordon1992.html</guid>
         
         
         <category>Theory of mind</category>
