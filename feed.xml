@@ -6,9 +6,75 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 10 Jan 2016 17:18:08 -0800</pubDate>
-    <lastBuildDate>Sun, 10 Jan 2016 17:18:08 -0800</lastBuildDate>
+    <pubDate>Sun, 10 Jan 2016 23:10:23 -0800</pubDate>
+    <lastBuildDate>Sun, 10 Jan 2016 23:10:23 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>A probabilistic model of theory formation</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Kemp2010&quot;&gt;Kemp, C., Tenenbaum, J. B., Niyogi, S., &amp;amp; Griffiths, T. L. (2010). A probabilistic model of theory formation. &lt;i&gt;Cognition&lt;/i&gt;, &lt;i&gt;114&lt;/i&gt;(2), 165–196. doi:10.1016/j.cognition.2009.09.003&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Kemp et al. describe a method for clustering entities based on  relations, rather than features. They argue that this clustering algorithm can be thought of as a model of theory formation in people, reflecting how people learn and organize concepts. In particular, they focus on the idea of &lt;em&gt;framework theories&lt;/em&gt;, which “specify the fundamental concepts that exist in a domain and the possible relationships between these concepts” (pg. 166). They ask three fundamental questions:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;What are theories?&lt;/strong&gt; Framework theories are “represented as a probabilistic model which includes a set of categories and a matrix of parameters specifying relationships between those categories” (pg. 166)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;How are theories used to make inductive inferences?&lt;/strong&gt; “Each of our theories specifies the relationships between categories that are possible or likely, and predictions about unobserved relationships between entities are guided by inductive inferences about their category assignments” (pg. 166)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;How are theories acquired?&lt;/strong&gt; Kemp et al. consider the case of acquiring both the concepts and causal laws of a theory simultaneously. “Given a formal characterization of a theory, we can set up a space of possible theories and define a prior distribution over this space” (pg. 167)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;They apply their model (described below) to several different real-world datasets: clustering animals and features, clustering medical terms and predicates, and recovering kinship categories. They also run two experiments in which they show how their model matches the way that people learn causal theories of physical relationships.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;In Experiment 1, Kemp et al. had people play with a set of blocks. Each block either was a member of category $A$ or category $B$, and depending on the condition, the relationship between $A$ and $B$ was either: that $A$ blocks caused $B$ blocks to light up; that $A$ blocks caused $B$ blocks to light up and vice versa; that $A$ blocks caused $B$ blocks to light up with $p=0.5$; and that $A$ blocks caused $B$ blocks to light up with $p=0.5$ and vice versa. Note that &lt;em&gt;specific&lt;/em&gt; blocks were deterministic, $p$ was used to determine which pairs of blocks would affect each other. Participants got experience playing with the blocks and were periodically asked to predict what would happen if a new block was touched to an old block. They then saw the new block touch a different old block, and were asked the same question.&lt;/p&gt;
+
+&lt;p&gt;Experiment 2 was similar to Experiment 1, except that only the relationship where $A$ blocks caused $B$ blocks to light up and vice versa was used. After getting experience with the blocks, participants were shown three new blocks, $x$, $y$, and $z$, where either $x$ and $z$ were in the same category and $y$ was in a different category, or where $y$ and $z$ were in the same category and $x$ was in a different category. By seeing that $x$ interacts with $y$ and that $z$ interacts with $y$, participants should (and do) infer that $x$ and $z$ are in the same category—but they shouldn’t know which one. After seeing $z$ interact (or not interact) with an old block, participants should (and do) infer which categories $x$ and $y$ are in.&lt;/p&gt;
+
+&lt;p&gt;The model matches people’s behavior in both of these experiments. In contrast, particularly in Experiment 2, a purely feature-based categorization model (which doesn’t take into account relations) does not appropriately generalize.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;Let the observed data include $m$ relations ($R$) over $n$ types. Then, a relational system is characterized by a pair $(z, \eta)$, where $z$ is a partition of entities into categories and $\eta$ is a matrix of parameters specifying how the categories interact with each other for a relation $R$ (a.k.a. a &lt;em&gt;category graph&lt;/em&gt; where the edge from $A$ to $B$ has weight $\eta(A,B)$). Then, the theory that best characterizes the data is given by the MAP estimate of:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(z,\eta\vert R)\propto p(R\vert \eta,z)p(\eta\vert z)p(z)&lt;/script&gt;
+
+&lt;p&gt;where $p(R\vert \eta,z)$ is the probability of observing the relations given categories and parameters, $p(\eta\vert z)$ is the probability of the parameters given the partition, and $p(z)$ is the prior over category assignments. More formally:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+z\vert\gamma &amp;\sim \mathrm{CRP}(\gamma)\\
+\eta(A, B)\vert\alpha,\beta &amp;\sim \mathrm{Beta}(\alpha, \beta)\\
+R(i, j)\vert z, \eta &amp;\sim \mathrm{Bernoulli}(\eta(z_i, z_j))
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;In this case, there is one relation and one type (though multiple entities within that type); however, in the general case, there are multiple relations with $m$ dimensions and $n$ types. If $T^i$ is the $i$th type, then let $z^i$ be the partition into category assignments for $T^i$. If $R^j$ is the $j$th relation, then let $\eta^j$ be a separate parameter matrix for each $R^j:T^{d_1}\times T^{d_2}\times \ldots{}\times T^{d_m}$, where $d_k$ is the type corresponding to the $k$th dimension. The full general specification is then:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+z^i\vert\gamma &amp;\sim \mathrm{CRP}(\gamma)\\
+\eta^j(z_{x_1}^{d_1},z_{x_2}^{d_2}\ldots{},z_{x_m}^{d_m})\vert\alpha,\beta &amp;\sim \mathrm{Beta}(\alpha, \beta)\\
+R^j(x_1,x_2,\ldots{},x_m)\vert z^1,\ldots{},z^n, \eta^j &amp;\sim \mathrm{Bernoulli}(\eta^j(z_{x_1}^{d_1},z_{x_2}^{d_2}\ldots{},z_{x_m}^{d_m}))
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;To fit the model, they first integrate out $\eta$ and find the best category assignments $z$ using a hill-climbing procedure or MCMC. Given $z$, the MAP parameter assignments $\eta$ can be computed analytically. Similarly, unobserved relations between specific entities can be predicted given $z$.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This framework seems to be a generalization of the one described by &lt;a href=&quot;/quals/theory%20learning/2016/01/10/Griffiths2009.html&quot;&gt;Griffiths &amp;amp; Tenenbaum&lt;/a&gt; — for example, Kemp et al.’s experiments here are very similar to the “blicket detector” paradigm. However, Griffiths &amp;amp; Tenenbaum only consider there to be blickets and non-blickets. In this case, the number of types is left unspecified. Actually, it seems not so much that this is a generalization of Griffiths &amp;amp; Tenenbaum, but that it’s a more abstract sort of learning. This clusters entities and relations into an ontology that could be used by the framework described by Griffiths &amp;amp; Tenenbaum, but it’s not necessarily a &lt;em&gt;causal&lt;/em&gt; ontology.&lt;/p&gt;
+
+&lt;p&gt;I am less clear on exactly how this type of framework for theories relates to that discussed in the other paper by &lt;a href=&quot;/quals/theory%20learning/2016/01/09/Kemp2007.html&quot;&gt;Kemp et al.&lt;/a&gt;. In that paper, they discuss how to parse objects into different ontological kinds, which is essentially a type of feature-based clustering. I suppose that model is something that is meant to be applied a more domain-specific level—e.g. perhaps within a single category of the kind that is discovered by the present paper. It would be nice to see a tighter coupling between these different types of ontologies and ways of learning theories.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 10 Jan 2016 11:32:56 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Kemp2010.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Kemp2010.html</guid>
+        
+        
+        <category>Theory learning</category>
+        
+      </item>
     
       <item>
         <title>Theory-based causal induction</title>
@@ -696,48 +762,6 @@ p(e^+\vert c^+)&amp;=w_1
         <pubDate>Fri, 08 Jan 2016 03:29:43 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Goldman1992.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Goldman1992.html</guid>
-        
-        
-        <category>Theory of mind</category>
-        
-      </item>
-    
-      <item>
-        <title>Folk psychology: simulation or tacit theory?</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Stich1992&quot;&gt;Stich, S. P., &amp;amp; Nichols, S. (1992). Folk Psychology: Simulation or Tacit Theory? &lt;i&gt;Mind And Language&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(1-2), 35–71. doi:10.1111/j.1468-0017.1992.tb00196.x&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Stich &amp;amp; Nichols argue against simulation theory in favor of theory theory. They first give an overview of their interpretation of what simulation theory is positing, which seems consistent with what I’ve read so far. They make a particular point about calling the simulation theory &lt;em&gt;off-line simulation&lt;/em&gt; of the decision-making system. That is, they argue that simulation theory says that to run a simulation, the decision-making system is taken off-line. It is fed pretend beliefs and desires, and it outputs a decision, which is then fed to another system which explains and interprets decisions in terms of their inputs. They also clarify what they mean by “theory”, which is (as they put it) in the “wide” sense: that a theory need not necessarily be symbolic/logical, but could take the form of other representations like a neural network as well.&lt;/p&gt;
-
-&lt;p&gt;Stich &amp;amp; Nichols go through a number of arguments for the simulation theory, and give counter evidence to each one.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;em&gt;What are the rules of the folk psychological theory?&lt;/em&gt; This is interpreting a “theory” in the narrow sense. And besides, not being able to specify the rules doesn’t make the theory invalid (example: language, folk physics).&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Mental simulation models have been successful.&lt;/em&gt; “Simulation” used in the context of “mental simulation” is actually closer to a theory that is ust not rule/sentence like.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Children can’t possibly have as sophisticated a theory as theory theory suggests.&lt;/em&gt; Theory theory doesn’t necessarily posit a theory that is the same type of stuff that you learn in the classroom. Besides, children learn other very complicated things (language, folk physics)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Simulation theory is simpler than theory theory.&lt;/em&gt; Specifying the “control mechanism” for coming up with pretend beliefs and desires is non-trivial. Essentially, in theory-theory, you get the control for free, while in simulation theory, you get the “database” of knowledge for free. They are equally complex theories.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Sometimes we imagine how others behave by imagining ourselves in their situation.&lt;/em&gt; Imagery is not the same thing as simulation. For example, to imagine yourself walking through your house and counting the number of windows, it’s not just running an off-line simulation—the knowledge about the number of windows has to come from somewhere.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Simulation theory is supported by developmental evidence.&lt;/em&gt; It is consistent with the evidence; that doesn’t it predicts it. Theory theory is also consistent with the evidence.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Autistic children are poor at engaging in pretend play and at reasoning about theory of mind.&lt;/em&gt; As in the previous point, simulation might be able to account for this, but so can theory theory.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;After refuting the arguments of off-line simulation theory, Stich &amp;amp; Nichols present a few arguments in favor of theory theory:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;em&gt;There is developmental data that simulation theory can’t explain.&lt;/em&gt; In particular, there is evidence that children have accurate knowledge about what other children have seen and yet still make incorrect judgments about their beliefs. That is, it seems like children have all the correct inputs that would be used to run an off-line simulation, yet they still come up with the wrong answer, but only for &lt;em&gt;other&lt;/em&gt; people—they give a different answer themselves.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Theory theory is cognitively penetrable.&lt;/em&gt; Simulation theory is not cognitive penetrable. In particular, because it’s a simulation of one’s own behavior, if there are any quirks in our own behavior that we don’t consciously know about, they should still show up in our predictions of other people’s behavior. However, if the theory posited by theory theory doesn’t include these things explicitly, then it will make the wrong predictions because it is cognitively penetrable. There are many examples of cases where people predict that they (or others) would behave in a certain way, but then actually behave differently themselves. Thus the can’t have just been running a simulation.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I agree with pretty much all the points made by Stich &amp;amp; Nichols, though I do think they are a bit vague on the notion of what a theory is. Ideally, even if you can’t specify a set of rules, you should still be able to roughly sketch the mechanism by which it works, or by which it is acquired.&lt;/p&gt;
-
-&lt;p&gt;I do like how Stich &amp;amp; Nichols explicitly contrast offline simulation with other forms of simulation. They state that they don’t think offline simulation is involved at all, which I would probably agree with—though I do think some form of “simulation” probably is used. Perhaps the better term to use here is “emulation” (ala &lt;a href=&quot;/quals/mental%20imagery/2016/01/01/Grush2004.html&quot;&gt;Grush&lt;/a&gt;), to imply that it is a simulation from a &lt;em&gt;model&lt;/em&gt;, not a simulation from &lt;em&gt;oneself&lt;/em&gt;. Such a model could easily be a component in a theory; thus, this notion isn’t at odds with theory theory.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 07 Jan 2016 11:25:00 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Stich1992.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/07/Stich1992.html</guid>
         
         
         <category>Theory of mind</category>
