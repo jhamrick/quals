@@ -6,9 +6,64 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 11 Jan 2016 14:34:25 -0800</pubDate>
-    <lastBuildDate>Mon, 11 Jan 2016 14:34:25 -0800</lastBuildDate>
+    <pubDate>Mon, 11 Jan 2016 15:56:17 -0800</pubDate>
+    <lastBuildDate>Mon, 11 Jan 2016 15:56:17 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Judgment under uncertainty: heuristics and biases</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Tversky1974&quot;&gt;Tversky, A., &amp;amp; Kahneman, D. (1974). Judgment under Uncertainty: Heuristics and Biases. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;185&lt;/i&gt;(4157), 1124–1131. doi:10.1126/science.185.4157.1124&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Tversky &amp;amp; Kahneman give an overview of three commonly used heuristics that lead to systematic biases: representativeness, availability, and anchoring.&lt;/p&gt;
+
+&lt;h2 id=&quot;representativeness&quot;&gt;Representativeness&lt;/h2&gt;
+
+&lt;p&gt;The representativeness heuristic was discussed in &lt;a href=&quot;/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Kahneman1973.html&quot;&gt;Kahneman &amp;amp; Tversky&lt;/a&gt;, so I won’t go into too much detail about it here.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Insensitivity to prior probabilities&lt;/li&gt;
+  &lt;li&gt;Insensitivity to sample size&lt;/li&gt;
+  &lt;li&gt;Misconceptions of chance — e.g. HTHTTH is more representative than HHHTTT&lt;/li&gt;
+  &lt;li&gt;Insensitivity to predictability&lt;/li&gt;
+  &lt;li&gt;The illusion of validity — confidence is a function based more on degree of representativeness rather than accuracy&lt;/li&gt;
+  &lt;li&gt;Misconceptions of regression&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;availability&quot;&gt;Availability&lt;/h2&gt;
+
+&lt;p&gt;The availability heuristic states that people will estimate things like probabilities by seeing how many items from the distribution come to mind. Thus, things that come to mind more easily will be estimated to have higher probability, even if they don’t actually have higher probability.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Biases due to the retrievability of instances — e.g. things like fame or salience will make things more available, and thus be considered more numerous&lt;/li&gt;
+  &lt;li&gt;Biases due to the effectiveness of a search set — e.g. judging whether more words start with ‘r’ or have ‘r’ as the third letter&lt;/li&gt;
+  &lt;li&gt;Biases of imaginability — e.g. intuitively computing “10 choose $k$” for $2\leq k\leq 8$. People are better able to imagine disjoint sets for $k=2$ than $k=8$, so they say that “10 choose 2” is higher than “10 choose 8”, even though they are the same&lt;/li&gt;
+  &lt;li&gt;Illusory correlations — overestimating the frequency of co-occurring events (e.g. believing that patients who exhibit suspiciousness draw characters with shifty eyes, because “suspiciousness” and “eyes” have a strong association, even if they might not predict anything true about the diagnosis)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;anchoring-and-adjustment&quot;&gt;Anchoring and Adjustment&lt;/h2&gt;
+
+&lt;p&gt;The anchoring heuristic states that people estimate values by starting at one value (the &lt;em&gt;anchor&lt;/em&gt;) and adjusting either up or down. Usually, people fail to fully adjust, and thus their estimates are biased towards the anchor.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Insufficient adjustments — e.g. in multiplying $8\times 7\times 6\times 5\times 4\times 3\times 2\times 1$ vs. multiplying $1\times 2\times 3\times 4\times 5\times 6\times 7\times 8$, people will report higher estimates for the first product and lower estimates for the second product&lt;/li&gt;
+  &lt;li&gt;Biases in the evaluation of conjunctive and disjunctive events — e.g. overestimation that things with high probability will co-occur, underestimation that at least one thing with low probability will occur. The anchors in this case are the probabilities which are then insufficiently adjusted, leading to overestimates of high probability things and underestimates of low probability things.&lt;/li&gt;
+  &lt;li&gt;Anchoring in the assessment of subjective probability distributions — e.g. starting at current (mean) estimate and adjusting upward to get to the 90th percentile&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;Each of these heuristics is quite telling about the way that people think. Although they’ve been taken in the past that people are just “irrational”, I think they’re more interesting when thought about in the context of how people are actually processing information. The case is clearer in cases like the availability heuristic, for example: it seems plausible that whatever algorithm is used for retrieving things from memory will bias us when we try to objectively estimate the probabilities of things. Generally, the point of memory seems to be to provide us with information that is going to be &lt;em&gt;relevant&lt;/em&gt;, which means there will be an effect of both frequency and utility—the combination of which would manifest itself as “availability”.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 11 Jan 2016 07:27:51 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Tversky1974.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Tversky1974.html</guid>
+        
+        
+        <category>Challenges for probabilistic models of cognition</category>
+        
+      </item>
     
       <item>
         <title>On the psychology of prediction</title>
@@ -748,38 +803,6 @@ p(e^+\vert c^+)&amp;=w_1
         
         
         <category>Thought experiments</category>
-        
-      </item>
-    
-      <item>
-        <title>Against simulation: the argument from error</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Saxe2005&quot;&gt;Saxe, R. (2005). Against simulation: the argument from error. &lt;i&gt;Trends In Cognitive Sciences&lt;/i&gt;, &lt;i&gt;9&lt;/i&gt;(4), 174–179. doi:10.1016/j.tics.2005.01.012&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;Saxe, like &lt;a href=&quot;/quals/theory%20of%20mind/2016/01/08/Gopnik1992.html&quot;&gt;Gopnik &amp;amp; Wellman&lt;/a&gt;, argues in favor of folk psychological theories rather than simulation theory.&lt;/p&gt;
-
-&lt;p&gt;Saxe specifically cautions against the use of the &lt;em&gt;mirror system&lt;/em&gt; as evidence for the simulation theory of mind. The mirror system consists of neurons which are active both when performing an action and watching someone else perform an action. However, the mirror system (e.g., right inferior parietal cortex, inferior frontal gyrus) is &lt;em&gt;not&lt;/em&gt; the same system as the one that is recruited when reasoning about true or false beliefs (bilateral temporo-parietal junction, right anterior superior temporal sulcus, medial prefrontal cortex, posterior cingulate).&lt;/p&gt;
-
-&lt;p&gt;Saxe also recaps some of the behavioral and developmental evidence against the simulation theory, and gives some more recent examples as well. For example,  an adult and a child are sitting at a table with a circular dish of red and green beads, and a square dish of yellow beads. Both the child and the adult see that a bead from the square dish was put in the bag, but only the child knows the color of the bead (green). When the child is asked what color the adult thinks the bead is, children overwhelmingly say “red”. That is, they seem to think something along the lines of, “ignorance means you get it wrong”. Saxe gives an eloquent explanation of how this is inconsistent with the strong notion of simulation theory:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The ‘incorrect inputs’ defence does not work, though, for the systematic errors described above, such as young children’s conflation of ignorance and ‘being wrong’. Remember that children who know that the selected bead is green reported that the ignorant adult observer, ‘A’, thinks the bead is red. If the child were simulating A, she might accurately express A’s ignorance, or else she might assimilate A to the self and judge that A thinks the bead is green. Simulation Theory offers no account of children’s actual systematic error. It is not enough to say that they used incorrect inputs: the theory must explain why the inputs were wrong in just this way.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Finally, Saxe suggest a compromise between theory theory and simulation theory. In this formulation, there is both a theory and a simulator, but that theory determines (or at least influences) what inputs are used in the simulator.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I find the idea that there is really something somewhere in between theory theory and simulation theory more plausible than either on their own, though I would expect the simulation theory not so much to be using the same decision making process that we use when make our own decisions, but a learned generative model of it. One way to think about it might be like this: at any given moment, there are many competing desires and urges governing our behavior (I need to study for quals because they are in less than two weeks, but I want to play video games, and yet I’m also a bit hungry, and also the apartment needs to be cleaned, and ooh, that looks shiny). These all combine in some way and one behavior is ultimately produced (I am studying for quals). In the moment, perhaps, I might be able to explain &lt;em&gt;my own&lt;/em&gt; behavior as being the input that has the highest weight (though I am doubtful this level of introspection exists). But what about explaining my past behavior? I no longer have access to all the inputs, as those presumably reside only in short term memory. Thus, I need to have some function that allows me to reason about &lt;em&gt;my own&lt;/em&gt; behavior with missing information. One possibility for this is to have a full generative (joint) model over actions, desires, beliefs, and perceptions. Then, with such a joint model, any subset of these variables can be conditioned on to produce predictions or inferences. Such a model can also be used to reason about other people, though in that case something additional is needed to choose the appropriate values of things to condition on. Furthermore, the structure of a generative model such as this needs to be learned, which is also where the notion of a theory comes in—a meta form of reasoning that guides the process of constructing, and then using, the model.&lt;/p&gt;
-
-</description>
-        <pubDate>Fri, 08 Jan 2016 09:45:02 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Saxe2005.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Saxe2005.html</guid>
-        
-        
-        <category>Theory of mind</category>
         
       </item>
     
