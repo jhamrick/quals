@@ -6,9 +6,54 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 11 Jan 2016 12:30:12 -0800</pubDate>
-    <lastBuildDate>Mon, 11 Jan 2016 12:30:12 -0800</lastBuildDate>
+    <pubDate>Mon, 11 Jan 2016 14:34:25 -0800</pubDate>
+    <lastBuildDate>Mon, 11 Jan 2016 14:34:25 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>On the psychology of prediction</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Kahneman1973&quot;&gt;Kahneman, D., &amp;amp; Tversky, A. (1973). On the psychology of prediction. &lt;i&gt;Psychological Review&lt;/i&gt;, &lt;i&gt;80&lt;/i&gt;(4), 237–251. doi:10.1037/h0034747&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Kahneman &amp;amp; Tversky discuss the &lt;em&gt;representativeness&lt;/em&gt; heuristic, in which people seem to evaluate evidence based on how representative it is of an outcome rather than based on the posterior probability of the outcome given the evidence. The present results from several experiments illustrating this effect, and demonstrating its robustness to changes in wording, reliability of evidence, and prior probability.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;In the first experiment, participants were given vignettes such as:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tom W. is of high intelligence, although lacking in true creativity. He has a need for order and clarity, and for neat and tidy systems in which every detail finds its appropriate place. His writing is rather dull and mechanical, occasionally enlivened by somewhat corny puns and by flashes of imagination of the sci-fi type. He has a strong drive for competence. He seems to have little feel and little sympathy for other people and does not enjoy interacting with others. Self-centered, he nonetheless has a deep moral sense.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Participants in one group rated the base rates of graduate student disciplines (and did not see the vignette). In another group, participants rated how similar the vignette description was to the average graduate student in each discipline. In the third group, participants rated the likelihood that Tom W. was a graduate student in each discipline. Overwhelmingly, participants in the third group ignored the base rate evidence and gave responses similar to the second group. In a follow-up experiment, they had two groups which were told the reliability of predictions of “students like themselves”. This reliability did have an effect on their likelihood ratings, though it did not bring the ratings any close to the base rate. In contrast, if particpants were given no information at all, they reverted to using the base rate.&lt;/p&gt;
+
+&lt;p&gt;In another experiment, they focused on manipulating the base rate: for example, giving descriptions and asking how likely the description was of an engineer or a lawyer, where the number of engineers and lawyers was manipulated. However, changing this proportion did not seem to have an effect: people still seemed to report what was essentially the likelihood, rather than the posterior. Interestingly, when given &lt;em&gt;worthless&lt;/em&gt; information (as opposed to &lt;em&gt;no&lt;/em&gt; information), people judged the probability at 50%, rather than reverting the the prior. (Side note: if you gave people worthless information and they had three categories to choose from, would they give the probability as 50% still or 33%?)&lt;/p&gt;
+
+&lt;p&gt;Kahneman &amp;amp; Tversky also looked at “prediction of outcome” (e.g. predicting GPA from a description) versus “evaluation of inputs” (e.g. rating impressions from a description) versus “translation” (e.g. translating an input variable on one scale to another scale). According to the representativeness heuristic, predictions and evaluations should be essentially the same; according to statistics, however, the predictions are more unreliable and thus should exhibit regression to the mean. Similarly, the representativeness heuristic predicts that predictions are no more regressive than translations, even though statistics predicts otherwise.&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;The results presented by Kahneman &amp;amp; Tversky are incredibly compelling: despite knowing what the correct calculation to do is, it &lt;em&gt;still&lt;/em&gt; feels more “natural” to respond in the manner that they equate with representativeness. &lt;a href=&quot;http://web.mit.edu/cocosci/Papers/cogsci01_final.pdf&quot;&gt;Tenenbaum &amp;amp; Griffiths&lt;/a&gt; (2001) cast representativeness in a different light from the notion of “similarity” discussed by Kahneman &amp;amp; Tversky, defining representativeness as being a measure of how good of an example something is. Formally, they define it as the log ratio of the likelihood of the current hypothesis to all other hypotheses:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;R(d, h_i)=\log\frac{P(d\vert h_i)}{\sum_{h_j\neq h_i} P(d\vert h_j)P(h_j\vert \bar{h}_i)}&lt;/script&gt;
+
+&lt;p&gt;where $\mathcal{H}$ is the set of all hypotheses under consideration and $P(h_j\vert \bar{h}_i)$ is the prior probability of $h_j$ given that $h_i$ is not the true explanation of $d$ (i.e. $P(h_j)/(1-P(h_i))$). I don’t know if this particular model has been applied specifically to the Kahneman &amp;amp; Tversky experiments here, though. I think you probably couldn’t apply them directly because the report similarity ranks rather than real likelihood scores.&lt;/p&gt;
+
+&lt;p&gt;I do find it interesting that people are interpreting the phrasing of the problem to be asking for something along the lines of “representativeness” rather than “posterior probability”. Even if you can quantify what “representativeness” means, it doesn’t explain &lt;em&gt;why&lt;/em&gt; people interpret the question that way (and not the way it is meant to be interpreted).&lt;/p&gt;
+</description>
+        <pubDate>Mon, 11 Jan 2016 05:39:59 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Kahneman1973.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Kahneman1973.html</guid>
+        
+        
+        <category>Challenges for probabilistic models of cognition</category>
+        
+      </item>
     
       <item>
         <title>Theory learning as a stochastic search in a language of thought</title>
@@ -732,69 +777,6 @@ p(e^+\vert c^+)&amp;=w_1
         <pubDate>Fri, 08 Jan 2016 09:45:02 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Saxe2005.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Saxe2005.html</guid>
-        
-        
-        <category>Theory of mind</category>
-        
-      </item>
-    
-      <item>
-        <title>Why the child&#39;s theory of mind really is a theory</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Gopnik1992&quot;&gt;Gopnik, A., &amp;amp; Wellman, H. M. (1992). Why the Child’s Theory of Mind Really Is a Theory. &lt;i&gt;Mind And Language&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(1-2), 145–171. doi:10.1111/j.1468-0017.1992.tb00202.x&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Gopnik &amp;amp; Wellman lay out a wealth of developmental evidence supporting the theory theory, and describe precisely what they take the theory theory to be and what it would predict. They begin with a definition of “theoretical construct”:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Theoretical constructs are abstract entities postulated, or recruited from elsewhere, to provide a separate causal-explanatory level of analysis that accounts for evidential phenomena… Theoretical constructs need not be definitely unobservable, but they must be appeals to a set of entities removed from, and underlying, the evidential phenomena themselves… Theoretical constructs do not work independently, they work together in systems characterized by laws or structure. (pg. 146-7)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;There are two primary characteristics of theories: they are abstract, and they coherent. Because of these two properties, theories are able to generate predictions about a wide range of behavior, including situations that go beyond the data experienced so far. Theories may also produce incorrect predictions, in cases where they do not perfectly match the phenomena being described. Theories additionally provide &lt;em&gt;explanatory depth&lt;/em&gt; because, by definition, they “produce interpretations of evidence, not simply descriptions of evidence and generalizations about it”. Finally, theories can be modified in the face of new, conflicting evidence.&lt;/p&gt;
-
-&lt;p&gt;Gopnik &amp;amp; Wellman describe theory change as follows. First, there is an initial theory. If evidence is encountered that conflicts with this theory, it will initially be ignored as noise, and eventually start to accumulate as ad-hoc auxiliary rules tacked on to the original theory. Eventually, as the original theory gets unweildy, if a new competing theory is encountered or developed, it may replace the old theory. Elements of the new theory may first appear in the auxiliary rules, but its full predictive power is not utilized until it fully subsumes the old theory.&lt;/p&gt;
-
-&lt;p&gt;Gopnik &amp;amp; Wellman argue that this process of theory change is evident in the development of theory of mind in children, particularly between 2.5 and around 4 years of age. There are several stages of development:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;2-year-olds have some understanding of desires and perceptions. However, these concepts are relatively rudimentary and are “nonrepresentational”: desires are “drives towards object” and perceptions are an “awareness of objects”. This leads to simple causal rules like “if X can see an object, and X desires the object, then X will try to get the object”.&lt;/li&gt;
-  &lt;li&gt;At 3, children begin to exhibit some (non-representational) understanding of beliefs, though it does not seem to have much of an effect on their behavior. While it seems that they typically have a notion of belief that directly reflects what is true in the world, there is some evidence that 3-year-olds can acknowledge the idea of a false belief. Even if they might be able to acknowledge the idea of a false belief, though, their theory of how the world works does not include beliefs as a factor in producing actions.&lt;/li&gt;
-  &lt;li&gt;By 4 or 5 years, children seem to have developed a “representational theory of mind” in which desires, perceptions, beliefs, and pretenses are all included as &lt;em&gt;representations&lt;/em&gt; of reality, rather than being reflections of reality itself (i.e., &lt;em&gt;intentional&lt;/em&gt;).&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Gopnik &amp;amp; Wellman next cite considerable evidence supporting this theory:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Explanations&lt;/strong&gt;: 2-year-old’s answers to questions like “why is she doing that?” tend to reflect desires (“she wants it”), while 3- and 4-year-old’s answers reflect beliefs (“she thinks it’s there”).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Predictions&lt;/strong&gt;: With the initial desire-perception theory, children should be able to predict that desires will differ and that people will do things given that they have a desire. They should also be able to predict the perceptions of other, but not that things might be perceived &lt;em&gt;differently&lt;/em&gt; by multiple people. And, they should not be able to predict anything that relies on the notion that people have different beliefs that may not reflect the true world. Evidence for this comes from the false-belief task, but other types of tasks as well (appearance-reality tasks, questions about sources of beliefs, understanding pictorial representation systems).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Interpretations&lt;/strong&gt;: Also with the initial desire-perception theory, children should initially ignore evidence that is counter to the theory. Indeed, children will misreport evidence they have just heard (e.g. someone saying “I think it is blue”, when it is white).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Transitional phenomena&lt;/strong&gt;: Children seem to initially realize that concepts like perception and desire do not necessarily reflect the world (i.e., they &lt;em&gt;misrepresent&lt;/em&gt; what is true) earlier than they come to the same realization about beliefs. When pressed, 3-year-olds may beging to explain inconsistencies in terms of misrepresentation when those inconsistencies are pointed out to them.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Next, Gopnik &amp;amp; Wellman turn to their critique of simulation theory. They focus on two main issues: first, “the centrality of your own mind in any understanding of the minds of others”, and second, “how development should proceed” (pg. 160). The first point is similar to the one made by &lt;a href=&quot;/quals/theory%20of%20mind/2016/01/07/Stich1992.html&quot;&gt;Stich &amp;amp; Nichols&lt;/a&gt; about how a simulation should give the same results for oneself and for others (provided the inputs are correct). For the second point, they argue that ST should predict a developmental trajectory in which children make errors on states that are “hard” to simulate, and that they should originally make “egocentric” errors that reflect an inability to modify their simulations to reflect other people’s states. They give empirical evidence based on these two issues:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;em&gt;“Three-year-old children make false attributions to themselves, that exactly parallel their false attributions to others.”&lt;/em&gt; From a simulation point of view, it doesn’t make sense why children would make mistakes about their &lt;em&gt;own&lt;/em&gt; mental states if they were just reading off the results from whatever mechanism is used to run the simulations. Additionally, 3-year-olds are good at reporting their mental states in terms of desires and perceptions, but not beliefs. Why would the simulation account predict &lt;em&gt;a priori&lt;/em&gt; for this to be the case? What is special about beliefs in the simulation case that makes them harder to simulate?&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;“Three-year-old children make correct non-egocentric attributions to themselves and others for some mental states.”&lt;/em&gt; Children can report that other people have different perceptions and desires than their own, so in terms of the simulation account, they are clearly able to adjust their simulations to incorporate other people’s perceptions and desires. Why can they not do the same for beliefs?&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;“Children refer to only some mental states in their explanations, and refer to different mental states at different stages of their development.”&lt;/em&gt; Younger children tend to give explanations about other people’s behavior in terms of desires, while older children appeal to beliefs. And, in either of these scenarios, children are preferring beliefs in desires over “fears and fantasies, pains and sensations or any of a vast number of experientially available mental states”. What about simulation theory would predict that they answer in this way? Why is “she fears that kitty is lost” a dispreferred explanation to “she wants the kitty” or “she thinks the kitty is there”? In theory theory, desires and beliefs are core constructs, and thus make sense as the types of concepts that children appeal to.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;“Children’s understanding of other psychological phenomena changes in parallel with their understanding of false belief.”&lt;/em&gt; While three-year-olds can report their beliefs, they seem unable to report &lt;em&gt;how&lt;/em&gt; they got that information, even if it was just told to them. Additionally, three-year-olds seem to be unable to gauge the reliability of a source of information (e.g. distinguishing between someone who knows, vs. someone who is just guessing). Theory theory predicts these other types of behavior because knowing where information comes from and how reliable it is is related to the idea of seeing beliefs as representational—i.e., separate entities from what they correspond to in the world. It is not clear why simulation theory would &lt;em&gt;a priori&lt;/em&gt; predict these types of results.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;In reading this paper I had a bit of a small epiphany regarding why simulation seems to be such a loaded word, and why it seems to be such a complicated issue (not just in terms of theory of mind, but in general).&lt;/p&gt;
-
-&lt;p&gt;Gopnik &amp;amp; Wellman seem to really be proposing what is a &lt;em&gt;computational-level&lt;/em&gt; analysis of theory of mind: we begin with theories based on our initial capabilities (i.e., perception) and urges (i.e., desires). The problem is then to update those theories as new information comes along. The specific changes that Gopnik &amp;amp; Wellman predict are really predictions about how a particular solution to that problem ends up playing out.&lt;/p&gt;
-
-&lt;p&gt;The simulation theorists (&lt;a href=&quot;/quals/theory%20of%20mind/2016/01/07/Gordon1992.html&quot;&gt;Gordon&lt;/a&gt; and &lt;a href=&quot;/quals/theory%20of%20mind/2016/01/08/Goldman1992.html&quot;&gt;Goldman&lt;/a&gt;) are proposing a squarely &lt;em&gt;algorithmic-level&lt;/em&gt; account. It is highly mechanistic and focuses on the solution as a particular algorithm (the one that is already implemented by our brains), though it is vague on the specific representation of inputs and outputs (beliefs, desires, perceptions, decisionse—but it is not clear exactly what forms those take).&lt;/p&gt;
-
-&lt;p&gt;In constrast, simulation &lt;em&gt;can&lt;/em&gt; actually be the (approximate) solution to a computational-level problem. In physical simulation, the computational-level problem can be expressed analytically as a differential equation, but it cannot be solved analytically. Numerical simulation, though an approximation, is the only known way to solve the problem short of setting up the actual physical situation in the real world. In probabilistic simulation, the story is similar. The computational-level problem can be expressed analytically, but often cannot be solve analytically. Monte-Carlo simulation is one particular class of methods for approximating the solution.&lt;/p&gt;
-
-&lt;p&gt;Thus, sometimes simulation is the correct approach when it is the approximate solution to a computational-level problem. However, it is not &lt;em&gt;always&lt;/em&gt; the right answer, and is certainly not the right solution &lt;em&gt;a priori&lt;/em&gt;. In particular, I think it is a mistake to talk about simulation as being the right solution just on the basis of having a black-box mechanism at our disposal. Just because a tool might be available for use doesn’t make it the &lt;em&gt;right&lt;/em&gt; tool to use. I think instead of talking about whether simulation is the mechanism that is used by the mind in some particular case, the discussion should be about what the &lt;em&gt;best&lt;/em&gt; thing to use would be, and whether that happens to be simulation or not.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 08 Jan 2016 06:10:48 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Gopnik1992.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20of%20mind/2016/01/08/Gopnik1992.html</guid>
         
         
         <category>Theory of mind</category>
