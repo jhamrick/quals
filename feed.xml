@@ -6,9 +6,70 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 11 Jan 2016 21:25:10 -0800</pubDate>
-    <lastBuildDate>Mon, 11 Jan 2016 21:25:10 -0800</lastBuildDate>
+    <pubDate>Tue, 12 Jan 2016 11:53:06 -0800</pubDate>
+    <lastBuildDate>Tue, 12 Jan 2016 11:53:06 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Bayesian fundamentalism or enlightenment? On the explanatory status and theoretical contributions of Bayesian models of cognition</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Jones2011&quot;&gt;Jones, M., &amp;amp; Love, B. C. (2011). Bayesian fundamentalism or enlightenment? On the explanatory status and theoretical contributions of Bayesian models of cognition. &lt;i&gt;The Behavioral And Brain Sciences&lt;/i&gt;, &lt;i&gt;34&lt;/i&gt;(4), 169–188. doi:10.1017/S0140525X10003134&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Jones &amp;amp; Love critique the use of Bayesian models of cognition, contrasting &lt;em&gt;Bayesian Fundamentalism&lt;/em&gt;, which:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;… adheres to the tenet that human behavior can be explained through rational analysis — once the correct probabilistic interpretation of the task environment has been identified — without recourse to process, representation, resource limitations, or physiological or developmental data. (pg. 170)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;with &lt;em&gt;Bayesian Enlightenment&lt;/em&gt;, which:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;… goes beyond the dogma of pure rational analysis and actively attemps to integrate with other avenues of inquiry in cognitive science… [it] thus treats Bayesian models as making both rational and mechanistic commitments, and it takes as a goal the joint evaluation of both. (pg. 170)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Jones &amp;amp; Love compare Bayesian Fundamentalism to Behaviorism and Evolutionary Psychology, arguing that Bayesian Fundamentalism doesn’t care about what is going on in the mind, only about the constraints of the environment and what the rational solution to the problem is given those constraints. They argue that despite this position, Bayesian models really &lt;em&gt;do&lt;/em&gt; make mechanistic assumptions about representations and processes. For example, in critiquing &lt;a href=&quot;/quals/theory%20learning/2016/01/09/Kemp2007.html&quot;&gt;Kemp et al.&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;However, it is not Bayes’ Rule or even the notion of overhypotheses that drives the prediction; rather it is the particular overhypotheses that were built into the model. In other words, the model was endowed with the capability to recognize a particular pattern (viz., regularity across words in which perceptual dimensions are relevant to meaning), so the fact that it indeed recognizes that pattern when presented with it is not surprising or theoretically informative. (pg. 178)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;They also argue that despite emphasizing how important it is to specify the specific environmental constraints giving rise to the model, Bayesian Fundamentalists rarely do so. And, even if they did, it is nearly impossible to know what the right set of constraints are; in general it is possible to give a post-hoc argument for a particular set of constraints being “rational”:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The relevant environment for rational action could be the local environment present in the laboratory task, similar situations (however defined) that the person has experienced, all experiences over the person’s life, all experiences of our species, all experiences of all ancestral organisms traced back to single cell organisms, and so on. Furthermore, once the relevant environment is specified and characterized, the rational theorist has considerable flexibility in characterizing which relevant measures or statistics from the environment should enter into the optimality calculations. (pg. 181)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Jones &amp;amp; Love note furthermore that from an evolutionary perspective, it is not &lt;em&gt;behavior&lt;/em&gt; that is optimized but &lt;em&gt;mechanism&lt;/em&gt; that is optimized. Whatever the existing mechanism is, it is perhaps a slightly more optimized version of the mechanism that was there before, and so on. That means only that if the behavior is optimized at all, it is locally optimal, not globally optimal, because it depends on the process of optimization that has occurred. But even then, many things may simply be accidents or side effects and are not even optimized at all.&lt;/p&gt;
+
+&lt;p&gt;Jones &amp;amp; Love argue that Bayesian Fundamentalism says nothing about development because Bayesian models are mechanism-free, and therefore it is not clear what develops:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;One key question for any developmental model is what develops. In rational models, the answer is that nothing develops. Rational models are mechanism-free, leaving only information sampled to change over time. Although some aspects of development are driven by acquisition of more observations, other aspects of development clearly reflect maturational changes in the mechanism. (pg. 182)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Finally, the suggest that Bayesian Enlightenment holds promise by:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Treating Bayesian representations (e.g. the generative model or parameteters of conjugate priors) as actual hypotheses about psychological representations&lt;/li&gt;
+  &lt;li&gt;Investigating Bayesian approximation algorithms (e.g. MCMC) as possible algorithmic-level processes&lt;/li&gt;
+  &lt;li&gt;Performing rational analysis not within the context of the environment, but within the context of a mechanistic model&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;Jones &amp;amp; Love actually make a lot of good points about how Bayesian models can be useful and fruitful. I disagree with their claims that they aren’t (or weren’t) already being used in that way. I also disagree with their characterization that Bayesian models aren’t informative if they recognize the patterns they were built to recognize (e.g. in the discussion of Kemp et al.). It is the connection with the data that makes them informative: if we have a hypothesis about how people reason in a particular domain, we can instantiate that explicit hypothesis in a Bayesian model and verify that the hypothesis does actually produce the same behavior as people. The model is just a tool for making the assumptions and implications of the hypothesis explicit.&lt;/p&gt;
+
+&lt;p&gt;I am not sure why Jones &amp;amp; Love think that Bayesian models aren’t committed to hypotheses about psychological representation. The sense in which the computation of Bayesian models “doesn’t matter” is that Bayesians are not committed to the specific way by which the predictions of the model are computed; what they are committed to is the structure of the model. The structured representations offered by Bayesian models are their most powerful feature, in my opinion.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Jan 2016 02:59:51 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/12/Jones2011.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/12/Jones2011.html</guid>
+        
+        
+        <category>Challenges for probabilistic models of cognition</category>
+        
+      </item>
     
       <item>
         <title>Unfalsifiability and mutual translatability of major modeling schemes in choice reaction time</title>
@@ -782,56 +843,6 @@ p(e^+\vert c^+)&amp;=w_1
         <pubDate>Sat, 09 Jan 2016 10:21:27 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Brown2014.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Brown2014.html</guid>
-        
-        
-        <category>Thought experiments</category>
-        
-      </item>
-    
-      <item>
-        <title>The role of imagistic simulation in scientific thought experiments</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Clement2009&quot;&gt;Clement, J. J. (2009). The Role of Imagistic Simulation in Scientific Thought Experiments. &lt;i&gt;Topics In Cognitive Science&lt;/i&gt;, &lt;i&gt;1&lt;/i&gt;(4), 686–710. doi:10.1111/j.1756-8765.2009.01031.x&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Clement poses the &lt;em&gt;fundamental paradox of thought experiments&lt;/em&gt; as being “How can findings that carry conviction result from a new experiment conducted entirely within the head?” (pg. 687). He attempts to provide a resolution to this paradox based on the idea of “imagistic simulation” (a.k.a. mental simulation, mental imagery, etc.) with evidence provided through a case study of a single expert subject (S2). S2 is posed with the following “spring problem”:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A weight is hung on a spring (Fig. 1). The original spring is replaced with a spring made of the same kind of wire, with the same number of coils, but with coils that are twice as wide in diameter. Will the spring stretch from its natural length more, less, or the same amount under the same weight? (Assume the mass of the spring is negligible). Why do you think so? (pg. 689)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Clement specifies his definition of “thought experiment” (TE) as being “the act of considering an untested, concrete system (the ‘experiment’ or case) and attempting to predict aspects of its behavior” (pg. 690-1). He isolates a number of TEs produced by S2, and analyzes the use of imagistic simulation in those TEs. He finds that S2 spontaneously engaged in “personal action projection (spontaneously redescribing a system action in terms of a human action) consistent with the use of kinesthetic imagery, depictive getures (gestures that depict objects, forces, locations, or movements of entities), and imagery reports” (pg. 694). Some of these are characteristic of using static imagery, but others are characteristic of &lt;em&gt;dynamic&lt;/em&gt; imagery.&lt;/p&gt;
-
-&lt;p&gt;To explain the use of dynamic imagery, Clement appeals to the idea of &lt;a href=&quot;https://en.wikipedia.org/wiki/Motor_program#Schmidt.E2.80.99s_schema_theory&quot;&gt;motor schema theory&lt;/a&gt; in which imagistic simulations are driven by the use of motor programs/schema. Specifically, he identifies four possible components to an imagistic simulation which allow such simulations to apply to situations which have not previously been encountered:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Applying a schema to a use outside its normal domain&lt;/li&gt;
-  &lt;li&gt;Converting implicit knowledge into explicit knowledge&lt;/li&gt;
-  &lt;li&gt;Including spatial reasoning&lt;/li&gt;
-  &lt;li&gt;Combining multiple schemas into a &lt;em&gt;compound simulation&lt;/em&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Additionally, Clement argues that imagistic simulations are used to generate “enhanced” imagery:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;…the main source of conviction in the simulations is the tapping of implicit knowledge embedded in motor schemas and its conversion into explicit knowledge. The extreme case makes differences in implicit expectations larger and more ‘perceivable’ in this case. (pg. 698)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Clement argues that this formulation of imagistic simulation resolves the TE paradox:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;To address the TE paradox, the idea of perceptual motor schemas running imagistic simulations, and the four more specific sources of conviction within imagistic simulations… can account for ways that a TE can &lt;em&gt;feel&lt;/em&gt; empirical (via the inspection of imagery) or necessary (via confident schema extension or spatial reasoning). Yet these processes actually involve a considerable amount of nonformal reasoning and inference that goes beyond prior observations. (pg. 704)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In discussing the case study with S2, Clement also touches on the distinction between evaluative (disconfirmatory/confirmatory) and generative thought experiments.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I like this characterization of what thought experiments (and perhaps, even, mental simulations more generally) are; I think Clement is right in tying the use of thought experiments to action &lt;em&gt;and&lt;/em&gt; perception.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 09 Jan 2016 07:35:52 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Clement2009.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Clement2009.html</guid>
         
         
         <category>Thought experiments</category>
