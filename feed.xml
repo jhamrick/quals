@@ -6,9 +6,62 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Jan 2016 11:53:06 -0800</pubDate>
-    <lastBuildDate>Tue, 12 Jan 2016 11:53:06 -0800</lastBuildDate>
+    <pubDate>Tue, 12 Jan 2016 14:32:38 -0800</pubDate>
+    <lastBuildDate>Tue, 12 Jan 2016 14:32:38 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Selecting computations: theory and applications</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Hay2012&quot;&gt;Hay, N. J., Russell, S. J., Tolpin, D., &amp;amp; Shimony, S. E. (2012). Selecting Computations: Theory and Applications. &lt;i&gt;ArXiv Preprint ArXiv:1207.5878v1 [Cs.AI]&lt;/i&gt;. Retrieved from http://arxiv.org/abs/1207.5879&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;This paper is quite related to &lt;a href=&quot;/quals/planning%20and%20decision%20making/2015/12/19/Guez2013.html&quot;&gt;Guez et al.&lt;/a&gt;, &lt;a href=&quot;/quals/planning%20and%20decision%20making/2015/12/16/Browne2012.html&quot;&gt;Browne et al.&lt;/a&gt;, and &lt;a href=&quot;/quals/planning%20under%20uncertain%20dynamics/2015/12/30/Bertuccelli2012.html&quot;&gt;Bertuccelli et al.&lt;/a&gt;. Here, Hay et al. suggest that to optimally make use of information earned when exploring a state/action space, a &lt;em&gt;metalevel&lt;/em&gt; decision problem needs to be solved:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Exploring unpromising or highly predictable paths to great depth is often wasteful; for a given amount of exploration, decision quality can be improved by directing exploration towards those actions sequences whose outcomes are helpful in selecting a good move. Thus, the &lt;em&gt;metalevel&lt;/em&gt; decision problem is to choose what future action sequences to explore (or, more generally, what deliberative computations to do), while the &lt;em&gt;object-level&lt;/em&gt; decision problem is to choose an action to execute in the real world. (pg. 1)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;They show that the UCB1 or UCT bounds (used in bandit problems and MCTS) are suboptimal for the metalevel decision problem. The difference, they say, is that in bandit problems, the decision is relative to a utility you get in the real world, but in metalevel problems, the decision is relative to a cost of computation of &lt;em&gt;simulations&lt;/em&gt; rather than real-world actions.&lt;/p&gt;
+
+&lt;p&gt;In some cases, the prior distribution of real-world outcomes is known and can be used in the simulations. However, in many other cases, the prior distribution on utilities is not available. Instead, the VOI (value of information) can be used as a way of determining what actions are good to take. These VOIs cannot be computed exactly, but under a few assumptions (myopic policy, samples are iid, expectation of a selection is equal to the sample mean, the distribution is bounded on both sides), they can be bounded from above. Hay et al. prove this bound, and show how it can be applied to MCTS: for root node sampling, rather than following the UCT policy, they use the VOI policy.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;A &lt;em&gt;metalevel decision process&lt;/em&gt; is denoted $M=(S,s_0,A_s,T,R)$, where $S$ are the states, $s_0$ is the intitial state, $A_s$ is the set of actions which includes simulated actions $E\in\mathcal{E}$ as well as the “stop” action $\perp$, $T$ is the transition function, and $R$ is the reward function, such that:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+T(s,E,s^\prime)&amp;=p(E=e\ \vert\ E_1=e_1,\ldots{},E_n=e_n)\\
+T(s,\perp,\perp)&amp;=1\\
+R(s,E,s^\prime)&amp;=-c\\
+R(s,\perp,\perp)&amp;=\max_i\mu_i(s)
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $\mu_i(s)=\mathbb{E}[U_i\ \vert\ E_1=e_1,\ldots{},E_n=e_n]$. The value function of a policy $\pi$ for this MDP is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;V_M^\pi(s)=\mathbb{E}_M^\pi[-cN+\max_i\mu_i(S_N)\ \vert\ S_0=s]&lt;/script&gt;
+
+&lt;p&gt;where $N$ is the total number of computations performed. The &lt;em&gt;expected&lt;/em&gt; number of computations is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E^{\pi^*}[N\ \vert\ S_0=s]\leq \frac{1}{c}\left(\mathbb{E}[\max_i U_i\ \vert\ S_0=s]-\max_i\mu_i(s)\right)&lt;/script&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;It would be interesting to see how this integrates with the Bayes-adaptive MCTS from &lt;a href=&quot;/quals/planning%20and%20decision%20making/2015/12/19/Guez2013.html&quot;&gt;Guez et al.&lt;/a&gt;. There, not only do they run simulations starting from the root node, they also resample the MDP from the prior distribution. So, I’m not sure whether the VOI approach here would still hold in that case. In general though, I do think it is important to take the metalevel decision making problem into account, so this is a really interesting direction to pursue particularly in the context of human reasoning (where our brains almost certainly need to make tradeoffs between doing more computation and acting).&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Jan 2016 05:15:18 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/rational%20process%20models/2016/01/12/Hay2012.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/rational%20process%20models/2016/01/12/Hay2012.html</guid>
+        
+        
+        <category>Rational process models</category>
+        
+      </item>
     
       <item>
         <title>Bayesian fundamentalism or enlightenment? On the explanatory status and theoretical contributions of Bayesian models of cognition</title>
@@ -806,46 +859,6 @@ p(e^+\vert c^+)&amp;=w_1
         
         
         <category>Theory learning</category>
-        
-      </item>
-    
-      <item>
-        <title>Thought experiments</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Brown2014&quot;&gt;Brown, J. R., &amp;amp; Fehige, Y. (2014). Thought Experiments. In E. N. Zalta (Ed.), &lt;i&gt;The Stanford Encyclopedia of Philosophy&lt;/i&gt; (Fall 2014). Retrieved from http://plato.stanford.edu/archives/fall2014/entries/thought-experiment/&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;This entry in the Stanford Encyclopedia of Philosophy gives an outline of what thought experiments are, the history of thought experiments, and the main schools of thought regarding whether thought experiments are useful and how they work.&lt;/p&gt;
-
-&lt;p&gt;First, while the entry does not give a specific definition of thought experiments, it does describe some common features of them: visualizing a situation in our imagination, “running” it, seeing what happens, and drawing a conclusion. Thought experiments do not necessarily result in some objective truth (e.g., following the thought experiment about throwing a spear through the edge of the universe, we now know of topologies where the space could in fact be simultaneously finite and unbounded, like a circle). Thought experiments frequently cannot be run as real experiments “for physical, technological, ethical, or financial reasons… but this needn’t be a defining condition of thought experiments”.&lt;/p&gt;
-
-&lt;p&gt;One possible taxonomy for thought experiments categorizes them firstly as either &lt;em&gt;constructive&lt;/em&gt; or &lt;em&gt;destructive&lt;/em&gt;. Destructive thought experiments may illustrate a contradiction in a theory (e.g. Galileo’s falling objects), show that the theory is in contradiction with other beliefs (unrelated to the theory) that we hold (e.g. Schroedinger’s cat), undermine a premise of the though experiment itself (e.g. Thomson’s violinist), or slightly modify the original version of the thought experiment in order to produce an outcome which calls the conclusions from the original thought experiment into question. Constructive thought experiments provide positive support for a theory by illustrating the implications of a theory’s claims (e.g. Newton’s cannonball).&lt;/p&gt;
-
-&lt;p&gt;The first stage of philosophical investigation of thought experiments began in the 18th and 19th centuries (Novalis, Hans-Christian Orsted). It was again revived in the beginning of the 20th century, marking the 2nd stage (Duhem, Mach, Meinong), and then again in the first part of the second half of the 20th century (Koyre, Kuhn, Popper), marking the 3rd stage. The current investigation is the 4th stage (Brown, Norton).&lt;/p&gt;
-
-&lt;p&gt;There are a number of prominent views regarding thought experiments:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Skeptical objection&lt;/strong&gt; (e.g. Duhem, Wilkes) — a denial that thought experiments are useful, and that they are no substitute for a real experiment. Most skeptical objections are specific to particular fields, rather than to thought experiments as a whole.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Intuition&lt;/strong&gt; (e.g. Brown) — one version of the intuition account is &lt;em&gt;Platonic&lt;/em&gt; intuition, in which the claim is that what is determined in a thought experiment is “a priori (though still fallible) knowledge of nature, since there are no new data involved, nor is the conclusion derived from old data”. The other version is &lt;em&gt;naturalistic&lt;/em&gt; intuition, though it’s not entirely clear to me what this is.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Argument&lt;/strong&gt; (e.g. Norton) — thought experiments are really just inductive or deductive arguments.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Conceptual constructivism&lt;/strong&gt; (e.g. Van Dyck, Gendler, Camilleri, Kuhn) — thought experiments enable conceptual change; i.e. they “[help] us to re-conceptualize the world in a new way”.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Experimentalism&lt;/strong&gt; (e.g. Mach, Sorenson, Buzzoni) — thought experiments are just experiments which generate “uncontrollable images of facts acquired in past experiences with the world”.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Mental model&lt;/strong&gt; — thought experiments are the manipulation of a non-propositional mental model, rather than a physical model. The mental model account ties into the idea of “literary fiction as thought experiments”. The idea is that fiction brings us to construct a hypothetical scenario and use our imagination to let it play out.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;One more recent development in the understanding of thought experiments is the question of whether computer simulations can be thought experiments.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;There is something interesting about thought experiments—and mental simulation in general—in that we can imagine scenarios which are physically impossible and which may violate many natural laws. At the same time, as some of Schwartz’s experiments show, we can’t always use imagery in ways that violate natural laws. So why is it that we can in some cases, but cannot in others? There is something interesting going on between the interplay of actual perceptual or motor imagery (which presumably must approximately conform to experience with the world as it is goverened by our sensory modalities rather than higher level cognition) and the capacity for abstract of symbolic thought. I can &lt;em&gt;conceptualize&lt;/em&gt; the idea of gravity going in the opposite direction, and even run thought experiments regarding what the consequences would be of that. But I can’t do things like &lt;em&gt;visualize&lt;/em&gt; a glass with water in it rotating upside down without the water spilling out. So it seems to me that certain types of thought experiments—particularly ones which violate physical laws—are &lt;em&gt;not&lt;/em&gt; using information from low level sensorimotor processes. Or at least not using the full information the same way. So where does that information come from, then? Do we construct more abstract models about how the world works initially based on low-level information, but which are conceptual/abstract enough to be manipulated during the course of a thought experiment?&lt;/p&gt;
-</description>
-        <pubDate>Sat, 09 Jan 2016 10:21:27 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Brown2014.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Brown2014.html</guid>
-        
-        
-        <category>Thought experiments</category>
         
       </item>
     
