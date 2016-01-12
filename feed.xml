@@ -6,9 +6,56 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 11 Jan 2016 15:56:17 -0800</pubDate>
-    <lastBuildDate>Mon, 11 Jan 2016 15:56:17 -0800</lastBuildDate>
+    <pubDate>Mon, 11 Jan 2016 16:54:34 -0800</pubDate>
+    <lastBuildDate>Mon, 11 Jan 2016 16:54:34 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Optimal predictions in everyday cognition: the wisdom of individuals or crowds?</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Mozer2008&quot;&gt;Mozer, M. C., Pashler, H., &amp;amp; Homaei, H. (2008). Optimal predictions in everyday cognition: the wisdom of individuals or crowds? &lt;i&gt;Cognitive Science&lt;/i&gt;, &lt;i&gt;32&lt;/i&gt;(7), 1133–1147. Retrieved from http://onlinelibrary.wiley.com/doi/10.1080/03640210802353016/abstract&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Mozer et al. question whether the conclusion of &lt;a href=&quot;/quals/probabilistic%20models%20of%20cognition/2015/11/08/Griffiths2006.html&quot;&gt;Griffiths &amp;amp; Tenenbaum&lt;/a&gt;—that people have accurate knowledge of full prior distributions—is justified. In particular, they argue that the same results can be obtained with a model that only uses a few ($k$) samples from the prior. They show that a simple heuristic model (termed Min$k$) actually outperforms the full Bayesian model, and also matches the inter-participant variance better than the Bayesian model.&lt;/p&gt;
+
+&lt;p&gt;Mozer et al. suggest that their Min$k$ model is perhaps more like an algorithmic-level theory, while the fully Bayesian model is a computational-level theory. However, they caution that by focusing purely on the computational level, important factors such as variability and processing time might be missed.&lt;/p&gt;
+
+&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;n/a&lt;/p&gt;
+
+&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
+
+&lt;p&gt;Mozer et al. suggest a few different models. First, the model from Griffiths &amp;amp; Tenenbaum (the &lt;em&gt;G&amp;amp;T-Bayesian&lt;/em&gt; model) predicts the median of the posterior:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(t_{\mathrm{total}}\vert t_\mathrm{cur})\propto p(t_\mathrm{cur}\vert t_\mathrm{total})p(t_\mathrm{total})&lt;/script&gt;
+
+&lt;p&gt;The &lt;em&gt;Min$k$&lt;/em&gt; model retrieves $k$ samples from memory and predicts the minimum sample that is greater than $t_\mathrm{cur}$. If no samples are greater than $t_\mathrm{cur}$, then the model predicts $(1+g)t_\mathrm{cur}$, where $g$ is guess proportion of the query.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;GT$k$Guess&lt;/em&gt; model is similar to Min$k$, except that instead of returning the minimum, it returns the median of the posterior computed with an empirical prior estimated via $k$ samples:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{p}(t_\mathrm{total})=\frac{1}{k}\sum_{i=1}^k \delta_{s_i,t_\mathrm{total}}&lt;/script&gt;
+
+&lt;p&gt;If the prior estimate is less than $t_\mathrm{total}$, then the GT$k$Guess model performs the same guess with $g$ as the Min$k$ model.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;GT$k$Smooth&lt;/em&gt; model doesn’t guess, but instead uses something like a kernel density estimate:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{p}(t_\mathrm{total})\propto \sum_{i=1}^k \exp\left(\frac{(t_\mathrm{total}-s_i)^2}{2\sigma^2}\right)&lt;/script&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I think this is actually a really important point—average participant judgments can’t necessarily be used to say something about the knowledge of individuals. I do think, though, that starting at the computational level and working down can still be revealing. In this case, the computational level analysis reveals that at least in &lt;em&gt;aggregate&lt;/em&gt; people’s judgments reflect true statistical regularities in the world. It could have been the other way around, and a computational level analysis allows us to first look at the high-level picture. Given that, we can then ask questions like the one that Mozer et al. ask here: what is actually the reason why people’s judgments reflect regularities? Is it that each participant has accurate knowledge of the prior, or that knowledge across people is distributed according to the prior? Mozer et al. show that it is the latter.&lt;/p&gt;
+
+&lt;p&gt;I would be interested to see how well an analysis based on mechanisms for sampling would do. For example, would a model that uses rejection sampling also give a consistent algorithmic-level account? I would hypothesize that it would give the same results. You could also measure response time to see if people take longer to respond in cases where they are unlikely to get samples from the prior that are greater than $t_\mathrm{total}$—i.e., they have to make more rejections, and so it takes them longer to respond.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 11 Jan 2016 08:27:51 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Mozer2008.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Mozer2008.html</guid>
+        
+        
+        <category>Challenges for probabilistic models of cognition</category>
+        
+      </item>
     
       <item>
         <title>Judgment under uncertainty: heuristics and biases</title>
@@ -727,79 +774,6 @@ p(e^+\vert c^+)&amp;=w_1
         <pubDate>Sat, 09 Jan 2016 04:33:40 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Trickett2007.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Trickett2007.html</guid>
-        
-        
-        <category>Thought experiments</category>
-        
-      </item>
-    
-      <item>
-        <title>Galileo and the indispensability of scientific thought experiment</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Gendler1998&quot;&gt;Gendler, T. S. (1998). Galileo and the Indispensability of Scientific Thought Experiment. &lt;i&gt;The British Journal For the Philosophy of Science&lt;/i&gt;, &lt;i&gt;49&lt;/i&gt;(3), 397–424.&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Gendler argues that thought experiments are important and justified for the use of scientific inquiry, using Galileo’s thought experiment demonstrating that two objects with different masses fall at the same rate. The thought experiment goes, imagine that two objects with different weights are strapped together. Because the lighter object falls slower than the heavier object, it must slow the heavier object down, and thus the speed that they fall together must be somewhere in between the speed of the heavy object alone and the light object alone. But, together, they also have a greater mass, meaning that together they should fall faster than the heavy object alone. Thus, for there to not be a contradiction, the objects must actually fall at the same speed.&lt;/p&gt;
-
-&lt;p&gt;Gendler addresses the claim that thought experiments are just another form of deductive/inductive reasoning from a set of explicit premises, and explains what they add over and above pure argumentation. Specifically, she argues against the &lt;em&gt;Elimination Thesis&lt;/em&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;The Elimination Thesis&lt;/strong&gt;: Any conclusion reached by a (successful) scientific thought experiment will also be demonstrable by a non-thought-experimental argument. (pg. 398)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;She breaks the Elimination Thesis down into two separate claims:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;The Dispensibility Thesis&lt;/strong&gt;: Any good scientific thought experiment can be replaced, without loss of demonstrative force, by a non-thought-experimental argument. (pg. 401)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;and&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;The Derivativity Thesis&lt;/strong&gt;: The justificatory force of any good scientific thought experiment can only be explained by the fact that it can be replaced, without loss of demonstrative force, by a non-thought-experimental argument. (pg. 401)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;First, Gendler rephrases the thought experiment in terms of a few propositions:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;(1) Natural speed is mediative [averaging].&lt;/li&gt;
-  &lt;li&gt;(2) Weight is additive.&lt;/li&gt;
-  &lt;li&gt;(3) Natural speed is not directly proportional to weight.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Next, she goes about disproving the Dispensibility Thesis by giving an example set of alternate premises that an Aristotelian might adhere to, given their existing belief that objects fall at the same weight:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;(4) Natural speed is not physically determinate for strapped-bodies.&lt;/li&gt;
-  &lt;li&gt;(5) Weight is not physically determinate for strapped-bodies.&lt;/li&gt;
-  &lt;li&gt;(6) Natural speed and weight are mediative for strapped-bodies that are &lt;em&gt;united&lt;/em&gt; (two objects). Natural speed and weight are additive for strapped-bodies that are &lt;em&gt;unified&lt;/em&gt; (one object).&lt;/li&gt;
-  &lt;li&gt;(7) Natural speed and weight for strapped-bodies are determined by a &lt;em&gt;degree of connectedness&lt;/em&gt; ($C$) such that the speed/weight of $B_1$-strapped-to-$B_2$ where $B_1$ has $w_1$ and $B_2$ has $w_2$ will be: $C(w_1+w_2)+(1-C)(w_1+w_2)/2$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;That is, the Aristotelian takes this “degree of connectedness” as being a key relevant property, and thus is able to preserve the idea that speed and weight are proportional. Of course, this claim seems a bit ridiculous, and that is because, as Gendler claims, the thought experiment is revealing to us tacit assumptions that we did not realize we had:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;(8) Natural speed and weight are physically determined.&lt;/li&gt;
-  &lt;li&gt;(9) Entification [number of objects/entities that something counts as] is not physically determined.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;However, it is important to note that “prior to the thought experiment, the Aristotelian is explicitly committed to the &lt;em&gt;negation&lt;/em&gt; of (3), and this background commitment serves as a filter through which apparently contrary evidence will inevitably be reinterpreted” (pg. 409). Thus, it does not necessarily follow that anyone given (1) and (2) would reach the conclusion of (3)—particularly if they already thought (3) was false, they would look for ways of explaining away or disproving (1) and (2) so that (3) would remain false.&lt;/p&gt;
-
-&lt;p&gt;Next, Gendler moves on to disproving the Derivativity Thesis by showing that through the thought experiment knowledge has been gained, both in the sense that something new has been learned, and that this new knowledge is justified.&lt;/p&gt;
-
-&lt;p&gt;The first part of this argument (that something new has been learned) is a straightforward claim: presumably, altering one’s beliefs so that they &lt;em&gt;negate&lt;/em&gt; a piece of knowledge counts as having learned something “new”, as it is not simply a combination of previous beliefs. But even more importantly, the Aristotelian is led to think of speed as a different type of concept entirely: rather than being a derivative of weight, it is something else. As Gendler puts it, “it brings the Aristotelian to recognize the inadequacy of his conceptual framework for dealing with phenomena which—through the contemplation of this imaginary case—he comes to recognize as always having been part of his world.” (pg. 412)&lt;/p&gt;
-
-&lt;p&gt;The second part of the argument (that the knowledge is justified) is trickier. Gendler asks, “Why should we think that our pre-theoretical beliefs about the structure of the physical world are reliable?” (pg. 414). She doesn’t really give an answer to this question, but does argue that we do have (implied veridical) knowledge of the world, but it is not accessible by argument alone: it requires something like a thought experiment to tap into it.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This is a somewhat different take on the notion of simulation than what I’ve been thinking about so far. Although Gendler doesn’t refer to thought experiments as simulations per se, they are related in the sense of being a mental reproduction of something in the world.&lt;/p&gt;
-
-&lt;p&gt;I have more thoughts about this, but I’m too tired tonight to get them in a coherent enough form to write down. I will include them on my notes for the other papers in this topic (thought experiments) tomorrow.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 08 Jan 2016 12:31:41 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/08/Gendler1998.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/08/Gendler1998.html</guid>
         
         
         <category>Thought experiments</category>
