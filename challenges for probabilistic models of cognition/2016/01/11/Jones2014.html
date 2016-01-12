@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Unfalsifiability and mutual translatability of major modeling schemes in choice reaction time</title>
+    <meta name="description" content="Notes on readings for my qualifying exams.
+">
+
+    <link rel="stylesheet" href="/quals/css/main.css">
+    <link rel="canonical" href="http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Jones2014.html">
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/quals/">Quals Reading Notes</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/quals/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/quals/categories/">Categories</a>
+          
+        
+          
+        
+          
+        
+          
+        
+        <a class="page-link" href="/quals/readings.pdf">Reading List</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Unfalsifiability and mutual translatability of major modeling schemes in choice reaction time</h1>
+    <p class="post-meta">Jan 11, 2016 • Challenges for probabilistic models of cognition</p>
+  </header>
+
+  <article class="post-content">
+    <p><span id="Jones2014">Jones, M., &amp; Dzhafarov, E. N. (2014). Unfalsifiability and Mutual Translatability of Major Modeling Schemes for Choice Reaction Time. <i>Psychological Review</i>, <i>121</i>(1), 1–32. doi:10.1037/a0034190</span></p>
+
+<h1 id="summary">Summary</h1>
+
+<p>In this paper, Jones &amp; Dzhafarov show that two popular response and response time (R&amp;T) models—the <em>linear ballistic accumulator</em> mode and <em>diffusion</em> models—are unfalsifiable when distributional assumptions (which have previously been assumed to be an implementation detail) are removed. That is, they can be made to fit any R&amp;T distribution, and thus do not provide any explanatory power regarding the mechanism behind responses and response times. Jones &amp; Dzhafarov show how the LBM and diffusion models can be translated into another type of R&amp;T model called the <em>Grice</em> architecture, which is also unfalsifiable.</p>
+
+<p>They also discuss two assumptions regarding “selective influence”:</p>
+
+<ol>
+  <li>Stimulus information affects growth rates of the response processes, but not starting points or decision thresholds.</li>
+  <li>Speed-accuracy bias affects decision thresholds and possibly the starting point, but not the response processes.</li>
+</ol>
+
+<p>The first assumption does not actually impose any constraints on the R&amp;T models—they are still unfalsifiable. The second assumption does impose constraints on the R&amp;T models, but Jones &amp; Dzhafarov argue that this assumption is not well motivated. In particular, response processes can be recast in terms of decision thresholds and starting points, so it is not clear why the assumption needs to be made specifically about thresholds and starting points.</p>
+
+<h2 id="notation">Notation</h2>
+
+<ul>
+  <li>$s$ — stimulus</li>
+  <li>$c$ — condition (or other factor)</li>
+  <li>$r$ — response</li>
+  <li>$t$ — response time</li>
+  <li>$G^{s,c}(r,t)$ — joint distribution over responses and upper bound on response time</li>
+  <li>$h^{s,c}(r,t)$ — joint hazard function specifying the probability density of giving response $r$ at time $t$, given that no response has occurred before $t$</li>
+  <li>$R_r^{s,c}(t)$ — response process (generally random)</li>
+  <li>$\theta_r^{s,c}$ — threshold</li>
+  <li>$T_r^{s,c}$ — first passage time (the time it would take $R_r^{s,c}$ to cross $\theta_r^{s,c}$ for the first time, independent of all other processes)</li>
+</ul>
+
+<h2 id="grice-architecture">Grice architecture</h2>
+
+<p>In the Grice model, the distribution of thresholds is independent of stimulus and condition. For each stimulus, there are $n$ deterministic response processes, and the thresholds $\theta_1,\ldots{},\theta_n$ are sampled from this fixed joint distribution before each trial. The processes then “race” to their respective thresholds, and whichever arrives first determines the response and response time.</p>
+
+<h2 id="linear-ballistic-accumulation">Linear ballistic accumulation</h2>
+
+<p>The LBA is also a race model. Each response process is a deterministic linear function:</p>
+
+<script type="math/tex; mode=display">R_r^{s,c}(t)=z_r^c+k_r^st</script>
+
+<p>where $z_r$ is the starting point of the process and $k_r^s$ is the process growth rate, which are sampled independently for each process on each trial. Thresholds $\theta_r^{s,c}=b^c$ are deterministic and shared across processes.</p>
+
+<p>Normally, it is assumed that starting points are sampled from a uniform distribution, and growth rates are sampled from a normal distribution:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+z_r^c&\sim U(0, A^c)\\
+k_r^s&\sim \mathcal{N}(v_r^s, \eta^2)
+\end{align*} %]]></script>
+
+<p>There is also a constant <em>nondecision time</em> $t_0$ added to the first-passage time of the winning process.</p>
+
+<p>To summarize, the parameters are:</p>
+
+<ul>
+  <li>$b^c$ — threshold for all response processes</li>
+  <li>$A^c$ — upper bound on starting points</li>
+  <li>$v_r^s$ — mean growth rate of response process $r$</li>
+  <li>$\eta$ — standard deviation of growth rate for all response proceses</li>
+  <li>$t_0$ — nondecision time</li>
+</ul>
+
+<p>If the distributional assumptions on $z$ and $k$ are lifted, then the model is unfalsifiable.</p>
+
+<h2 id="diffusion">Diffusion</h2>
+
+<p>The response process is a stochastic process with a random starting point $z^c$, a random growth/drift rate $k^s$, a (usually fixed) diffusion rate $\sigma^2$, and a decay term with parameter $\beta$ (which is 0 in the Wiener model):</p>
+
+<script type="math/tex; mode=display">\mathrm{d}R^{s,c}(t)=(k^s-\beta(R^{s,c}(t)-z^c))\mathrm{d}t + \sigma\mathrm{d}B(t)</script>
+
+<p>where $B(t)$ is Brownian motion and $R^{s,c}(0)=z^c$. The process terminates when it reaches 0 or a threshold $a^c$. The starting point is sampled from a uniform distribution, the growth rate from a normal distribution, and the nondecision time from a uniform distribution:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+z^c&\sim \mathrm{Uniform}(\bar{z}^c-\frac{\delta_z}{2},\bar{z}^c+\frac{\delta_z}{2})\\
+k^s&\sim \mathcal{N}(v^s, \eta^2)\\
+t_0&\sim \mathrm{Uniform}(T_\mathrm{er}-\frac{\delta_t}{2},T_\mathrm{er}+\frac{\delta_t}{2})
+\end{align*} %]]></script>
+
+<p>where $\delta_z$ and is set such that $0\leq z^c\leq a^c$ and $\delta_t\leq 2T_\mathrm{er}$.</p>
+
+<p>To summarize, the parameters are:</p>
+
+<ul>
+  <li>$\beta$ — decay rate (set to 0 for the Wiener model)</li>
+  <li>$a^c$ — threshold separation</li>
+  <li>$\sigma$ — diffusion rate</li>
+  <li>$v^s$ — mean growth rate</li>
+  <li>$\eta$ — standard deviation of the growth-rate distribution</li>
+  <li>$\bar{z}^c$ — mean starting point</li>
+  <li>$\delta_z$ — range of the start-point distribution</li>
+  <li>$T_\mathrm{er}$ — mean nondecision time</li>
+  <li>$\delta_t$ — range of the nondecision distribution</li>
+</ul>
+
+<p>The diffusion model without distributional assumptions on $z$, $k$, and $t_0$ is shown to be unfalsifiable, even when $\sigma=\delta_z=\delta_t=0$ and $\bar{z}^c=a^c/2$ for any $a^c=a$. Allowing these parameters to vary would in theory just make the model more flexible, but it’s already maximally flexible so in reality they don’t have much effect.</p>
+
+<h1 id="takeaways">Takeaways</h1>
+
+<p>This article isn’t so much a challenge for probabilistic/Bayesian models of cognition, but it is important in the context of my own work in which I would like to be able to use reaction times as a proxy for things like simulation, and number of simulations. As a process model, though, I find the Grice framework a bit dissatisfying because its stochasticity doesn’t seem realistic. The important thing (to me) in these types of models would be the idea that the mind is getting some form of evidence over time—by discrete samples, or a continuous stream of perceptual samples, etc.—and thus the variability shouldn’t be in setting a threshold but in terms of the evidence. The DDM thus feels more interpretable to me, despite the fact that it can be translated into equivalent versions of the other models.</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Quals Reading Notes</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Quals Reading Notes</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/jhamrick">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">jhamrick</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jhamrick">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">jhamrick</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Notes on readings for my qualifying exams.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

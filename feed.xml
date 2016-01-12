@@ -6,9 +6,120 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 11 Jan 2016 16:54:34 -0800</pubDate>
-    <lastBuildDate>Mon, 11 Jan 2016 16:54:34 -0800</lastBuildDate>
+    <pubDate>Mon, 11 Jan 2016 21:25:10 -0800</pubDate>
+    <lastBuildDate>Mon, 11 Jan 2016 21:25:10 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Unfalsifiability and mutual translatability of major modeling schemes in choice reaction time</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Jones2014&quot;&gt;Jones, M., &amp;amp; Dzhafarov, E. N. (2014). Unfalsifiability and Mutual Translatability of Major Modeling Schemes for Choice Reaction Time. &lt;i&gt;Psychological Review&lt;/i&gt;, &lt;i&gt;121&lt;/i&gt;(1), 1–32. doi:10.1037/a0034190&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Jones &amp;amp; Dzhafarov show that two popular response and response time (R&amp;amp;T) models—the &lt;em&gt;linear ballistic accumulator&lt;/em&gt; mode and &lt;em&gt;diffusion&lt;/em&gt; models—are unfalsifiable when distributional assumptions (which have previously been assumed to be an implementation detail) are removed. That is, they can be made to fit any R&amp;amp;T distribution, and thus do not provide any explanatory power regarding the mechanism behind responses and response times. Jones &amp;amp; Dzhafarov show how the LBM and diffusion models can be translated into another type of R&amp;amp;T model called the &lt;em&gt;Grice&lt;/em&gt; architecture, which is also unfalsifiable.&lt;/p&gt;
+
+&lt;p&gt;They also discuss two assumptions regarding “selective influence”:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Stimulus information affects growth rates of the response processes, but not starting points or decision thresholds.&lt;/li&gt;
+  &lt;li&gt;Speed-accuracy bias affects decision thresholds and possibly the starting point, but not the response processes.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The first assumption does not actually impose any constraints on the R&amp;amp;T models—they are still unfalsifiable. The second assumption does impose constraints on the R&amp;amp;T models, but Jones &amp;amp; Dzhafarov argue that this assumption is not well motivated. In particular, response processes can be recast in terms of decision thresholds and starting points, so it is not clear why the assumption needs to be made specifically about thresholds and starting points.&lt;/p&gt;
+
+&lt;h2 id=&quot;notation&quot;&gt;Notation&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$s$ — stimulus&lt;/li&gt;
+  &lt;li&gt;$c$ — condition (or other factor)&lt;/li&gt;
+  &lt;li&gt;$r$ — response&lt;/li&gt;
+  &lt;li&gt;$t$ — response time&lt;/li&gt;
+  &lt;li&gt;$G^{s,c}(r,t)$ — joint distribution over responses and upper bound on response time&lt;/li&gt;
+  &lt;li&gt;$h^{s,c}(r,t)$ — joint hazard function specifying the probability density of giving response $r$ at time $t$, given that no response has occurred before $t$&lt;/li&gt;
+  &lt;li&gt;$R_r^{s,c}(t)$ — response process (generally random)&lt;/li&gt;
+  &lt;li&gt;$\theta_r^{s,c}$ — threshold&lt;/li&gt;
+  &lt;li&gt;$T_r^{s,c}$ — first passage time (the time it would take $R_r^{s,c}$ to cross $\theta_r^{s,c}$ for the first time, independent of all other processes)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;grice-architecture&quot;&gt;Grice architecture&lt;/h2&gt;
+
+&lt;p&gt;In the Grice model, the distribution of thresholds is independent of stimulus and condition. For each stimulus, there are $n$ deterministic response processes, and the thresholds $\theta_1,\ldots{},\theta_n$ are sampled from this fixed joint distribution before each trial. The processes then “race” to their respective thresholds, and whichever arrives first determines the response and response time.&lt;/p&gt;
+
+&lt;h2 id=&quot;linear-ballistic-accumulation&quot;&gt;Linear ballistic accumulation&lt;/h2&gt;
+
+&lt;p&gt;The LBA is also a race model. Each response process is a deterministic linear function:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;R_r^{s,c}(t)=z_r^c+k_r^st&lt;/script&gt;
+
+&lt;p&gt;where $z_r$ is the starting point of the process and $k_r^s$ is the process growth rate, which are sampled independently for each process on each trial. Thresholds $\theta_r^{s,c}=b^c$ are deterministic and shared across processes.&lt;/p&gt;
+
+&lt;p&gt;Normally, it is assumed that starting points are sampled from a uniform distribution, and growth rates are sampled from a normal distribution:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+z_r^c&amp;\sim U(0, A^c)\\
+k_r^s&amp;\sim \mathcal{N}(v_r^s, \eta^2)
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;There is also a constant &lt;em&gt;nondecision time&lt;/em&gt; $t_0$ added to the first-passage time of the winning process.&lt;/p&gt;
+
+&lt;p&gt;To summarize, the parameters are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$b^c$ — threshold for all response processes&lt;/li&gt;
+  &lt;li&gt;$A^c$ — upper bound on starting points&lt;/li&gt;
+  &lt;li&gt;$v_r^s$ — mean growth rate of response process $r$&lt;/li&gt;
+  &lt;li&gt;$\eta$ — standard deviation of growth rate for all response proceses&lt;/li&gt;
+  &lt;li&gt;$t_0$ — nondecision time&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If the distributional assumptions on $z$ and $k$ are lifted, then the model is unfalsifiable.&lt;/p&gt;
+
+&lt;h2 id=&quot;diffusion&quot;&gt;Diffusion&lt;/h2&gt;
+
+&lt;p&gt;The response process is a stochastic process with a random starting point $z^c$, a random growth/drift rate $k^s$, a (usually fixed) diffusion rate $\sigma^2$, and a decay term with parameter $\beta$ (which is 0 in the Wiener model):&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathrm{d}R^{s,c}(t)=(k^s-\beta(R^{s,c}(t)-z^c))\mathrm{d}t + \sigma\mathrm{d}B(t)&lt;/script&gt;
+
+&lt;p&gt;where $B(t)$ is Brownian motion and $R^{s,c}(0)=z^c$. The process terminates when it reaches 0 or a threshold $a^c$. The starting point is sampled from a uniform distribution, the growth rate from a normal distribution, and the nondecision time from a uniform distribution:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+z^c&amp;\sim \mathrm{Uniform}(\bar{z}^c-\frac{\delta_z}{2},\bar{z}^c+\frac{\delta_z}{2})\\
+k^s&amp;\sim \mathcal{N}(v^s, \eta^2)\\
+t_0&amp;\sim \mathrm{Uniform}(T_\mathrm{er}-\frac{\delta_t}{2},T_\mathrm{er}+\frac{\delta_t}{2})
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $\delta_z$ and is set such that $0\leq z^c\leq a^c$ and $\delta_t\leq 2T_\mathrm{er}$.&lt;/p&gt;
+
+&lt;p&gt;To summarize, the parameters are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\beta$ — decay rate (set to 0 for the Wiener model)&lt;/li&gt;
+  &lt;li&gt;$a^c$ — threshold separation&lt;/li&gt;
+  &lt;li&gt;$\sigma$ — diffusion rate&lt;/li&gt;
+  &lt;li&gt;$v^s$ — mean growth rate&lt;/li&gt;
+  &lt;li&gt;$\eta$ — standard deviation of the growth-rate distribution&lt;/li&gt;
+  &lt;li&gt;$\bar{z}^c$ — mean starting point&lt;/li&gt;
+  &lt;li&gt;$\delta_z$ — range of the start-point distribution&lt;/li&gt;
+  &lt;li&gt;$T_\mathrm{er}$ — mean nondecision time&lt;/li&gt;
+  &lt;li&gt;$\delta_t$ — range of the nondecision distribution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The diffusion model without distributional assumptions on $z$, $k$, and $t_0$ is shown to be unfalsifiable, even when $\sigma=\delta_z=\delta_t=0$ and $\bar{z}^c=a^c/2$ for any $a^c=a$. Allowing these parameters to vary would in theory just make the model more flexible, but it’s already maximally flexible so in reality they don’t have much effect.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;This article isn’t so much a challenge for probabilistic/Bayesian models of cognition, but it is important in the context of my own work in which I would like to be able to use reaction times as a proxy for things like simulation, and number of simulations. As a process model, though, I find the Grice framework a bit dissatisfying because its stochasticity doesn’t seem realistic. The important thing (to me) in these types of models would be the idea that the mind is getting some form of evidence over time—by discrete samples, or a continuous stream of perceptual samples, etc.—and thus the variability shouldn’t be in setting a threshold but in terms of the evidence. The DDM thus feels more interpretable to me, despite the fact that it can be translated into equivalent versions of the other models.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 11 Jan 2016 10:42:58 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Jones2014.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Jones2014.html</guid>
+        
+        
+        <category>Challenges for probabilistic models of cognition</category>
+        
+      </item>
     
       <item>
         <title>Optimal predictions in everyday cognition: the wisdom of individuals or crowds?</title>
@@ -721,59 +832,6 @@ p(e^+\vert c^+)&amp;=w_1
         <pubDate>Sat, 09 Jan 2016 07:35:52 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Clement2009.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Clement2009.html</guid>
-        
-        
-        <category>Thought experiments</category>
-        
-      </item>
-    
-      <item>
-        <title>&quot;What if...&quot;: The use of conceptual simulations in scientific reasoning</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Trickett2007&quot;&gt;Trickett, S. B., &amp;amp; Trafton, J. G. (2007). “What if…”: The Use of Conceptual Simulations in Scientific Reasoning. &lt;i&gt;Cognitive Science&lt;/i&gt;, &lt;i&gt;31&lt;/i&gt;(5), 843–875. doi:10.1080/03640210701530771&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Trickett &amp;amp; Trafton experimentally explore the use of &lt;em&gt;conceptual simulations&lt;/em&gt; by expert scientists when reasoning about problems in their domain of expertise. They have two main hypotheses: that conceptual simulations are a core strategy used in scientific reasoning, and that they are used in particular to reason about situations in which there are high levels of uncertainty (e.g. partial knowledge, violation of expectation, etc.). They define conceptual simulation as:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;…a three-step process that consists of first, visualizing some situation; second, carrying out one or more operations on it; and third, seeing what happens. The third part of the process—seeing what happens—is crucial. It distinguishes “what if” thinking from purely imagining because during this third phase &lt;em&gt;causal reasoning&lt;/em&gt; occurs to the results of the manipulation(s) of the second phase.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In their experiments, Trickett &amp;amp; Trafton found that scientists do spontaneously use conceptual simulation and that they use it in cases where their expectations are violated (i.e. they have more uncertainty):&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The research shows how conceptual simulation helps resolve uncertainty: conceptual simulation facilitates reasoning about hypotheses by generating an altered representation under the purported conditions expressed in the hypothesis and providing a source of comparison with the actual data, in the process of alignment by similarity detection. (pg. 866)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Additionally, the results of these experiments combined with other results from the literature suggest that conceptual simulations are used in situations where there the answer truly is unknown. In other cases, people can rely on background knowledge, existing models, etc.:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Frequently, studies of experts employ problems that are well-understood for an expert and that can be solved by recalling either this very problem (i.e., by model-based search) or another that shares the same deep structure (i.e., by analogy; cf. Chi et al., 1981). In contrast, our studies show experts reasoning about problems for which neither they nor anyone else knows the answer. (pg. 867)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;That is, conceptual simulation is a type of model &lt;em&gt;construction&lt;/em&gt; (pg. 866).&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;In Experiment 1, Trickett &amp;amp; Trafton performed an &lt;em&gt;in vivo&lt;/em&gt; study of scientists across several different domains of science. The scientists were filmed while they analyzed their own data, either individually (with a verbal protocol) or collaboratively. The utterances of the scientists were coded for instances of conceptual simulation, for hypotheses, for and for other scientific reasoning strategies (data focus, empirical test, consult a colleague, tie-in with theory and domain knowledge, analogy, or alignment). They found that data focus was the most commonly used strategy. The next most frequently used strategies were tie-in with theory, alignment, and conceptual simulation; these were used at approximately the same frequency.&lt;/p&gt;
-
-&lt;p&gt;In analyzing the relationship between strategies, they found that conceptual simulations were almost always followed by a process of alignment, which was then usually either the end of the chain of reasoning, or which was followed by a return to data focus. Trickett &amp;amp; Trafton hypothesized that this sequence of conceptual simulation followed by alignment was used “to link the internal (result of the conceptual simulation) and external (phenomena in the data) representations” (pg. 858).&lt;/p&gt;
-
-&lt;p&gt;They additionally coded the data for hypotheses that were generated either based on evidence that violated expectations or which was consistent with expectations. They found that conceptual simulation more frequently followed violation of expectation hypotheses than those that did not have a violation of expectation, suggesting that the scientists used conceptual simulation in situations where they were more uncertain.&lt;/p&gt;
-
-&lt;p&gt;To causally test the previous hypothesis (that conceptual simulations are used in situations with higher uncertainty), Trickett &amp;amp; Trafton ran a second experiment. In Experiment 2, they recruited expert cognitive psychologists and gave them different scenarios and results of phenomena they were familiar with. The results were either consistent with the given scenario (Expectation Confirmation, EC) or inconsistent (Expectation Violation, EV). The scientists were instructed to engage in a process of explaining the data, and again were recorded doing so. Consistent with the results of Experiment 1, they found that conceptual simulations were used more frequently in the EV condition than in the EC condition, at a rate of approximately 2:1.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;These types of “conceptual simulations”, as well as thought experiments like those described by &lt;a href=&quot;/quals/thought%20experiments/2016/01/08/Gendler1998.html&quot;&gt;Gendler&lt;/a&gt;, are really fascinating in that they seem to be qualitatively a very different sort of simulation than, for example, motor simulation or even certain types of mental imagery (like that which is used in language understanding). I think a relevant question is: are such types of conceptual simulations drawing on the same types of simulation processes that serve lower levels of reasoning? I would expect the answer to be “sometimes”, but I don’t have a good intuition for why certain low-level simulations would be available for high-level conceptual reasoning (e.g. imagery) while others wouldn’t (e.g. accurate simulation of physics via the motor system).&lt;/p&gt;
-</description>
-        <pubDate>Sat, 09 Jan 2016 04:33:40 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Trickett2007.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/thought%20experiments/2016/01/09/Trickett2007.html</guid>
         
         
         <category>Thought experiments</category>
