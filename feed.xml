@@ -6,9 +6,52 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Jan 2016 16:25:07 -0800</pubDate>
-    <lastBuildDate>Tue, 12 Jan 2016 16:25:07 -0800</lastBuildDate>
+    <pubDate>Wed, 13 Jan 2016 15:30:42 -0800</pubDate>
+    <lastBuildDate>Wed, 13 Jan 2016 15:30:42 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Stable fluids</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Stam1999&quot;&gt;Stam, J. (1999). Stable Fluids. &lt;i&gt;Proceedings Of the 26th Annual Conference on Computer Graphics and Interactive Techniques&lt;/i&gt;. doi:10.1145/311535.311548&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;This paper introduces the first stable fluid simulation algorithm for computer graphics. This is a hard problem, because there is not analytic solution to Navier-Stokes. Previous methods had used explicit approximations such as Eulerian methods; however, these types of methods can become unstable and “blow up” for large timesteps. Using small enough timesteps is not a feasible option in computer graphics, in which the simulation needs to run in real time, thus prohibiting small timesteps.&lt;/p&gt;
+
+&lt;p&gt;This algorithm is specific to contained fluids (i.e., gases) and approximates the following form of Navier-Stokes:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\deriv \mathbf{u}}{\deriv t}=\mathbf{P}\left(-(\mathbf{u}\cdot{}\del)\mathbf{u}+\nu\del^2\mathbf{u}+\mathbf{f})&lt;/script&gt;
+
+&lt;p&gt;where $\del\cdot{}\mathbf{u}=0$. Here, $\mathbf{u}$ is the velocity field, $\del$ is a vector of spatial partial derivatives, $\nu$ is the kinematic viscosity of the fluid, $\mathbf{f}$ is an external force, and $\mathbf{P}$ is a projection operator which projects any vector field onto its &lt;em&gt;divergence free&lt;/em&gt; part. Divergence free essentially means that at any point in the vector field, the flow towards that point is the same as the flow away from it.&lt;/p&gt;
+
+&lt;p&gt;They compute the approximate solution to this equation in four steps. First, $\mathbf{w}_0$ is the solution from the previous time step:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{w}_0(\mathbf{x})=\mathbf{u}(\mathbf{x},t)&lt;/script&gt;
+
+&lt;p&gt;Then, the first step is to &lt;em&gt;add force&lt;/em&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{w}_1(\mathbf{x})=\mathbf{w}_0+\Delta t\ \mathbf{f}(\mathbf{x},t)&lt;/script&gt;
+
+&lt;p&gt;The second step is &lt;em&gt;advection&lt;/em&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{w}_2(\mathbf{x})=\mathbf{w}_1(\mathbf{p}(\mathbf{x},-\Delta t))&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{p}(\mathbf{x},-\Delta t)$ says that the new velocity at $\mathbf{x}$ is the velocity at a location backwards in time by $-\Delta t$ (i.e., something like the velocity at the location given by $\dot{\mathbf{x}}\ \Delta t)$.&lt;/p&gt;
+
+&lt;p&gt;The third step is &lt;em&gt;diffusion&lt;/em&gt;, in which the effects of viscosity are applied and solved as a linear system:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\left(\mathbf{I}-\nu\Delta t\del^2\right)\mathbf{w}_3(\mathbf{x})=\mathbf{w}_2(\mathbf{x})&lt;/script&gt;
+
+&lt;p&gt;The fourth and final step is &lt;em&gt;projection&lt;/em&gt;, in which the system is projected back onto its divergence free part.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Jan 2016 07:53:39 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/physically-based%20animation/2016/01/12/Stam1999.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physically-based%20animation/2016/01/12/Stam1999.html</guid>
+        
+        
+        <category>Physically-based animation</category>
+        
+      </item>
     
       <item>
         <title>Rational use of cognitive resources: levels of analysis between the computational and the algorithmic</title>
@@ -562,298 +605,6 @@ R^j(x_1,x_2,\ldots{},x_m)\vert z^1,\ldots{},z^n, \eta^j &amp;\sim \mathrm{Bernou
         <pubDate>Sun, 10 Jan 2016 11:32:56 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Kemp2010.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Kemp2010.html</guid>
-        
-        
-        <category>Theory learning</category>
-        
-      </item>
-    
-      <item>
-        <title>Theory-based causal induction</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Griffiths2009&quot;&gt;Griffiths, T. L., &amp;amp; Tenenbaum, J. B. (2009). Theory-based causal induction. &lt;i&gt;Psychological Review&lt;/i&gt;, &lt;i&gt;116&lt;/i&gt;(4), 661–716. doi:10.1037/a0017201&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Griffiths &amp;amp; Tenenbaum outline a probabilistic framework for causal induction that allows inference to be done over variables, graphs, and theories. The framework has three main components:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Ontology of entities, properties, and relations (i.e., “how entities are differentiated on the basis of their causal properties”, pg. 663)&lt;/li&gt;
-  &lt;li&gt;Plausible relations between entities (i.e., what types of relationships should be considered in a given domain)&lt;/li&gt;
-  &lt;li&gt;Functional forms of relations (i.e., the direction in which causes act, and how causes combine)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;These three components are implemented in a probabilistic graphical model as:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Ontology = variables&lt;/li&gt;
-  &lt;li&gt;Plausible relations = graph (the &lt;em&gt;structure&lt;/em&gt;)&lt;/li&gt;
-  &lt;li&gt;Functional form = probability distribution (the &lt;em&gt;parameterization&lt;/em&gt;)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Given an existing ontology, learning the plausible relations is a type of &lt;em&gt;structure learning&lt;/em&gt;, and learning the functional form is a type of &lt;em&gt;parameter estimation&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Griffiths &amp;amp; Tenenbaum note, however, that knowledge of ontologies, plausible relations, and functional forms itself is not something that can be expressed through the framework of graphical models:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Knowledge about the ontology, plausibility, and functional form of causal relationships should influence the prior, likelihood, and hypothesis space for Bayesian inference. However, expressing this knowledge requires going beyond the representational capacities of causal graphical models. Although this knowledge can be &lt;em&gt;instantiated&lt;/em&gt; in a causal graphical model, it generalizes over a set of such models, and thus cannot be &lt;em&gt;expressed&lt;/em&gt; in any one model. (pg. 669)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;They argue that this type of knowledge is akin to the notion of an &lt;em&gt;intuitive theory&lt;/em&gt;, and draw the relationship between theories and grammars; causal structures and syntactic structures; and data and sentences. To formalize theories in their framework, they make use of &lt;em&gt;hierarchical Bayesian models&lt;/em&gt; which allow inference to be performed both at the level of the theory as well as the lower levels of causal structures and relationships.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;h2 id=&quot;types-of-functional-forms&quot;&gt;Types of functional forms&lt;/h2&gt;
-
-&lt;h3 id=&quot;noisy-or&quot;&gt;Noisy-OR&lt;/h3&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(e^+\vert c; w_0, w_1)=1-(1-w_0)(1-w_1)^c&lt;/script&gt;
-
-&lt;p&gt;where $e^+$ is the presence of the effect, $c$ is the presence/absence of the cause $w_0$ is the probability of the effect in the absence of the cause, and $w_1$ is the probability of the effect given a single cause.&lt;/p&gt;
-
-&lt;h3 id=&quot;noisy-and-not&quot;&gt;Noisy-AND-NOT&lt;/h3&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(e^+\vert c; w_0, w_1)=w_0(1-w_1)^c&lt;/script&gt;
-
-&lt;h3 id=&quot;generic&quot;&gt;Generic&lt;/h3&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-p(e^+\vert c^-)&amp;=w_0\\
-p(e^+\vert c^+)&amp;=w_1
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;h3 id=&quot;continuous-noisy-or&quot;&gt;Continuous Noisy-OR&lt;/h3&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\lambda(t)=\sum_i w_i\delta(t, t_i)&lt;/script&gt;
-
-&lt;p&gt;where $w_i$ and $t_i$ are the weight and time associated with the $i$th cause.&lt;/p&gt;
-
-&lt;h2 id=&quot;medical-contingency-data&quot;&gt;Medical contingency data&lt;/h2&gt;
-
-&lt;p&gt;This case study shows how the framework can account for contingency data.&lt;/p&gt;
-
-&lt;h3 id=&quot;ontology&quot;&gt;Ontology&lt;/h3&gt;
-
-&lt;p&gt;Types:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Chemical}$ ($N_C\sim P_C$)&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Gene}$ ($N_G\sim P_G$)&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Mouse}$ ($N_M\sim P_M$)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Predicates:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Injected}(\mathrm{Chemical}, \mathrm{Mouse}) \rightarrow [0, 1]$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Expressed}(\mathrm{Gene}, \mathrm{Mouse}) \rightarrow [0, 1]$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;plausible-relations&quot;&gt;Plausible relations&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Injected}(C, M) \rightarrow \mathrm{Expressed}(G, M)$, true for all $M$ with probability $p$ for each $C$, $G$ pair&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;functional-forms&quot;&gt;Functional forms&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Injected}(C, M) \sim \mathrm{Bernoulli}(\cdot{})$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Expressed}(G, M) \sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR, noisy-AND-NOT, or generic functional form, where $w_0$ and $w_1$ are drawn from uniform distributions&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;blicket-detection&quot;&gt;Blicket detection&lt;/h2&gt;
-
-&lt;p&gt;This case study shows how the framework can account for small amounts of data.&lt;/p&gt;
-
-&lt;h3 id=&quot;ontology-1&quot;&gt;Ontology&lt;/h3&gt;
-
-&lt;p&gt;Types:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Block}$ ($N_B\sim P_B$)
-    &lt;ul&gt;
-      &lt;li&gt;$\mathrm{Blicket}$ ($p$)&lt;/li&gt;
-      &lt;li&gt;$\mathrm{NonBlicket}$ ($1-p$)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;$\mathrm{Detector}$ ($N_D\sim P_D$)&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Trial}$ ($N_T\sim P_T$)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Predicates:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Contact}(\mathrm{Block}, \mathrm{Detector}, \mathrm{Trial}) \rightarrow [0, 1]$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Active}(\mathrm{Detector}, \mathrm{Trial}) \rightarrow [0, 1]$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;plausible-relations-1&quot;&gt;Plausible relations&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Contact}(B, D, T) \rightarrow \mathrm{Active}(D, T)$ for all $T$ for any $D$ if $B$ is a $\mathrm{Blicket}$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;functional-forms-1&quot;&gt;Functional forms&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Contact}(B, D, T) \sim \mathrm{Bernoulli}(\cdot{})$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Active}(D, T) \sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR, where $w_0=\epsilon$ and $w_1=1-\epsilon$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In the &lt;em&gt;deterministic detector&lt;/em&gt; theory, $\epsilon=0$. In the &lt;em&gt;probabilistic dector&lt;/em&gt; theory, $\epsilon&amp;gt;0$.&lt;/p&gt;
-
-&lt;h2 id=&quot;stick-ball-machine&quot;&gt;Stick ball machine&lt;/h2&gt;
-
-&lt;p&gt;This case study shows how the framework can account for hidden causes.&lt;/p&gt;
-
-&lt;h3 id=&quot;ontology-2&quot;&gt;Ontology&lt;/h3&gt;
-
-&lt;p&gt;Types:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Ball}$ ($N_B\sim P_B$)&lt;/li&gt;
-  &lt;li&gt;$\mathrm{HiddenCause}$ ($N_H=\inf$)&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Trial}$ ($N_T\sim P_T$)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Predicates:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Moves}(\mathrm{Ball}, \mathrm{Trial}) \rightarrow [0, 1]$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Active}(\mathrm{HiddenCause}, \mathrm{Trial}) \rightarrow [0, 1]$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;plausible-relations-2&quot;&gt;Plausible relations&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Moves}(B_1, T) \rightarrow \mathrm{Moves}(B_2, T)$, true for all $T$ with probability $p$ for each $B_1\neq B_2$ pair&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Active}(H, T) \rightarrow \mathrm{Moves}(B, T)$, each $B$ has an edge from some $H$ with probability $q$. The particular $H$ is chosn according to a Chinese Restaurant Process (i.e. based on number of edges)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;functional-forms-2&quot;&gt;Functional forms&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Active}(H, T) \sim \mathrm{Bernoulli}(\cdot{})$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Moves}(B_1, T) \sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR, where $w_0=0$ and $w_i=\omega$ for the $i^{th}$ cause (either $B_2$ or some $H$)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;lemur-colonies&quot;&gt;Lemur colonies&lt;/h2&gt;
-
-&lt;p&gt;This case study shows how the framework can account for hidden causes in a spatial domain.&lt;/p&gt;
-
-&lt;h3 id=&quot;ontology-3&quot;&gt;Ontology&lt;/h3&gt;
-
-&lt;p&gt;Types:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Colony}$ ($N_C\sim P_C$)&lt;/li&gt;
-  &lt;li&gt;$\mathrm{HiddenCause}$ ($N_H\in [0, 1]$)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Predicates:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Location}(\mathrm{Colony}) \rightarrow \mathcal{R}\subset\mathbb{R}^2$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Nexus}(\mathrm{HiddenCause}) \rightarrow \mathcal{R}\subset\mathbb{R}^2$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;plausible-relations-3&quot;&gt;Plausible relations&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Nexus}(H) \rightarrow \mathrm{Location}(C)$, true with probability $p$ for each $H$, $C$ pair&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;functional-forms-3&quot;&gt;Functional forms&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Nexus}(H) \sim \mathrm{Uniform}(\mathcal{R})$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Location}(C) \sim \mathcal{N}(\mathrm{Nexus}(H),\Sigma)$ if $\mathrm{Nexus}(H) \rightarrow \mathrm{Location}(C)$, otherwise $\mathcal{N}((0, 0), \inf)$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;exploding-cans&quot;&gt;Exploding cans&lt;/h2&gt;
-
-&lt;p&gt;This case study shows how the framework can account for hidden causes in a spatiotemporal domain.&lt;/p&gt;
-
-&lt;h3 id=&quot;ontology-4&quot;&gt;Ontology&lt;/h3&gt;
-
-&lt;p&gt;Types:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Can}$ ($N_C\sim P_C$)&lt;/li&gt;
-  &lt;li&gt;$\mathrm{HiddenCause}$ ($N_H=\inf$)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Predicates:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{ExplosionTime}(\mathrm{Can}) \rightarrow \mathbb{R}+$ (time)&lt;/li&gt;
-  &lt;li&gt;$\mathrm{ActivationTime}(\mathrm{HiddenCause}) \rightarrow \mathbb{R}+$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Location}(\mathrm{Can}) \rightarrow \mathbb{R}$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;plausible-relations-4&quot;&gt;Plausible relations&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{ExplosionTime}(C_1) \rightarrow \mathrm{ExplosionTime}(C_2)$, true with probability 1 for each $C_1\neq C_2$ pair&lt;/li&gt;
-  &lt;li&gt;$\mathrm{ActivationTime}(H)\rightarrow \mathrm{ExplosionTime}(C)$, each $C$ has an edge from some $H$ with probability 1. The particular $H$ is chosn according to a Chinese Restaurant Process (i.e. based on number of edges)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;functional-forms-4&quot;&gt;Functional forms&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{ActivationTime}(H)\sim \mathrm{Exponential}(\alpha)$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{ExplosionTime}(C_1)\sim \mathrm{Exponential}(\lambda(t))$ for $\lambda(t)$ from a continuous noisy-OR with $w_i=\omega$ for either times $t_i=\mathrm{ActivationTime}(H)$ or $t_i=\mathrm{ExplosionTime}(C_2)+\vert\mathrm{Location}(C_2)-\mathrm{Location}(C_1)\vert/\mu$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;cross-domain-causal-induction&quot;&gt;Cross-domain causal induction&lt;/h2&gt;
-
-&lt;h3 id=&quot;ontology-5&quot;&gt;Ontology&lt;/h3&gt;
-
-&lt;p&gt;Types:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Cause}$ ($N_C\sim P_C$)
-    &lt;ul&gt;
-      &lt;li&gt;$\mathrm{InDomain}$&lt;/li&gt;
-      &lt;li&gt;$\mathrm{OutDomain}$&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;$\mathrm{Effect}$ ($N_E\sim P_E$)&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Trial}$ ($N_T\sim P_T$)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Predicates:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Present}(\mathrm{Cause}, \mathrm{Trial})\rightarrow [0, 1]$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Active}(\mathrm{Effect}, \mathrm{Trial})\rightarrow [0, 1]$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;plausible-relations-5&quot;&gt;Plausible relations&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Present}(C, T)\rightarrow \mathrm{Active}(E, T)$, true for all $T$ with probability $p$ for each $C$, $E$ pair when $C$ is an $\mathrm{InDomain}$ cause, and with probability $q$ for each $C$, $E$ pair where $C$ is an $\mathrm{OutDomain}$ cause.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;functional-forms-5&quot;&gt;Functional forms&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\mathrm{Present}(C, T)\sim \mathrm{Bernoulli}(\cdot{})$&lt;/li&gt;
-  &lt;li&gt;$\mathrm{Active}(E, T)\sim \mathrm{Bernoulli}(\nu)$ for $\nu$ from a noisy-OR with $w_0=\epsilon$ and $w_i=1-\epsilon$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;The framework outlined by Griffiths &amp;amp; Tenenbaum is an extremely rich and flexible framework for causal reasoning across a wide range of domains. It would be really interesting to try to apply this to even more complex physical domains—for example, can this framework be extended to explain some of the results from Michotte experiments, such as the launching effect? It’s not immediately clear to me how you would do this, but my guess is that it would be somewhat similar to the exploding can example, which includes both spatial and temporal causes.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 10 Jan 2016 07:15:53 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Griffiths2009.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Griffiths2009.html</guid>
         
         
         <category>Theory learning</category>
