@@ -6,8 +6,8 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 13 Jan 2016 15:30:42 -0800</pubDate>
-    <lastBuildDate>Wed, 13 Jan 2016 15:30:42 -0800</lastBuildDate>
+    <pubDate>Wed, 13 Jan 2016 15:51:03 -0800</pubDate>
+    <lastBuildDate>Wed, 13 Jan 2016 15:51:03 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -20,9 +20,9 @@
 
 &lt;p&gt;This algorithm is specific to contained fluids (i.e., gases) and approximates the following form of Navier-Stokes:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\deriv \mathbf{u}}{\deriv t}=\mathbf{P}\left(-(\mathbf{u}\cdot{}\del)\mathbf{u}+\nu\del^2\mathbf{u}+\mathbf{f})&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\partial \mathbf{u}}{\partial t}=\mathbf{P}\left(-(\mathbf{u}\cdot{}\nabla)\mathbf{u}+\nu\nabla^2\mathbf{u}+\mathbf{f}\right)&lt;/script&gt;
 
-&lt;p&gt;where $\del\cdot{}\mathbf{u}=0$. Here, $\mathbf{u}$ is the velocity field, $\del$ is a vector of spatial partial derivatives, $\nu$ is the kinematic viscosity of the fluid, $\mathbf{f}$ is an external force, and $\mathbf{P}$ is a projection operator which projects any vector field onto its &lt;em&gt;divergence free&lt;/em&gt; part. Divergence free essentially means that at any point in the vector field, the flow towards that point is the same as the flow away from it.&lt;/p&gt;
+&lt;p&gt;where $\nabla\cdot{}\mathbf{u}=0$. Here, $\mathbf{u}$ is the velocity field, $\nabla$ is a vector of spatial partial derivatives, $\nu$ is the kinematic viscosity of the fluid, $\mathbf{f}$ is an external force, and $\mathbf{P}$ is a projection operator which projects any vector field onto its &lt;em&gt;divergence free&lt;/em&gt; part. Divergence free essentially means that at any point in the vector field, the flow towards that point is the same as the flow away from it.&lt;/p&gt;
 
 &lt;p&gt;They compute the approximate solution to this equation in four steps. First, $\mathbf{w}_0$ is the solution from the previous time step:&lt;/p&gt;
 
@@ -40,7 +40,7 @@
 
 &lt;p&gt;The third step is &lt;em&gt;diffusion&lt;/em&gt;, in which the effects of viscosity are applied and solved as a linear system:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\left(\mathbf{I}-\nu\Delta t\del^2\right)\mathbf{w}_3(\mathbf{x})=\mathbf{w}_2(\mathbf{x})&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\left(\mathbf{I}-\nu\Delta t\nabla^2\right)\mathbf{w}_3(\mathbf{x})=\mathbf{w}_2(\mathbf{x})&lt;/script&gt;
 
 &lt;p&gt;The fourth and final step is &lt;em&gt;projection&lt;/em&gt;, in which the system is projected back onto its divergence free part.&lt;/p&gt;
 </description>

@@ -82,9 +82,9 @@
 
 <p>This algorithm is specific to contained fluids (i.e., gases) and approximates the following form of Navier-Stokes:</p>
 
-<script type="math/tex; mode=display">\frac{\deriv \mathbf{u}}{\deriv t}=\mathbf{P}\left(-(\mathbf{u}\cdot{}\del)\mathbf{u}+\nu\del^2\mathbf{u}+\mathbf{f})</script>
+<script type="math/tex; mode=display">\frac{\partial \mathbf{u}}{\partial t}=\mathbf{P}\left(-(\mathbf{u}\cdot{}\nabla)\mathbf{u}+\nu\nabla^2\mathbf{u}+\mathbf{f}\right)</script>
 
-<p>where $\del\cdot{}\mathbf{u}=0$. Here, $\mathbf{u}$ is the velocity field, $\del$ is a vector of spatial partial derivatives, $\nu$ is the kinematic viscosity of the fluid, $\mathbf{f}$ is an external force, and $\mathbf{P}$ is a projection operator which projects any vector field onto its <em>divergence free</em> part. Divergence free essentially means that at any point in the vector field, the flow towards that point is the same as the flow away from it.</p>
+<p>where $\nabla\cdot{}\mathbf{u}=0$. Here, $\mathbf{u}$ is the velocity field, $\nabla$ is a vector of spatial partial derivatives, $\nu$ is the kinematic viscosity of the fluid, $\mathbf{f}$ is an external force, and $\mathbf{P}$ is a projection operator which projects any vector field onto its <em>divergence free</em> part. Divergence free essentially means that at any point in the vector field, the flow towards that point is the same as the flow away from it.</p>
 
 <p>They compute the approximate solution to this equation in four steps. First, $\mathbf{w}_0$ is the solution from the previous time step:</p>
 
@@ -102,7 +102,7 @@
 
 <p>The third step is <em>diffusion</em>, in which the effects of viscosity are applied and solved as a linear system:</p>
 
-<script type="math/tex; mode=display">\left(\mathbf{I}-\nu\Delta t\del^2\right)\mathbf{w}_3(\mathbf{x})=\mathbf{w}_2(\mathbf{x})</script>
+<script type="math/tex; mode=display">\left(\mathbf{I}-\nu\Delta t\nabla^2\right)\mathbf{w}_3(\mathbf{x})=\mathbf{w}_2(\mathbf{x})</script>
 
 <p>The fourth and final step is <em>projection</em>, in which the system is projected back onto its divergence free part.</p>
 
