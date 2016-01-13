@@ -6,9 +6,55 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Jan 2016 14:32:38 -0800</pubDate>
-    <lastBuildDate>Tue, 12 Jan 2016 14:32:38 -0800</lastBuildDate>
+    <pubDate>Tue, 12 Jan 2016 16:25:07 -0800</pubDate>
+    <lastBuildDate>Tue, 12 Jan 2016 16:25:07 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Rational use of cognitive resources: levels of analysis between the computational and the algorithmic</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Griffiths2015&quot;&gt;Griffiths, T. L., Lieder, F., &amp;amp; Goodman, N. D. (2015). Rational Use of Cognitive Resources: Levels of Analysis Between the Computational and the Algorithmic. &lt;i&gt;Topics In Cognitive Science&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(2), 217–229. doi:10.1111/tops.12142&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Griffiths et al. propose a focus on levels between the computational and algorithmic. They outline a method for approaching analysis at these intermediate levels called &lt;em&gt;resource-rational analysis&lt;/em&gt;. The key idea in resource-rational analysis is to begin with a computational-level analysis, assume an idealized &lt;em&gt;abstract computational architecture&lt;/em&gt; that solves the proplem posed at the computational level, and then examine how resources should be used optimally within that framework. It is specifically &lt;em&gt;not&lt;/em&gt; a proposal to modify the computational level:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Rather than blurring these lines and building constraints into computational-level theories, we suggest a different approach: define the computational-level theory without considering limitations on its execution, and then explore the consequences of those limitations as a further analysis that brings us closer to an algorithmic-level theory… Various proposals about limitations—or alternatively abstract computational architectures—provide us with levels of analysis between the computational and the algorithmic, and the principle of rationality provides us with a methodology for developing models at those intermediate levels. (pg. 220)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Griffiths et al. outline four steps in performing a resource-rational analysis:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Function&lt;/strong&gt;. Perform a computational-level analysis to determine the function of the system.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Model of mental computation&lt;/strong&gt;. Pick a class of algorithms that approximate the optimal solution (e.g. particle filters), and define what the costs are in the model (e.g. number of samples).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Optimal resource allocation&lt;/strong&gt;. Determine which algorithm should be used in order to optimally trade off between accuracy and computational cost (i.e., be “resource rational”)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Evaluate and refine&lt;/strong&gt;. Compare to human behavior, and revise assumptions in steps 1, 2, and 3 as necessary.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;They posit a very specific definition of resource rationality, based on the notion of &lt;em&gt;value of computation&lt;/em&gt; (VOC), defined as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+c^*&amp;=\mathrm{arg}\max_{c\in C^n}\mathrm{VOC}(c)\\
+\mathrm{VOC}(c)&amp;=\mathbb{E}_{P(B\vert c)}\left[\max_a \mathbb{E}_{P(Q,s\vert B)}[Q(s, a)]\right] - \mathrm{cost}(c)
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $c$ is a computation, $s$ is the state, $a$ is the action, $Q(s,a)$ is the $Q$ function, and $B$ is the agent’s belief about $Q$ and $s$.&lt;/p&gt;
+
+&lt;p&gt;Griffiths et al. note that in many cases, the initial resource-rational analysis may start by making certain assumptions of unbounded optimality (e.g., the ability to take perfect posterior samples). Further iterations of the analysis can identify these assumptions and apply a resource-rational analysis to them as well (e.g., correlated MCMC samples).&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;p&gt;I like this approach a lot, and I think that starting with approximation algorithms from computer science is likely to be incredibly fruitful. However, a lot of the algorithms from computer science have proven bounds for large $n$. I wonder to what extent there are other algorithms that computer scientists aren’t necessarily investigating that have provably better bounds (or other relevant properties) for small $n$? For example, are there inference algorithms that do poorly in terms of getting perfect posterior samples as $n$ goes to infinity, but which perhaps give somewhat better samples (e.g. less correlated) in the short term than more popular algorithms like MH?&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Jan 2016 07:53:39 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/rational%20process%20models/2016/01/12/Griffiths2015.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/rational%20process%20models/2016/01/12/Griffiths2015.html</guid>
+        
+        
+        <category>Rational process models</category>
+        
+      </item>
     
       <item>
         <title>Selecting computations: theory and applications</title>
@@ -808,54 +854,6 @@ p(e^+\vert c^+)&amp;=w_1
         <pubDate>Sun, 10 Jan 2016 07:15:53 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Griffiths2009.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Griffiths2009.html</guid>
-        
-        
-        <category>Theory learning</category>
-        
-      </item>
-    
-      <item>
-        <title>Learning overhypotheses with hierarchical Bayesian models</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Kemp2007&quot;&gt;Kemp, C., Perfors, A., &amp;amp; Tenenbaum, J. B. (2007). Learning overhypotheses with hierarchical Bayesian models. &lt;i&gt;Developmental Science&lt;/i&gt;, &lt;i&gt;10&lt;/i&gt;(3), 307–321. doi:10.1111/j.1467-7687.2007.00585.x&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Kemp et al. formulate a hierarchical Bayesian model (HBM) for learning overhypotheses and demonstrate how it can account for two kinds of empirical results (the shape bias, and grouping into ontological kinds).&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;The model is parameterized as follows:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-\mathbf{z} &amp;\sim \mathrm{CRP}(\gamma)\\
-\alpha^k &amp;\sim \mathrm{Exponential}(\lambda)\\
-\mathbf{\beta}^k &amp;\sim \mathrm{Dirichlet}(1)\\
-\mathbf{\theta}^i &amp;\sim \mathrm{Dirichlet}(\alpha^{z_i}\mathbf{\beta}^{z_i})\\
-\mathbf{y}^i\ \vert\ n^i &amp;\sim \mathrm{Multinomial}(\mathbf{\theta}^i)
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;where $\mathbf{y}^i$ is the data (e.g. counts of features in category $i$), $n^i$ is the number of observations for category $i$, $\mathbf{\theta}^i$ specifies the distribution of features in category $i$, $\alpha^k$ is the degree of uniformity for features across categories within the ontological kind $z_i$, $\mathbf{\beta}^k$ is the distribution of features across all categories within the ontological kind $z_i$, and $\mathbf{z}$ is the partition (assignment) of categories to ontological kinds.&lt;/p&gt;
-
-&lt;p&gt;Given training data $\mathbf{y}$, the model can be fit to reflect the distribution of features within categories and across categories within a particular ontological kind, and also to reflect the assignment of categories to ontological kinds. Given a test exemplar $T$ (with known category) and three choice objects, the model needs to produce the probability that each choice object belongs to the same category as the exemplar. It’s not entirely clear to me what they specifically compute to get this. One possibility would be:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(c_C=i|i)\propto \int p(C|\mathbf{\theta}^i)p(\mathbf{\theta}^i|\mathbf{y}^i)\ \mathrm{d}\mathbf{\theta}^i&lt;/script&gt;
-
-&lt;p&gt;where $c_C$ is the category of the choice object, $C$ are the features of the choice object, and $i$ is the category of the exemplar.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This is a nice use of a HBM to show how theories/overhypotheses might be implemented in a computational-level framework. I do wonder thought how much of the heavy lifting is being done by the fact that they’ve only included features that could be relevant and they’ve discretized the feature domains. In the real world, things are going to be much more ambiguous than that. First, how does the child determine what features are relevant in the first place (why pay attention to overall shape, rather than ear shape)? Second, what if some dimensions (e.g. size) are continuous values rather than discrete values? In the continuous case, modeling the data as feature counts will not longer work.&lt;/p&gt;
-
-&lt;p&gt;It would be interesting to see if this type of framework could be applied as a way of classifying objects based on how they should be simulated. For example, this might be applicable to first grouping things ontologically (fluids, rigid bodies, soft bodies) which might determine the overall class of simulation that needs to be run. Then individual categories within each ontological kind might determine the types of parameters that need to be put into the simulation (e.g. mass, coefficient of friction, etc.). I’m not sure this is exactly the right framework for making those sorts of approximations but it might be a good place to start for at least looking at how we make the necessary decisions for setting up a simulation.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 09 Jan 2016 11:05:17 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/09/Kemp2007.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/09/Kemp2007.html</guid>
         
         
         <category>Theory learning</category>
