@@ -6,9 +6,56 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 13 Jan 2016 16:50:57 -0800</pubDate>
-    <lastBuildDate>Wed, 13 Jan 2016 16:50:57 -0800</lastBuildDate>
+    <pubDate>Wed, 13 Jan 2016 20:09:37 -0800</pubDate>
+    <lastBuildDate>Wed, 13 Jan 2016 20:09:37 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Stable real-time deformations</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Muller2002&quot;&gt;Müller, M., Dorsey, J., &amp;amp; McMillan, L. (2002). Stable Real-time Deformations. &lt;i&gt;Proceedings Of the ACM SIGGRAPH/Eurographics Symposium on Computer Animation&lt;/i&gt;. doi:10.1145/545261.545269&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Müller et al. introduce a stable method for deforming objects without increasing the volume of the object.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;Finite Element Method&lt;/em&gt; gives a function $F$ that converts deformations into elastic forces:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}_\mathrm{elastic}=F(\mathbf{x}-\mathbf{x}_0)&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{x}$ is the deformed location of the element and $\mathbf{x}_0$ is the original location of the element. The Jacobian of this matrix evaluated at $\mathbf{x}_0$ is called the &lt;em&gt;stiffness matrix&lt;/em&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;K=\frac{\partial F}{\partial\mathbf{x}}(\mathbf{x}_0)&lt;/script&gt;
+
+&lt;p&gt;In the linear case, $F$ is approximated by a first-order approximation, giving&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}_\mathrm{elastic}=K\cdot(\mathbf{x}-\mathbf{x}_0)&lt;/script&gt;
+
+&lt;p&gt;However, this assumes that the transformation between $\mathbf{x}_0$ and $\mathbf{x}$ is linear (i.e., no rotations). If this assumption is violated, because linear elastic forces are invariant under translations but not rotations, the resulting simulation will over-stretch.&lt;/p&gt;
+
+&lt;p&gt;To avoid this, Müller compute the forces in the original (unrotated) coordinate frame and then transform them back into the rotated coordinate frame:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}_\mathrm{elastic}=R_eK\cdot{}(R_e^{-1}\mathbf{x}-\mathbf{x}_0)&lt;/script&gt;
+
+&lt;p&gt;where $R_e$ is a block matrix with the gobal rotation matrix $R_x$ repeated four times along the diagonal and zeros everywhere else (repeated once for each vertex). From this, they compute the force for the whole mesh by &lt;em&gt;warping&lt;/em&gt; the stiffness matrix according to the rotation of each vertex. The force at vertex $i$ is then:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}_i=R_i\sum_{j=1}^n k_{ij}(R_i^{-1}\mathbf{x}_j-\mathbf{x}_{0j})&lt;/script&gt;
+
+&lt;p&gt;where $R_i$ is the rotation matrix for vertex $i$. However, these &lt;em&gt;local&lt;/em&gt; rotations aren’t known (the global rigid-body rotation is known, but we want to know the local rotations which include the effect of deformation). Given the vectors for the original mesh ($\mathbf{u}$), and the vectors of the deformed/rotated mesh ($\mathbf{v}$), they compute:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F_{ij}=\sum_{k=1}^N (\mathbf{n}_i\cdot{}\mathbf{u}_k)(\mathbf{n}_j\cdot{}\mathbf{v}_k)&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{n}_1$, $\mathbf{n}_2$, and $\mathbf{n}_3$ are the basis vectors of $\mathbb{R}^3$. Given $F$, they decompose it using SVD to get $F=USV^\top$, and then compute the rotation matrix as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;R=VU^\top&lt;/script&gt;
+</description>
+        <pubDate>Wed, 13 Jan 2016 11:30:33 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/physically-based%20animation/2016/01/13/Mueller2002.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physically-based%20animation/2016/01/13/Mueller2002.html</guid>
+        
+        
+        <category>Physically-based animation</category>
+        
+      </item>
     
       <item>
         <title>Stable fluids</title>
@@ -539,72 +586,6 @@ D^{ij} &amp;\sim \mathrm{Bernoulli}(M^i)
         <pubDate>Mon, 11 Jan 2016 03:10:05 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/11/Ullman2012.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/11/Ullman2012.html</guid>
-        
-        
-        <category>Theory learning</category>
-        
-      </item>
-    
-      <item>
-        <title>A probabilistic model of theory formation</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Kemp2010&quot;&gt;Kemp, C., Tenenbaum, J. B., Niyogi, S., &amp;amp; Griffiths, T. L. (2010). A probabilistic model of theory formation. &lt;i&gt;Cognition&lt;/i&gt;, &lt;i&gt;114&lt;/i&gt;(2), 165–196. doi:10.1016/j.cognition.2009.09.003&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Kemp et al. describe a method for clustering entities based on  relations, rather than features. They argue that this clustering algorithm can be thought of as a model of theory formation in people, reflecting how people learn and organize concepts. In particular, they focus on the idea of &lt;em&gt;framework theories&lt;/em&gt;, which “specify the fundamental concepts that exist in a domain and the possible relationships between these concepts” (pg. 166). They ask three fundamental questions:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;What are theories?&lt;/strong&gt; Framework theories are “represented as a probabilistic model which includes a set of categories and a matrix of parameters specifying relationships between those categories” (pg. 166)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;How are theories used to make inductive inferences?&lt;/strong&gt; “Each of our theories specifies the relationships between categories that are possible or likely, and predictions about unobserved relationships between entities are guided by inductive inferences about their category assignments” (pg. 166)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;How are theories acquired?&lt;/strong&gt; Kemp et al. consider the case of acquiring both the concepts and causal laws of a theory simultaneously. “Given a formal characterization of a theory, we can set up a space of possible theories and define a prior distribution over this space” (pg. 167)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;They apply their model (described below) to several different real-world datasets: clustering animals and features, clustering medical terms and predicates, and recovering kinship categories. They also run two experiments in which they show how their model matches the way that people learn causal theories of physical relationships.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;In Experiment 1, Kemp et al. had people play with a set of blocks. Each block either was a member of category $A$ or category $B$, and depending on the condition, the relationship between $A$ and $B$ was either: that $A$ blocks caused $B$ blocks to light up; that $A$ blocks caused $B$ blocks to light up and vice versa; that $A$ blocks caused $B$ blocks to light up with $p=0.5$; and that $A$ blocks caused $B$ blocks to light up with $p=0.5$ and vice versa. Note that &lt;em&gt;specific&lt;/em&gt; blocks were deterministic, $p$ was used to determine which pairs of blocks would affect each other. Participants got experience playing with the blocks and were periodically asked to predict what would happen if a new block was touched to an old block. They then saw the new block touch a different old block, and were asked the same question.&lt;/p&gt;
-
-&lt;p&gt;Experiment 2 was similar to Experiment 1, except that only the relationship where $A$ blocks caused $B$ blocks to light up and vice versa was used. After getting experience with the blocks, participants were shown three new blocks, $x$, $y$, and $z$, where either $x$ and $z$ were in the same category and $y$ was in a different category, or where $y$ and $z$ were in the same category and $x$ was in a different category. By seeing that $x$ interacts with $y$ and that $z$ interacts with $y$, participants should (and do) infer that $x$ and $z$ are in the same category—but they shouldn’t know which one. After seeing $z$ interact (or not interact) with an old block, participants should (and do) infer which categories $x$ and $y$ are in.&lt;/p&gt;
-
-&lt;p&gt;The model matches people’s behavior in both of these experiments. In contrast, particularly in Experiment 2, a purely feature-based categorization model (which doesn’t take into account relations) does not appropriately generalize.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Let the observed data include $m$ relations ($R$) over $n$ types. Then, a relational system is characterized by a pair $(z, \eta)$, where $z$ is a partition of entities into categories and $\eta$ is a matrix of parameters specifying how the categories interact with each other for a relation $R$ (a.k.a. a &lt;em&gt;category graph&lt;/em&gt; where the edge from $A$ to $B$ has weight $\eta(A,B)$). Then, the theory that best characterizes the data is given by the MAP estimate of:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(z,\eta\vert R)\propto p(R\vert \eta,z)p(\eta\vert z)p(z)&lt;/script&gt;
-
-&lt;p&gt;where $p(R\vert \eta,z)$ is the probability of observing the relations given categories and parameters, $p(\eta\vert z)$ is the probability of the parameters given the partition, and $p(z)$ is the prior over category assignments. More formally:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-z\vert\gamma &amp;\sim \mathrm{CRP}(\gamma)\\
-\eta(A, B)\vert\alpha,\beta &amp;\sim \mathrm{Beta}(\alpha, \beta)\\
-R(i, j)\vert z, \eta &amp;\sim \mathrm{Bernoulli}(\eta(z_i, z_j))
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;In this case, there is one relation and one type (though multiple entities within that type); however, in the general case, there are multiple relations with $m$ dimensions and $n$ types. If $T^i$ is the $i$th type, then let $z^i$ be the partition into category assignments for $T^i$. If $R^j$ is the $j$th relation, then let $\eta^j$ be a separate parameter matrix for each $R^j:T^{d_1}\times T^{d_2}\times \ldots{}\times T^{d_m}$, where $d_k$ is the type corresponding to the $k$th dimension. The full general specification is then:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-z^i\vert\gamma &amp;\sim \mathrm{CRP}(\gamma)\\
-\eta^j(z_{x_1}^{d_1},z_{x_2}^{d_2}\ldots{},z_{x_m}^{d_m})\vert\alpha,\beta &amp;\sim \mathrm{Beta}(\alpha, \beta)\\
-R^j(x_1,x_2,\ldots{},x_m)\vert z^1,\ldots{},z^n, \eta^j &amp;\sim \mathrm{Bernoulli}(\eta^j(z_{x_1}^{d_1},z_{x_2}^{d_2}\ldots{},z_{x_m}^{d_m}))
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;To fit the model, they first integrate out $\eta$ and find the best category assignments $z$ using a hill-climbing procedure or MCMC. Given $z$, the MAP parameter assignments $\eta$ can be computed analytically. Similarly, unobserved relations between specific entities can be predicted given $z$.&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This framework seems to be a generalization of the one described by &lt;a href=&quot;/quals/theory%20learning/2016/01/10/Griffiths2009.html&quot;&gt;Griffiths &amp;amp; Tenenbaum&lt;/a&gt; — for example, Kemp et al.’s experiments here are very similar to the “blicket detector” paradigm. However, Griffiths &amp;amp; Tenenbaum only consider there to be blickets and non-blickets. In this case, the number of types is left unspecified. Actually, it seems not so much that this is a generalization of Griffiths &amp;amp; Tenenbaum, but that it’s a more abstract sort of learning. This clusters entities and relations into an ontology that could be used by the framework described by Griffiths &amp;amp; Tenenbaum, but it’s not necessarily a &lt;em&gt;causal&lt;/em&gt; ontology.&lt;/p&gt;
-
-&lt;p&gt;I am less clear on exactly how this type of framework for theories relates to that discussed in the other paper by &lt;a href=&quot;/quals/theory%20learning/2016/01/09/Kemp2007.html&quot;&gt;Kemp et al.&lt;/a&gt;. In that paper, they discuss how to parse objects into different ontological kinds, which is essentially a type of feature-based clustering. I suppose that model is something that is meant to be applied a more domain-specific level—e.g. perhaps within a single category of the kind that is discovered by the present paper. It would be nice to see a tighter coupling between these different types of ontologies and ways of learning theories.&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 10 Jan 2016 11:32:56 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Kemp2010.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/10/Kemp2010.html</guid>
         
         
         <category>Theory learning</category>
