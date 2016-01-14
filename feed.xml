@@ -6,9 +6,47 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 13 Jan 2016 20:09:37 -0800</pubDate>
-    <lastBuildDate>Wed, 13 Jan 2016 20:09:37 -0800</lastBuildDate>
+    <pubDate>Wed, 13 Jan 2016 22:57:07 -0800</pubDate>
+    <lastBuildDate>Wed, 13 Jan 2016 22:57:07 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Nonconvex rigid bodies with stacking</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Guendelman2003&quot;&gt;Guendelman, E., Bridson, R., &amp;amp; Fedkiw, R. (2003). Nonconvex Rigid Bodies with Stacking. &lt;i&gt;ACM Transactions On Graphics&lt;/i&gt;, &lt;i&gt;22&lt;/i&gt;(3). doi:10.1145/882262.882358&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Guendelman et al. propose a method for detecting and resolving collisions when dealing with nonconvex rigid bodies, particularly in scenarios when those bodies need to stack. There are three main pieces to their approach: the geometric representation, the time integration method, and a &lt;em&gt;shock propagation&lt;/em&gt; method for propagation-based contact resolution.&lt;/p&gt;
+
+&lt;p&gt;First, the geometric representation that they use is the typical triangular mesh, plus a &lt;em&gt;signed distance function&lt;/em&gt;, which gives the distance to the (closest) surface of the mesh along the normal vector. Distances inside the mesh are negative, and distances outside the mesh are positive. Such a distance function makes it easy to detect collisions because for a given vertex, you can check what the distance is relative to another object. If the distance is negative, then you know that the objects are interpenetrating.&lt;/p&gt;
+
+&lt;p&gt;Second, the time integration method that they use has four components:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Detect and resolve collisions&lt;/li&gt;
+  &lt;li&gt;Update object velocities&lt;/li&gt;
+  &lt;li&gt;Detect and resolve contacts&lt;/li&gt;
+  &lt;li&gt;Update object positions&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;By performing the steps in this order, this method avoids issues with undesirable behavior when friction is high (and therefore objects shouldn’t move). They give the example of a block on an inclined plane:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Consider a block sitting still on an inclined plane with a large coefficient of restitution, say $\epsilon=1$, and suppose that friction is large enough that the block should sit still. In a standard time stepping scheme, both position and velocity are updated first, followed by collision and contact resolution. During the position and velocity update, the block starts to fall under the effects of gravity. Then in the collision processing stage we detect a low velocity collision between the block and the plane, and since $\epsilon=1$ the block will change direction and bounce upwards at an angle down the incline. Then in the contact resolution stage, the block and the plane are separating so nothing happens. The block will eventually fall back to the inclined plane, and continue bouncing up and down incorrectly sliding down the inclined plane because of the time it spends in the ballistic phase.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;They use a propagation method for resolving collisions, in which they predict where the objects will be, temporarily move them there, and then check for collisions and process them. This might result in new collisions, so they repeat the process a number of times (5). The method for resolving contacts is similar, except that they additionally use a &lt;em&gt;contact graph&lt;/em&gt; which reflects which objects are resting on which. They separate the graph into levels such that the objects in level $i$ are lower than the objects in level $i+1$, and then process the levels sequentially.&lt;/p&gt;
+
+&lt;p&gt;Finally, after several iterations of contact resolution, they use a method called &lt;em&gt;shock propagation&lt;/em&gt;. In this method, they process the contacts at level $i$ and then temporarily fix the positions of those objects (zero the velocity and give them infinite mass). Then, when they process the contacts at level $i+1$, those objects cannot affect the objects at level $i$ and so therefore the contact resolution is propagated upward.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 13 Jan 2016 14:56:20 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/physically-based%20animation/2016/01/13/Guendelman2003.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physically-based%20animation/2016/01/13/Guendelman2003.html</guid>
+        
+        
+        <category>Physically-based animation</category>
+        
+      </item>
     
       <item>
         <title>Stable real-time deformations</title>
@@ -515,80 +553,6 @@ t_0&amp;\sim \mathrm{Uniform}(T_\mathrm{er}-\frac{\delta_t}{2},T_\mathrm{er}+\fr
         
         
         <category>Challenges for probabilistic models of cognition</category>
-        
-      </item>
-    
-      <item>
-        <title>Theory learning as a stochastic search in a language of thought</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Ullman2012&quot;&gt;Ullman, T. D., Goodman, N. D., &amp;amp; Tenenbaum, J. B. (2012). Theory learning as stochastic search in the language of thought. &lt;i&gt;Cognitive Development&lt;/i&gt;, &lt;i&gt;27&lt;/i&gt;(4). doi:10.1016/j.cogdev.2012.07.005&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Ullman et al. suggest an algorithm-level approach for theory learning. In contrast to &lt;a href=&quot;/quals/theory%20learning/2016/01/10/Griffiths2009.html&quot;&gt;Griffiths &amp;amp; Tenenbaum&lt;/a&gt; and &lt;a href=&quot;/quals/theory%20learning/2016/01/10/Kemp2010.html&quot;&gt;Kemp et al.&lt;/a&gt;, which proposed computational-level models for theory learning, Ullman et al. build on previous work (i.e., they still use a hierarchical Bayesian model) and demonstrate that MCMC-like search procedure can account for similar learning dynamics as are found in children.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Ullman et al. express theories using Horn clauses, which are logical expressions of the form $r\leftarrow (f\wedge g\wedge\ldots{}\wedge s\wedge t)$ where each term is a predicate such as $f(X)$ or $s(X, Y)$, where $X$ and $Y$ are entities in the domain.&lt;/p&gt;
-
-&lt;p&gt;A theory $T$ is produced from a &lt;em&gt;univeresal theory grammar&lt;/em&gt; $U$, which is a probabilistic context-free Horn clause grammar (PHCG). This grammar includes what they call &lt;em&gt;law templates&lt;/em&gt; which encode assumptions for what types of laws are good. For example, one template is $F(X,Y)\leftarrow F(X,Z)\wedge F(Z,Y)$ which captures transitivity. The $F$ could then be replaced with something like $\mathrm{interacts}(\cdot{})$.&lt;/p&gt;
-
-&lt;p&gt;Together, the grammar and the templates specify the prior $p(T\vert U)$ over theories. A particular theory—for example, in the magnetism domain—might have core predicates $f(X)$ and $g(X)$, surface predicates of $interacts(X, Y)$, and laws such as:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-\mathrm{interacts}(X, Y)&amp;\leftarrow f(X)\wedge f(Y)\\
-\mathrm{interacts}(X, Y)&amp;\leftarrow f(X)\wedge g(Y)\\
-\mathrm{interacts}(X, Y)&amp;\leftarrow \mathrm{interacts}(Y, X)
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;Given a theory, a model $M$ can be produced which fits the data. For example, in the magnetism domain, the model might assign magnets to $f(X)$ and magnetic objects to $g(X)$ (and everything else unassigned). The prior on models $p(M\vert T)$ is a beta prior (per binary fact).&lt;/p&gt;
-
-&lt;p&gt;Finally, the data $D$ are actual observations, for example, “this object interacts with this other object”. The likelihood $p(D\vert M, T)$ is Bernoulli.&lt;/p&gt;
-
-&lt;p&gt;Thus the full model is something like:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align*}
-T\vert U &amp;\sim \mathrm{PHCG}(U)\\
-M^i &amp;\sim \mathrm{Beta}(\alpha, \beta)\\
-D^{ij} &amp;\sim \mathrm{Bernoulli}(M^i)
-\end{align*} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;and the posterior is:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(T\vert D, U)\propto P(T\vert U)\sum_M p(D\vert M, T)p(M\vert T)&lt;/script&gt;
-
-&lt;p&gt;To approximate the sum, they use Gibbs sampling. To search in the space of theories, they use a modified version of MCMC where the acceptance ratio is annealed, so that changes are less likely to be made as time goes on. They propose new theories at each step of the chain with the following possible modifications:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Add or delete a predicate from a law&lt;/li&gt;
-  &lt;li&gt;Change one predicate to an alternative of the same or different form within a law&lt;/li&gt;
-  &lt;li&gt;Add or delete a whole law&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;This approach of performing a stochastic search in theory space seems generally plausible as a mechanism for how children learn theories. However, I think there are a few things here that aren’t fully satisfing:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The MCMC chain takes many iterations to run: for example, 1600 in the magnetism case. I realize you can’t exactly map inference (“thinking”) time directly to MCMC steps, but it seems like a lot. If this is a mechanistic account, then it’s essentially saying that children propose 1600 different theories before they reach the final one.&lt;/li&gt;
-  &lt;li&gt;Children presumably don’t do inference over the entire dataset at once; I would expect there to be some sort of online learning going on. Ullman et al. do investigate the effect of varying amounts of data on the learning process, but they use separate datasets rather than looking at an online method.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Related to the last point, I suppose there are two options for what people do: either they use some memoryless inference procedure, or they do inference over a set of data, but I would expect that to not include &lt;em&gt;everything&lt;/em&gt; they’ve ever encountered. There will be some effect of memory (perhaps remembering data points that were surprising, and more recent data points).&lt;/p&gt;
-
-&lt;p&gt;I wonder if, rather than using a random MCMC algorithm, an active search or Bayesian optimization type of algorithm might work better here in terms of sampling efficiency.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 11 Jan 2016 03:10:05 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/theory%20learning/2016/01/11/Ullman2012.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/theory%20learning/2016/01/11/Ullman2012.html</guid>
-        
-        
-        <category>Theory learning</category>
         
       </item>
     
