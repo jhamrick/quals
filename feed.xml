@@ -6,9 +6,64 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 14 Jan 2016 10:52:36 -0800</pubDate>
-    <lastBuildDate>Thu, 14 Jan 2016 10:52:36 -0800</lastBuildDate>
+    <pubDate>Thu, 14 Jan 2016 11:51:02 -0800</pubDate>
+    <lastBuildDate>Thu, 14 Jan 2016 11:51:02 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Particle-based fluid simulation for interactive applications</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Muller2003&quot;&gt;Müller, M., Charypar, D., &amp;amp; Gross, M. (2003). Particle-Based Fluid Simulation for Interactive Applications. &lt;i&gt;Proceedings Of the ACM SIGGRAPH/Eurographics Symposium on Computer Animation&lt;/i&gt;, 154–159. Retrieved from http://dl.acm.org/citation.cfm?id=846298&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Müller et al. describe a method for online simulation of fluids with free surfaces (i.e., liquids rather than gases) based on &lt;em&gt;smooth particle hydrodynamics&lt;/em&gt; (SPH). SPH is essentially just an interpolation equation:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;A_S(\mathbf{r})=\sum_j m_j\frac{A_j}{\rho_j}W(\mathbf{r}-\mathbf{r}_j,h)&lt;/script&gt;
+
+&lt;p&gt;where $A$ is the quantity being interpolated and $\mathbf{r}$ is the location of interest. The variables $m_j$, $\rho_j$, and $\mathbf{r}_j$ are the mass, density, and position of the $j$th particle, respectively. The function $W(\mathbf{r},h)$ is the smoothing kernel with radius $h$ that integrates to 1. In this paper, they use three different smoothing kernels, $W_\mathrm{poly6}$, $W_\mathrm{spiky}$, and $W_\mathrm{viscosity}$.&lt;/p&gt;
+
+&lt;p&gt;To apply SPH to fluid simulation, Müller begin with a modified version of Navier-Stokes for particle systems (which excludes a convective term because it is not needed for particles which move with the fluid):&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\rho\frac{D\mathbf{v}}{D t}&amp;=-\nabla p+\rho\mathbf{g}+\mu\nabla^2\mathbf{v}\\
+&amp;=\mathbf{f}^\mathrm{pressure}+\mathbf{f}^\mathrm{external}+\mathbf{f}^\mathrm{viscosity}
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $\mathbf{v}$ is the velocity field, $\rho$ is the density field, $p$ is the pressure field, $\mathbf{g}$ is an external force density field, and $\mu$ is the viscosity of the fluid. They compute the density field using SPH:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\rho_S(\mathbf{r})=\sum_j m_j W_\mathrm{poly6}(\mathbf{r}-\mathbf{r}_j,h)&lt;/script&gt;
+
+&lt;p&gt;Then, they define the force density terms separately also using SPH. For the pressure term:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}_i^\mathrm{pressure}=-\sum_j m_j\frac{p_i+p_j}{2\rho_j}\nabla W_\mathrm{spiky}(\mathbf{r}_i-\mathbf{r}_j,h)&lt;/script&gt;
+
+&lt;p&gt;which uses the mean of the pressures of interacting particles. The pressure is computed as $p=k(\rho-\rho_0)$, where $k$ is a gas constant that depends on temperature, and where $\rho_0$ the rest density.&lt;/p&gt;
+
+&lt;p&gt;The external force density term is applied directly to the particles and does not involve SPH.&lt;/p&gt;
+
+&lt;p&gt;The viscosity term is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}_i^\mathrm{viscosity}=\mu\sum_j m_j\frac{\mathbf{v}_j-\mathbf{v}_i}{\rho_j}\nabla^2 W_\mathrm{viscosity}(\mathbf{r}_i-\mathbf{r}_j,h)&lt;/script&gt;
+
+&lt;p&gt;which uses the difference in velocity between the two particles.&lt;/p&gt;
+
+&lt;p&gt;They additional define a surface tension force density:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{f}^\mathrm{surface}=-\sigma\nabla^2 c_S\frac{\mathbf{n}}{\vert\mathbf{n}\vert}&lt;/script&gt;
+
+&lt;p&gt;where $\sigma$ is a tension coefficient, $c_S$ is a &lt;em&gt;color field&lt;/em&gt; and $\mathbf{n}$ is the gradient of the color field. A color field is 1 at particle locations and 0 everywhere else. Interpolating it with SPH gives:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;c_S(\mathbf{r})=\sum_j m_j\frac{1}{\rho_j}W_\mathrm{poly6}(\mathbf{r}-\mathbf{r}_j,h)&lt;/script&gt;
+</description>
+        <pubDate>Thu, 14 Jan 2016 03:19:26 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/physically-based%20animation/2016/01/14/Mueller2003.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physically-based%20animation/2016/01/14/Mueller2003.html</guid>
+        
+        
+        <category>Physically-based animation</category>
+        
+      </item>
     
       <item>
         <title>Simulation of clothing with folds and wrinkles</title>
@@ -491,61 +546,6 @@ t_0&amp;\sim \mathrm{Uniform}(T_\mathrm{er}-\frac{\delta_t}{2},T_\mathrm{er}+\fr
         <pubDate>Mon, 11 Jan 2016 08:27:51 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Mozer2008.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Mozer2008.html</guid>
-        
-        
-        <category>Challenges for probabilistic models of cognition</category>
-        
-      </item>
-    
-      <item>
-        <title>Judgment under uncertainty: heuristics and biases</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Tversky1974&quot;&gt;Tversky, A., &amp;amp; Kahneman, D. (1974). Judgment under Uncertainty: Heuristics and Biases. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;185&lt;/i&gt;(4157), 1124–1131. doi:10.1126/science.185.4157.1124&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Tversky &amp;amp; Kahneman give an overview of three commonly used heuristics that lead to systematic biases: representativeness, availability, and anchoring.&lt;/p&gt;
-
-&lt;h2 id=&quot;representativeness&quot;&gt;Representativeness&lt;/h2&gt;
-
-&lt;p&gt;The representativeness heuristic was discussed in &lt;a href=&quot;/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Kahneman1973.html&quot;&gt;Kahneman &amp;amp; Tversky&lt;/a&gt;, so I won’t go into too much detail about it here.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Insensitivity to prior probabilities&lt;/li&gt;
-  &lt;li&gt;Insensitivity to sample size&lt;/li&gt;
-  &lt;li&gt;Misconceptions of chance — e.g. HTHTTH is more representative than HHHTTT&lt;/li&gt;
-  &lt;li&gt;Insensitivity to predictability&lt;/li&gt;
-  &lt;li&gt;The illusion of validity — confidence is a function based more on degree of representativeness rather than accuracy&lt;/li&gt;
-  &lt;li&gt;Misconceptions of regression&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;availability&quot;&gt;Availability&lt;/h2&gt;
-
-&lt;p&gt;The availability heuristic states that people will estimate things like probabilities by seeing how many items from the distribution come to mind. Thus, things that come to mind more easily will be estimated to have higher probability, even if they don’t actually have higher probability.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Biases due to the retrievability of instances — e.g. things like fame or salience will make things more available, and thus be considered more numerous&lt;/li&gt;
-  &lt;li&gt;Biases due to the effectiveness of a search set — e.g. judging whether more words start with ‘r’ or have ‘r’ as the third letter&lt;/li&gt;
-  &lt;li&gt;Biases of imaginability — e.g. intuitively computing “10 choose $k$” for $2\leq k\leq 8$. People are better able to imagine disjoint sets for $k=2$ than $k=8$, so they say that “10 choose 2” is higher than “10 choose 8”, even though they are the same&lt;/li&gt;
-  &lt;li&gt;Illusory correlations — overestimating the frequency of co-occurring events (e.g. believing that patients who exhibit suspiciousness draw characters with shifty eyes, because “suspiciousness” and “eyes” have a strong association, even if they might not predict anything true about the diagnosis)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;anchoring-and-adjustment&quot;&gt;Anchoring and Adjustment&lt;/h2&gt;
-
-&lt;p&gt;The anchoring heuristic states that people estimate values by starting at one value (the &lt;em&gt;anchor&lt;/em&gt;) and adjusting either up or down. Usually, people fail to fully adjust, and thus their estimates are biased towards the anchor.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Insufficient adjustments — e.g. in multiplying $8\times 7\times 6\times 5\times 4\times 3\times 2\times 1$ vs. multiplying $1\times 2\times 3\times 4\times 5\times 6\times 7\times 8$, people will report higher estimates for the first product and lower estimates for the second product&lt;/li&gt;
-  &lt;li&gt;Biases in the evaluation of conjunctive and disjunctive events — e.g. overestimation that things with high probability will co-occur, underestimation that at least one thing with low probability will occur. The anchors in this case are the probabilities which are then insufficiently adjusted, leading to overestimates of high probability things and underestimates of low probability things.&lt;/li&gt;
-  &lt;li&gt;Anchoring in the assessment of subjective probability distributions — e.g. starting at current (mean) estimate and adjusting upward to get to the 90th percentile&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;Each of these heuristics is quite telling about the way that people think. Although they’ve been taken in the past that people are just “irrational”, I think they’re more interesting when thought about in the context of how people are actually processing information. The case is clearer in cases like the availability heuristic, for example: it seems plausible that whatever algorithm is used for retrieving things from memory will bias us when we try to objectively estimate the probabilities of things. Generally, the point of memory seems to be to provide us with information that is going to be &lt;em&gt;relevant&lt;/em&gt;, which means there will be an effect of both frequency and utility—the combination of which would manifest itself as “availability”.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 11 Jan 2016 07:27:51 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Tversky1974.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Tversky1974.html</guid>
         
         
         <category>Challenges for probabilistic models of cognition</category>
