@@ -6,9 +6,50 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 13 Jan 2016 22:57:07 -0800</pubDate>
-    <lastBuildDate>Wed, 13 Jan 2016 22:57:07 -0800</lastBuildDate>
+    <pubDate>Thu, 14 Jan 2016 10:52:36 -0800</pubDate>
+    <lastBuildDate>Thu, 14 Jan 2016 10:52:36 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Simulation of clothing with folds and wrinkles</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Bridson2003&quot;&gt;Bridson, R., Marino, S., &amp;amp; Fedkiw, R. (2003). Simulation of clothing with folds and wrinkles. &lt;i&gt;Proceedings Of the ACM SIGGRAPH/Eurographics Symposium on Computer Animation&lt;/i&gt;, 28–36. Retrieved from http://dl.acm.org/citation.cfm?id=846281&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;In this paper, Bridson et al. propose a method for simulating clothing while preserving folds and wrinkles. They propose a mixed implicit/explicit time integration method, derive a physically accurate bending model, and handle interpenetrations in a way that preserves wrinkles.&lt;/p&gt;
+
+&lt;p&gt;In the time integration method, they use an implicit method for the cloth’s velocity-dependent forces (damping forces) and explicit methods for velocity-independent forces (elastic forces). Because the implicit method introduces damping, it is appropriate for the damping forces; however, when applied to the elastic forces, it results in too much damping and doesn’t handle nonlinearities in the elastic forces well.&lt;/p&gt;
+
+&lt;p&gt;The bending model considers the bend between two triangles in a mesh which share an edge. There are four vertices $x_i$ between the two triangles, each with an associated velocity $v_i$ and force $F_i$. The normals of the triangles are $n_1$ and $n_2$ and the angle between them is $\theta$. The velocities and forces make up a 12-dimensional space. Rather than directly using this space, Bridson et al. come up with a basis for the space which consists of: 3 rigid body translations, three rigid body rotations, two in-plane motions of vertex 1, two in-plane motions of vertex 2, one in-line stretching of edge 3-4, and the change in $\theta$ (the “bending mode”). The bending mode is orthogonal to all the other modes and is denoted $u=(u_1,u_2,u_3,u_4)$. Based on the condition of orthogonality, they derive values for each $u_i$:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+u_1&amp;=\vert E\vert \frac{N_1}{\vert N_1\vert^2}\\
+u_2&amp;=\vert E\vert \frac{N_2}{\vert N_2\vert^2}\\
+u_3&amp;=\frac{(x_1-x_4)\cdot{}E}{\vert E\vert}\frac{N_1}{\vert N_1\vert^2}+\frac{(x_2-x_4)\cdot{}E}{\vert E\vert}\frac{N_2}{\vert N_2 \vert^2}\\
+u_4&amp;=\frac{(x_1-x_3)\cdot{}E}{\vert E\vert}\frac{N_1}{\vert N_1\vert^2}+\frac{(x_2-x_3)\cdot{}E}{\vert E\vert}\frac{N_2}{\vert N_2 \vert^2}
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $N_1=(x_1-x_3)\times (x_1-x_4)$ and $N_2=(x_2-x_4)\times(x_2-x_3)$ are the area weighted normals and $E=x_4-x_3$ is the common edge. Because $u$ is orthogonal to all the other modes of motion, the forces related to bending—the elastic bending force and the damping bending force—must be proportional to $u$ in order to preserve orthogonality. For the elastic force they use:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F_i^e=k^e\frac{\vert E\vert^2}{\vert N_1\vert+\vert N_2\vert}\left(\sin(\theta/2)-\sin(\theta_0/2)\right)u_i&lt;/script&gt;
+
+&lt;p&gt;where $k^e$ is a material property (the elastic bending stiffness) and $\theta_0$ is the &lt;em&gt;rest angle&lt;/em&gt;, which can be used to enforce that the cloth bends in a particular way. For the damping force they use:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F_i^d=-k^d\vert E\vert (d\theta/dt)u_i&lt;/script&gt;
+
+&lt;p&gt;where $k^d$ is a material property.&lt;/p&gt;
+
+&lt;p&gt;To resolve interpentrations, rather than projecting the interpenetrating material onto the surface of the mesh (which causes wrinkles to be flattened out), they project the interpenetrating material into an interval $[0,\tau]$. This means that wrinkles may not be as peaked as they were (as they may only be peaked up to a height of $\tau$), but this will preserve the contours of the folds at least.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 14 Jan 2016 02:09:22 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/physically-based%20animation/2016/01/14/Bridson2003.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physically-based%20animation/2016/01/14/Bridson2003.html</guid>
+        
+        
+        <category>Physically-based animation</category>
+        
+      </item>
     
       <item>
         <title>Nonconvex rigid bodies with stacking</title>
@@ -505,51 +546,6 @@ t_0&amp;\sim \mathrm{Uniform}(T_\mathrm{er}-\frac{\delta_t}{2},T_\mathrm{er}+\fr
         <pubDate>Mon, 11 Jan 2016 07:27:51 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Tversky1974.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Tversky1974.html</guid>
-        
-        
-        <category>Challenges for probabilistic models of cognition</category>
-        
-      </item>
-    
-      <item>
-        <title>On the psychology of prediction</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Kahneman1973&quot;&gt;Kahneman, D., &amp;amp; Tversky, A. (1973). On the psychology of prediction. &lt;i&gt;Psychological Review&lt;/i&gt;, &lt;i&gt;80&lt;/i&gt;(4), 237–251. doi:10.1037/h0034747&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Kahneman &amp;amp; Tversky discuss the &lt;em&gt;representativeness&lt;/em&gt; heuristic, in which people seem to evaluate evidence based on how representative it is of an outcome rather than based on the posterior probability of the outcome given the evidence. The present results from several experiments illustrating this effect, and demonstrating its robustness to changes in wording, reliability of evidence, and prior probability.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;In the first experiment, participants were given vignettes such as:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Tom W. is of high intelligence, although lacking in true creativity. He has a need for order and clarity, and for neat and tidy systems in which every detail finds its appropriate place. His writing is rather dull and mechanical, occasionally enlivened by somewhat corny puns and by flashes of imagination of the sci-fi type. He has a strong drive for competence. He seems to have little feel and little sympathy for other people and does not enjoy interacting with others. Self-centered, he nonetheless has a deep moral sense.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Participants in one group rated the base rates of graduate student disciplines (and did not see the vignette). In another group, participants rated how similar the vignette description was to the average graduate student in each discipline. In the third group, participants rated the likelihood that Tom W. was a graduate student in each discipline. Overwhelmingly, participants in the third group ignored the base rate evidence and gave responses similar to the second group. In a follow-up experiment, they had two groups which were told the reliability of predictions of “students like themselves”. This reliability did have an effect on their likelihood ratings, though it did not bring the ratings any close to the base rate. In contrast, if particpants were given no information at all, they reverted to using the base rate.&lt;/p&gt;
-
-&lt;p&gt;In another experiment, they focused on manipulating the base rate: for example, giving descriptions and asking how likely the description was of an engineer or a lawyer, where the number of engineers and lawyers was manipulated. However, changing this proportion did not seem to have an effect: people still seemed to report what was essentially the likelihood, rather than the posterior. Interestingly, when given &lt;em&gt;worthless&lt;/em&gt; information (as opposed to &lt;em&gt;no&lt;/em&gt; information), people judged the probability at 50%, rather than reverting the the prior. (Side note: if you gave people worthless information and they had three categories to choose from, would they give the probability as 50% still or 33%?)&lt;/p&gt;
-
-&lt;p&gt;Kahneman &amp;amp; Tversky also looked at “prediction of outcome” (e.g. predicting GPA from a description) versus “evaluation of inputs” (e.g. rating impressions from a description) versus “translation” (e.g. translating an input variable on one scale to another scale). According to the representativeness heuristic, predictions and evaluations should be essentially the same; according to statistics, however, the predictions are more unreliable and thus should exhibit regression to the mean. Similarly, the representativeness heuristic predicts that predictions are no more regressive than translations, even though statistics predicts otherwise.&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;The results presented by Kahneman &amp;amp; Tversky are incredibly compelling: despite knowing what the correct calculation to do is, it &lt;em&gt;still&lt;/em&gt; feels more “natural” to respond in the manner that they equate with representativeness. &lt;a href=&quot;http://web.mit.edu/cocosci/Papers/cogsci01_final.pdf&quot;&gt;Tenenbaum &amp;amp; Griffiths&lt;/a&gt; (2001) cast representativeness in a different light from the notion of “similarity” discussed by Kahneman &amp;amp; Tversky, defining representativeness as being a measure of how good of an example something is. Formally, they define it as the log ratio of the likelihood of the current hypothesis to all other hypotheses:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;R(d, h_i)=\log\frac{P(d\vert h_i)}{\sum_{h_j\neq h_i} P(d\vert h_j)P(h_j\vert \bar{h}_i)}&lt;/script&gt;
-
-&lt;p&gt;where $\mathcal{H}$ is the set of all hypotheses under consideration and $P(h_j\vert \bar{h}_i)$ is the prior probability of $h_j$ given that $h_i$ is not the true explanation of $d$ (i.e. $P(h_j)/(1-P(h_i))$). I don’t know if this particular model has been applied specifically to the Kahneman &amp;amp; Tversky experiments here, though. I think you probably couldn’t apply them directly because the report similarity ranks rather than real likelihood scores.&lt;/p&gt;
-
-&lt;p&gt;I do find it interesting that people are interpreting the phrasing of the problem to be asking for something along the lines of “representativeness” rather than “posterior probability”. Even if you can quantify what “representativeness” means, it doesn’t explain &lt;em&gt;why&lt;/em&gt; people interpret the question that way (and not the way it is meant to be interpreted).&lt;/p&gt;
-</description>
-        <pubDate>Mon, 11 Jan 2016 05:39:59 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Kahneman1973.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Kahneman1973.html</guid>
         
         
         <category>Challenges for probabilistic models of cognition</category>
