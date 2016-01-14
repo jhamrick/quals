@@ -6,9 +6,66 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 14 Jan 2016 11:51:02 -0800</pubDate>
-    <lastBuildDate>Thu, 14 Jan 2016 11:51:02 -0800</lastBuildDate>
+    <pubDate>Thu, 14 Jan 2016 14:08:10 -0800</pubDate>
+    <lastBuildDate>Thu, 14 Jan 2016 14:08:10 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Physically based deformable models in computer graphics</title>
+        <description>&lt;p&gt;&lt;span id=&quot;Nealen2006&quot;&gt;Nealen, A., Müller, M., Keiser, R., Boxerman, E., &amp;amp; Carlson, M. (2006). Physically based deformable models in computer graphics. &lt;i&gt;Computer Graphics Forum&lt;/i&gt;, &lt;i&gt;25&lt;/i&gt;(4), 809–836. doi:10.1111/j.1467-8659.2006.01000.x&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;This is a review paper which gives an overview of some of the techniques that have been used to model deformable objects, including cloth, deformable volumes, and fluids. The major division between methods is whether the method is &lt;em&gt;Eulerian&lt;/em&gt; or &lt;em&gt;Lagrangian&lt;/em&gt;. Lagrangian methods directly model particles or meshes that are subject to forces, and then update the positions/velocities of those particles/meshes. Eulerian methods, in contrast, directly model the velocity field at each point. As they describe it:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[T]he Lagrangian point of view describes an object as a set of moving points (material coordinates) that travel around and change position over time; these points carry their material properties with them as they move through the world. The Eulerian point of view, on the other hand, looks at a stationary est of points and calculates how the material properties stored at those stationary grid points changes over time. (Sec. 6)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The benefit of Lagrangian methods is that it is easy to define a surface boundary for the material. However, in the case of fluids, Eulerian methods are preferred because they ensure velocities are incompressible and thus divergence free.&lt;/p&gt;
+
+&lt;p&gt;Many of the techniques in the paper either use &lt;em&gt;implicit&lt;/em&gt; or &lt;em&gt;explicit&lt;/em&gt; time integration schemes. Explicit schemes involve an explicit equation for the quantity at the next time step. Implicit schemes have terms for the quantity of the next time step on both sides of the equation, thus implicitly defining the value as the solution to a system of equations.&lt;/p&gt;
+
+&lt;h2 id=&quot;lagrangian-methods&quot;&gt;Lagrangian Methods&lt;/h2&gt;
+
+&lt;p&gt;Lagrangian methods can either be applied to mesh-based models or mesh-free models.&lt;/p&gt;
+
+&lt;h3 id=&quot;mesh-based-models&quot;&gt;Mesh-based models&lt;/h3&gt;
+
+&lt;p&gt;For mesh-based models, the two common approaches are either &lt;em&gt;continuum&lt;/em&gt; methods or &lt;em&gt;mass-spring systems&lt;/em&gt;. Continuum methods assume a continous object and then discretize the PDE describing the behavior of that object. Mass-spring systems assume a discrete object to begin with (i.e., a lattice of point masses connected by springs). There are a number of variants of continuum methods which differ based on the method of discretization:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Finite Element Method&lt;/strong&gt; — discretization occurs using an irregular mesh. In the &lt;em&gt;explicit FEM&lt;/em&gt; method, the masses and internal/external foces are lumped into the vertices of the mesh and then the mesh is treated like a mass-spring system. Also, as described in &lt;a href=&quot;/quals/physically-based%20animation/2016/01/13/Mueller2002.html&quot;&gt;Müller et al.&lt;/a&gt;, when using implicit time integration with FEM, the resulting system of equations is linear, thus introducing artifacts, and additional processing must be done in order to account for these.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Method of Finite Differences&lt;/strong&gt; — discretization occurs using a regular mesh. However, this is difficult to achieve when objects have irregular edges.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Finite Volume Method&lt;/strong&gt; — forces are computed by integrating over the face of a finite element, rather than the entire volume of the element (this name seems counterintuitive?)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Boundary Element Method&lt;/strong&gt; — computations are done on the surface of the object, rather than its volume. This only works for homogenous materials, though.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While continuum methods are usually used for deformable solid objects, mass-spring systems are more frequently used for cloth.&lt;/p&gt;
+
+&lt;h3 id=&quot;mesh-free-models&quot;&gt;Mesh-free models&lt;/h3&gt;
+
+&lt;p&gt;Mesh-free models tend to be used for fluids and fuzzy objects, e.g. fire, clouds, water, etc.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Loosely coupled particle systems&lt;/strong&gt; — particles are points in 3D space which define the volume of an object and particles interact pairwise with each other. Depending on the parameters of the potential function, particles can be used to model a range of behaviors from something very stiff to fluid-like. To define the surface of the volume, each particle is assigned a Gaussian potential and then these potentials are summed to form a continuous field in space which defines where the boundary is (this is known as &lt;em&gt;coating&lt;/em&gt;).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Smoothed particle hydrodynamics (SPH)&lt;/strong&gt; — another particle method (described by &lt;a href=&quot;/quals/physically-based%20animation/2016/01/14/Mueller2003.html&quot;&gt;Müller et al.&lt;/a&gt;) where instead of having pairwise interactions, the forces are derived from Navier-Stokes.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Point-based animations&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Meshless deformations based on shape matching&lt;/strong&gt; — vertices of a mesh are animated as a particle system, and then correspondences are found between the original mesh and the particles. Points are pulled back to their original positions, allowing the object to recover from severe deformations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;eulerian-methods&quot;&gt;Eulerian Methods&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;/quals/physically-based%20animation/2016/01/12/Stam1999.html&quot;&gt;Stam&lt;/a&gt; describes a Eulerian method for fluid simulation which uses the &lt;em&gt;semi-Lagrange&lt;/em&gt; technique for advection. Other Eulerian techniques have been developed to include temperature and variable viscosity (enabling melting) and also elasticity (allowing for viscoelastic substances). The surface of the fluid can be computed using &lt;em&gt;level sets&lt;/em&gt;, which store the signed distance to the surface of the fluid and which are then updated on each step of the simulation based on the velocity field.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 14 Jan 2016 05:02:36 -0800</pubDate>
+        <link>http://jhamrick.github.io/quals/physically-based%20animation/2016/01/14/Nealen2006.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/physically-based%20animation/2016/01/14/Nealen2006.html</guid>
+        
+        
+        <category>Physically-based animation</category>
+        
+      </item>
     
       <item>
         <title>Particle-based fluid simulation for interactive applications</title>
@@ -499,53 +556,6 @@ t_0&amp;\sim \mathrm{Uniform}(T_\mathrm{er}-\frac{\delta_t}{2},T_\mathrm{er}+\fr
         <pubDate>Mon, 11 Jan 2016 10:42:58 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Jones2014.html</link>
         <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Jones2014.html</guid>
-        
-        
-        <category>Challenges for probabilistic models of cognition</category>
-        
-      </item>
-    
-      <item>
-        <title>Optimal predictions in everyday cognition: the wisdom of individuals or crowds?</title>
-        <description>&lt;p&gt;&lt;span id=&quot;Mozer2008&quot;&gt;Mozer, M. C., Pashler, H., &amp;amp; Homaei, H. (2008). Optimal predictions in everyday cognition: the wisdom of individuals or crowds? &lt;i&gt;Cognitive Science&lt;/i&gt;, &lt;i&gt;32&lt;/i&gt;(7), 1133–1147. Retrieved from http://onlinelibrary.wiley.com/doi/10.1080/03640210802353016/abstract&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;In this paper, Mozer et al. question whether the conclusion of &lt;a href=&quot;/quals/probabilistic%20models%20of%20cognition/2015/11/08/Griffiths2006.html&quot;&gt;Griffiths &amp;amp; Tenenbaum&lt;/a&gt;—that people have accurate knowledge of full prior distributions—is justified. In particular, they argue that the same results can be obtained with a model that only uses a few ($k$) samples from the prior. They show that a simple heuristic model (termed Min$k$) actually outperforms the full Bayesian model, and also matches the inter-participant variance better than the Bayesian model.&lt;/p&gt;
-
-&lt;p&gt;Mozer et al. suggest that their Min$k$ model is perhaps more like an algorithmic-level theory, while the fully Bayesian model is a computational-level theory. However, they caution that by focusing purely on the computational level, important factors such as variability and processing time might be missed.&lt;/p&gt;
-
-&lt;h1 id=&quot;methods&quot;&gt;Methods&lt;/h1&gt;
-
-&lt;p&gt;n/a&lt;/p&gt;
-
-&lt;h1 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h1&gt;
-
-&lt;p&gt;Mozer et al. suggest a few different models. First, the model from Griffiths &amp;amp; Tenenbaum (the &lt;em&gt;G&amp;amp;T-Bayesian&lt;/em&gt; model) predicts the median of the posterior:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(t_{\mathrm{total}}\vert t_\mathrm{cur})\propto p(t_\mathrm{cur}\vert t_\mathrm{total})p(t_\mathrm{total})&lt;/script&gt;
-
-&lt;p&gt;The &lt;em&gt;Min$k$&lt;/em&gt; model retrieves $k$ samples from memory and predicts the minimum sample that is greater than $t_\mathrm{cur}$. If no samples are greater than $t_\mathrm{cur}$, then the model predicts $(1+g)t_\mathrm{cur}$, where $g$ is guess proportion of the query.&lt;/p&gt;
-
-&lt;p&gt;The &lt;em&gt;GT$k$Guess&lt;/em&gt; model is similar to Min$k$, except that instead of returning the minimum, it returns the median of the posterior computed with an empirical prior estimated via $k$ samples:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{p}(t_\mathrm{total})=\frac{1}{k}\sum_{i=1}^k \delta_{s_i,t_\mathrm{total}}&lt;/script&gt;
-
-&lt;p&gt;If the prior estimate is less than $t_\mathrm{total}$, then the GT$k$Guess model performs the same guess with $g$ as the Min$k$ model.&lt;/p&gt;
-
-&lt;p&gt;The &lt;em&gt;GT$k$Smooth&lt;/em&gt; model doesn’t guess, but instead uses something like a kernel density estimate:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{p}(t_\mathrm{total})\propto \sum_{i=1}^k \exp\left(\frac{(t_\mathrm{total}-s_i)^2}{2\sigma^2}\right)&lt;/script&gt;
-
-&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
-
-&lt;p&gt;I think this is actually a really important point—average participant judgments can’t necessarily be used to say something about the knowledge of individuals. I do think, though, that starting at the computational level and working down can still be revealing. In this case, the computational level analysis reveals that at least in &lt;em&gt;aggregate&lt;/em&gt; people’s judgments reflect true statistical regularities in the world. It could have been the other way around, and a computational level analysis allows us to first look at the high-level picture. Given that, we can then ask questions like the one that Mozer et al. ask here: what is actually the reason why people’s judgments reflect regularities? Is it that each participant has accurate knowledge of the prior, or that knowledge across people is distributed according to the prior? Mozer et al. show that it is the latter.&lt;/p&gt;
-
-&lt;p&gt;I would be interested to see how well an analysis based on mechanisms for sampling would do. For example, would a model that uses rejection sampling also give a consistent algorithmic-level account? I would hypothesize that it would give the same results. You could also measure response time to see if people take longer to respond in cases where they are unlikely to get samples from the prior that are greater than $t_\mathrm{total}$—i.e., they have to make more rejections, and so it takes them longer to respond.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 11 Jan 2016 08:27:51 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Mozer2008.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/challenges%20for%20probabilistic%20models%20of%20cognition/2016/01/11/Mozer2008.html</guid>
         
         
         <category>Challenges for probabilistic models of cognition</category>
