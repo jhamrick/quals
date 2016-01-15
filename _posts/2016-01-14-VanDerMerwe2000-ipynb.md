@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Demo: The Unscented Particle Filter"
+title: "Demo: The unscented particle filter"
 date: 2016-01-14 18:00:00
-categories: Probabilistic simulation
+category: Probabilistic simulation
 ---
 
 {% reference VanDerMerwe2000 %}
