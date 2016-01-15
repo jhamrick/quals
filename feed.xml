@@ -6,12 +6,12 @@
 </description>
     <link>http://jhamrick.github.io/quals/</link>
     <atom:link href="http://jhamrick.github.io/quals/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 15 Jan 2016 01:15:58 -0800</pubDate>
-    <lastBuildDate>Fri, 15 Jan 2016 01:15:58 -0800</lastBuildDate>
+    <pubDate>Fri, 15 Jan 2016 01:17:36 -0800</pubDate>
+    <lastBuildDate>Fri, 15 Jan 2016 01:17:36 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>Demo: The Unscented Particle Filter</title>
+        <title>Demo: The unscented particle filter</title>
         <description>&lt;p&gt;&lt;span id=&quot;VanDerMerwe2000&quot;&gt;Van Der Merwe, R., Doucet, A., De Freitas, N., &amp;amp; Wan, E. (2000). The Unscented Particle Filter. &lt;i&gt;Advances In Neural Information Processing Systems&lt;/i&gt;, &lt;i&gt;13&lt;/i&gt;. Retrieved from http://papers.nips.cc/paper/1818-the-unscented-particle-filter.pdf&lt;/span&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt;
@@ -265,13 +265,11 @@
 
 </description>
         <pubDate>Thu, 14 Jan 2016 10:00:00 -0800</pubDate>
-        <link>http://jhamrick.github.io/quals/probabilistic/simulation/2016/01/14/VanDerMerwe2000-ipynb.html</link>
-        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic/simulation/2016/01/14/VanDerMerwe2000-ipynb.html</guid>
+        <link>http://jhamrick.github.io/quals/probabilistic%20simulation/2016/01/14/VanDerMerwe2000-ipynb.html</link>
+        <guid isPermaLink="true">http://jhamrick.github.io/quals/probabilistic%20simulation/2016/01/14/VanDerMerwe2000-ipynb.html</guid>
         
         
-        <category>Probabilistic</category>
-        
-        <category>simulation</category>
+        <category>Probabilistic simulation</category>
         
       </item>
     
@@ -315,7 +313,7 @@ w_t^{(i)}&amp;=\frac{\tilde{w}_t^{(i)}}{\sum_{j=1}^N \tilde{w}_t^{(j)}}
 
 &lt;p&gt;One problem with choosing the prior for the proposal distribution is that it may be quite different from the likelihood, thus causing few (if any) particles to survive. What we’d like to be able to do is instead move the particles towards the regions of high likelihood. Van der Merwe et al. suggest doing this by using an unscented Kalman Filter.&lt;/p&gt;
 
-&lt;p&gt;I tried to implement the UPF in &lt;a href=&quot;/quals/probabilistic/simulation/2016/01/14/VanDerMerwe2000-ipynb.html&quot;&gt;this demo&lt;/a&gt;, but I couldn’t seem to get it to work quite right—the regular particle filter vastly outperforms the UPF. Also, my regular PF seems to do better than theirs does in the paper. So, I’m not entirely sure what’s up with that, but I need to move onto other papers now!&lt;/p&gt;
+&lt;p&gt;I tried to implement the UPF in &lt;a href=&quot;/quals/probabilistic%20simulation/2016/01/14/VanDerMerwe2000-ipynb.html&quot;&gt;this demo&lt;/a&gt;, but I couldn’t seem to get it to work quite right—the regular particle filter vastly outperforms the UPF. Also, my regular PF seems to do better than theirs does in the paper. So, I’m not entirely sure what’s up with that, but I need to move onto other papers now!&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Jan 2016 08:27:41 -0800</pubDate>
         <link>http://jhamrick.github.io/quals/probabilistic%20simulation/2016/01/14/VanDerMerwe2000.html</link>
