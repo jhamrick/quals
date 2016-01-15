@@ -4,7 +4,77 @@
 
 \question{What are probabilistic models of cognition? In particular, what are probabilistic models in the broad sense, and how does this contrast with how they are used in practice? How are they related to generative models and structured types of representations (such as theories)?}
 
-\cite{Anderson1990}
+\section{Probabilistic models of high-level cognition}
+
+\begin{itemize}
+\item Background
+    \begin{itemize}
+    \item Levels of analysis -- \citep{Marr1971}
+    \item Rational analysis -- \citep{Anderson1990,Chater1999}
+    \item General description of the approach -- \citep{Jacobs2011}
+    \end{itemize}
+
+\item Characterizing inductive bias
+    \begin{itemize}
+    \item Models of categorization, Wason card selection task -- \citep{Chater1999}
+    \item Unifying Shepard's universal law of generalization and Tversky's contrast model -- \citep{Tenenbaum2001}
+    \item Showing that people have knowledge about prior distributions -- \citep{Griffiths2009}
+    \item Discussion about making inductive biases explicit -- \citep{Griffiths2010}
+    \end{itemize}
+
+\item Building explicit structure into models of cognition with structured representations and HBMs
+    \begin{itemize}
+    \item Overview -- \citep{Tenenbaum2011}
+    \item Representations based on a graph grammar -- \citep{Kemp2008}
+    \item Overhypotheses -- \citep{Kemp2007}
+    \item Theory learning -- \citep{Griffiths2009,Kemp2010,Ullman2012}
+    \end{itemize}
+\end{itemize}
+
+\section{Relationship to generative knowledge}
+
+\begin{itemize}
+\item Evidence for predictive models
+    \begin{itemize}
+    \item Internal models in the motor system -- \citep{Kawato1999,Flanagan2003}
+    \item Motor theory of speech perception -- \citep{Bever2010}
+    \item Mental and motor imagery -- \citep{Parsons1994,Kosslyn1988,Hegarty2004}
+    \item Infants have expectations of how objects should move, even under occlusion -- \citep{Teglas2011}
+    \item Visual perception -- \citep{Weiss2002}
+    \item Sensorimotor learning -- \citep{Kording2004}
+    \item Integrating multiple areas of perception -- \citep{Ernst2002}
+    \end{itemize}
+
+\item Proposals for using generative/predictive models in perception
+    \begin{itemize}
+    \item Helmholtz arguing that the purpose of the mind is to reconstruct a model of the world -- \citep{Helmholtz1925}
+    \item Craik arguing the mind has "runnable" mental models -- \citep{Craik1943}
+    \item Emulation theory of perception -- \citep{Grush2004}
+    \item Action-oriented predictive processing -- \citep{Clark2013}
+    \item Analysis-by-synthesis -- \citep{Halle1959,Halle1962,Bever2010,Yuille2006}
+    \item Generative knowledge -- \citep{Battaglia2012}
+    \end{itemize}
+
+\item Observation: \textit{generative} doesn't really mean much outside the context of probability theory
+    \begin{itemize}
+    \item Generative vs. discriminative classifiers -- \citep{Ng2002}
+    \item "Predictive" could just mean learning the posterior distribution directly, $p(H|D)$, without having $p(H)$ and $p(D|H)$. In other words, we just learn some function $H=f(D)$.
+    \item But, if we don't hypothesize anything about how that predictive function is computed, then the theory is a bit tautological (people compute $H=f(D)$ by computing $H=f(D)$).
+    \item This is particularly unsatisfying for explaining phenomena such as generalization \citep{Tenenbaum2001}, "explaining away" \citep{Battaglia2012}, "discounting" \citep{Battaglia2012}, complex structured knowledge found in language and scene perception \citep{Griffiths2010}, etc.
+    \item Probabilistic models give us a framework for making explicit hypotheses about how that function is computed: by combining structured representations, prior knowledge/inductive bias, and data.
+    \end{itemize}
+
+\item Unifying probabilistic models and generative models
+    \begin{itemize}
+    \item Probabilistic generative models have been successful at explaining visual phenomena -- \citep{Battaglia2012}
+    \item Visual perception -- \citep{Weiss2002}
+    \item Sensorimotor learning -- \citep{Kording2004}
+    \item Integrating multiple areas of perception -- \citep{Ernst2002}
+    \item Ties to higher-level cognition -- \citep{Yuille2006}
+    \item Intuitive physics -- \citep{Teglas2011}
+    \end{itemize}
+
+\end{itemize}
 
 \references
 \end{document}
