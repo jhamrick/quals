@@ -4,5 +4,66 @@
 
 \question{What is the relationship between simulation and probabilistic models of cognition? Specifically, one interpretation is that simulations might be thought of as samples from a probability distribution. Does this interpretation work for all the ways in which simulation has been used to explain cognition? Discuss why or why not.}
 
+\subsection*{Introduction}
+
+Traditionally, in probabilistic models, the mathematical formulation has been in terms of hypotheses ($H$) and data ($D$). However, this formulation is mostly intended for doing \textit{reasoning} rather than \textit{acting}. For acting, the reinforcement learning or control theory formulation is better suited. Here, it is in terms of states ($S$), actions ($A$), and rewards ($R$). Reinforcement learning is concerned with maximizing long-term reward, while control theory is interested in determining what actions (controls) will move us from $S$ to $S^\prime$.
+
+Reasoning, reinforcement learning, and control are all related, of course: for example, often the states are not fully observed, and thus states can be thought of as hypotheses, and the goal is to infer which hypothesis is correct.
+
+\subsection*{Simulation as reasoning}
+
+\begin{itemize}
+
+\item Perception
+    \begin{itemize}
+    \item Helmholtz machine \citep{Dayan1995}
+    \item ``Perception as controlled hallucination'' \citep{Grush2004}
+    \item Analysis-by-synthesis \citep{Yuille2006,Bever2010}
+    \item Perception of force \citep{White2012a,White2012}
+    \end{itemize}
+
+\item Higher-level cognition
+    \begin{itemize}
+    \item Theory of mind (inverse reinforcement learning) \citep{Stich1992,Gopnik1992}
+    \item Theory learning \citep{Ullman2012}
+    \item Posterior samples \citep{Vul2014,Lieder2012}
+    \end{itemize}
+
+\item Imagination -- this can be though of as either sampling from the prior, and then sampling from the likelihood; or, just sampling from the likelihood
+    \begin{itemize}
+    \item Future episodic events \citep{Schacter2012}
+    \item Simulation heuristic \citep{Kahneman1981}
+    \end{itemize}
+
+\end{itemize}
+
+\subsection*{Simulation as control}
+
+\begin{itemize}
+\item Forward and inverse models of control \citep{Grush2004,Kawato1999,Flanagan2003,Clark2013}
+\item Mental simulation with known goals \citep{Flusberg2011,Parsons1994,Schwartz1999a}
+\item Representational momentum and displacement \citep{Freyd1984,Freyd1988,Hubbard2005}
+\end{itemize}
+
+\subsection*{Simulation as reinforcement learning}
+
+In this formulation, simulation is used as a way to test out actions and determine their consequences (rewards).
+
+\begin{itemize}
+\item Problem solving \citep{Shepard1971,Just1976,Finke1988,Kosslyn2006,Hegarty2004}
+\item Mental models \citep{Gentner1983,Kuipers1986,Forbus2011,Johnson-Laird2012,Khemlani2013}
+\item Thought experiments \citep{Gendler1998,Trickett2007,Clement2009,Brown2014}
+\item Theory of mind (predicting \textit{what} someone would do) \citep{Goldman1992,Stich1992,Gopnik1992,Gordon1992}
+\end{itemize}
+
+\subsection*{Other simulations}
+
+These types of simulations are viewed less as computations in and of themselves, and more as ways of translating between representations so that different parts of cognition can operate on them.
+
+\begin{itemize}
+\item Simulated vision in language processing \citep{Matlock2004,Bergen2007,Fischer2008}
+\item Mirror neurons \citep{Gallese1998}
+\end{itemize}
+
 \references
 \end{document}
