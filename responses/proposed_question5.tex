@@ -4,5 +4,86 @@
 
 \question{How has simulation been used in the context of planning and decision making for robotic systems? In what ways has been successful, and in what ways has it failed? What are challenges for simulation-based algorithms in terms of tractability? What potential improvements over model-free methods do they bring to the table?}
 
+\subsection*{Introduction}
+
+\subsection*{Perception}
+
+Perception is a key component of robotic systems and is necessary to determine the state of the environment (and perhaps even the state of the robot itself). Simulation of the behavior of objects and other agents can be used in perception in order to aid perception; however, it is not always necessary \citep{Veiga2015}. Moreover, even if simulation is used, it need not necessarily be simulation from a detailed physics engine: it can be qualitative \citep{Brand1995,Forbus2011} or based on statistical learning \citep{Zheng2014,Aoude2013}.
+
+\begin{itemize}
+\item Using a physics engine as a prior, plus energy functions as a likelihood, in order to compute a posterior \citep{Schulman2013b}
+\item Computing a ``disturbance field'' based on simulated human motion to detect potential falling objects \citep{Zheng2014}
+\item $f$ known, but motion of other obstacles is unknown. Modeling behavior of other obstacles with Gaussian process "motion patterns" \citep{Aoude2013}
+\item Predicting tactile slip (not simulated) \citep{Veiga2015}
+\end{itemize}
+
+\subsection*{Optimal control}
+
+In optimal control, we are given an initial state $\bar{x}_0$ and the goal is to find:
+
+\begin{align*}
+\min_{x,u} & \sum_{t=1}^T c(x_t,u_t)\\
+\mathrm{s.t.}\ \ \ & \bar{x}_0 = x_0\\
+& x_{t+1}=f(x_t,u_t)\ \forall t\in(1,\ldots{},T)
+\end{align*}
+
+That is, find a sequence of controls $u_0,\ldots{},u_{T-1}$ that minimize a given cost function, subject to the constraint that the states are produced via some dynamics model $f$.
+
+There are methods for solving this optimization, such as \textit{iterative linear quadratic regulator}, which requires linear dynamics $f$ and quadratic cost $c$ \citep{Li2004}. However, there is the problem that $f$ is frequently unknown, and even if it is known, it is nonlinear.
+
+\begin{itemize}
+\item $f$ known, but nonlinear
+    \begin{itemize}
+    \item Optimizing a simplified dynamics model first, and then optimizing the full model to the plan simulated from the low-level dynamics \citep{Mordatch2010}
+    \item Approximating local dynamics ($f$) by simulating a trajectory using the known dynamics, and then linearizing the dynamics around that trajectory \citep{Kitaev2015}
+    \end{itemize}
+
+\item $f$ unknown
+    \begin{itemize}
+    \item General approaches to model learning \citep{Nguyen-Tuong2011}
+    \item Learning robot dynamics by fitting a least-squares model to physical features -- only need to know the structure of the dynamics \citep{Xie2015}
+    \item Learn local forward dynamics models, simulate from those models and use policy search to learn an inverse dynamics model \citep{Levine2015,Han2015}
+    \end{itemize}
+
+\end{itemize}
+
+\subsection*{Learning from demonstration}
+
+For \textit{learning from demonstration}, the goal is given an observed scene $\textbf{p}$ and trajectory $\textbf{x}$ to compute a new trajectory $\textbf{x}^\prime$ for a new scene $\textbf{p}^\prime$.
+
+\begin{itemize}
+\item Trajectory transfer with nonrigid registration: uses no dynamics or simulation to compute $\textbf{x}^\prime$ (though it does use trajectory optimization with a forward kinematics model to compute $\textbf{u}^\prime$) \citep{Schulman2013a}
+\item Trajectory transfer of demonstrated trajectories to new scene; learn a distribution over positions, velocities, and controls from warped demonstrated trajectories. Use this distribution to derive controls $\textbf{u}^\prime$ \citep{Lee2015}
+\item Learn a joint distribution over positions, velocities, and controls from demonstrated trajectories \citep{Paraschos2015}
+\end{itemize}
+
+\subsubsection*{Reinforcement learning}
+
+\begin{itemize}
+\item Model-free reinforcement learning
+    \begin{itemize}
+    \item In general, simulation in model-free RL isn't possible: you can't simulate what rewards you will get, or what states you will end up in, unless you have a model that encodes those values.
+    \item One option: you can use model-free RL methods \textit{with} a model that you learn separately, e.g. as in Dyna-Q \citep{Sutton1998}
+    \item Another option: simulation through experience replay (technically not a model) \citep{Mnih2015}
+    \end{itemize}
+
+\item Model-based reinforcement learning
+    \begin{itemize}
+    \item Bayes adaptive RL w/ parameter optimization \citep{Dearden1999}
+    \item Bayes adaptive RL w/ parameter optimization and structure learning \citep{Ross2008}
+    \item Monte-Carlo Tree Search with known transitions and rewards \citep{Browne2012}
+    \item Monte-Carlo Tree Search with Bayes adaptive RL, aka BAMCP \citep{Guez2013}
+    \item Robust adaptive MDPs, aka RAMDP: maximize expected utility for worst-case scenario based on uncertainty in the dynamics \citep{Bertuccelli2012}
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Drawbacks to simulation}
+
+\begin{itemize}
+\item \citep{Davis}
+\item In RL, if you are going to run online Monte Carlo simulations, this becomes a metalevel decision problem \citep{Hay2012}
+\item Simulations require having an accurate model
+\end{itemize}
+
 \references
 \end{document}
