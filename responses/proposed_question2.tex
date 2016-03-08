@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+\input{heading}
+\begin{document}
+
+\question{Are probabilistic models of cognition formulated at the computational level of analysis useful to the study of the mind? Discuss the ways in which they have been successful, and the ways in which they have not (or, alternately, weaknesses to the approach). How might such failures or weaknesses be resolved?}
+
+\subsection*{Introduction}
+
+\subsection*{Successes of probabilistic models of cognition}
+
+\begin{itemize}
+\item Characterizing inductive bias
+    \begin{itemize}
+    \item Models of categorization, Wason card selection task -- \citep{Chater1999}
+    \item Unifying Shepard's universal law of generalization and Tversky's contrast model -- \citep{Tenenbaum2001}
+    \item Showing that people have knowledge about prior distributions -- \citep{Griffiths2009}
+    \item Discussion about how probabilistic models allows us to make inductive biases explicit -- \citep{Griffiths2010}
+    \end{itemize}
+
+\item Building explicit structure into models of cognition with structured representations and HBMs
+    \begin{itemize}
+    \item Overview -- \citep{Tenenbaum2011}
+    \item Representations based on a graph grammar -- \citep{Kemp2008}
+    \item Overhypotheses -- \citep{Kemp2007}
+    \item Theory learning -- \citep{Griffiths2009,Kemp2010,Ullman2012}
+    \end{itemize}
+
+\item Probabilistic models of perception
+    \begin{itemize}
+    \item Probabilistic generative models have been successful at explaining visual phenomena -- \citep{Battaglia2012}
+    \item Visual perception -- \citep{Weiss2002}
+    \item Sensorimotor learning -- \citep{Kording2004}
+    \item Integrating multiple areas of perception -- \citep{Ernst2002}
+    \item Ties to higher-level cognition -- \citep{Yuille2006}
+    \item Intuitive physics -- \citep{Teglas2011,Sanborn2013}
+    \end{itemize}
+
+\end{itemize}
+
+\subsection*{Critiques of computational-level probabilistic models of cognition}
+
+\begin{itemize}
+
+\item Probabilistic models are not falsifiable and you can construct a Bayesian model that fits any set of data \citep{Jones2011,Marcus2013,Jones2014}
+    \begin{itemize}
+    \item Probabilistic modeling as a whole is a \textit{framework}; just because you can fit any model doesn't mean it's not useful. The value comes in the ability to easily express models for things that were previously thought too difficult to specify quantitatively, or to express assumptions more explicitly than in mechanistic models.
+    \item Example: popular response time models are unfalsifiable \citep{Jones2014}, but that doesn't make them bad models, particularly if explicit assumptions are made about the parameters and what implications they have cognitively
+    \item Another example: neural networks can also be made to fit any function, and are therefore also not "falsifiable". But the claim isn't "the brain is exactly implementing a neural network", it's that neural networks can be used as a way to express hypotheses.
+    \end{itemize}
+
+\item Probabilistic models make arbitrary choices for representation/prior/likelihood/decision rule; or, they are chosen purposefully but are not justified. Relatedly, differing versions of probabilistic models aren't compared \citep{Jones2011,Marcus2013}
+    \begin{itemize}
+    \item Models are frequently compared \citep{Tenenbaum2001,Weiss2002,Kording2004,Lewandowsky2009}
+    \item Assumptions are also sometimes compared, though perhaps less often \citep{Kemp2008,Griffiths2009}
+    \item One property of HBMs is that they make it possible to push assumptions up to a higher level of abstraction, meaning assumptions don't need to be made about the specific form of the data, for example \citep{Kemp2008,Kemp2010}
+    \item However, it is often difficult to formulate representations at higher levels of abstraction in ways other than how they are (e.g., what would you choose instead of a Dirichlet process prior?) Additionally, assumptions about how people encode data (e.g. binary) are still made, and these are certainly subject to questioning.
+    \end{itemize}
+
+\item Probabilistic models can't account for various heuristics and biases; people are not optimal \citep{Kahneman1973,Tversky1974,Marcus2013}
+    \begin{itemize}
+    \item The claim isn't that people are perfectly optimal all the time: this is obviously false. The idea is that it can be useful to start from a place of optimality and see where that leads us \citep{Jacobs2011,Battaglia2012}.
+    \item Surprisingly, in many cases, it seems that people do act in an optimal way. Heuristics and biases explained at the computational level: Wason selection task \citep{Chater1999}, representativeness heuristic \citep{Tenenbaum2001}, motion illusions \citep{Weiss2002}
+    \item If people don't act optimally then that leads us to ask the question of why. One approach is to say: ok, people aren't acting optimally, are there perhaps mechanistic constraints (i.e., memory capacity) that could lead to that behavior? This is a notion of \textit{resource-rational analysis} \citep{Griffiths2015}
+    \item Heuristics and biases explained via resource-rational analysis: Anchoring heuristic \citep{Lieder2012}, availability bias \citep{Lieder2014}, motion illusions \citep{Weiss2002}, theory change \citep{Ullman2012}
+    \item However, it is of course sometimes difficult to state whether the constraints should come at a mechanistic level, or at the computational level from the environment. But, this really is a general problem true of any modeling framework.
+    \end{itemize}
+
+\item Probabilistic models can't account for various behavioral phenomena, such as accuracy (probability matching), response time, eye movements, physiological data, etc. \citep{Jones2011}
+    \begin{itemize}
+    \item Taking into account resource rationality, it can. \citep{Griffiths2015}
+    \item Probability matching is equivalent to taking a single sample \citep{Vul2014}
+    \item Response time can be modeled as accumulation of samples/evidence \citep{Bitzer2014}
+    \end{itemize}
+
+\item Probabilistic models can't account for individual differences, and may even conflate aggregated individual differences with general population-level behavior \citep{Mozer2008}
+    \begin{itemize}
+    \item Iterated learning can be used in within-subjects designs to determine if people really do have prior knowledge, or just a fixed set of samples \citep{Lewandowsky2009}
+    \item In theory, Bayesian models could certainly postulate that people have different priors or strategies and consequently test that hypothesis. Models already exist that differentiate between alternate behaviors and preferences \citep{Baker2014,Pantelis2014}
+    \end{itemize}
+
+\end{itemize}
+
+\references
+\end{document}

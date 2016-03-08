@@ -1,0 +1,24 @@
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{color}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,citecolor=blue}
+\usepackage[hyperref=true,style=apa,backend=biber,isbn=false,natbib=true]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\AtEveryCitekey{\clearfield{month}}
+
+\bibliography{../_bibliography/references}
+
+\newcommand{\question}[1]{
+    \noindent\textbf{#1}
+
+    \doublespacing
+}
+
+\newcommand{\references}[0]{\newpage\singlespacing\printbibliography}
+\newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}

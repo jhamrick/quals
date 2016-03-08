@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\input{heading}
+\begin{document}
+
+\question{How does use of simulation in computer science and robotics relate to the use of simulation in cognitive science? Are there ways in which simulation is used in robotics and computer science that could be applicable to cognitive modeling? Be sure to discuss multiple types of simulation, including probabilistic simulation, simulations in planning (e.g. Monte-Carlo Tree Search), physical simulation for computer graphics, and combinations thereof.}
+
+\subsection*{Introduction}
+
+I begin with the question: what is simulation, and why would you want to use it? I will argue that, in the theoretical sense, simulation can be thought of as either an \textit{approximation} to a known function that cannot be analytically computed (i.e., numerical simulation), or an \textit{evaluation} of a given function whose analytical form is unknown. Note that often, simulation is really some combination of the two: evaluation of a black-box function which itself is an approximation, or evaluation of a black-box function for the purposes of approximation.
+
+The two definitions of simulation as approximation and evaluation help define how they may relate to cognitive science and cognitive modeling. For example, when viewing simulation as approximation, we may ask whether people use similar approximations when solving the same types of problems \citep{Griffiths2015}. Viewing simulation as evaluation brings up metacognitive questions that are relevant to higher-level cognition and planning: when should simulation be used, and \textit{how} should it be used?
+
+\subsection*{Simulation as approximation}
+
+\begin{itemize}
+\item Approximations in physically-based animation
+    \begin{itemize}
+    \item In general, physically-based animation focuses on whether the simulation \textit{looks correct}, which is inherently appealing to whether we \textit{perceive} it as being correct. Thus, it is plausible that approximations used in physically-based animation may be similar to approximations the brain uses when predicting how things behave
+    \item Choice of representation in fluid dynamics (e.g. particle-based/Lagrangian or grid based/Eulerian) \citep{Witkin1997,Stam1999,Nealen2006}
+    \item Model reduction for finding the main modes of deformation -- this is essentially a way of determining how something might deform in general \citep{Nealen2006}
+    \item Often approximations in computer graphics scale reasonably well with the coarseness of the discretization (e.g. if using implicit time integration, or particle-based methods). Different levels of coarseness could be used to investigate the amount of computation performed by people. \citep{Griffiths2015}
+    \end{itemize}
+
+\item Approximations in probabilistic inference
+    \begin{itemize}
+    \item As has been proposed previously, approximation algorithms for performing probabilistic inference may be good hypotheses for how people approximate probabilistic inference \citep{Lieder2012,Griffiths2015}
+    \item MCMC \citep{Chib1995} generates autocorrelated samples. Normally this is something computer scientists try to avoid, but may explain various cognitive biases \citep{Lieder2012}
+    \item Particle filters can express cognitive biases like primacy and recency effects \citep{Abbott2011}
+    \end{itemize}
+
+\end{itemize}
+
+\subsection*{Simulation as evaluation}
+
+\begin{itemize}
+
+\item Evaluation of forward/inverse dynamics
+    \begin{itemize}
+    \item There is evidence that the brain learns forward and inverse models for motor control \citep{Kawato1999,Flanagan2003} and potentially for perception as well \citep{Freyd1984,Freyd1988,Hubbard2005}. Looking at methods from robotics can inform how these types of models might be learned, and the ways in which they might be used.
+    \item One approach is to optimize a plan with a set of simpler dynamics, and then use that plan to optimize the full dynamics \citep{Mordatch2010}
+    \item Track the position and deformation of an object using a forward model of nonlinear dynamics. The canonical way to do this is with something like an unscented particle filter, which is designed to handle nonlinear dynamics \citep{Muller2003}. Another approach is to use the EM algorithm with the M-step computed by the forward dynamics itself \citep{Schulman2013b}.
+    \item Planning complex trajectories that unavoidably interact with physical objects \citep{Kitaev2015}
+    \end{itemize}
+
+\item Learning forward/inverse dynamics
+    \begin{itemize}
+    \item General overview by \citep{Nguyen-Tuong2011}
+    \item Decomposition of the dynamics into a least-squares regression problem \citep{Xie2015}
+    \item Learning trajectories from demonstration and generalizing to new situations \citep{Schulman2013b,Lee2015}
+    \item Learning generative models for probabilistic motion primitives \citep{Paraschos2015}
+    \item Learning locally linear forward models and using them to train an inverse model \citep{Levine2015,Han2015}
+    \end{itemize}
+
+\item Reinforcement learning
+    \begin{itemize}
+    \item People clearly engage in some sort of planning when using things like mental models \citep{Gentner1983} or running thought experiments \citep{Gendler1998}. How do they decide what actions to take on their ``runnable'' mental models?
+    \item Model-based reinforcement learning algorithms like Bayes-Adaptive Monte-Carlo Tree Search could be applicable to the way that people simulate possible future outcomes due to their actions \citep{Dearden1999,Ross2008,Browne2012,Guez2013}
+    \item ``Experience replay'' that has been successful in state-of-the-art reinforcement learning algorithms has analogues in the hippocampus \citep{Mnih2015}
+    \item If simulation is going to be used online, then it is not traditional reinforcement learning, but a meta-decision problem \citep{Hay2012}
+    \end{itemize}
+
+\end{itemize}
+
+\references
+\end{document}

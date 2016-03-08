@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+\input{heading}
+\begin{document}
+
+\question{What are probabilistic models of cognition? In particular, what are probabilistic models in the broad sense, and how does this contrast with how they are used in practice? How are they related to generative models and structured types of representations (such as theories)?}
+
+\subsection*{Introduction}
+
+Probabilistic models of cognition are one particular class of model designed to embody hypotheses about how the mind works, in effect explaining \textit{why} it works the way it does.
+These models are \textit{probabilistic} in that they are formulated in the language of probability theory: namely, Bayes' rule.
+The key idea behind Bayes' rule is the interpretation of what the variables in it mean.
+Rather than using the generic formulation of Bayes' rule as $p(A|B)\propto p(B|A)p(A)$, probabilistic models stress the importance of \textit{hypotheses} and \textit{data} \citep{Griffiths2010,Tenenbaum2011}.
+Specifically, probabilistic models will often define Bayes' rule as $p(H|D)\propto p(D|H)p(H)$, where $H$ are hypotheses and $D$ are data.
+The interpretation of Bayes' rule in this form is that \textit{prior} knowledge (also termed \textit{inductive bias}) of which hypotheses are likely is combined with a \textit{likelihood} expressing how likely it is to observe what was observed given that a hypothesis is true.
+The combination of these two terms results in a \textit{posterior} belief about which hypotheses likely given the observed data.
+
+However, probabilistic models are much more than a simple application of Bayesian inference.
+Even in the formulation of Bayes' rule in terms of data and hypotheses, the equation is not particularly interesting on its own.
+What truly defines probabilistic models are their commitment to \textit{structured representations} of inductive bias, and \textit{generative knowledge} of how data is generated, mirroring how the data is actually generated in the world.
+Closely related to the probabilistic modeling framework is also the idea of \textit{rational analysis} \citep{Anderson1990} at the \textit{computational level} of analysis \citep{Marr1971}.
+While I would argue that rational analysis at the computational level does not define probabilistic models of cognition per se, the two often go hand in hand: probabilistic models are often the normative solution called for by a rational analysis, and rational analysis is often used as a strategy for directing model formulation \cite{Jacobs2011}.
+
+Here, I will first describe the strategy of performing rational analysis at the computational level, and argue that while it is a useful method for determining the formulation of probabilistic models of cognition, it is not a core tenet of the approach.
+I will next describe how probabilistic models are a natural way to express inductive biases, and how those biases may be modeled through the use of structured representations; I will focus here in particular on the domain of high-level cognition.
+Finally, I will then discuss what generative models are in general, why they are appealing, and what role they play in the probabilistic modeling framework; I will focus here more on perception and motor control, as the notion of a generative model is expressed somewhat more naturally in those domains.
+
+\subsection*{Rational analysis at the computational level}
+
+\begin{itemize}
+\item History
+    \begin{itemize}
+    \item Levels of analysis \citep{Marr1971}
+    \item Rational analysis \citep{Anderson1990}
+    \end{itemize}
+
+\item Rational analysis without probabilistic models
+    \begin{itemize}
+    \item While not technically ``rational analysis'' in the same way, often the approach in computer science and engineering is to first formulate a computational-level problem that needs to be solved
+    \item Formulation of the reinforcement learning problem \citep{Sutton1998}
+    \item Physically-based animation -- e.g. explicit vs. implicit time integration \citep{Witkin1997,Nealen2006}
+    \end{itemize}
+
+\item Probabilistic models without the computational level
+    \begin{itemize}
+    \item Technically, probabilistic models of perception already assume mechanistic constraints, e.g. perceptual uncertainty \citep{Weiss2002,Battaglia2012}
+    \item Resource-rational analysis \citep{Lieder2012,Vul2014,Griffiths2015}
+    \end{itemize}
+
+\end{itemize}
+
+\subsection*{Probabilistic models of high-level cognition}
+
+\begin{itemize}
+\item Characterizing inductive bias
+    \begin{itemize}
+    \item Models of categorization, Wason card selection task -- \citep{Chater1999}
+    \item Unifying Shepard's universal law of generalization and Tversky's contrast model -- \citep{Tenenbaum2001}
+    \item Showing that people have knowledge about prior distributions -- \citep{Griffiths2009}
+    \item Discussion about how probabilistic models allows us to make inductive biases explicit -- \citep{Griffiths2010}
+    \end{itemize}
+
+\item Building explicit structure into models of cognition with structured representations and HBMs
+    \begin{itemize}
+    \item Overview -- \citep{Tenenbaum2011}
+    \item Representations based on a graph grammar -- \citep{Kemp2008}
+    \item Overhypotheses -- \citep{Kemp2007}
+    \item Theory learning -- \citep{Griffiths2009,Kemp2010,Ullman2012}
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Predictive models and generative knowledge in perception}
+
+\begin{itemize}
+\item Evidence for predictive models
+    \begin{itemize}
+    \item Internal models in the motor system -- \citep{Kawato1999,Flanagan2003}
+    \item Motor theory of speech perception -- \citep{Bever2010}
+    \item Mental and motor imagery -- \citep{Parsons1994,Kosslyn1988,Hegarty2004}
+    \item Infants have expectations of how objects should move, even under occlusion -- \citep{Teglas2011}
+    \item Visual perception -- \citep{Weiss2002}
+    \item Sensorimotor learning -- \citep{Kording2004}
+    \item Integrating multiple areas of perception -- \citep{Ernst2002}
+    \end{itemize}
+
+\item Proposals for using generative/predictive models in perception
+    \begin{itemize}
+    \item Helmholtz arguing that the purpose of the mind is to reconstruct a model of the world -- \citep{Helmholtz1925}
+    \item Craik arguing the mind has "runnable" mental models -- \citep{Craik1943}
+    \item Emulation theory of perception -- \citep{Grush2004}
+    \item Action-oriented predictive processing -- \citep{Clark2013}
+    \item Analysis-by-synthesis -- \citep{Halle1959,Halle1962,Bever2010,Yuille2006}
+    \item Generative knowledge -- \citep{Battaglia2012}
+    \end{itemize}
+
+\end{itemize}
+
+\subsection*{Probabilistic generative models of cognition}
+
+\begin{itemize}
+\item Observation: \textit{generative} doesn't really mean much outside the context of probability theory
+    \begin{itemize}
+    \item Generative vs. discriminative classifiers -- \citep{Ng2002}
+    \item "Predictive" could just mean learning the posterior distribution directly, $p(H|D)$, without having $p(H)$ and $p(D|H)$. In other words, we just learn some function $H=f(D)$.
+    \item But, if we don't hypothesize anything about how that predictive function is computed, then the theory is a bit tautological (people compute $H=f(D)$ by computing $H=f(D)$).
+    \item This is particularly unsatisfying for explaining phenomena such as generalization \citep{Tenenbaum2001}, "explaining away" \citep{Battaglia2012}, "discounting" \citep{Battaglia2012}, complex structured knowledge found in language and scene perception \citep{Griffiths2010}, etc.
+    \item Probabilistic models give us a framework for making explicit hypotheses about how that function is computed: by combining structured representations, prior knowledge/inductive bias, and data.
+    \end{itemize}
+
+\item Unifying probabilistic models and generative models
+    \begin{itemize}
+    \item Probabilistic generative models have been successful at explaining visual phenomena -- \citep{Battaglia2012}
+    \item Visual perception -- \citep{Weiss2002}
+    \item Sensorimotor learning -- \citep{Kording2004}
+    \item Integrating multiple areas of perception -- \citep{Ernst2002}
+    \item Ties to higher-level cognition -- \citep{Yuille2006}
+    \item Intuitive physics -- \citep{Teglas2011}
+    \item Handwritten characters \citep{Lake2015}
+    \end{itemize}
+
+\end{itemize}
+
+Something maybe about generative process models (e.g., how sensations give rise to perceptions, \cite{Battaglia2012,Yuille2006,Lake2015}) vs. structured representations in a generative model that describe the data in a statistically optimal way (e.g., the models used by \cite{Kemp2007,Kemp2010,Kemp2008} do not posit how the data was \textit{generated}, just a representation that captures the statistical regularities), and that causal induction is somewhere in between.
+
+\references
+\end{document}
